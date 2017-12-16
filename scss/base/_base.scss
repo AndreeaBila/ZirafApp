@@ -1,0 +1,21 @@
+html, body {
+	height: 100%;
+}
+
+#wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+.clear {
+	clear: both;
+}
+
+body {
+	min-width: 300px;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing:grayscale
+}

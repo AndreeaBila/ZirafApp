@@ -4,27 +4,30 @@
   left: 0;
   width: 100%;
   height: $navHeight;
-  line-height: $navHeight;
   background-color: #eee;
 
-  a {
-    i {
+  button {
+    border: none;
+    text-decoration: none;
+    height: $navHeight;
+    p {
       color: $zirafColor;
-      font-size:25px;
+      i {
+        font-size: 25px;
+      }
     }
-    font-size: 10px;
+  }
+
+  .navText {
+    font-size: 10px!important;
+    //line-height: -10px!important;
   }
 
   .row {
-    button.col-4 {
-       border: none;
-    }
-    button:active {
+    .activeNav {
       background-color: $zirafColor;
-      a {
-        i { 
-          color: white;
-        }
+      p {
+        color: #eee;
       }
     }
   }

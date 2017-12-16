@@ -83,7 +83,7 @@
       <!-- SIGNUP CONTAINER -->
       <div id="signupContainer">
         <!-- signup form title -->
-        <h2 class="text-center" id="sinupTitle">Sign Up</h2>
+        <h2 class="text-center" id="signupTitle">Sign Up</h2>
 
         <!-- SIGNUP FORM -->
         <!-- we need these alerts:

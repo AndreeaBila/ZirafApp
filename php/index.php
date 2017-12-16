@@ -48,6 +48,11 @@
         <h2 class="text-center" id="loginTitle">Log In</h2>
 
         <!-- LOGIN FORM -->
+        <!-- we need these alerts:
+            1. Please confirm your email address to access this account. (when email address not confirmed)
+            2. Sorry! Your account applicaton hasn't been approved! If you think this is a mistake please contact us. (when application not approved)
+            3. Invalid email or password
+        -->
         <form action="" method="POST" id="loginForm" class="loginForm">
           <!-- login email -->
           <div class="input-group">
@@ -81,21 +86,26 @@
         <h2 class="text-center" id="sinupTitle">Sign Up</h2>
 
         <!-- SIGNUP FORM -->
+        <!-- we need these alerts:
+          Assuming that browser will make sure that all required fields are completed and email adress is valid
+            1. Passwords don't match
+            2. Password at least 8 char long?
+        -->
         <form action="" method="POST" id="signupForm" name="signupForm" class="signupForm">
           <!-- signup name -->
           <div class="input-group">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>
-            <input type="text" class="form-control" id="signupName" name="signupName" placeholder="Name">
+            <input type="text" class="form-control" id="signupName" name="signupName" placeholder="Name" required>
           </div>
           <!-- signup email -->
           <div class="input-group">
             <span class="input-group-addon" id="signupEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-            <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email">
+            <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email" required>
           </div>
           <!-- signup password -->
           <div class="input-group">
             <span class="input-group-addon" id="signupPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password">
+            <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password" required>
           </div>
           <small id="passwordHelpBlock" class="form-text text-muted">
             Your password must be 8 characters long.
@@ -103,7 +113,7 @@
           <!-- signup confirm password -->
           <div class="input-group">
             <span class="input-group-addon" id="signupConfirmPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password">
+            <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password" required>
           </div>
           <!-- signup username of social handle -->
           <div class="input-group">
@@ -128,7 +138,7 @@
           <!-- signup terms and conditions -->
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" id="termsCheckbox" name="termsCheckbox">
+              <input type="checkbox" class="form-check-input" id="termsCheckbox" name="termsCheckbox" required>
               I have read and agreed with The <a href="#">Terms and Conditions</a>
             </label>
           </div>

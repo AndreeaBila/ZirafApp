@@ -92,7 +92,7 @@
             1. Passwords don't match
             2. Password at least 8 char long?
         -->
-        <form action="./phpDirectives/signUp" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm">
+        <form action="./phpDirectives/signUp" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm" enctype="multipart/form-data">
           <!-- signup name -->
           <div class="input-group">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>

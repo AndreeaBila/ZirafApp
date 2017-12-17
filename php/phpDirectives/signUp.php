@@ -1,3 +1,110 @@
 <?php
-    
+    //file needed to input the user data into the database and thus create the user account
+
+    //create a database connection
+    require_once "../phpComponents/databaseConnection.php";
+    $db = createConnection();
+    //get the user dependecy
+    require_once "../phpComponents/dependencies.php";
+    //get the user data from the client and check for xss attacks
+    $userData = array("userName" => strip_tags($_POST['signupName']),
+                      "email" => strip_tags($_POST['signupEmail']),
+                      "password" => strip_tags($_POST['signupPassword']),
+                      "socialHandle" => strip_tags($_POST['signupUsername']),
+                      "description" => strip_tags($_POST['signupDescription']),
+                      "phone" => strip_tags($_POST['signupPhoneNumber']),
+                      "rank" => "Baby Zirafer",
+                      "dateJoined" => date("Y-m-d"));
+    //create salt
+    $userData["salt"] = sha1(time());
+    //create activation key
+    $userData["activationKey"] = sha1(time() . time());
+    //hash password
+    $userData["password"] = sha1($userData['password'] . $userData['salt']);
+    //create insert statement
+    $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, 0, 0, ?)";
+    //create statement
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("ssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $userData['salt'], $userData['activationKey'], $userData['dateJoined']);
+    $stmt->execute() or die("An error has occured");
+    $stmt->close();
+
+    //get the user file
+    manageFileUpload($db, $userData);
+
+    header("Location: ../signupResult.php");
+
+
+    function manageFileUpload($db, $userData){
+        try {
+            
+            // Undefined | Multiple Files | $_FILES Corruption Attack
+            // If this request falls under any of them, treat it invalid.
+            if (
+                !isset($_FILES['signupProfilePictureBtn']['error']) ||
+                is_array($_FILES['signupProfilePictureBtn']['error'])
+            ) {
+                throw new RuntimeException('Invalid parameters.');
+            }
+        
+            // Check $_FILES['signupProfilePictureBtn']['error'] value.
+            switch ($_FILES['signupProfilePictureBtn']['error']) {
+                case UPLOAD_ERR_OK:
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    throw new RuntimeException('No file sent.');
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                    throw new RuntimeException('Exceeded filesize limit.');
+                default:
+                    throw new RuntimeException('Unknown errors.');
+            }
+        
+            // DO NOT TRUST $_FILES['signupProfilePictureBtn']['mime'] VALUE !!
+            // Check MIME Type by yourself.
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            if (false === $ext = array_search(
+                $finfo->file($_FILES['signupProfilePictureBtn']['tmp_name']),
+                array(
+                    'jpg' => 'image/jpeg',
+                    'png' => 'image/png',
+                    'gif' => 'image/gif',
+                ),
+                true
+            )) {
+                throw new RuntimeException('Invalid file format.');
+            }
+            
+            $info = pathinfo($_FILES['signupProfilePictureBtn']['name']);
+            $ext = $info['extension']; // get the extension of the file
+            $newname = getUserId($db, $userData['email']).'.'.$ext; 
+            $target = '../../img/userIcons/'.$newname;
+
+            // You should name it uniquely.
+            // DO NOT USE $_FILES['signupProfilePictureBtn']['name'] WITHOUT ANY VALIDATION !!
+            // On this example, obtain safe unique name from its binary data.
+            if (!move_uploaded_file(
+                $_FILES['signupProfilePictureBtn']['tmp_name'],
+                    $target
+                )
+            ) {
+                throw new RuntimeException('Failed to move uploaded file.');
+            }        
+        } catch (RuntimeException $e) {
+        
+            die("Fail");
+        
+        }
+    }
+
+    function getUserId($db, $userEmail){
+        $query = "SELECT max(userId) FROM USERS WHERE email = ?";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $userEmail);
+        $stmt->execute();
+        $stmt->bind_result($result);
+        $stmt->fetch();
+        $stmt->close();
+        return $result;
+    }
 ?>

@@ -13,8 +13,12 @@
             die("Connection failed: " . $conn->connect_error);
         }else{
             //return the connection for later use
-            echo "success, database generated";
             return $conn;
         }
+    }
+
+    function checkRequestType(){
+        define('AJAX_REQUEST', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+        if(!AJAX_REQUEST) {die("Error");}
     }
 ?>

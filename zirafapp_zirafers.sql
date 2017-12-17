@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2017 at 02:46 AM
+-- Generation Time: Dec 17, 2017 at 09:33 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `badge`
+-- Table structure for table `badges`
 --
 
-CREATE TABLE `badge` (
+CREATE TABLE `badges` (
   `badgeId` int(11) NOT NULL,
   `badgeTitle` varchar(30) NOT NULL,
   `badgeContent` text NOT NULL
@@ -37,10 +37,10 @@ CREATE TABLE `badge` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chat`
+-- Table structure for table `chats`
 --
 
-CREATE TABLE `chat` (
+CREATE TABLE `chats` (
   `chatId` int(11) NOT NULL,
   `chatName` varchar(50) NOT NULL,
   `dateCreated` date NOT NULL
@@ -49,10 +49,10 @@ CREATE TABLE `chat` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `message`
+-- Table structure for table `messages`
 --
 
-CREATE TABLE `message` (
+CREATE TABLE `messages` (
   `messageId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `chatId` int(11) NOT NULL,
@@ -64,10 +64,10 @@ CREATE TABLE `message` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `poll`
+-- Table structure for table `polls`
 --
 
-CREATE TABLE `poll` (
+CREATE TABLE `polls` (
   `pollId` int(11) NOT NULL,
   `pollStatement` varchar(50) NOT NULL,
   `dateCreated` date NOT NULL
@@ -76,10 +76,10 @@ CREATE TABLE `poll` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `poll_option`
+-- Table structure for table `poll_options`
 --
 
-CREATE TABLE `poll_option` (
+CREATE TABLE `poll_options` (
   `optionId` int(11) NOT NULL,
   `pollId` int(11) NOT NULL,
   `content` text NOT NULL,
@@ -89,10 +89,10 @@ CREATE TABLE `poll_option` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Table structure for table `posts`
 --
 
-CREATE TABLE `post` (
+CREATE TABLE `posts` (
   `postId` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `content` text NOT NULL,
@@ -103,10 +103,10 @@ CREATE TABLE `post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review`
+-- Table structure for table `reviews`
 --
 
-CREATE TABLE `review` (
+CREATE TABLE `reviews` (
   `reviewId` int(11) NOT NULL,
   `locationName` varchar(50) NOT NULL,
   `dishList` text NOT NULL,
@@ -122,10 +122,10 @@ CREATE TABLE `review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `userId` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -146,10 +146,10 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_badge`
+-- Table structure for table `user_badges`
 --
 
-CREATE TABLE `user_badge` (
+CREATE TABLE `user_badges` (
   `userId` int(11) NOT NULL,
   `badgeId` int(11) NOT NULL,
   `dateObtained` date NOT NULL
@@ -158,10 +158,10 @@ CREATE TABLE `user_badge` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_chat`
+-- Table structure for table `user_chats`
 --
 
-CREATE TABLE `user_chat` (
+CREATE TABLE `user_chats` (
   `userId` int(11) NOT NULL,
   `chatId` int(11) NOT NULL,
   `dateAdded` date NOT NULL
@@ -170,10 +170,10 @@ CREATE TABLE `user_chat` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_poll`
+-- Table structure for table `user_polls`
 --
 
-CREATE TABLE `user_poll` (
+CREATE TABLE `user_polls` (
   `userId` int(11) NOT NULL,
   `pollId` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL
@@ -182,10 +182,10 @@ CREATE TABLE `user_poll` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_post`
+-- Table structure for table `user_posts`
 --
 
-CREATE TABLE `user_post` (
+CREATE TABLE `user_posts` (
   `userId` int(11) NOT NULL,
   `postId` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL
@@ -194,10 +194,10 @@ CREATE TABLE `user_post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_review`
+-- Table structure for table `user_reviews`
 --
 
-CREATE TABLE `user_review` (
+CREATE TABLE `user_reviews` (
   `userId` int(11) NOT NULL,
   `reviewId` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL
@@ -208,87 +208,87 @@ CREATE TABLE `user_review` (
 --
 
 --
--- Indexes for table `badge`
+-- Indexes for table `badges`
 --
-ALTER TABLE `badge`
+ALTER TABLE `badges`
   ADD PRIMARY KEY (`badgeId`);
 
 --
--- Indexes for table `chat`
+-- Indexes for table `chats`
 --
-ALTER TABLE `chat`
+ALTER TABLE `chats`
   ADD PRIMARY KEY (`chatId`);
 
 --
--- Indexes for table `message`
+-- Indexes for table `messages`
 --
-ALTER TABLE `message`
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`messageId`,`userId`,`chatId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `chatId` (`chatId`);
 
 --
--- Indexes for table `poll`
+-- Indexes for table `polls`
 --
-ALTER TABLE `poll`
+ALTER TABLE `polls`
   ADD PRIMARY KEY (`pollId`);
 
 --
--- Indexes for table `poll_option`
+-- Indexes for table `poll_options`
 --
-ALTER TABLE `poll_option`
+ALTER TABLE `poll_options`
   ADD PRIMARY KEY (`optionId`,`pollId`),
   ADD KEY `pollId` (`pollId`);
 
 --
--- Indexes for table `post`
+-- Indexes for table `posts`
 --
-ALTER TABLE `post`
+ALTER TABLE `posts`
   ADD PRIMARY KEY (`postId`);
 
 --
--- Indexes for table `review`
+-- Indexes for table `reviews`
 --
-ALTER TABLE `review`
+ALTER TABLE `reviews`
   ADD PRIMARY KEY (`reviewId`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `user_badge`
+-- Indexes for table `user_badges`
 --
-ALTER TABLE `user_badge`
+ALTER TABLE `user_badges`
   ADD PRIMARY KEY (`userId`,`badgeId`),
   ADD KEY `badgeId` (`badgeId`);
 
 --
--- Indexes for table `user_chat`
+-- Indexes for table `user_chats`
 --
-ALTER TABLE `user_chat`
+ALTER TABLE `user_chats`
   ADD PRIMARY KEY (`userId`,`chatId`),
   ADD KEY `chatId` (`chatId`);
 
 --
--- Indexes for table `user_poll`
+-- Indexes for table `user_polls`
 --
-ALTER TABLE `user_poll`
+ALTER TABLE `user_polls`
   ADD PRIMARY KEY (`userId`,`pollId`);
 
 --
--- Indexes for table `user_post`
+-- Indexes for table `user_posts`
 --
-ALTER TABLE `user_post`
+ALTER TABLE `user_posts`
   ADD PRIMARY KEY (`userId`,`postId`),
   ADD KEY `postId` (`postId`);
 
 --
--- Indexes for table `user_review`
+-- Indexes for table `user_reviews`
 --
-ALTER TABLE `user_review`
+ALTER TABLE `user_reviews`
   ADD PRIMARY KEY (`userId`,`reviewId`),
   ADD KEY `reviewId` (`reviewId`);
 
@@ -297,51 +297,51 @@ ALTER TABLE `user_review`
 --
 
 --
--- AUTO_INCREMENT for table `badge`
+-- AUTO_INCREMENT for table `badges`
 --
-ALTER TABLE `badge`
+ALTER TABLE `badges`
   MODIFY `badgeId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `chat`
+-- AUTO_INCREMENT for table `chats`
 --
-ALTER TABLE `chat`
+ALTER TABLE `chats`
   MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `message`
+-- AUTO_INCREMENT for table `messages`
 --
-ALTER TABLE `message`
+ALTER TABLE `messages`
   MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `poll`
+-- AUTO_INCREMENT for table `polls`
 --
-ALTER TABLE `poll`
+ALTER TABLE `polls`
   MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `poll_option`
+-- AUTO_INCREMENT for table `poll_options`
 --
-ALTER TABLE `poll_option`
+ALTER TABLE `poll_options`
   MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT for table `posts`
 --
-ALTER TABLE `post`
+ALTER TABLE `posts`
   MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `review`
+-- AUTO_INCREMENT for table `reviews`
 --
-ALTER TABLE `review`
+ALTER TABLE `reviews`
   MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -349,45 +349,45 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `message`
+-- Constraints for table `messages`
 --
-ALTER TABLE `message`
-  ADD CONSTRAINT `MESSAGE_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user_chat` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `MESSAGE_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chat` (`chatId`) ON DELETE CASCADE;
+ALTER TABLE `messages`
+  ADD CONSTRAINT `MESSAGE_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user_chats` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `MESSAGE_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chats` (`chatId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `poll_option`
+-- Constraints for table `poll_options`
 --
-ALTER TABLE `poll_option`
-  ADD CONSTRAINT `POLL_OPTION_ibfk_1` FOREIGN KEY (`pollId`) REFERENCES `poll` (`pollId`) ON DELETE CASCADE;
+ALTER TABLE `poll_options`
+  ADD CONSTRAINT `POLL_OPTION_ibfk_1` FOREIGN KEY (`pollId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_badge`
+-- Constraints for table `user_badges`
 --
-ALTER TABLE `user_badge`
-  ADD CONSTRAINT `USER_BADGE_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `USER_BADGE_ibfk_2` FOREIGN KEY (`badgeId`) REFERENCES `badge` (`badgeId`) ON DELETE CASCADE;
+ALTER TABLE `user_badges`
+  ADD CONSTRAINT `USER_BADGE_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `USER_BADGE_ibfk_2` FOREIGN KEY (`badgeId`) REFERENCES `badges` (`badgeId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_chat`
+-- Constraints for table `user_chats`
 --
-ALTER TABLE `user_chat`
-  ADD CONSTRAINT `USER_CHAT_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `USER_CHAT_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chat` (`chatId`) ON DELETE CASCADE;
+ALTER TABLE `user_chats`
+  ADD CONSTRAINT `USER_CHAT_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `USER_CHAT_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chats` (`chatId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_post`
+-- Constraints for table `user_posts`
 --
-ALTER TABLE `user_post`
-  ADD CONSTRAINT `USER_POST_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `USER_POST_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `post` (`postId`) ON DELETE CASCADE;
+ALTER TABLE `user_posts`
+  ADD CONSTRAINT `USER_POST_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `USER_POST_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_review`
+-- Constraints for table `user_reviews`
 --
-ALTER TABLE `user_review`
-  ADD CONSTRAINT `USER_REVIEW_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `USER_REVIEW_ibfk_2` FOREIGN KEY (`reviewId`) REFERENCES `review` (`reviewId`) ON DELETE CASCADE;
+ALTER TABLE `user_reviews`
+  ADD CONSTRAINT `USER_REVIEW_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `USER_REVIEW_ibfk_2` FOREIGN KEY (`reviewId`) REFERENCES `reviews` (`reviewId`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

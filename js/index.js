@@ -51,12 +51,12 @@ function signupVerification(){
 
 function checkUniqueEmail(){
   //get the value of the email field
-  var emailAddress = $('#signupEmail').val();
+  var emailAddress = {emailAddress: $('#signupEmail').val()};
   var result;
   //send email address to the server and wiat for response
   $.ajax({
     async: false,
-    type: "POST",
+    type: "GET",
     url: "../php/phpDirectives/checkUniqueEmail.php",
     data: emailAddress,
     success: function(response){

@@ -1,1 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
+RedirectMatch 301 ^/WebApp/ZirafApp/php/phpComponents /WebApp/ZirafApp/php/404
+ErrorDocument 404 /WebApp/ZirafApp/php/404

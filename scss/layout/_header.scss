@@ -5,9 +5,32 @@
   width: 100%;
   z-index: 99;
   height: $navHeight;
-  line-height: $navHeight;
   background-color: $footerColor;
   -webkit-box-shadow: 0px -10px 36px 4px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -10px 36px 4px rgba(0,0,0,0.75);
   box-shadow: 0px -10px 36px 4px rgba(0,0,0,0.75);
+
+  button {
+    border: none;
+    background-color: $footerColor;
+    text-decoration: none;
+    height: $navHeight;
+    p {
+      color: $zirafColor;
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+
+  button:active,
+  button:active:focus,
+  button:focus {
+    border: none!important;
+    outline: none!important;
+  }
+
+  .navText {
+    font-size: 10px!important;
+  }
 }

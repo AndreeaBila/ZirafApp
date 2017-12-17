@@ -1,17 +1,23 @@
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 99;
   width: 100%;
   height: $navHeight;
-  background-color: #eee;
+  background-color: $footerColor;
+  //line-height: $navHeight;
+  -webkit-box-shadow: 0px 10px 36px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 36px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 36px 5px rgba(0,0,0,0.75);
 
   button {
     border: none;
+    background-color: $zirafColor;
     text-decoration: none;
     height: $navHeight;
     p {
-      color: $zirafColor;
+      color: $footerColor;
       i {
         font-size: 25px;
       }
@@ -20,16 +26,15 @@
 
   .navText {
     font-size: 10px!important;
-    //line-height: -10px!important;
   }
 
   .row {
     .activeNav {
-      background-color: $zirafColor;
+      background-color: $footerColor;
       p {
-        color: #eee;
+        color: $zirafColor;
       }
     }
   }
+
 }
-  

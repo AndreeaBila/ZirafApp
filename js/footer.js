@@ -1,19 +1,21 @@
 $(function() {
+  
   $('#newsfeedNav').click(function() {
     window.location = 'newsfeed.php';
   });
 
-  $('#chatNav').click(function() {
-    window.location = 'chat.php';
+  $('#profileNav').click(function() {
+    window.location = 'profile.php';
   });
 
   $('#reviewNav').click(function() {
     window.location = 'review.php';
   });
 
-  $('#profileNav').click(function() {
-    window.location = 'profile.php';
+  $('#chatNav').click(function() {
+    window.location = 'chat.php';
   });
+
 
   if(window.location.href == 'http://localhost/WebDev/ZirafApp/php/chat.php') {
     console.log("yes");
@@ -52,5 +54,5 @@ $(function() {
       $('#profileNav').addClass('activeNav');
       break;
   }
-  
+
 });

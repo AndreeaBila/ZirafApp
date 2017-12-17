@@ -10,7 +10,6 @@
     <title>Zirafers - Log In</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
-    <meta 
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
@@ -53,7 +52,7 @@
             2. Sorry! Your account applicaton hasn't been approved! If you think this is a mistake please contact us. (when application not approved)
             3. Invalid email or password
         -->
-        <form action="" method="POST" id="loginForm" class="loginForm">
+        <form action="./signUp" method="POST" id="loginForm" class="loginForm">
           <!-- login email -->
           <div class="input-group">
             <span class="input-group-addon" id="loginEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -84,6 +83,8 @@
       <div id="signupContainer">
         <!-- signup form title -->
         <h2 class="text-center" id="signupTitle">Sign Up</h2>
+        <!-- DELETE THIS BUTTON -->
+        <button type="button" id="fillSignupInfo" class="btn">Fill Signup Info</button><br><br>
 
         <!-- SIGNUP FORM -->
         <!-- we need these alerts:
@@ -91,7 +92,7 @@
             1. Passwords don't match
             2. Password at least 8 char long?
         -->
-        <form action="" method="POST" id="signupForm" name="signupForm" class="signupForm">
+        <form action="./phpDirectives/signUp" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm">
           <!-- signup name -->
           <div class="input-group">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>
@@ -148,13 +149,11 @@
           <button type="button" class="btn" id="signupToLogin" name="singupToLogin">Already Have An Account</button>
         </form>
       </div>
-      
-
     </div>
 
     <!-- JS/jQuery for Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" 
     integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" 

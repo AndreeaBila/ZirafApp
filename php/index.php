@@ -52,7 +52,7 @@
             2. Sorry! Your account applicaton hasn't been approved! If you think this is a mistake please contact us. (when application not approved)
             3. Invalid email or password
         -->
-        <form action="./signUp" method="POST" id="loginForm" class="loginForm">
+        <form id="loginForm" class="loginForm">
           <!-- login email -->
           <div class="input-group">
             <span class="input-group-addon" id="loginEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -72,7 +72,7 @@
             </label>
           </div>
           <!-- login button -->
-          <button type="submit" class="btn btn-primary" id="loginBtn" name="loginBtn">Log In</button>
+          <button type="button" class="btn btn-primary" id="loginBtn" name="loginBtn">Log In</button>
           <!-- create account -->
           <button type="button" class="btn" id="loginToSignup" name="loginToSignup">Create New Account</button>
         </form>
@@ -92,7 +92,7 @@
             1. Passwords don't match
             2. Password at least 8 char long?
         -->
-        <form action="./phpDirectives/signUp" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm" enctype="multipart/form-data">
+        <form action="./phpDirectives/signup" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm" enctype="multipart/form-data">
           <!-- signup name -->
           <div class="input-group">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>

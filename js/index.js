@@ -29,6 +29,9 @@ $(function() {
     $('#signupContainer').hide(500);
     $('#loginContainer').show(500);
   });
+
+  //fire login procedure
+  $('#loginBtn').click(processLoginRequest());
 });
 
 //verify the data passed by the user on the client side
@@ -75,4 +78,18 @@ function checkFile(){
        return false;
   }
   return true;
+}
+
+function processLoginRequest(){
+  //check if email has been verified
+  var success = false;
+  var userData = $('#loginForm').serialize();
+  $.ajax({
+    data: userData,
+    type: "POST",
+    url: "../php/phpDirectives/checkEmailVerification.php",
+    complete: function(result){
+      success = (result == "true");
+    }
+  })
 }

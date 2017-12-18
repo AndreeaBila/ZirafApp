@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  session_destroy();
+  //get the security file
+  require_once "phpComponents/security.php";
+  if(checkCookie()){
+    header("Location: newsfeed");
+  }
+?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
 <html lang="en">

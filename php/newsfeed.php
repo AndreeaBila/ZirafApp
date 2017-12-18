@@ -1,3 +1,15 @@
+<?php
+  session_start();
+  //import the security file
+  require_once "./phpComponents/security.php";
+  //check if the cookie has been set
+  if(!checkCookie()){
+    //if the cookie has been set to false then directly check the session
+    if(!checkSession()){
+      header("Location: index");
+    }
+  }
+?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
 <html lang="en">

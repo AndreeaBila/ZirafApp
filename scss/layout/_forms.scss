@@ -1,0 +1,27 @@
+#loginContainer, #signupContainer {
+  h2 {
+    padding: 20px;
+  }
+
+  #loginForm, #signupForm {
+
+    input {
+      border-color: $zirafColor;
+      margin-top: 5px;
+    }
+    span {
+      background-color: $zirafColor;
+      margin-top: 5px;
+      border-color: $zirafColor;
+      color: #fff;
+      width: 50px;
+    }
+    #loginBtn, #signupBtn {
+      background-color: $zirafColor;
+      border-color: $zirafColor;
+    }
+
+  }
+
+
+}

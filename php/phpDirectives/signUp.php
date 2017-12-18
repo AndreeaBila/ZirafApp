@@ -7,12 +7,12 @@
     //get the user dependecy
     require_once "../phpComponents/dependencies.php";
     //get the user data from the client and check for xss attacks
-    $userData = array("userName" => strip_tags($_POST['signupName']),
-                      "email" => strip_tags($_POST['signupEmail']),
-                      "password" => strip_tags($_POST['signupPassword']),
-                      "socialHandle" => strip_tags($_POST['signupUsername']),
-                      "description" => strip_tags($_POST['signupDescription']),
-                      "phone" => strip_tags($_POST['signupPhoneNumber']),
+    $userData = array("userName" => strip_tags(stripslashes($_POST['signupName'])),
+                      "email" => strip_tags(stripslashes($_POST['signupEmail'])),
+                      "password" => strip_tags(stripslashes($_POST['signupPassword'])),
+                      "socialHandle" => strip_tags(stripslashes($_POST['signupUsername'])),
+                      "description" => strip_tags(stripslashes($_POST['signupDescription'])),
+                      "phone" => strip_tags(stripslashes($_POST['signupPhoneNumber'])),
                       "rank" => "Baby Zirafer",
                       "dateJoined" => date("Y-m-d"));
     //create salt
@@ -21,11 +21,13 @@
     $userData["activationKey"] = sha1(time() . time());
     //hash password
     $userData["password"] = sha1($userData['password'] . $userData['salt']);
+    //cookie hash
+    $userData["cookie"] = sha1(time() . time() . time());
     //create insert statement
-    $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, 0, 0, ?)";
+    $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, 0, 0, ?, ?)";
     //create statement
     $stmt = $db->prepare($query);
-    $stmt->bind_param("ssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $userData['salt'], $userData['activationKey'], $userData['dateJoined']);
+    $stmt->bind_param("sssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
     $stmt->execute() or die("An error has occured");
     $stmt->close();
 

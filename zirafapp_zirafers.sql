@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2017 at 09:33 PM
+-- Generation Time: Dec 18, 2017 at 04:20 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -140,8 +140,16 @@ CREATE TABLE `users` (
   `activationKey` text NOT NULL,
   `emailActivation` tinyint(1) NOT NULL,
   `execActivation` tinyint(1) NOT NULL,
+  `cookieHash` text NOT NULL,
   `dateJoined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `socialHandle`, `description`, `phone`, `rank`, `score`, `clearance`, `salt`, `activationKey`, `emailActivation`, `execActivation`, `cookieHash`, `dateJoined`) VALUES
+(39, 'test', 'test@test.com', '70be2d1d18e9a220e3f5b4843f92d6e5088a07bf', 'test', 'test', 'test', 'Baby Zirafer', 0, 0, '64920922eb7a23825e0051e933a161014ba5cfd3', '7cb83fa94f147f4945a86991d4e72b19cd0a2fe5', 1, 1, '90f7a81ed837e51b6c0dc6cb274dc085c30a2c29', '2017-12-18');
 
 -- --------------------------------------------------------
 
@@ -342,7 +350,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables

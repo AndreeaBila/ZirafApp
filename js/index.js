@@ -31,7 +31,9 @@ $(function() {
   });
 
   //fire login procedure
-  $('#loginBtn').click(processLoginRequest());
+  $('#loginBtn').click(function(){
+    processLoginRequest();
+  });
 });
 
 //verify the data passed by the user on the client side
@@ -81,15 +83,31 @@ function checkFile(){
 }
 
 function processLoginRequest(){
-  //check if email has been verified
-  var success = false;
+  var loginSuccess = false; //flag used to check the result of the login script
+  //get the user infromation from the server
   var userData = $('#loginForm').serialize();
+  //send ajax request to the server
   $.ajax({
     data: userData,
     type: "POST",
-    url: "../php/phpDirectives/checkEmailVerification.php",
-    complete: function(result){
-      success = (result == "true");
+    url: "../php/phpDirectives/login.php",
+    success: function(result){
+      console.log(result);
+      if(result === "loginInfo"){
+        alert("Login information incorrect");
+      }else if(result === "email"){
+        alert("You haven't activated your account");
+      }else if(result === "exec"){
+        alert("Your account hasn't been verified by a member of the exec team");
+      }else if(result === "success"){
+        //redirect user
+        location.href = "newsfeed";
+      }else{
+        alert("error");
+      }
+    },
+    error: function(){
+      alert("An error has occured");
     }
-  })
+  });
 }

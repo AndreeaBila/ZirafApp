@@ -61,10 +61,7 @@
             <p>Create Poll</p>
           </button>
         </div>
-      </div>
-      
-
-      
+      </div>      
       <?php
         include './phpComponents/footer.php';
       ?>    

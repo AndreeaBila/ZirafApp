@@ -61,13 +61,13 @@
           <!-- login password -->
           <div class="input-group">
             <span class="input-group-addon" id="loginPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" required>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="loginPassword" placeholder="Enter password" required>
           </div>
           
           <!-- login keep logged in -->
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" id="keepLogged" name="keepLogged">
+              <input type="checkbox" class="form-check-input" id="keepLogged" name="keepLogged[]">
               Keep me logged in
             </label>
           </div>

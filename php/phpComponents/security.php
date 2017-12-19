@@ -25,4 +25,14 @@
             return false;
         }
     }
+
+    function authenticate(){
+        //check if the cookie has been set
+        if(!checkCookie()){
+            //if the cookie has been set to false then directly check the session
+            if(!checkSession()){
+                header("Location: index");
+                }
+        }
+    }
 ?>

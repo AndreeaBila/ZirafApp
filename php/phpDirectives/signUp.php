@@ -54,7 +54,9 @@
                 case UPLOAD_ERR_OK:
                     break;
                 case UPLOAD_ERR_NO_FILE:
-                    throw new RuntimeException('No file sent.');
+                    //if no file has been sent select a new one
+                    setDefaultIcon($db, $userData['email']);
+                    return;
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
                     throw new RuntimeException('Exceeded filesize limit.');
@@ -93,9 +95,7 @@
                 throw new RuntimeException('Failed to move uploaded file.');
             }        
         } catch (RuntimeException $e) {
-        
-            die("Fail");
-        
+            die($e->getMessage());
         }
     }
 
@@ -108,5 +108,12 @@
         $stmt->fetch();
         $stmt->close();
         return $result;
+    }
+
+    function setDefaultIcon($db, $userEmail){
+        //get the id of the current user
+        $userId = getUserId($db, $userEmail);
+        //copy the default picture into userIcons
+        copy('../../img/default.jpeg', '../../img/userIcons/'.$userId.'.jpeg');
     }
 ?>

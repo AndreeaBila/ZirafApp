@@ -91,7 +91,7 @@ function processLoginRequest(){
   var token = $.url('?token', location.href);
   //alert the user data form to include the token
   if(typeof token != 'undefined'){
-    userData["token"] = token;
+    userData += "&token=" + token;
   }
   //send ajax request to the server
   $.ajax({
@@ -99,7 +99,6 @@ function processLoginRequest(){
     type: "POST",
     url: "../php/phpDirectives/login.php",
     success: function(result){
-      console.log(result);
       if(result === "loginInfo"){
         alert("Login information incorrect");
       }else if(result === "email"){

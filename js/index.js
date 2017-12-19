@@ -74,6 +74,7 @@ function checkUniqueEmail(){
 function checkFile(){
   //check the type of the uploaded file and make sure it is an image
   var file = $('#signupProfilePictureBtn')[0].files[0];
+  if(typeof file == 'undefined') return true;
   var fileType = file["type"];
   var ValidImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg"];
   if ($.inArray(fileType, ValidImageTypes) < 0) {
@@ -86,6 +87,12 @@ function processLoginRequest(){
   var loginSuccess = false; //flag used to check the result of the login script
   //get the user infromation from the server
   var userData = $('#loginForm').serialize();
+  //get the token value
+  var token = $.url('?token', location.href);
+  //alert the user data form to include the token
+  if(typeof token != 'undefined'){
+    userData["token"] = token;
+  }
   //send ajax request to the server
   $.ajax({
     data: userData,

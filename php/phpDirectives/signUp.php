@@ -15,6 +15,10 @@
                       "phone" => strip_tags(stripslashes($_POST['signupPhoneNumber'])),
                       "rank" => "Baby Zirafer",
                       "dateJoined" => date("Y-m-d"));
+    //verify provided email address
+    if(filter_var($userData['email'], FILTER_VALIDATE_EMAIL) === false){
+        die("Error with email");
+    }
     //create salt
     $userData["salt"] = sha1(time());
     //create activation key
@@ -33,6 +37,13 @@
 
     //get the user file
     manageFileUpload($db, $userData);
+
+    //send email to user address
+    $subject = "ZirafApp activation key";
+    $token = $userData['activationKey'];
+    $message= "Hello, please click on the following link to activate your account: zirafers.zirafapp.com?token=$token";
+    //====== REMEMBER TO ACTIVATE ======
+    //mail($userData['email'], $subject, $message);
 
     header("Location: ../signupResult.php");
 

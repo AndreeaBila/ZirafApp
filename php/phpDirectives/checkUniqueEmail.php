@@ -10,7 +10,9 @@
     //get the provided user email
     $email = strip_tags(stripslashes($_GET['emailAddress']));
     //check email security
-    //if(!PHPMailer::validateAddress($email, auto)) die();
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        die("Error with email");
+    }
     //create query that checks the number of identic emails
     $query = "SELECT count(*) FROM USERS WHERE email = ?";
     $stmt = $db->prepare($query);

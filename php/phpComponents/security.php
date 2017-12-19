@@ -26,13 +26,30 @@
         }
     }
 
+    //perform the authentication steps
     function authenticate(){
         //check if the cookie has been set
         if(!checkCookie()){
             //if the cookie has been set to false then directly check the session
             if(!checkSession()){
                 header("Location: index");
-                }
+            }
         }
+    }
+
+    //check the clearance level
+    function checkClearance(){
+        if(!checkSession()) return false;
+        //create a new database connection
+        $db = createConnection();
+        //create query
+        $query = "SELECT clearance FROM USERS WHERE userId = ?";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $_SESSION['userId']);
+        $stmt->execute();
+        $stmt->bind_result($clearance);
+        $stmt->fetch();
+
+        return ($clearance == 1);
     }
 ?>

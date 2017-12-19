@@ -1,3 +1,14 @@
+<?php
+  session_start();
+  //import the security file
+  require_once "./phpComponents/security.php";
+  //check authentication
+  authenticate();
+  //check the clearance level
+  if(!checkClearance()){
+    header("Location: newsfeed");
+  }
+?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
 <html lang="en">

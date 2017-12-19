@@ -1,9 +1,16 @@
 <header class="header" id="header">
     <!-- link to exec panel -->
-    <button class="float-left" id="execPanelNav">
-      <p><i class="fa fa-key" aria-hidden="true"></i></p>
-      <p class="navText">Exec Panel</p>
-    </button>
+    <!-- only displayed for members with appropriate clearance -->
+    <?php
+      //import the security file
+      require_once "security.php";
+      if(checkClearance()){
+        echo '<button class="float-left" id="execPanelNav">
+                <p><i class="fa fa-key" aria-hidden="true"></i></p>
+                <p class="navText">Exec Panel</p>
+              </button>';
+      }
+    ?>
 
     <!-- link to settings -->
     <button class="float-right" id="settingsNav">

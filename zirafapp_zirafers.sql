@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2017 at 04:20 PM
+-- Generation Time: Dec 19, 2017 at 07:03 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -149,7 +149,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `socialHandle`, `description`, `phone`, `rank`, `score`, `clearance`, `salt`, `activationKey`, `emailActivation`, `execActivation`, `cookieHash`, `dateJoined`) VALUES
-(39, 'test', 'test@test.com', '70be2d1d18e9a220e3f5b4843f92d6e5088a07bf', 'test', 'test', 'test', 'Baby Zirafer', 0, 0, '64920922eb7a23825e0051e933a161014ba5cfd3', '7cb83fa94f147f4945a86991d4e72b19cd0a2fe5', 1, 1, '90f7a81ed837e51b6c0dc6cb274dc085c30a2c29', '2017-12-18');
+(44, 'notactivated', 'notactivated@email.com', '15ce6105f2d0ce9a7fdbee5b00316bc55fa6583a', 'notactivated', 'notactivated', '123456789', 'Baby Zirafer', 0, 0, '6b207fb80e03e2882240f4d7c5af843fd60c09f2', '2b1054765d3a5f4e84c7e0d6435aa47b22b6f5ee', 0, 0, '52934e243fc5437eeb6b30e16734613ca0441793', '2017-12-19'),
+(45, 'zirafer', 'zirafer@email.com', '317a4892e06980a8979741776b099828fd1be53e', 'zirafer', 'zirafer', '123456789', 'Baby Zirafer', 0, 0, '936665c615b35941bfa103d921fc818c4040cc00', '36a3276c3fb8c6d9ed26dd26a5f5a52e0c2194a5', 1, 1, '778864379ffec8036d35a72b4b9b68d7a6a52e0e', '2017-12-19'),
+(46, 'exec', 'exec@email.com', 'b2cdf787f07c63db781291a57c739226621286c9', 'exec', 'exec', '123456789', 'Baby Zirafer', 0, 1, 'aa1ab1dc59ee7fe51ea2e70321603234dddfc91e', '092f3ee3f89337de5f879f29abd50a9136225443', 1, 1, '9d6806bf617fd09c9f51daaa982e57cf015e1222', '2017-12-19');
 
 -- --------------------------------------------------------
 
@@ -350,7 +352,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables

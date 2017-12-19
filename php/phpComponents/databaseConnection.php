@@ -1,13 +1,13 @@
 <?php
     function createConnection(){
         //initialize the database information
-        define('SERVERNAME', "localhost");
-        define('USERNAME', "root");
-        define('PASSWORD', "");
-        define('DATABASENAME', "zirafapp_zirafers");
+        $servername = 'localhost';
+        $username = 'root';
+        $password = '';
+        $databasename = 'zirafapp_zirafers';
 
         // Create connection
-        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DATABASENAME);
+        $conn = new mysqli($servername, $username, $password, $databasename);
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

@@ -58,46 +58,43 @@
       ?>
       
       <div id="execPanel">
-        <h4>
-          <!-- get number of pending posts from php? -->
-          <span><strong>2</strong></span> 
-          pending requests
-          <!-- or there are no any pending requests -->
-        </h4>
-        
-        <!-- BEGINNING OF SIGNUP REQUEST TEMPLATE -->
-        <div class="signupRequests row">
-          <div class="col-6">
-            <div class="requestDetailsBox float-left">
-              <h6><strong>Name of User</strong></h6>
-              <p>Email Adress of User</p>
+        <?php
+          //script that cheks and displays any pending signup request
+
+          //load database files
+          require_once "phpComponents/databaseConnection.php";
+          $db = createConnection();
+
+          //query the database for any pending requests
+          $getPendingRequests = "SELECT userName, email FROM USERS WHERE execActivation = 0";
+          $pendingRequests = $db->query($getPendingRequests);
+          $count = 0;
+          $displayMessage = ($pendingRequests->num_rows > 1) ? 'pending requests' : 'pending request';
+          //dislpay the number of pending requests
+          echo '<h4>
+                  <!-- get number of pending posts from php? -->
+                  <span><strong>'.$pendingRequests->num_rows.'</strong></span> 
+                  '.$displayMessage.'
+                  <!-- or there are no any pending requests -->
+                </h4>';
+          while($row = $pendingRequests->fetch_assoc()){
+            echo '<div class="signupRequests row" id="row"'.$count++.'>
+            <div class="col-6">
+              <div class="requestDetailsBox float-left">
+                <h6><strong>'.$row['userName'].'</strong></h6>
+                <p>'.$row['email'].'</p>
+              </div>
             </div>
-          </div>
-          
-          <div class="col-6">
-            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn1" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
-            <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn1"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          </div>
-
-          <div class="clear"></div>
-        </div>
-        <!-- ENDING OF SIGNUP REQUEST TEMPLATE -->
-
-        <div class="signupRequests row">
-          <div class="col-6">
-            <div class="requestDetailsBox float-left">
-              <h6><strong>Name of User</strong></h6>
-              <p>Email Adress of User</p>
+            
+            <div class="col-6">
+              <button type="button" class="float-right declineRequestBtn" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="float-right confirmRequestBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
-          </div>
-          
-          <div class="col-6">
-            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn2" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
-            <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn2"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          </div>
-
-          <div class="clear"></div>
-        </div>
+  
+            <div class="clear"></div>
+          </div>';
+          }
+        ?>
 
         <!-- CONFIRM DECLINE REQUST MODAL -->
         <div class="modal fade" id="confirmDeclineModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeclineModalLabel" aria-hidden="true">
@@ -167,7 +164,7 @@
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/execPanel.js"></script>
 
   </body>
 </html>

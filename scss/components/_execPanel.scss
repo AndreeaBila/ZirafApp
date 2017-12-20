@@ -1,0 +1,93 @@
+#execPanel {
+  padding-top: 15px;
+  h4 {
+    color: $zirafColor;
+    margin: 20px 0px;
+  }
+  
+  .signupRequests {
+    margin-top: 10px;
+    .requestDetailsBox {
+      //margin-left: 10px;
+      color: white;
+      padding: 8px 10px;
+      border: 1px solid rgba(242,145,10,0.7);
+      border-radius: 10px;
+      background-color: rgba(242,145,10,0.6);
+      width: 125%;
+      height: 55px;
+      display: inline-block;
+      p {
+        font-size: 12px;
+      }
+    }
+ 
+    button {
+      display: inline-block;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      line-height: 20px;
+      i {
+        font-size: 20px;
+        color: white;
+      }
+      -webkit-box-shadow: 3px 3px 5px 0px rgba(190,190,190,1);
+      -moz-box-shadow: 3px 3px 5px 0px rgba(190,190,190,1);
+      box-shadow: 3px 3px 5px 0px rgba(190,190,190,1);
+    }
+
+    .confirmRequestBtn {
+      border: 1px solid #33cc66;
+      background-color: #33cc66;
+    }
+
+    .declineRequestBtn {
+      border: 1px solid #e33f3f;
+      background-color: #e33f3f;
+      margin-left: 5px;
+    }
+  }
+
+  #revokeAccessBtn {
+    margin: 50px;
+    border: none;
+    background-color: $zirafColor;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+  }
+
+  #revokeAccessBtn:active,
+  #revokeAccessBtn:active:focus,
+  #revokeAccessBtn:focus {
+    outline: none;
+  }
+
+  #searchUserModal {
+    input[type="search"] {
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-radius: 0px;
+      width: 80%;
+      display: inline-block;
+    }
+    .my-2 {
+      display: inline-block;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      color: 1px solid rgba(0,0,0,0.3);
+    }
+
+    input[type="search"]:active,
+    input[type="search"]:active:focus,
+    input[type="search"]:focus,
+    .my-2:active,
+    .my-2:active:focus,
+    .my-2:focus {
+      outline: none;
+    }
+  }
+}

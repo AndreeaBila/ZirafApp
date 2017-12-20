@@ -56,8 +56,72 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      <br><br><br><br>
-      <h1>EXEC PANEL</h1>
+      
+      <div id="execPanel">
+        <h4>
+          <!-- get number of pending posts from php? -->
+          <span><strong>2</strong></span> 
+          pending requests
+        </h4>
+        
+        <div class="signupRequests row">
+          <div class="col-6">
+            <div class="requestDetailsBox float-left">
+              <h6><strong>Name of User</strong></h6>
+              <p>Email Adress of User</p>
+            </div>
+          </div>
+          
+          <div class="col-6">
+          <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn1"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn1"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+        <div class="signupRequests row">
+          <div class="col-6">
+            <div class="requestDetailsBox float-left">
+              <h6><strong>Name of User</strong></h6>
+              <p>Email Adress of User</p>
+            </div>
+          </div>
+          
+          <div class="col-6">
+            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn2"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn2"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+        <div class="text-center">
+          <button type="button" id="revokeAccessBtn" data-toggle="modal" data-target="#searchUserModal">Revoke User Access</button>
+        </div>
+
+        <div class="modal fade" id="searchUserModal" tabindex="-1" role="dialog" aria-labelledby="searchUserModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <form class="form-inline my-2 my-lg-0 float-left">
+                  <input class="form-control mr-sm-2 float-left" type="search" placeholder="Search User" aria-label="Search">
+                  <button class="my-2 my-sm-0 float-left" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>  
+                <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Revoke Access</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       <?php
         include './phpComponents/footer.php';
       ?>

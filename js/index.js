@@ -34,6 +34,22 @@ $(function() {
   $('#loginBtn').click(function(){
     processLoginRequest();
   });
+
+  //verify if the enter key was pressed while the login form was selected
+  $('#loginForm').keydown(function(e){
+    //verify what key was pressed
+    if(e.keyCode == 13){
+      $('#loginBtn').click();
+    }
+  });
+
+  //verify if the enter key was pressed while the signup form was selected
+  $('#signupForm').keydown(function(e){
+    //verify what key was pressed
+    if(e.keyCode == 13){
+      $('#signupBtn').click();
+    }
+  }); 
 });
 
 //verify the data passed by the user on the client side

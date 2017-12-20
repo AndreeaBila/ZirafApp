@@ -6,10 +6,13 @@
   #chatMenuNav {
     position: fixed;
     left: 0;
-    background-color: rgba(242,145,10,0.3);
-    line-height: 55px;
-    height: 55px;
+    z-index: 99;
+    top: $navHeight;
+    background-color: #fbdeb5;
+    line-height: $navHeight;
+    height: $navHeight;
     width: 100%;
+    border-top: 1px solid rgba(242,145,10,0.6);
     border-bottom: 1px solid rgba(242,145,10,0.6);
   }
 
@@ -30,10 +33,10 @@
   #chatMenu {
     position: fixed;
     left: 0;
-    top: $navHeight + 55px;
+    top: $navHeight*2;
     width: 90%;
-    height: 50vh;
-    background-color: rgba(242,145,10,1);
+    height: 100vh - 3*$navHeight;
+    background-color: #fbdeb5;
     border-bottom: 1px solid rgba(242,145,10,0.6);
     border-right: 1px solid rgba(242,145,10,0.6);
     -webkit-box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.1);
@@ -42,10 +45,10 @@
   }
 
   .chatBox {
-    padding-top: 55px;
+    padding-top: $navHeight;
     .messageBox {
       margin: 5px;
-      width: 280px;
+      width: 80%;
       height: fit-content;
       border-radius: 10px;
       color: white;
@@ -75,12 +78,40 @@
       }
     }
     .myMessage {
-      background-color: rgba(242,145,10,0.3);
+      background-color: rgba(242,145,10,0.2);;
+      color: $zirafColor;
       border: 1px solid rgba(242,145,10,0.6);
     }
     .otherMessage {
       background-color: rgba(242,145,10,1);
       border: 1px solid rgba(242,145,10,0.6);
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .header, .footer {
+    height: $landscapeNavHeight;
+    button {
+      height: $landscapeNavHeight;
+    }
+  }
+
+  #wrapper {
+    padding-top: $landscapeNavHeight;
+    padding-bottom: $landscapeNavHeight;
+  }
+  #chat {
+    #chatMenuNav {
+      height: $landscapeNavHeight;
+      top: $landscapeNavHeight;
+      line-height: $landscapeNavHeight;
+    }
+    #chatMenu {
+      top: $landscapeNavHeight*2;
+    }
+    .chatBox {
+      padding-top: $landscapeNavHeight;
     }
   }
 }

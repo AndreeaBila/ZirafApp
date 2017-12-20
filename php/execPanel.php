@@ -75,7 +75,7 @@
           </div>
           
           <div class="col-6">
-          <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn1"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn1" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
             <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn1"><i class="fa fa-plus" aria-hidden="true"></i></button>
           </div>
 
@@ -92,11 +92,32 @@
           </div>
           
           <div class="col-6">
-            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn2"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" class="float-right declineRequestBtn" id="declineRequestBtn2" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
             <button type="button" class="float-right confirmRequestBtn" id="confirmRequestBtn2"><i class="fa fa-plus" aria-hidden="true"></i></button>
           </div>
 
           <div class="clear"></div>
+        </div>
+
+        <!-- CONFIRM DECLINE REQUST MODAL -->
+        <div class="modal fade" id="confirmDeclineModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeclineModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeclineModalLabel">Decline request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to decline this request?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="Dismiss">Close</button>
+                <button type="button" class="btn btn-danger">Decline</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- REVOKE USER ACCESS BUTTON -->
@@ -105,7 +126,7 @@
         </div>
 
         <!-- REVOKE USER ACCESS MODAL -->
-        <div class="modal fade" id="searchUserModal" tabindex="-1" role="dialog" aria-labelledby="searchUserModal" aria-hidden="true">
+        <div class="modal fade" id="searchUserModal" tabindex="-1" role="dialog" aria-labelledby="searchUserModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body">

@@ -62,8 +62,10 @@
           <!-- get number of pending posts from php? -->
           <span><strong>2</strong></span> 
           pending requests
+          <!-- or there are no any pending requests -->
         </h4>
         
+        <!-- BEGINNING OF SIGNUP REQUEST OULTINE -->
         <div class="signupRequests row">
           <div class="col-6">
             <div class="requestDetailsBox float-left">
@@ -79,6 +81,7 @@
 
           <div class="clear"></div>
         </div>
+        <!-- ENDING OF SIGNUP REQUEST OUTLINE -->
 
         <div class="signupRequests row">
           <div class="col-6">
@@ -96,10 +99,12 @@
           <div class="clear"></div>
         </div>
 
+        <!-- REVOKE USER ACCESS BUTTON -->
         <div class="text-center">
           <button type="button" id="revokeAccessBtn" data-toggle="modal" data-target="#searchUserModal">Revoke User Access</button>
         </div>
 
+        <!-- REVOKE USER ACCESS MODAL -->
         <div class="modal fade" id="searchUserModal" tabindex="-1" role="dialog" aria-labelledby="searchUserModal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">

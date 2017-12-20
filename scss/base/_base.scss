@@ -4,6 +4,8 @@ html, body {
 }
 
 #wrapper {
+	margin: 0;
+	min-width: 100%!important;
 	min-height: 100%;
 	position: relative;
 	padding-top: $navHeight;

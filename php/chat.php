@@ -52,8 +52,15 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      <br><br><br><br>
-      <h1>CHAT</h1>
+      
+      <div id="chat">
+        <div id="chatMenuNav">
+          <button type="button" id="chatMenuBtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        </div>
+
+        <div id="chatMenu"></div>
+      </div>
+
       <?php
         include './phpComponents/footer.php';
       ?>
@@ -68,12 +75,15 @@
     integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" 
     integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/chat.js"></script>
 
   </body>
 </html>

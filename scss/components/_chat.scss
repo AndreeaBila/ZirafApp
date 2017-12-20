@@ -1,0 +1,25 @@
+#chat {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  #chatMenuNav {
+    
+    background-color: rgba(242,145,10,0.3);
+    line-height: 55px;
+    height: 55px;
+    width: 100%;
+    border-bottom: 1px solid rgba(242,145,10,0.6);
+  }
+  #chatMenuBtn {
+    border: none;
+    background-color: transparent;
+    font-size: 40px;
+    color: $zirafColor;
+  }
+
+  #chatMenu {
+    width: 90%;
+    height: 50vh;
+    background-color: rgba(242,145,10,0.3);
+  }
+}

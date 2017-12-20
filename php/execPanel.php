@@ -65,7 +65,7 @@
           <!-- or there are no any pending requests -->
         </h4>
         
-        <!-- BEGINNING OF SIGNUP REQUEST OULTINE -->
+        <!-- BEGINNING OF SIGNUP REQUEST TEMPLATE -->
         <div class="signupRequests row">
           <div class="col-6">
             <div class="requestDetailsBox float-left">
@@ -81,7 +81,7 @@
 
           <div class="clear"></div>
         </div>
-        <!-- ENDING OF SIGNUP REQUEST OUTLINE -->
+        <!-- ENDING OF SIGNUP REQUEST TEMPLATE -->
 
         <div class="signupRequests row">
           <div class="col-6">

@@ -59,6 +59,54 @@
         </div>
 
         <div id="chatMenu"></div>
+
+        <div class="chatBox">
+          <!-- MESSAGE TEMPLATE -->
+          <div class="messageBox myMessage float-right">
+            <div class="messageHeader">
+              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
+              <p class="messageName float-left">Firstname Lastname</p>
+              <p class="messageTime float-right">12:30pm</p>
+            </div>
+            <div class="clear"></div>
+            <div class="messageBody">
+              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+              </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <div class="messageBox otherMessage float-left">
+            <div class="messageHeader">
+              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
+              <p class="messageName float-left">Firstname Lastname</p>
+              <p class="messageTime float-right">12:30pm</p>
+            </div>
+            <div class="clear"></div>
+            <div class="messageBody">
+              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+              </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <div class="messageBox myMessage float-right">
+            <div class="messageHeader">
+              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
+              <p class="messageName float-left">Firstname Lastname</p>
+              <p class="messageTime float-right">12:30pm</p>
+            </div>
+            <div class="clear"></div>
+            <div class="messageBody">
+              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+              </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+        </div>
+        
+
       </div>
 
       <?php

@@ -71,14 +71,14 @@
           $count = 0;
           $displayMessage = ($pendingRequests->num_rows > 1) ? 'pending requests' : 'pending request';
           //dislpay the number of pending requests
-          echo '<h4>
+          echo '<h4  id="numRequests">
                   <!-- get number of pending posts from php? -->
                   <span><strong>'.$pendingRequests->num_rows.'</strong></span> 
                   '.$displayMessage.'
                   <!-- or there are no any pending requests -->
                 </h4>';
           while($row = $pendingRequests->fetch_assoc()){
-            echo '<div class="signupRequests row" id="row"'.$count++.'>
+            echo '<div class="signupRequests row" id="row'.$count++.'">
             <div class="col-6">
               <div class="requestDetailsBox float-left">
                 <h6><strong>'.$row['userName'].'</strong></h6>
@@ -110,8 +110,8 @@
                 Are you sure you want to decline this request?
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="Dismiss">Close</button>
-                <button type="button" class="btn btn-danger">Decline</button>
+                <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="Dismiss">Close</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Decline</button>
               </div>
             </div>
           </div>

@@ -17,4 +17,9 @@
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->close();
+    //get the number of pending requests
+    $query = "SELECT count(*) AS Total FROM USERS WHERE execActivation = 0";
+    $result = $db->query($query);
+    $row = $result->fetch_assoc();
+    echo $row['Total'];
 ?>

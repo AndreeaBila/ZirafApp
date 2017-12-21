@@ -66,7 +66,7 @@
             <div class="messageHeader">
               <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
               <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">12:30pm</p>
+              <p class="messageTime float-right">23:49</p>
             </div>
             <div class="clear"></div>
             <div class="messageBody">
@@ -75,12 +75,13 @@
             </div>
           </div>
           <div class="clear"></div>
+          <!-- END OF MESSAGE TEMPLATE -->
 
           <div class="messageBox otherMessage float-left">
             <div class="messageHeader">
               <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
               <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">12:30pm</p>
+              <p class="messageTime float-right">00:07</p>
             </div>
             <div class="clear"></div>
             <div class="messageBody">
@@ -94,7 +95,7 @@
             <div class="messageHeader">
               <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
               <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">12:30pm</p>
+              <p class="messageTime float-right">05:45</p>
             </div>
             <div class="clear"></div>
             <div class="messageBody">
@@ -106,6 +107,13 @@
 
         </div>
         
+        <!-- WRITING MESSAGE BOX -->
+        <div id="chatMessageInputBox">
+          <form action="" id="chatMessageInputForm">
+            <input type="textarea" id="chatMessageInput" name="chatMessageInput" placeholder="...">
+            <input type="submit" value="Send" class="btn btn-primary float-right" id="sendChatMessage" name="sendChatMessage">
+          </form>
+        </div>
 
       </div>
 

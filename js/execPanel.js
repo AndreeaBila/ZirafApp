@@ -13,7 +13,7 @@ $(function(){
                 if(response == '1'){
                     $('#numRequests').html("<span><strong>" + response + "</span></strong> pending request");
                 }else{
-                    $('#numRequests').text("<span><strong>" + response + "</span></strong> pending requests");
+                    $('#numRequests').html("<span><strong>" + response + "</span></strong> pending requests");
                 }
             },
             error: function(){
@@ -38,7 +38,7 @@ $(function(){
                     if(response == '1'){
                         $('#numRequests').html("<span><strong>" + response + "</span></strong> pending request");
                     }else{
-                        $('#numRequests').text("<span><strong>" + response + "</span></strong> pending requests");
+                        $('#numRequests').html("<span><strong>" + response + "</span></strong> pending requests");
                     }
                 },
                 error: function(){

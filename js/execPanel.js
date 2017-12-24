@@ -52,6 +52,15 @@ $(function(){
     $('#closeModalBtn').click(function(){
         $('#confirmDeclineModal').modal('hide');
     });
+
+    //when this is clickd load all zirafers into an array
+    // $.getJSON("../php/phpDirectives/getEmailList.php", function(data){
+    //     console.log(data);
+    //     //bind the email list to the the search box
+    //     $('#tags').autocomplete({
+    //         source: data
+    //     });
+    // });
 });
 
 function getUserData(index){

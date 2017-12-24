@@ -58,11 +58,29 @@
           <button type="button" id="chatMenuBtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
         </div>
 
-        <div id="chatMenu"></div>
-
+        <div id="chatMenu">
+          <!-- list all chats from the database -->
+          <?php
+            //create database connection
+            require_once "phpComponents/databaseConnection.php";
+            $db = createConnection();
+            //query all the chats for this user
+            $query = "SELECT chatName FROM CHATS C INNER JOIN USER_CHATS UC ON C.chatId = UC.chatId WHERE(userId = ?)";
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("s", $_SESSION['userId']);
+            $stmt->execute();
+            $stmt->bind_result($chatList);
+            while($stmt->fetch()){
+              echo $chatList . "<br>";
+            }
+            $stmt->close();
+          ?>
+        </div>
+  
         <div class="chatBox">
+          <p class="loadLink">Load More</p>
           <!-- MESSAGE TEMPLATE -->
-          <div class="messageBox myMessage float-right">
+          <!-- <div class="messageBox myMessage float-right">
             <div class="messageHeader">
               <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
               <p class="messageName float-left">Firstname Lastname</p>
@@ -74,10 +92,10 @@
               </p>
             </div>
           </div>
-          <div class="clear"></div>
+          <div class="clear"></div> -->
           <!-- END OF MESSAGE TEMPLATE -->
 
-          <div class="messageBox otherMessage float-left">
+          <!-- <div class="messageBox otherMessage float-left">
             <div class="messageHeader">
               <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
               <p class="messageName float-left">Firstname Lastname</p>
@@ -103,15 +121,15 @@
               </p>
             </div>
           </div>
-          <div class="clear"></div>
+          <div class="clear"></div> -->
 
         </div>
         
         <!-- WRITING MESSAGE BOX -->
         <div id="chatMessageInputBox">
-          <form action="" id="chatMessageInputForm">
+          <form id="chatMessageInputForm">
             <input type="textarea" id="chatMessageInput" name="chatMessageInput" placeholder="...">
-            <input type="submit" value="Send" class="btn btn-primary float-right" id="sendChatMessage" name="sendChatMessage">
+            <input type="button" value="Send" class="btn btn-primary float-right" id="sendChatMessage" name="sendChatMessage">
           </form>
         </div>
 

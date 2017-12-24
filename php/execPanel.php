@@ -128,7 +128,7 @@
             <div class="modal-content">
               <div class="modal-body">
                 <form class="form-inline my-2 my-lg-0 float-left">
-                  <input class="form-control mr-sm-2 float-left" type="search" placeholder="Search User" aria-label="Search">
+                  <input class="form-control mr-sm-2 float-left" id="revokeAccessSearchBox" type="search" placeholder="Search User" aria-label="Search">
                   <button class="my-2 my-sm-0 float-left" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>  
                 <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
@@ -159,7 +159,9 @@
     integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" 
     integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 

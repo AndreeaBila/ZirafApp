@@ -111,15 +111,13 @@
         private $messageId;
         private $userId;
         private $chatId;
-        private $userName;
         private $content;
         private $dateCreated;
 
-        public function __construct($messageId, $userId, $chatId, $userName, $content, $dateCreated){
+        public function __construct($messageId, $userId, $chatId, $content, $dateCreated){
             $this->messageId = $messageId;
             $this->userId = $userId;
             $this->chatId = $chatId;
-            $this->userName = $userName;
             $this->content = $content;
             $this->dateCreated = $dateCreated;
         }
@@ -128,7 +126,6 @@
             $messageInfo = array("messageId" => $this->messageId,
                                  "userId" => $this->userId,
                                  "chatId" => $this->chatId,
-                                 "userName" => $this->userName,
                                  "content" => $this->content,
                                  "dateCreated" => $this->dateCreated);
             return $messageInfo;

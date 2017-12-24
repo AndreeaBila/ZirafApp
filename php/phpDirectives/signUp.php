@@ -16,7 +16,7 @@
                       "rank" => "Baby Zirafer",
                       "dateJoined" => date("Y-m-d"));
     //verify provided email address
-    if(filter_var($userData['email'], FILTER_VALIDATE_EMAIL) === false){
+    if(!filter_var($userData['email'], FILTER_VALIDATE_EMAIL)){
         die("Error with email");
     }
     //create salt
@@ -45,6 +45,16 @@
     //====== REMEMBER TO ACTIVATE ======
     //mail($userData['email'], $subject, $message);
 
+    //insert user into the default chat: All Zirafers
+    //create a new record in the user_chats table between the current user and the all zirafers chat
+    //get the userId of the current user
+    $userId = getUserId($db, $userData['email']);
+    $date = date("Y-m-d");
+    $insertRecord = "INSERT INTO USER_CHATS VALUES(?, 1, ?)";
+    $stmt = $db->prepare($insertRecord);
+    $stmt->bind_param("ss", $userId, $date);
+    $stmt->execute();
+    $stmt->close();
     header("Location: ../signupResult.php");
 
 

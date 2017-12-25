@@ -53,7 +53,6 @@
     echo "success";
     //set the user session information
     $_SESSION['userId'] = $userId;
-
     //verify if the keep me logged in box has been checked
     $keepLogged = isset($_POST['keepLogged']);
     if($keepLogged){

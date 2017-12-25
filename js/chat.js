@@ -1,14 +1,17 @@
+var selectedChat = {
+  chatName : "All Zirafers",
+  chatId : 1
+};
+
+var messages;
+
 $(function() {
   $('#chatMenu').hide();
   $('#chatMenuBtn').click(function() {
     $('#chatMenu').toggle('slide');
   });
-  var selectedChat = {
-    chatName : "All Zirafers",
-    chatId : 1
-  };
+  
   //load all message from the database associtaed with the given chat
-  var messages;
   $.ajax({
     data: selectedChat,
     url: "../php/phpDirectives/getMessages.php",
@@ -41,23 +44,34 @@ $(function() {
           alert("error occured");
         }
       });
+      //clear the value of the text box
+      $('#chatMessageInput').val("");
+      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     }
   });
 
   //check for new message every 0.5 seconds
   window.setInterval(function(){
-    messageTimeout(messages, selectedChat);
+    messageTimeout();
   }, 500);
+
+  //check if the user pressed enter
+  $('#chatMessageInput').keydown(function(e){
+    //verify what key was pressed
+    if(e.keyCode == 13){
+      $('#sendChatMessage').click();
+    }
+  });
 });
 
-function displayChat(messages){
+function displayChat(messageList){
   const MESSAGE_DISPLAY_STEP = 20;
   //display first batch of messages
   var i = 0;
   var count = 0;
-  while(i < messages.length){
+  while(i < messageList.length){
     //get the message at given index
-    var message = messages[i++];
+    var message = messageList[i++];
     count++;
     var messageElement = parseMessage(message);
     $('.loadLink').append(messageElement);
@@ -81,37 +95,44 @@ function parseMessage(message){
 
 }
 
-function messageTimeout(messages, selectedChat){
+function messageTimeout(){
   //check if there are any new messages
-  var lastMessage = {
-    messageId : messages[messages.length - 1].messageId,
-    chatId : selectedChat.chatId
-  };
+  if(messages.length === 0){
+    var lastMessage = {
+      messageId : 0,
+      chatId : selectedChat.chatId
+    };
+  }else{
+    var lastMessage = {
+      messageId : messages[messages.length - 1].messageId,
+      chatId : selectedChat.chatId
+    };
+  }
   //check if there are any new messages and get the number of messages
   $.ajax({
     data: lastMessage,
     url: "../php/phpDirectives/getNumberOfNewMessages.php",
     type: "GET",
     success: function(result){
-      //query the last reuslt messages
-      var queryMessages = {
-        count : result,
-        chatId : selectedChat.chatId
-      };
-      $.ajax({
-        data: queryMessages,
-        url: "../php/phpDirectives/getLastMessages.php",
-        type: "GET",
-        success: function(response){
-          var messageArray = JSON.parse(response);
-          console.log(messageArray.length);
-          if(messageArray.length > 0){
-            messages.concat(messageArray);
-            console.log(messages[messages.length - 1].messageId);
-            //displayChat(messageArray);
+      if(result > 0){
+        //query the last reuslt messages
+        var queryMessages = {
+          count : result,
+          chatId : selectedChat.chatId
+        };
+        $.ajax({
+          data: queryMessages,
+          url: "../php/phpDirectives/getLastMessages.php",
+          type: "GET",
+          success: function(response){
+            var messageArray = JSON.parse(response);
+            if(messageArray.length > 0){
+              displayChat(messageArray);
+              messages = messages.concat(messageArray);
+            }
           }
-        }
-      });
+        });
+      }
     }
   });
 }

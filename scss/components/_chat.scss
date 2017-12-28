@@ -14,20 +14,32 @@
     width: 100%;
     border-top: 1px solid rgba(242,145,10,0.6);
     border-bottom: 1px solid rgba(242,145,10,0.6);
-  }
 
-  #chatMenuBtn {
-    border: none;
-    background-color: transparent;
-    font-size: 40px;
-    color: $zirafColor;
-  }
+    .row {
+      line-height: $navHeight;
+      h3 {
+        font-size: 25px;
+        color: $zirafColor;
+        line-height: $navHeight;
+      }
 
-  #chatMenuBtn:active,
-  #chatMenuBtn:active:focus,
-  #chatMenuBtn:focus {
-    outline: none;
-    border: none;
+      #chatMenuBtn, #chatSettingsBtn {
+        border: none;
+        background-color: transparent;
+        font-size: 40px;
+        color: $zirafColor;
+      }
+    
+      #chatMenuBtn:active,
+      #chatMenuBtn:active:focus,
+      #chatMenuBtn:focus,
+      #chatSettingsBtn:active,
+      #chatSettingsBtn:active:focus,
+      #chatSettingsBtn:focus {
+        outline: none;
+        border: none;
+      }
+    }
   }
 
   #chatMenu {
@@ -48,6 +60,8 @@
       padding: 10px;
       font-weight: 600;
       color: $zirafColor;
+      background-color: rgba(242,145,10,0.2);
+      border-bottom: 0.5px solid rgba(242,145,10,0.25);
       font-size: 22px;
     }
 
@@ -89,6 +103,94 @@
     }
   }
 
+  #chatSettings {
+    position: fixed;
+    right: 0;
+    top: $navHeight*2;
+    width: 90%;
+    height: 100vh - 3*$navHeight;
+    overflow-y: scroll;
+    background-color: #fbdeb5;
+    border-bottom: 1px solid rgba(242,145,10,0.6);
+    border-left: 1px solid rgba(242,145,10,0.6);
+    -webkit-box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
+    box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
+    padding: 10px 0px;
+
+    #addMembers,
+    #leaveChat {
+      background-color: rgba(242,145,10,0.05);
+      border: 0.5px solid rgba(242,145,10,0.2);
+      padding: 10px 10px;
+      color: red;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    #addMembers:active,
+    #addMembers:active:focus,
+    #addMembers:focus,
+    #leaveChat:active,
+    #leaveChat:active:focus,
+    #leaveChat:focus {
+      outline: none;
+      background-color: rgba(242,145,10,0.15);
+    }
+    
+    #membersListTitleBox {
+      margin-top: 10px;
+      #membersListTitle {
+        font-size: 22px;
+        font-weight: 600;
+        margin: -10px 0px -12px;
+      }
+      color: $zirafColor;
+      background-color: rgba(242,145,10,0.2);
+      border-bottom: 0.5px solid rgba(242,145,10,0.25);
+      padding: 10px 10px 5px;
+    }
+
+    #membersList {
+      padding: 5px;
+      
+      .memberBox {
+        height: 50px;
+        // width: 100%;
+        background-color: rgba(242,145,10,0.1);
+        border: 0.5px solid rgba(242,145,10,0.15);
+        margin: 5px;
+        padding: 5px;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+        }
+
+        p {
+          padding: 8px 4px;
+          font-size: 18px;
+        }
+
+        button {
+          margin: 9.5px 0px;
+          border: none;
+          background-color: transparent;
+          color: red;
+          font-size: 12px;
+        }
+
+        button:active,
+        button:active:focus,
+        button:focus {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+
   .chatBox {
     padding-top: $navHeight;
     padding-bottom: 50px;
@@ -126,11 +228,11 @@
     .myMessage {
       background-color: rgba(242,145,10,0.2);
       color: $zirafColor;
-      border: 1px solid rgba(242,145,10,0.6);
+      border: 0.5px solid rgba(242,145,10,0.2);
     }
     .otherMessage {
       background-color: rgba(242,145,10,1);
-      border: 1px solid rgba(242,145,10,0.6);
+      border: 0.5px solid rgba(242,145,10,0.6);
     }
   }
 
@@ -177,17 +279,27 @@
   }
 }
 
-#createChatModal {
+.modal {
   .form-group {
+    input[type="text"]:active,
+    input[type="text"]:active:focus,
+    input[type="text"]:focus {
+      box-shadow: none;
+    }
     #addedMembers {
       .members{
+        background-color: rgba(242,145,10,0.1);;
+        margin: 5px;
+        padding: 5px;
         .emails {
-          color: red;
+          font-size: 14px;
         }
 
         .removeMemberBtn {
           border: none;
           background-color: transparent;
+          font-size: 12px;
+          color: red;
         }
       }
     }

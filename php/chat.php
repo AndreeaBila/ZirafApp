@@ -54,7 +54,11 @@
       
       <div id="chat">
         <div id="chatMenuNav">
-          <button type="button" id="chatMenuBtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+          <div class="row text-center">
+            <button type="button" id="chatMenuBtn" class="col-3"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <h3 class="col-6 text-center">Chat Title</h3>
+            <button type="button" id="chatSettingsBtn" class="col-3"><i class="fa fa-cogs" aria-hidden="true"></i></button>
+          </div>
         </div>
 
         <div id="chatMenu">
@@ -90,6 +94,47 @@
             }
             $stmt->close();
           ?>
+        </div>
+
+        <!-- Chat settings side menu -->
+        <div id="chatSettings">
+          <button type="button" id="addMembers" class="col-12" data-toggle="modal" data-target="#addUserModal">Add Members</button>
+          <button type="button" id="leaveChat" class="col-12" data-toggle="modal" data-target="#leaveChatModal">Leave Chat</button>
+
+          <div id="membersListTitleBox">
+            <p id="membersListTitle">Members</p>
+            <!-- number of participants -->
+            <small>n participants</small>
+          </div>
+        
+          <!-- List of chat participants -->
+          <div id="membersList">
+          
+            <!-- participant template start -->
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+            <!-- participant template end -->
+
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+
+          </div>
+  
         </div>
   
         <div class="chatBox">
@@ -188,18 +233,18 @@
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembers">
                     <div class="members row">
-                      <p class="emails col-8">test@test.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> test@test.com</p>
+                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
                     </div>
 
                     <div class="members row">
-                      <p class="emails col-8">exec@exec.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> exec@exec.com</p>
+                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
                     </div>
 
                     <div class="members row">
-                      <p class="emails col-8">zirafer@zirafer.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> zirafer@zirafer.com</p>
+                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
                     </div>
 
                   </div>
@@ -211,6 +256,106 @@
                   <button type="submit" class="btn btn-success" id="confirmDeleteBtn">Create Chat</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD USER TO EXISTING CHAT MODAL -->
+      <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addUserModalLabel">Add Users</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Search User Email</label>
+                <input type="text" list="userEmails" class="form-control">
+                <datalist id="userEmails">
+                  <option value="HTML">
+                  <option value="CSS">
+                  <option value="JavaScript">
+                  <option value="Java">
+                  <option value="Ruby">
+                  <option value="PHP">
+                  <option value="Go">
+                  <option value="Erlang">
+                  <option value="Python">
+                  <option value="C">
+                  <option value="C#">
+                  <option value="C++">
+                </datalist>
+
+                <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
+                <div id="addedMembers">
+                  <div class="members row">
+                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> test@test.com</p>
+                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
+                  </div>
+
+                  <div class="members row">
+                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> exec@exec.com</p>
+                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
+                  </div>
+
+                  <div class="members row">
+                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> zirafer@zirafer.com</p>
+                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
+                  </div>
+                </div>
+                <!-- ADDED MEMEBER TEMPLATE END -->
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success" id="addBtn">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAVE CHAT MODAL -->
+      <div class="modal fade" id="leaveChatModal" tabindex="-1" role="dialog" aria-labelledby="leaveChatModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="leaveChatModalLabel">Leave Chat</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to leave this chat?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" id="leaveChatBtn">Leave</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REMOVE USER FROM CHAT MODAL -->
+      <div class="modal fade" id="removeUserModal" tabindex="-1" role="dialog" aria-labelledby="removeUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="removeUserModalLabel">Remove user</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to remove this user from the chat?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" id="removeUserBtn">Remove</button>
             </div>
           </div>
         </div>

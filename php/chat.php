@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
-    <title>Zirafers - Log In</title>
+    <title>Zirafers - Chat</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
     <meta 
@@ -65,35 +65,16 @@
           <!-- Nu stiu cum sa integrez asta in ce ai scris tu in php... -->
           <p id="yourChats">Your Chats</p>
           <ul id="chatsList">
-            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> All Zirafers</li>
-            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> Execs</li>
-            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> Friends</li>
+            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> All Zirafers</li>
+            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> Execs</li>
+            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> Friends</li>
           </ul>
           
-          <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createGroupModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createChatModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
           <div class="clear"></div>
           <!-- Template end -->
 
-          <!-- CREATE NEW GROUP MODAL -->
-          <div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog" aria-labelledby="createGroupModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="createGroupModalLabel">Decline request</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Are you sure you want to decline this request?
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="Dismiss">Close</button>
-                  <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Decline</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <?php
             //create database connection
@@ -168,6 +149,72 @@
           </form>
         </div>
 
+      </div>
+
+      <!-- CREATE NEW GROUP MODAL -->
+      <div class="modal fade" id="createChatModal" tabindex="-1" role="dialog" aria-labelledby="createChatModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createChatModalLabel">Create New Chat</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="" id="createChatForm">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Chat Name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Add Members</label>
+                  <input type="text" list="userEmails" class="form-control">
+                  <datalist id="userEmails">
+                    <option value="HTML">
+                    <option value="CSS">
+                    <option value="JavaScript">
+                    <option value="Java">
+                    <option value="Ruby">
+                    <option value="PHP">
+                    <option value="Go">
+                    <option value="Erlang">
+                    <option value="Python">
+                    <option value="C">
+                    <option value="C#">
+                    <option value="C++">
+                  </datalist>
+
+                  <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
+                  <div id="addedMembers">
+                    <div class="members row">
+                      <p class="emails col-8">test@test.com</p>
+                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                    </div>
+
+                    <div class="members row">
+                      <p class="emails col-8">exec@exec.com</p>
+                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                    </div>
+
+                    <div class="members row">
+                      <p class="emails col-8">zirafer@zirafer.com</p>
+                      <button type="button" class="removeMemberBtn col-4">&times;</button>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- ADDED MEMEBER TEMPLATE END -->
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-success" id="confirmDeleteBtn">Create Chat</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
 
       <?php

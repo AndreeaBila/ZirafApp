@@ -177,6 +177,23 @@
   }
 }
 
+#createChatModal {
+  .form-group {
+    #addedMembers {
+      .members{
+        .emails {
+          color: red;
+        }
+
+        .removeMemberBtn {
+          border: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (orientation: landscape) {
   .header, .footer {
     height: $landscapeNavHeight;

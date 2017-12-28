@@ -12,17 +12,18 @@
     $chatId = strip_tags(stripslashes($_GET['chatId']));
     $count = strip_tags(stripslashes($_GET['count']));
     //get the last messages
-    $query = "SELECT M.messageId, M.userId, M.chatId, M.content, M.dateCreated, U.userName FROM MESSAGES M INNER JOIN USERS U ON M.userId = U.userId WHERE chatId = ? ORDER BY M.messageId DESC LIMIT ?";
+    $query = "SELECT M.messageId, M.userId, M.chatId, M.content, M.dateCreated, U.userName, U.iconExtension FROM MESSAGES M INNER JOIN USERS U ON M.userId = U.userId WHERE chatId = ? ORDER BY M.messageId DESC LIMIT ?";
     $stmt = $db->prepare($query);
     $stmt->bind_param("ss", $chatId, $count);
     $stmt->execute();
-    $stmt->bind_result($messageId, $userId, $chatId, $content, $dateCreated, $userName);
+    $stmt->bind_result($messageId, $userId, $chatId, $content, $dateCreated, $userName, $iconExtension);
     $messageList = array();
     while($stmt->fetch()){
         $message = new Message($messageId, $userId, $chatId, $content, $dateCreated);
         $messageData = $message->getMessageData();
         $messageData['myMessage'] = ($_SESSION['userId'] == $userId) ? true : false;
         $messageData['userName'] = $userName;
+        $messageData['iconExtension'] = $iconExtension;
         array_push($messageList, $messageData);
     }
     $stmt->close();

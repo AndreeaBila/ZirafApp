@@ -12,9 +12,12 @@ $(function() {
     $('#chatMessageInputBox').slideToggle();
   });
   
+  //create payload to select 20 messages from this chat
+  dataPayload = selectedChat;
+  dataPayload['messageIndex'] = -1;
   //load all message from the database associtaed with the given chat
   $.ajax({
-    data: selectedChat,
+    data: dataPayload,
     url: "../php/phpDirectives/getMessages.php",
     type: "GET",
     success: function(data){
@@ -66,7 +69,6 @@ $(function() {
 });
 
 function displayChat(messageList){
-  const MESSAGE_DISPLAY_STEP = 20;
   //display first batch of messages
   var i = 0;
   var count = 0;
@@ -82,9 +84,9 @@ function displayChat(messageList){
 function parseMessage(message){
   var messageElement = (message.myMessage) ? '<div class="messageBox myMessage float-right">' : '<div class="messageBox otherMessage float-left">'
   messageElement +=       '<div class="messageHeader">' + 
-                            '<img src="../img/userIcons/'+ message.userId +'.jpeg" alt="Pic" class="messageImage float-left">' +
+                            '<img src="../img/userIcons/'+ message.userId + '.' + message.iconExtension + '" alt="Pic" class="messageImage float-left">' +
                             '<p class="messageName float-left">'+ message.userName +'</p>' +
-                            '<p class="messageTime float-right">'+ message.dateCreated +'</p>' +
+                            '<p class="messageTime float-right">'+ message.dateCreated.slice(0, -3) +'</p>' +
                           '</div>' +
                           '<div class="clear"></div>' +
                           '<div class="messageBody">' +
@@ -130,6 +132,7 @@ function messageTimeout(){
             if(messageArray.length > 0){
               displayChat(messageArray);
               messages = messages.concat(messageArray);
+              $("html, body").animate({ scrollTop: $(document).height() }, 1000);
             }
           }
         });

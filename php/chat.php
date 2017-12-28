@@ -17,7 +17,6 @@
     <title>Zirafers - Log In</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
-    <meta 
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
@@ -162,10 +161,10 @@
         
         <!-- WRITING MESSAGE BOX -->
         <div id="chatMessageInputBox">
-          <form id="chatMessageInputForm">
-            <input type="textarea" id="chatMessageInput" name="chatMessageInput">
+          <!-- <form id="chatMessageInputForm"> this is causing a reload effect so I commented out = delete it --> 
+            <input type="textarea" id="chatMessageInput" name="chatMessageInputs">
             <input type="button" value="Send" class="btn btn-primary float-right" id="sendChatMessage" name="sendChatMessage">
-          </form>
+          <!-- </form> -->
         </div>
 
       </div>

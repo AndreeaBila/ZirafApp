@@ -27,14 +27,6 @@
     $userData["password"] = sha1($userData['password'] . $userData['salt']);
     //cookie hash
     $userData["cookie"] = sha1(time() . time() . time());
-    //create insert statement
-    $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, 0, 0, ?, ?)";
-    //create statement
-    $stmt = $db->prepare($query);
-    $stmt->bind_param("sssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
-    $stmt->execute() or die("An error has occured");
-    $stmt->close();
-
     //get the user file
     manageFileUpload($db, $userData);
 
@@ -55,6 +47,7 @@
     $stmt->bind_param("ss", $userId, $date);
     $stmt->execute();
     $stmt->close();
+    //don't execute the statemetn now and wait for the file upload
     header("Location: ../signupResult.php");
 
 
@@ -101,10 +94,16 @@
             }
             
             $info = pathinfo($_FILES['signupProfilePictureBtn']['name']);
-            $ext = $info['extension']; // get the extension of the file
-            $newname = getUserId($db, $userData['email']).'.'.$ext; 
+            $ext = $info['extension']; // get the extension of the files
+            //create insert statement
+            $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, ?, 0, 0, ?, ?)";
+            //create statement
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("ssssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $ext, $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
+            $stmt->execute() or die("Error occured while saving the data");
+            $stmt->close();
+            $newname = getUserId($db, $userData['email']).'.'.$ext;
             $target = '../../img/userIcons/'.$newname;
-
             // You should name it uniquely.
             // DO NOT USE $_FILES['signupProfilePictureBtn']['name'] WITHOUT ANY VALIDATION !!
             // On this example, obtain safe unique name from its binary data.
@@ -114,7 +113,7 @@
                 )
             ) {
                 throw new RuntimeException('Failed to move uploaded file.');
-            }        
+            }
         } catch (RuntimeException $e) {
             die($e->getMessage());
         }

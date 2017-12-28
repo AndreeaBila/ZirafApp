@@ -7,9 +7,9 @@
   height: $navHeight;
   background-color: $zirafColor;
   //line-height: $navHeight;
-  -webkit-box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.5);
-  box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.4);
+  box-shadow: 0px 17px 36px 5px rgba(0,0,0,0.4);
 
   button {
     border: none;
@@ -37,9 +37,9 @@
 
   .row {
     .activeNav {
-      background-color: $footerColor;
+      background-color: $footerColor!important;
       p {
-        color: $zirafColor;
+        color: $zirafColor!important;
       }
     }
   }

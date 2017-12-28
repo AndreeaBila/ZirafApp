@@ -60,6 +60,19 @@
 
         <div id="chatMenu">
           <!-- list all chats from the database -->
+
+          <!-- Template start - What is should look like -->
+          <!-- Nu stiu cum sa integrez asta in ce ai scris tu in php... -->
+          <p id="yourChats">Your Chats</p>
+            <div id="chatsList">
+              <p class="chats">All Zirafers</p>
+              <p class="chats">Execs</p>
+              <p class="chats">Friends</p>
+            </div>
+          
+          <button type="button" id="createNewChat"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <!-- Template end -->
+
           <?php
             //create database connection
             require_once "phpComponents/databaseConnection.php";

@@ -9,6 +9,7 @@ $(function() {
   $('#chatMenu').hide();
   $('#chatMenuBtn').click(function() {
     $('#chatMenu').toggle('slide');
+    $('#chatMessageInputBox').slideToggle();
   });
   
   //load all message from the database associtaed with the given chat

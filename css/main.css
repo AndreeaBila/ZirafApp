@@ -1,1 +1,512 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul li{display:inline-block}nav ul a{text-decoration:none}body{line-height:1.5}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}html{font-size:16px}html,body{height:100%;font-family:"Raleway",sans-serif}#wrapper{margin:0;min-width:100% !important;min-height:100%;position:relative;padding-top:10vh;padding-bottom:10vh}.clear{clear:both}body{min-width:300px}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.header{position:fixed;top:0;left:0;width:100%;z-index:99;height:10vh;background-color:#fff;-webkit-box-shadow:0px -17px 36px 4px rgba(0,0,0,0.5);-moz-box-shadow:0px -17px 36px 4px rgba(0,0,0,0.5);box-shadow:0px -17px 36px 4px rgba(0,0,0,0.5)}.header button{border:none;background-color:#fff;text-decoration:none;height:10vh}.header button p{color:#f2910a}.header button p i{font-size:27px}.header button:active,.header button:active:focus,.header button:focus{border:none !important;outline:none !important}.header .navText{font-size:10px !important}.footer{position:fixed;bottom:0;left:0;z-index:99;width:100%;height:10vh;background-color:#f2910a;-webkit-box-shadow:0px 17px 36px 5px rgba(0,0,0,0.5);-moz-box-shadow:0px 17px 36px 5px rgba(0,0,0,0.5);box-shadow:0px 17px 36px 5px rgba(0,0,0,0.5)}.footer button{border:none;background-color:#f2910a;text-decoration:none;height:10vh}.footer button p{color:#fff}.footer button p i{font-size:27px}.footer button:active,.footer button:active:focus,.footer button:focus{border:none;outline:none !important}.footer .navText{font-size:10px !important}.footer .row .activeNav{background-color:#fff}.footer .row .activeNav p{color:#f2910a}#loginContainer h2,#signupContainer h2{padding:20px}#loginContainer #loginForm input,#loginContainer #signupForm input,#signupContainer #loginForm input,#signupContainer #signupForm input{border-color:#f2910a;margin-top:5px}#loginContainer #loginForm span,#loginContainer #signupForm span,#signupContainer #loginForm span,#signupContainer #signupForm span{background-color:#f2910a;margin-top:5px;border-color:#f2910a;color:#fff;width:50px}#loginContainer #loginForm #loginBtn,#loginContainer #loginForm #signupBtn,#loginContainer #signupForm #loginBtn,#loginContainer #signupForm #signupBtn,#signupContainer #loginForm #loginBtn,#signupContainer #loginForm #signupBtn,#signupContainer #signupForm #loginBtn,#signupContainer #signupForm #signupBtn{background-color:#f2910a;border-color:#f2910a}#execPanel{padding-top:15px}#execPanel h4{color:#f2910a;margin:20px 0px}#execPanel .signupRequests{margin-top:10px}#execPanel .signupRequests .requestDetailsBox{color:white;padding:8px 10px;border:1px solid rgba(242,145,10,0.7);border-radius:10px;background-color:rgba(242,145,10,0.6);width:125%;height:55px;display:inline-block}#execPanel .signupRequests .requestDetailsBox p{font-size:12px}#execPanel .signupRequests button{display:inline-block;border-radius:50%;width:55px;height:55px;line-height:20px;-webkit-box-shadow:3px 3px 5px 0px #bebebe;-moz-box-shadow:3px 3px 5px 0px #bebebe;box-shadow:3px 3px 5px 0px #bebebe}#execPanel .signupRequests button i{font-size:20px;color:white}#execPanel .signupRequests .confirmRequestBtn{border:1px solid #33cc66;background-color:#33cc66}#execPanel .signupRequests .declineRequestBtn{border:1px solid #e33f3f;background-color:#e33f3f;margin-left:5px}#execPanel #revokeAccessBtn{margin:50px;border:none;background-color:#f2910a;width:250px;height:50px;border-radius:10px;color:white}#execPanel #revokeAccessBtn:active,#execPanel #revokeAccessBtn:active:focus,#execPanel #revokeAccessBtn:focus{outline:none}#execPanel #searchUserModal input[type="search"]{border:none;border-bottom:1px solid rgba(0,0,0,0.3);border-radius:0px;width:80%;display:inline-block}#execPanel #searchUserModal .my-2{display:inline-block;border:none;background-color:transparent;cursor:pointer;color:1px solid rgba(0,0,0,0.3)}#execPanel #searchUserModal input[type="search"]:active,#execPanel #searchUserModal input[type="search"]:active:focus,#execPanel #searchUserModal input[type="search"]:focus,#execPanel #searchUserModal .my-2:active,#execPanel #searchUserModal .my-2:active:focus,#execPanel #searchUserModal .my-2:focus{outline:none}#chat{width:100%}#chat #chatMenuNav{position:fixed;left:0;z-index:99;top:10vh;background-color:#fbdeb5;line-height:10vh;height:10vh;width:100%;border-top:1px solid rgba(242,145,10,0.6);border-bottom:1px solid rgba(242,145,10,0.6)}#chat #chatMenuBtn{border:none;background-color:transparent;font-size:40px;color:#f2910a}#chat #chatMenuBtn:active,#chat #chatMenuBtn:active:focus,#chat #chatMenuBtn:focus{outline:none;border:none}#chat #chatMenu{position:fixed;left:0;top:20vh;width:90%;height:70vh;background-color:#fbdeb5;border-bottom:1px solid rgba(242,145,10,0.6);border-right:1px solid rgba(242,145,10,0.6);-webkit-box-shadow:0px 20px 36px 4px rgba(0,0,0,0.1);-moz-box-shadow:0px 20px 36px 4px rgba(0,0,0,0.1);box-shadow:0px 20px 36px 4px rgba(0,0,0,0.1)}#chat .chatBox{padding-top:10vh}#chat .chatBox .messageBox{margin:5px;width:80%;height:fit-content;border-radius:10px;color:white;padding:5px}#chat .chatBox .messageBox .messageHeader img{width:40px;height:40px;border-radius:50px}#chat .chatBox .messageBox .messageHeader .messageName{margin-top:13.5px;margin-left:5px;font-size:13px;font-weight:600}#chat .chatBox .messageBox .messageHeader .messageTime{margin-top:13.5px;font-size:12px}#chat .chatBox .messageBox .messageBody .messageContent{font-size:13px;padding:10px}#chat .chatBox .myMessage{background-color:rgba(242,145,10,0.2);color:#f2910a;border:1px solid rgba(242,145,10,0.6)}#chat .chatBox .otherMessage{background-color:#f2910a;border:1px solid rgba(242,145,10,0.6)}#chat #chatMessageInputBox{position:fixed;bottom:10vh;left:0;width:100%;height:50px;background-color:white;border-top:1px solid rgba(0,0,0,0.2)}#chat #chatMessageInputBox #chatMessageInput{height:40px;width:70%;margin:5px 0px 5px 20px;border-radius:10px;border:1px solid rgba(0,0,0,0.2);padding-left:10px}#chat #chatMessageInputBox #sendChatMessage{height:40px;line-height:10px;margin:5px;border-radius:10px;background-color:#f2910a;border:none}@media screen and (orientation: landscape){.header,.footer{height:15vh}.header button,.footer button{height:15vh}#wrapper{padding-top:15vh;padding-bottom:15vh}#chat #chatMenuNav{height:15vh;top:15vh;line-height:15vh}#chat #chatMenu{top:30vh}#chat .chatBox{padding-top:15vh}}
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 21, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 28, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+nav ul li {
+  display: inline-block;
+}
+
+/* line 32, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+nav ul a {
+  text-decoration: none;
+}
+
+/* line 38, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+body {
+  line-height: 1.5;
+}
+
+/* line 42, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 46, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 50, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 56, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 61, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_reset.scss */
+html {
+  font-size: 16px;
+}
+
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+html, body {
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+}
+
+/* line 6, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+#wrapper {
+  margin: 0;
+  min-width: 100% !important;
+  min-height: 100%;
+  position: relative;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+/* line 15, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+.clear {
+  clear: both;
+}
+
+/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+body {
+  min-width: 300px;
+}
+
+/* line 23, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  height: 10vh;
+  background-color: #fff;
+  -webkit-box-shadow: 0px -17px 36px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px -17px 36px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px -17px 36px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* line 13, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header button {
+  border: none;
+  background-color: #fff;
+  text-decoration: none;
+  height: 10vh;
+}
+
+/* line 18, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header button p {
+  color: #f2910a;
+}
+
+/* line 20, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header button p i {
+  font-size: 27px;
+}
+
+/* line 26, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header button:active,
+.header button:active:focus,
+.header button:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+/* line 33, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
+.header .navText {
+  font-size: 10px !important;
+}
+
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 10vh;
+  background-color: #f2910a;
+  -webkit-box-shadow: 0px 17px 36px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 17px 36px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 17px 36px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* line 14, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer button {
+  border: none;
+  background-color: #f2910a;
+  text-decoration: none;
+  height: 10vh;
+}
+
+/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer button p {
+  color: #fff;
+}
+
+/* line 21, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer button p i {
+  font-size: 27px;
+}
+
+/* line 27, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer button:active,
+.footer button:active:focus,
+.footer button:focus {
+  border: none;
+  outline: none !important;
+}
+
+/* line 34, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer .navText {
+  font-size: 10px !important;
+}
+
+/* line 39, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer .row .activeNav {
+  background-color: #fff !important;
+}
+
+/* line 41, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_footer.scss */
+.footer .row .activeNav p {
+  color: #f2910a !important;
+}
+
+/* line 2, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer h2, #signupContainer h2 {
+  padding: 20px;
+}
+
+/* line 8, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm input, #loginContainer #signupForm input, #signupContainer #loginForm input, #signupContainer #signupForm input {
+  border-color: #f2910a;
+  margin-top: 5px;
+}
+
+/* line 12, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm span, #loginContainer #signupForm span, #signupContainer #loginForm span, #signupContainer #signupForm span {
+  background-color: #f2910a;
+  margin-top: 5px;
+  border-color: #f2910a;
+  color: #fff;
+  width: 50px;
+}
+
+/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm #loginBtn, #loginContainer #loginForm #signupBtn, #loginContainer #signupForm #loginBtn, #loginContainer #signupForm #signupBtn, #signupContainer #loginForm #loginBtn, #signupContainer #loginForm #signupBtn, #signupContainer #signupForm #loginBtn, #signupContainer #signupForm #signupBtn {
+  background-color: #f2910a;
+  border-color: #f2910a;
+}
+
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel {
+  padding-top: 15px;
+}
+
+/* line 3, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel h4 {
+  color: #f2910a;
+  margin: 20px 0px;
+}
+
+/* line 8, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests {
+  margin-top: 10px;
+}
+
+/* line 10, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests .requestDetailsBox {
+  color: white;
+  padding: 8px 10px;
+  border: 1px solid rgba(242, 145, 10, 0.7);
+  border-radius: 10px;
+  background-color: rgba(242, 145, 10, 0.6);
+  width: 125%;
+  height: 55px;
+  display: inline-block;
+}
+
+/* line 20, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests .requestDetailsBox p {
+  font-size: 12px;
+}
+
+/* line 25, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests button {
+  display: inline-block;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  line-height: 20px;
+  -webkit-box-shadow: 3px 3px 5px 0px #bebebe;
+  -moz-box-shadow: 3px 3px 5px 0px #bebebe;
+  box-shadow: 3px 3px 5px 0px #bebebe;
+}
+
+/* line 31, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests button i {
+  font-size: 20px;
+  color: white;
+}
+
+/* line 40, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests .confirmRequestBtn {
+  border: 1px solid #33cc66;
+  background-color: #33cc66;
+}
+
+/* line 45, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests .declineRequestBtn {
+  border: 1px solid #e33f3f;
+  background-color: #e33f3f;
+  margin-left: 5px;
+}
+
+/* line 52, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel #revokeAccessBtn {
+  margin: 50px;
+  border: none;
+  background-color: #f2910a;
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* line 62, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel #revokeAccessBtn:active,
+#execPanel #revokeAccessBtn:active:focus,
+#execPanel #revokeAccessBtn:focus {
+  outline: none;
+}
+
+/* line 69, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel #searchUserModal input[type="search"] {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+  width: 80%;
+  display: inline-block;
+}
+
+/* line 76, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel #searchUserModal .my-2 {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 84, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel #searchUserModal input[type="search"]:active,
+#execPanel #searchUserModal input[type="search"]:active:focus,
+#execPanel #searchUserModal input[type="search"]:focus,
+#execPanel #searchUserModal .my-2:active,
+#execPanel #searchUserModal .my-2:active:focus,
+#execPanel #searchUserModal .my-2:focus {
+  outline: none;
+}
+
+/* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat {
+  width: 100%;
+}
+
+/* line 6, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenuNav {
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  top: 10vh;
+  background-color: #fbdeb5;
+  line-height: 10vh;
+  height: 10vh;
+  width: 100%;
+  border-top: 1px solid rgba(242, 145, 10, 0.6);
+  border-bottom: 1px solid rgba(242, 145, 10, 0.6);
+}
+
+/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenuBtn {
+  border: none;
+  background-color: transparent;
+  font-size: 40px;
+  color: #f2910a;
+}
+
+/* line 26, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenuBtn:active,
+#chat #chatMenuBtn:active:focus,
+#chat #chatMenuBtn:focus {
+  outline: none;
+  border: none;
+}
+
+/* line 33, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu {
+  position: fixed;
+  left: 0;
+  top: 20vh;
+  width: 90%;
+  height: 70vh;
+  overflow-y: scroll;
+  background-color: #fbdeb5;
+  border-bottom: 1px solid rgba(242, 145, 10, 0.6);
+  border-right: 1px solid rgba(242, 145, 10, 0.6);
+  -webkit-box-shadow: 0px 20px 36px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 20px 36px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 20px 36px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* line 48, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox {
+  padding-top: 10vh;
+  padding-bottom: 50px;
+}
+
+/* line 51, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .messageBox {
+  margin: 5px;
+  width: 80%;
+  height: fit-content;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+}
+
+/* line 59, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .messageBox .messageHeader img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+/* line 64, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .messageBox .messageHeader .messageName {
+  margin-top: 13.5px;
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* line 70, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .messageBox .messageHeader .messageTime {
+  margin-top: 13.5px;
+  font-size: 12px;
+}
+
+/* line 76, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .messageBox .messageBody .messageContent {
+  font-size: 13px;
+  padding: 10px;
+}
+
+/* line 82, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .myMessage {
+  background-color: rgba(242, 145, 10, 0.2);
+  color: #f2910a;
+  border: 1px solid rgba(242, 145, 10, 0.6);
+}
+
+/* line 87, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat .chatBox .otherMessage {
+  background-color: #f2910a;
+  border: 1px solid rgba(242, 145, 10, 0.6);
+}
+
+/* line 93, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMessageInputBox {
+  position: fixed;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* line 102, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMessageInputBox #chatMessageInput {
+  height: 40px;
+  width: 70%;
+  margin: 5px 0px 5px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+}
+
+/* line 111, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMessageInputBox #sendChatMessage {
+  height: 40px;
+  line-height: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #f2910a;
+  border: none;
+}
+
+@media screen and (orientation: landscape) {
+  /* line 123, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  .header, .footer {
+    height: 15vh;
+  }
+  /* line 125, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  .header button, .footer button {
+    height: 15vh;
+  }
+  /* line 130, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  #wrapper {
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+  }
+  /* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  #chat #chatMenuNav {
+    height: 15vh;
+    top: 15vh;
+    line-height: 15vh;
+  }
+  /* line 140, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  #chat #chatMenu {
+    top: 30vh;
+  }
+  /* line 143, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  #chat .chatBox {
+    padding-top: 15vh;
+  }
+  /* line 146, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  #chat #chatMessageInputBox {
+    bottom: 15vh;
+  }
+}
+
+/*# sourceMappingURL=../css/main.map */

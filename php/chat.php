@@ -64,14 +64,36 @@
           <!-- Template start - What is should look like -->
           <!-- Nu stiu cum sa integrez asta in ce ai scris tu in php... -->
           <p id="yourChats">Your Chats</p>
-            <div id="chatsList">
-              <p class="chats">All Zirafers</p>
-              <p class="chats">Execs</p>
-              <p class="chats">Friends</p>
-            </div>
+          <ul id="chatsList">
+            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> All Zirafers</li>
+            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> Execs</li>
+            <li class="chats"><i class="fa fa-commenting" aria-hidden="true"></i> Friends</li>
+          </ul>
           
-          <button type="button" id="createNewChat"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createGroupModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <div class="clear"></div>
           <!-- Template end -->
+
+          <!-- CREATE NEW GROUP MODAL -->
+          <div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog" aria-labelledby="createGroupModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="createGroupModalLabel">Decline request</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Are you sure you want to decline this request?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="Dismiss">Close</button>
+                  <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Decline</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <?php
             //create database connection
@@ -141,7 +163,7 @@
         <!-- WRITING MESSAGE BOX -->
         <div id="chatMessageInputBox">
           <form id="chatMessageInputForm">
-            <input type="textarea" id="chatMessageInput" name="chatMessageInput" placeholder="...">
+            <input type="textarea" id="chatMessageInput" name="chatMessageInput">
             <input type="button" value="Send" class="btn btn-primary float-right" id="sendChatMessage" name="sendChatMessage">
           </form>
         </div>

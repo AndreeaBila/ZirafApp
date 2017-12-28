@@ -47,6 +47,15 @@
       background-color: #e33f3f;
       margin-left: 5px;
     }
+
+    .confirmRequestBtn:active,
+    .confirmRequestBtn:active:focus,
+    .confirmRequestBtn:focus,
+    .declineRequestBtn:active,
+    .declineRequestBtn:active:focus,
+    .declineRequestBtn:focus {
+      outline: none;
+    }
   }
 
   #revokeAccessBtn {

@@ -291,7 +291,17 @@ html {
   margin-left: 5px;
 }
 
-/* line 52, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+/* line 51, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+#execPanel .signupRequests .confirmRequestBtn:active,
+#execPanel .signupRequests .confirmRequestBtn:active:focus,
+#execPanel .signupRequests .confirmRequestBtn:focus,
+#execPanel .signupRequests .declineRequestBtn:active,
+#execPanel .signupRequests .declineRequestBtn:active:focus,
+#execPanel .signupRequests .declineRequestBtn:focus {
+  outline: none;
+}
+
+/* line 61, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
 #execPanel #revokeAccessBtn {
   margin: 50px;
   border: none;
@@ -302,14 +312,14 @@ html {
   color: white;
 }
 
-/* line 62, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+/* line 71, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
 #execPanel #revokeAccessBtn:active,
 #execPanel #revokeAccessBtn:active:focus,
 #execPanel #revokeAccessBtn:focus {
   outline: none;
 }
 
-/* line 69, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+/* line 78, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
 #execPanel #searchUserModal input[type="search"] {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -318,7 +328,7 @@ html {
   display: inline-block;
 }
 
-/* line 76, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+/* line 85, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
 #execPanel #searchUserModal .my-2 {
   display: inline-block;
   border: none;
@@ -327,7 +337,7 @@ html {
   color: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-/* line 84, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
+/* line 93, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_execPanel.scss */
 #execPanel #searchUserModal input[type="search"]:active,
 #execPanel #searchUserModal input[type="search"]:active:focus,
 #execPanel #searchUserModal input[type="search"]:focus,
@@ -388,13 +398,67 @@ html {
   box-shadow: 0px 20px 36px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* line 48, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 47, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #yourChats {
+  padding: 10px;
+  font-weight: 600;
+  color: #f2910a;
+  font-size: 22px;
+}
+
+/* line 54, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #chatsList {
+  padding: 0px 20px;
+}
+
+/* line 56, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #chatsList .chats {
+  font-size: 18px;
+}
+
+/* line 58, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #chatsList .chats i {
+  color: #f2910a;
+}
+
+/* line 64, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #createNewChat {
+  border: none;
+  height: 60px;
+  width: 60px;
+  margin: 20px;
+  border-radius: 50px;
+  background-color: #f2910a;
+  line-height: 50px;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* line 71, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #createNewChat i {
+  font-size: 30px;
+  line-height: 60px;
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 83, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMenu #createNewChat:active,
+#chat #chatMenu #createNewChat:active:focus,
+#chat #chatMenu #createNewChat:focus {
+  border: none;
+  outline: none !important;
+  transform: scale(0.9, 0.9);
+}
+
+/* line 92, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox {
   padding-top: 10vh;
   padding-bottom: 50px;
 }
 
-/* line 51, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 95, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox {
   margin: 5px;
   width: 80%;
@@ -404,14 +468,14 @@ html {
   padding: 5px;
 }
 
-/* line 59, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 103, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader img {
   width: 40px;
   height: 40px;
   border-radius: 50px;
 }
 
-/* line 64, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 108, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader .messageName {
   margin-top: 13.5px;
   margin-left: 5px;
@@ -419,32 +483,32 @@ html {
   font-weight: 600;
 }
 
-/* line 70, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 114, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader .messageTime {
   margin-top: 13.5px;
   font-size: 12px;
 }
 
-/* line 76, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 120, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageBody .messageContent {
   font-size: 13px;
   padding: 10px;
 }
 
-/* line 82, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 126, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .myMessage {
   background-color: rgba(242, 145, 10, 0.2);
   color: #f2910a;
   border: 1px solid rgba(242, 145, 10, 0.6);
 }
 
-/* line 87, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 131, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .otherMessage {
   background-color: #f2910a;
   border: 1px solid rgba(242, 145, 10, 0.6);
 }
 
-/* line 93, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 137, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox {
   position: fixed;
   bottom: 10vh;
@@ -455,7 +519,7 @@ html {
   border-top: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 102, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 146, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #chatMessageInput {
   height: 40px;
   width: 70%;
@@ -465,7 +529,14 @@ html {
   padding-left: 10px;
 }
 
-/* line 111, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 155, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMessageInputBox #chatMessageInput:active,
+#chat #chatMessageInputBox #chatMessageInput:active:focus,
+#chat #chatMessageInputBox #chatMessageInput:focus {
+  outline: none !important;
+}
+
+/* line 161, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #sendChatMessage {
   height: 40px;
   line-height: 10px;
@@ -475,35 +546,43 @@ html {
   border: none;
 }
 
+/* line 170, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+#chat #chatMessageInputBox #sendChatMessage:active,
+#chat #chatMessageInputBox #sendChatMessage:active:focus,
+#chat #chatMessageInputBox #sendChatMessage:focus {
+  box-shadow: none;
+  transform: scale(0.97, 0.97);
+}
+
 @media screen and (orientation: landscape) {
-  /* line 123, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 181, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   .header, .footer {
     height: 15vh;
   }
-  /* line 125, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 183, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   .header button, .footer button {
     height: 15vh;
   }
-  /* line 130, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 188, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #wrapper {
     padding-top: 15vh;
     padding-bottom: 15vh;
   }
-  /* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 193, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMenuNav {
     height: 15vh;
     top: 15vh;
     line-height: 15vh;
   }
-  /* line 140, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 198, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMenu {
     top: 30vh;
   }
-  /* line 143, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 201, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat .chatBox {
     padding-top: 15vh;
   }
-  /* line 146, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 204, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMessageInputBox {
     bottom: 15vh;
   }

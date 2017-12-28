@@ -66,6 +66,26 @@ $(function() {
       $('#sendChatMessage').click();
     }
   });
+
+  //check if user clicked load more
+  $('.loadLink').click(function(){
+    //create payload to select 20 messages from this chat
+    dataPayload = selectedChat;
+    dataPayload['messageIndex'] = -1;
+    //load all message from the database associtaed with the given chat
+    $.ajax({
+      data: dataPayload,
+      url: "../php/phpDirectives/getMessages.php",
+      type: "GET",
+      success: function(data){
+        messages = JSON.parse(data);
+        displayChat(messages);
+      },
+      error: function(){
+        alert("Error");
+      }
+    });
+  });
 });
 
 function displayChat(messageList){

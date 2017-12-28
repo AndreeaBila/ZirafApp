@@ -10,7 +10,7 @@
     $chatId = strip_tags(stripslashes($_POST['chatId']));
     $content = strip_tags(stripslashes($_POST['content']));
     $userId = $_SESSION['userId'];
-    $date = date("Y-m-d");
+    $date = date("Y-m-d-H-i");
     //insert the message
     $query = "INSERT INTO MESSAGES VALUES(NULL, ?, ?, ?, ?)";
     $stmt = $db->prepare($query);

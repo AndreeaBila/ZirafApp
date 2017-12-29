@@ -27,22 +27,7 @@ $(function() {
   //   $('#chatMessageInputBox').effect('slide',{direction:'up', mode:'show'},500);
   // }
   
-  //create payload to select 20 messages from this chat
-  dataPayload = selectedChat;
-  dataPayload['messageIndex'] = -1;
-  //load all message from the database associtaed with the given chat
-  $.ajax({
-    data: dataPayload,
-    url: "../php/phpDirectives/getMessages.php",
-    type: "GET",
-    success: function(data){
-      messages = JSON.parse(data);
-      displayChat(messages);
-    },
-    error: function(){
-      alert("Error");
-    }
-  });
+  initializeMessages();
 
   //check if the user pressed the send button
   $('#sendChatMessage').click(function(){
@@ -113,7 +98,7 @@ $(function() {
       //get the value of the selected email
       var selectedEmail = $('#selectUserEmails').val();
       //get the list of all options
-      var allOptions = $('select').children();
+      var allOptions = $('#chatCreator').children();
       if(checkOptionValue(allOptions, selectedEmail)){
         //add the selected email to the list of selected emails
         $('#addedMembers').append('<div class="members row">' +
@@ -122,6 +107,34 @@ $(function() {
                                   '</div>');
         //delete the input data
         $('#selectUserEmails').val("");
+        //delete the selected email from the list of available options
+        $('#chatCreator option[value="'+ selectedEmail +'"]').remove();
+      }
+    }
+
+    //chekc if a row from the selected emails list has been deleted
+    $('.removeMemberBtn').click(function(){
+      $(this).parent().remove();
+    });
+  });
+
+  //check if an option for creating a new group has been created
+  $('#selectUserEmailsToAdd').keydown(function(e){
+    if(e.keyCode == 13){
+      //get the value of the selected email
+      var selectedEmail = $('#selectUserEmailsToAdd').val();
+      //get the list of all options
+      var allOptions = $('#addUsers').children();
+      if(checkOptionValue(allOptions, selectedEmail)){
+        //add the selected email to the list of selected emails
+        $('#addedMembersToAdd').append('<div class="members row">' +
+                                       '<p class="emails col-8">' + selectedEmail + '</p>' +
+                                       '<button type="button" class="removeMemberBtn col-4">&times;</button>' +
+                                       '</div>');
+        //delete the input data
+        $('#selectUserEmailsToAdd').val("");
+        //delete the selected email from the list of available options
+        $('#addUsers option[value="'+ selectedEmail +'"]').remove();
       }
     }
 
@@ -135,12 +148,16 @@ $(function() {
   $('#createChatBtn').click(function(){
     var selectedOptions = $('#addedMembers').children();
     var chatName = $('#chatNameInput').val();
+    //clear the two inputs
+    $('#selectUserEmails').val('');
+    $('#chatNameInput').val('');
+    $('#addedMembers').empty();
     var chatEmails = {
       chatName : chatName,
       emailList : ""
     };
     for(var i=0;i<selectedOptions.length;i++){
-      chatEmails.emailList += selectedOptions[i].childNodes[0].innerHTML + "&";
+      chatEmails.emailList += selectedOptions[i].childNodes[0].innerHTML + ",";
     }
     chatEmails.emailList = chatEmails.emailList.slice(0, -1);
     //send the chat data
@@ -148,13 +165,59 @@ $(function() {
       data: chatEmails,
       url: "../php/phpDirectives/createChat.php",
       type: "POST",
-      success: function(){
-        
+      success: function(result){
+        console.log(result);
+        var parsedResult = JSON.parse(result);
+        //close the modal
+        $('#closeModalBtn').click();
+        //append the newly created chat
+        $('#chatsList').append('<li class="chats" id="chat' + parsedResult.chatId +'"><i class="fa fa-comments-o" aria-hidden="true"></i>'+ parsedResult.chatName +'</li>');
+        //bind the new element to the existing selector function
+        $('#chatsList li#chat' + parsedResult.chatId).bind("click", function(){
+          switchChat(this);
+        });
+        //reload the data
+        $('#chatsList li#chat' + parsedResult.chatId).click();
       },
       error: function(){
-
+        alert("An error has occured");
       }
     }); 
+  });
+
+  //check if the user pressed the add button
+  $('#addBtn').click(function(){
+    var membersToAdd = $('#addedMembersToAdd').children();
+    $('#selectUserEmailsToAdd').val('');
+    $('#addedMembersToAdd').empty();
+
+    var addEmails = {
+      chatId : selectedChat.chatId,
+      emailList : ""
+    };
+
+    for(var i=0;i<membersToAdd.length;i++){
+      addEmails.emailList += membersToAdd[i].childNodes[0].innerHTML + ",";
+    }
+    addEmails.emailList = addEmails.emailList.slice(0, -1);
+    //send the chat data
+    $.ajax({
+    data: addEmails,
+    url: "../php/phpDirectives/addUsersToChat.php",
+    type: "POST",
+    success: function(result){
+      
+    },
+    error: function(){
+      alert("An error has occured");
+    }
+    });
+
+  });
+
+  //check if the user has selected another chat
+  $('#chatsList li').click(function(){
+    switchChat(this);
   });
 });
 
@@ -243,4 +306,40 @@ function checkOptionValue(options, value){
     }
   }
   return false;
+}
+
+function initializeMessages(){
+  //change the chat title
+  $('#chatTitle').text(selectedChat.chatName);
+  //create payload to select 20 messages from this chat
+  dataPayload = selectedChat;
+  dataPayload['messageIndex'] = -1;
+  //load all message from the database associtaed with the given chat
+  $.ajax({
+    data: dataPayload,
+    url: "../php/phpDirectives/getMessages.php",
+    type: "GET",
+    success: function(data){
+      messages = JSON.parse(data);
+      displayChat(messages);
+    },
+    error: function(){
+      alert("Error");
+    }
+  });
+}
+
+function switchChat(current){
+  //get the selected chat's data
+  var newName = $(current).text();
+  var newId = $(current).attr('id').replace('chat', '');
+  //update the current chat data
+  selectedChat.chatId = newId;
+  selectedChat.chatName = newName;
+  //reslide the chat selector
+  $('#chatMenuBtn').click();
+  //delete all messages from the page
+  $(".chatBox").children().filter(":not(.loadLink)").remove();
+  //load all new messages
+  initializeMessages();
 }

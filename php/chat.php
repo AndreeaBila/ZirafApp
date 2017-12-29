@@ -56,7 +56,7 @@
         <div id="chatMenuNav">
           <div class="row text-center">
             <button type="button" id="chatMenuBtn" class="col-3"><i class="fa fa-bars" aria-hidden="true"></i></button>
-            <h3 class="col-6 text-center">Chat Title</h3>
+            <h3 class="col-6 text-center" id="chatTitle">Chat Title</h3>
             <button type="button" id="chatSettingsBtn" class="col-3"><i class="fa fa-cogs" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -73,13 +73,13 @@
               require_once "phpComponents/databaseConnection.php";
               $db = createConnection();
               //query all the chats for this user
-              $query = "SELECT chatName FROM CHATS C INNER JOIN USER_CHATS UC ON C.chatId = UC.chatId WHERE(userId = ?)";
+              $query = "SELECT chatName, C.chatId FROM CHATS C INNER JOIN USER_CHATS UC ON C.chatId = UC.chatId WHERE(userId = ?)";
               $stmt = $db->prepare($query);
               $stmt->bind_param("s", $_SESSION['userId']);
               $stmt->execute();
-              $stmt->bind_result($chatList);
+              $stmt->bind_result($chatList, $chatId);
               while($stmt->fetch()){
-                echo '<li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i>'.$chatList.'</li>';
+                echo '<li class="chats" id="chat'.$chatId.'"><i class="fa fa-comments-o" aria-hidden="true"></i>'.$chatList.'</li>';
               }
               $stmt->close();
             ?>
@@ -164,11 +164,12 @@
                   <label for="exampleInputEmail1">Add Members</label>
                   <input type="text" list="userEmails" class="form-control" id="selectUserEmails">
                   <datalist id="userEmails">
-                    <select id='sel'>
+                    <select id="chatCreator">
                       <?php
                         //script required to insert the avaialble email options
                         //select all email address from the server
-                        $query = "SELECT email FROM USERS";
+                        $userId = $_SESSION['userId'];
+                        $query = "SELECT email FROM USERS WHERE userId != $userId";
                         $result = $db->query($query);
                         while($row = $result->fetch_assoc()){
                           $currentEmail = $row['email'];
@@ -207,46 +208,32 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Search User Email</label>
-                <input type="text" list="userEmails" class="form-control">
-                <datalist id="userEmails">
-                  <option value="HTML">
-                  <option value="CSS">
-                  <option value="JavaScript">
-                  <option value="Java">
-                  <option value="Ruby">
-                  <option value="PHP">
-                  <option value="Go">
-                  <option value="Erlang">
-                  <option value="Python">
-                  <option value="C">
-                  <option value="C#">
-                  <option value="C++">
+                <input type="text" list="userEmailsToAdd" id="selectUserEmailsToAdd" class="form-control">
+                <datalist id="userEmailsToAdd">
+                  <select id="addUsers">
+                    <?php
+                        //script required to insert the avaialble email options
+                        //select all email address from the server
+                        $userId = $_SESSION['userId'];
+                        $query = "SELECT email FROM USERS WHERE userId != $userId";
+                        $result = $db->query($query);
+                        while($row = $result->fetch_assoc()){
+                          $currentEmail = $row['email'];
+                          echo '<option value="'.$currentEmail.'">';
+                        }
+                    ?>
+                  </select>
                 </datalist>
 
                 <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
-                <div id="addedMembers">
-                  <div class="members row">
-                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> test@test.com</p>
-                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                  </div>
-
-                  <div class="members row">
-                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> exec@exec.com</p>
-                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                  </div>
-
-                  <div class="members row">
-                    <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> zirafer@zirafer.com</p>
-                    <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                  </div>
-                </div>
+                <div id="addedMembersToAdd"></div>
                 <!-- ADDED MEMEBER TEMPLATE END -->
               </div>
             </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-success" id="addBtn">Add</button>
+              <button type="button" class="btn btn-success" id="addBtn">Add</button>
             </div>
           </div>
         </div>

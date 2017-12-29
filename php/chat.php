@@ -64,80 +64,29 @@
           <!-- Nu stiu cum sa integrez asta in ce ai scris tu in php... -->
           <p id="yourChats">Your Chats</p>
           <ul id="chatsList">
-            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> All Zirafers</li>
-            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> Execs</li>
-            <li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i> Friends</li>
+            <?php
+              //create database connection
+              require_once "phpComponents/databaseConnection.php";
+              $db = createConnection();
+              //query all the chats for this user
+              $query = "SELECT chatName FROM CHATS C INNER JOIN USER_CHATS UC ON C.chatId = UC.chatId WHERE(userId = ?)";
+              $stmt = $db->prepare($query);
+              $stmt->bind_param("s", $_SESSION['userId']);
+              $stmt->execute();
+              $stmt->bind_result($chatList);
+              while($stmt->fetch()){
+                echo '<li class="chats"><i class="fa fa-comments-o" aria-hidden="true"></i>'.$chatList.'</li>';
+              }
+              $stmt->close();
+            ?>
           </ul>
           
           <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createChatModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
           <div class="clear"></div>
-          <!-- Template end -->
-
-          
-
-          <?php
-            //create database connection
-            require_once "phpComponents/databaseConnection.php";
-            $db = createConnection();
-            //query all the chats for this user
-            $query = "SELECT chatName FROM CHATS C INNER JOIN USER_CHATS UC ON C.chatId = UC.chatId WHERE(userId = ?)";
-            $stmt = $db->prepare($query);
-            $stmt->bind_param("s", $_SESSION['userId']);
-            $stmt->execute();
-            $stmt->bind_result($chatList);
-            while($stmt->fetch()){
-              echo $chatList . "<br>";
-            }
-            $stmt->close();
-          ?>
         </div>
-  
+        
         <div class="chatBox">
           <p class="loadLink">Load More</p>
-          <!-- MESSAGE TEMPLATE -->
-          <!-- <div class="messageBox myMessage float-right">
-            <div class="messageHeader">
-              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
-              <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">23:49</p>
-            </div>
-            <div class="clear"></div>
-            <div class="messageBody">
-              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-              </p>
-            </div>
-          </div>
-          <div class="clear"></div> -->
-          <!-- END OF MESSAGE TEMPLATE -->
-
-          <!-- <div class="messageBox otherMessage float-left">
-            <div class="messageHeader">
-              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
-              <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">00:07</p>
-            </div>
-            <div class="clear"></div>
-            <div class="messageBody">
-              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-              </p>
-            </div>
-          </div>
-          <div class="clear"></div>
-
-          <div class="messageBox myMessage float-right">
-            <div class="messageHeader">
-              <img src="../img/default.jpeg" alt="Pic" class="messageImage float-left">
-              <p class="messageName float-left">Firstname Lastname</p>
-              <p class="messageTime float-right">05:45</p>
-            </div>
-            <div class="clear"></div>
-            <div class="messageBody">
-              <p class="messageContent">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-              </p>
-            </div>
-          </div>
-          <div class="clear"></div> -->
-
         </div>
         
         <!-- WRITING MESSAGE BOX -->
@@ -161,7 +110,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="" method="" id="createChatForm">
+              <!-- <form action="" method="" id="createChatForm"> -->
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chat Name</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
@@ -169,48 +118,33 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Add Members</label>
-                  <input type="text" list="userEmails" class="form-control">
+                  <input type="text" list="userEmails" class="form-control" id="selectUserEmails">
                   <datalist id="userEmails">
-                    <option value="HTML">
-                    <option value="CSS">
-                    <option value="JavaScript">
-                    <option value="Java">
-                    <option value="Ruby">
-                    <option value="PHP">
-                    <option value="Go">
-                    <option value="Erlang">
-                    <option value="Python">
-                    <option value="C">
-                    <option value="C#">
-                    <option value="C++">
+                    <select id='sel'>
+                      <?php
+                        //script required to insert the avaialble email options
+                        //select all email address from the server
+                        $query = "SELECT email FROM USERS";
+                        $result = $db->query($query);
+                        while($row = $result->fetch_assoc()){
+                          $currentEmail = $row['email'];
+                          echo '<option value="'.$currentEmail.'">';
+                        }
+                      ?>
+                    </select>
                   </datalist>
 
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembers">
-                    <div class="members row">
-                      <p class="emails col-8">test@test.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
-                    </div>
-
-                    <div class="members row">
-                      <p class="emails col-8">exec@exec.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
-                    </div>
-
-                    <div class="members row">
-                      <p class="emails col-8">zirafer@zirafer.com</p>
-                      <button type="button" class="removeMemberBtn col-4">&times;</button>
-                    </div>
-
                   </div>
                 </div>
                 <!-- ADDED MEMEBER TEMPLATE END -->
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-success" id="confirmDeleteBtn">Create Chat</button>
+                  <button type="button" class="btn btn-success" id="createChatBtn">Create Chat</button>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
           </div>
         </div>

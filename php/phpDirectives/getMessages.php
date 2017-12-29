@@ -3,7 +3,7 @@
     //get the database logic
     require_once "../phpComponents/databaseConnection.php";
     //check type of access
-    checkRequestType();
+    //checkRequestType();
     //import dependencies
     require_once "../phpComponents/dependencies.php";
     //create database connection
@@ -32,7 +32,7 @@
         $messageBoundry = count($messageList) - $messageCount;
     }else{
         $index = searchMessage($messageIndex, $messageList);
-        array_splice($messageList, $index, count($messageList) -1);
+        array_splice($messageList, $index, count($messageList));
         $messageBoundry = count($messageList) - $messageCount;
     }
     //check the length of the array

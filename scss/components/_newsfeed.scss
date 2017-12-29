@@ -21,6 +21,66 @@
     }
   }
 
+  .newsfeedAddPost {
+    background-color: rgba(242,145,10,0.1);
+    border-bottom: 1px solid rgba(242,145,10,0.2);
+    padding: 20px 20px 0px;
+    textarea, input[type="text"] {
+      width: 100%;
+      max-height: 500px;
+      max-width: 100%;
+      border: 1px solid rgba(242,145,10,0.1);
+    }
+
+    input[type="text"] {
+      margin: 0px 0px 10px;
+    }
+
+    textarea:active,
+    textarea:active:focus,
+    textarea:focus,
+    input[type="text"]:active,
+    input[type="text"]:active:focus,
+    input[type="text"]:focus {
+      box-shadow: none;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgba(242,145,10,0.6);
+      opacity: 1; /* Firefox */
+    }
+  
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: rgba(242,145,10,0.6);
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: rgba(242,145,10,0.6);
+    }
+
+    #announcementTextarea {
+      height: 100px;
+    }
+
+    #pictureTextarea,
+    #pollTextarea {
+      height: 70px;
+    }
+
+    .custom-file {
+      .custom-file-label {
+        margin-top: -50px!important;
+      }
+    }
+    
+    button {
+      background-color: rgba(242,145,10,1);
+      color: white;
+      float: right!important;
+      margin: 10px -10px;
+    }
+  }
+
   .post {
     margin: 20px 5px;
     padding: 10px;
@@ -58,6 +118,45 @@
         width: 100%;
         height: auto;
       }
+      .poll {
+        .pollOption {
+          p {
+            color: $zirafColor;
+          }
+          .progress {
+            width: 60%;
+            margin: 10px 0px;
+            height: 20px;
+            position: relative;
+            background-color: rgba(255,255,255,1);
+            border: 0.5px solid rgba(242,145,10,0.25);
+  
+            .progress-bar {
+              background-color: rgba(242,145,10,0.3);
+              p {
+                position: absolute;
+                left: 0;
+                color: $zirafColor;
+              }
+            }
+          }
+  
+          .custom-radio {
+            margin: 8px 0px;
+          }
+          
+          .custom-control-indicator {
+            background-color: rgba(255,255,255,1);
+            border: 0.5px solid rgba(242,145,10,0.25);
+          }
+
+          .custom-control-input:checked~.custom-control-indicator {
+            color: #fff;
+            background-color: rgba(242,145,10,1);
+          }
+        }
+      }
+      
     }
     .postFooter {
       border-top: 1px solid rgba(242,145,10,0.15);
@@ -78,7 +177,5 @@
       }
     }
   }
-  .announcementPost {
-
-  }
 }
+

@@ -29,7 +29,23 @@
       width: 100%;
       max-height: 500px;
       max-width: 100%;
-      border: 1px solid rgba(242,145,10,0.1);
+      border: 1px solid rgba(242,145,10,0.1)!important;
+    }
+
+    .custom-file-control {
+      border: 1px solid rgba(242,145,10,0.2);
+      color: rgba(242,145,10,0.6);
+     
+    }
+
+    .custom-file {
+      margin: 0px 0px 10px;
+    }
+
+    .custom-file-control::before {
+      background-color: $zirafColor;
+      color: white;
+      border: none;
     }
 
     input[type="text"] {
@@ -44,6 +60,10 @@
     input[type="text"]:focus {
       box-shadow: none;
     }
+
+    .custom-file-input:focus~.custom-file-control {
+      box-shadow: none;
+  }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: rgba(242,145,10,0.6);
@@ -124,9 +144,10 @@
             color: $zirafColor;
           }
           .progress {
+            border-radius: 2px;
             width: 60%;
-            margin: 10px 0px;
-            height: 20px;
+            margin: 10px 5px;
+            height: 35px;
             position: relative;
             background-color: rgba(255,255,255,1);
             border: 0.5px solid rgba(242,145,10,0.25);
@@ -135,19 +156,21 @@
               background-color: rgba(242,145,10,0.3);
               p {
                 position: absolute;
-                left: 0;
+                left: 0; 
                 color: $zirafColor;
               }
             }
           }
   
           .custom-radio {
-            margin: 8px 0px;
+            margin: 10px 0px;
           }
           
           .custom-control-indicator {
             background-color: rgba(255,255,255,1);
             border: 0.5px solid rgba(242,145,10,0.25);
+            height: 25px;
+            width: 25px;
           }
 
           .custom-control-input:checked~.custom-control-indicator {
@@ -173,7 +196,7 @@
 
       .likesCount {
         color: $zirafColor;
-        padding: 15px 5px 0px;
+        padding: 10px 5px 0px;
       }
     }
   }

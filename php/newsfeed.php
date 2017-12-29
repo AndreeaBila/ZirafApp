@@ -85,9 +85,11 @@
  
           <!-- UPLOAD PICTURE BOX -->
           <div class="newsfeedAddPost row" id="uploadPicture">
-            <div class="custom-file">
+            <div class="custom-file form-control-lg">
               <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose picture</label>
+              <span class="custom-file-control"></span>
+              
+              </label>
             </div>
             <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
             <div class="col-12">

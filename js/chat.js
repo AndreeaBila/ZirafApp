@@ -166,7 +166,6 @@ $(function() {
       url: "../php/phpDirectives/createChat.php",
       type: "POST",
       success: function(result){
-        console.log(result);
         var parsedResult = JSON.parse(result);
         //close the modal
         $('#closeModalBtn').click();
@@ -218,6 +217,25 @@ $(function() {
   //check if the user has selected another chat
   $('#chatsList li').click(function(){
     switchChat(this);
+  });
+
+  //check if the user oppend the chek settings tab
+  $('#chatSettingsBtn').click(function(){
+    //empty the list of emails
+    $('#membersList').empty();
+    //get every user from teh database
+    $.getJSON("../php/phpDirectives/getEmailsForChat.php?chatId=" + selectedChat.chatId, function(data){
+      //change the count of total user emails
+      if(data.length == 1){
+        $('#participantCount').text("1 participant");
+      }else{
+        $('#participantCount').text(data.length + " participants");
+      }
+      //append the emails to the email list
+      for(var i=0;i<data.length;i++){
+        $('#membersList').append(parseUserData(data[i]));
+      }
+    });
   });
 });
 
@@ -342,4 +360,13 @@ function switchChat(current){
   $(".chatBox").children().filter(":not(.loadLink)").remove();
   //load all new messages
   initializeMessages();
+}
+
+function parseUserData(data){
+  return '<div class="memberBox">' +
+            '<img src="../img/userIcons/'+ data.userId +'.'+ data.iconExtension +'" alt="no" class="float-left">' +
+            '<p class="float-left">'+ data.email +'</p>' +
+            '<button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>' +
+          '</div>' +
+          '<div class="clear"></div>';
 }

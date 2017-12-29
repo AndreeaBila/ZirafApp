@@ -97,35 +97,11 @@
           <div id="membersListTitleBox">
             <p id="membersListTitle">Members</p>
             <!-- number of participants -->
-            <small>n participants</small>
+            <small id="participantCount">n participants</small>
           </div>
         
           <!-- List of chat participants -->
           <div id="membersList">
-          
-            <!-- participant template start -->
-            <div class="memberBox">
-              <img src="../img/default.jpeg" alt="no" class="float-left">
-              <p class="float-left">Name Name</p>
-              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
-            </div>
-            <div class="clear"></div>
-            <!-- participant template end -->
-
-            <div class="memberBox">
-              <img src="../img/default.jpeg" alt="no" class="float-left">
-              <p class="float-left">Name Name</p>
-              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
-            </div>
-            <div class="clear"></div>
-
-            <div class="memberBox">
-              <img src="../img/default.jpeg" alt="no" class="float-left">
-              <p class="float-left">Name Name</p>
-              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
-            </div>
-            <div class="clear"></div>
-
           </div>
         </div>
         

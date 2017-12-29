@@ -54,20 +54,112 @@
       <!-- Newsfeed content -->
       <div id="newsfeed">
         <!-- ONLY VISIBLE FOR EXEC -->
-        <div class="row">
+        <div id="newsfeedMenu" class="row">
           <button class="col-4 text-center">
             <p><i class="fa fa-bullhorn" aria-hidden="true"></i></p>
-            <p>Write Announcement</p>
+            <p>Write</p>
+            <p>Announcement</p>
           </button>
+
           <button class="col-4 text-center">
             <p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
-            <p>Upload Picture</p>
+            <p>Upload</p>
+            <p>Picture</p>
           </button>
+
           <button class="col-4 text-center">
             <p><i class="fa fa-bar-chart" aria-hidden="true"></i></p>
-            <p>Create Poll</p>
+            <p>Create</p>
+            <p>Poll</p>
           </button>
         </div>
+
+        <!-- TEMPLATE FOR NEWSFEED ANOUNCEMENT POSTS -->
+        <div class="post">
+          <div class="postHeader">
+            <img src="../img/default.jpeg" alt="no" class="float-left" width="40px" height="40px">
+            <p class="float-left">Name Name</p>
+            <small class="float-right">date time</small>
+          </div>
+          <div class="clear"></div>
+
+          <div class="postBody">
+            <p>Bacon ipsum dolor amet pork short loin shankle flank, pig pastrami frankfurter tenderloin. Drumstick leberkas beef ribs, tenderloin fatback frankfurter buffalo pork loin shankle sausage picanha hamburger pastrami tri-tip. Bresaola jowl filet mignon alcatra, pancetta pork loin boudin swine ham. Jerky ham cupim swine, andouille boudin kevin. Drumstick pancetta hamburger capicola short loin ribeye ground round, swine tail fatback.</p>
+          </div>
+          
+          <footer class="postFooter">
+            <button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>
+            <p class="likesCount float-right">123 Likes</p>
+          </footer>
+          <div class="clear"></div>
+        </div>
+        <!-- TEMPLATE FOR ANOUNCEMENT POSTS END -->
+
+        <!-- TEMPLATE FOR NEWSFEED IMAGE POSTS -->
+        <div class="post">
+          <div class="postHeader">
+            <img src="../img/default.jpeg" alt="no" class="float-left" width="40px" height="40px">
+            <p class="float-left">Name Name</p>
+            <small class="float-right">date time</small>
+          </div>
+          <div class="clear"></div>
+
+          <div class="postBody">
+            <img src="http://placekitten.com/450/300" alt="no">
+            <p>Salami short ribs ham pig, prosciutto tri-tip strip steak sirloin.</p>
+          </div>
+          
+          <footer class="postFooter">
+            <button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>
+            <p class="likesCount float-right">54 Likes</p>
+          </footer>
+          <div class="clear"></div>
+        </div>
+        <!-- TEMPLATE FOR ANOUNCEMENT POSTS END -->
+        
+        <!-- TEMPLATE FOR NEWSFEED ANOUNCEMENT POSTS -->
+        <div class="post">
+          <div class="postHeader">
+            <img src="../img/default.jpeg" alt="no" class="float-left" width="40px" height="40px">
+            <p class="float-left">Name Name</p>
+            <small class="float-right">date time</small>
+          </div>
+          <div class="clear"></div>
+
+          <div class="postBody">
+            <p>Salami short ribs ham pig, prosciutto tri-tip strip steak sirloin. Ham ham hock cow, shank beef ribs pancetta sausage. Beef cow kevin short loin ball tip spare ribs ribeye tail pig meatloaf chicken biltong prosciutto picanha. Tri-tip shankle ham chicken alcatra buffalo frankfurter salami porchetta short ribs tail shank pork chop spare ribs ground round. Doner turducken sausage, turkey sirloin corned beef chicken burgdoggen capicola jowl. Strip steak rump pancetta capicola beef ribs drumstick alcatra tri-tip sirloin corned beef burgdoggen. Pastrami ham bresaola, tri-tip burgdoggen ball tip beef ribs shoulder.</p>
+          </div>
+          
+          <footer class="postFooter">
+            <button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>
+            <p class="likesCount float-right">54 Likes</p>
+          </footer>
+          <div class="clear"></div>
+        </div>
+        <!-- TEMPLATE FOR ANOUNCEMENT POSTS END -->
+
+        <!-- TEMPLATE FOR NEWSFEED ANOUNCEMENT POSTS -->
+        <div class="post">
+          <div class="postHeader">
+            <img src="../img/default.jpeg" alt="no" class="float-left" width="40px" height="40px">
+            <p class="float-left">Name Name</p>
+            <small class="float-right">date time</small>
+          </div>
+          <div class="clear"></div>
+
+          <div class="postBody">
+            <img src="http://placekitten.com/450/520" alt="no">
+            <p>Filet mignon porchetta alcatra beef leberkas chicken burgdoggen picanha ham shoulder. Turducken pancetta strip steak hamburger buffalo. Prosciutto doner spare ribs turkey, pastrami alcatra drumstick flank tongue sausage landjaeger ribeye buffalo short loin shankle. Picanha t-bone salami turkey. Kevin pig pastrami, ribeye pork belly sirloin shank hamburger. Bacon pork belly turkey pork chop, t-bone boudin turducken alcatra tri-tip prosciutto capicola short ribs pig.</p>
+          </div>
+          
+          <footer class="postFooter">
+            <button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>
+            <p class="likesCount float-right">97 Likes</p>
+          </footer>
+          <div class="clear"></div>
+        </div>
+        <!-- TEMPLATE FOR ANOUNCEMENT POSTS END -->
+
       </div>      
       <?php
         include './phpComponents/footer.php';

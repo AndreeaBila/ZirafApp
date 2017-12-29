@@ -7,10 +7,25 @@ var messages;
 
 $(function() {
   $('#chatMenu').hide();
+  $('#chatSettings').hide();
+
   $('#chatMenuBtn').click(function() {
-    $('#chatMenu').toggle('slide');
-    $('#chatMessageInputBox').slideToggle();
+    $('#chatMenu').toggle('slide',{direction:'left'},500);
+    $('#chatMessageInputBox').effect('slide',{direction:'down', mode:'toggle'},500);
+    $('#chatSettings').hide();
   });
+
+  $('#chatSettingsBtn').click(function() {
+    $('#chatSettings').toggle('slide',{direction:'right'},500);
+    $('#chatMessageInputBox').effect('slide',{direction:'down', mode:'toggle'},500);
+    $('#chatMenu').hide();
+  });
+
+  // if($('#chatMenu').hasClass('opened') || $('#chatSettings').hasClass('opened')) {
+  //   $('#chatMessageInputBox').effect('slide',{direction:'down', mode:'hide'},500);
+  // } else {
+  //   $('#chatMessageInputBox').effect('slide',{direction:'up', mode:'show'},500);
+  // }
   
   //create payload to select 20 messages from this chat
   dataPayload = selectedChat;

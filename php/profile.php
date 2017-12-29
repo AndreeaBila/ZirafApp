@@ -52,8 +52,35 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      <br><br><br><br>
-      <h1>PROFILE</h1>
+      
+      <div id="profile">
+      
+        <div id="profileHeader">
+          <img src="http://placekitten.com/500/300" alt="no">
+          <p>Change profile picture</p>
+          <input type="text" id="profileDescription" class="form-control">
+          <button class="btn bg-warning">Save Changes</button>
+        </div>
+
+        <div class="profileMenu row">
+          <button class="col-4 text-center" id="profileRankBtn">
+            <p><i class="fa fa-trophy" aria-hidden="true"></i></p>
+            <p>Rank</p>
+          </button>
+
+          <button class="col-4 text-center" id="profileBadgesBtn">
+            <p><i class="fa fa-shield" aria-hidden="true"></i></p>
+            <p>Badges</p>
+          </button>
+
+          <button class="col-4 text-center" id="profileReviewsBtn">
+            <p><i class="fa fa-file-text" aria-hidden="true"></i></p>
+            <p>Reviews</p>
+          </button>
+        </div>
+
+      </div>
+
       <?php
         include './phpComponents/footer.php';
       ?>

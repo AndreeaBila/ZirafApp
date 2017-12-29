@@ -88,6 +88,46 @@
           <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createChatModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
           <div class="clear"></div>
         </div>
+
+        <!-- Chat settings side menu -->
+        <div id="chatSettings">
+          <button type="button" id="addMembers" class="col-12" data-toggle="modal" data-target="#addUserModal">Add Members</button>
+          <button type="button" id="leaveChat" class="col-12" data-toggle="modal" data-target="#leaveChatModal">Leave Chat</button>
+
+          <div id="membersListTitleBox">
+            <p id="membersListTitle">Members</p>
+            <!-- number of participants -->
+            <small>n participants</small>
+          </div>
+        
+          <!-- List of chat participants -->
+          <div id="membersList">
+          
+            <!-- participant template start -->
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+            <!-- participant template end -->
+
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+
+            <div class="memberBox">
+              <img src="../img/default.jpeg" alt="no" class="float-left">
+              <p class="float-left">Name Name</p>
+              <button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>
+            </div>
+            <div class="clear"></div>
+
+          </div>
+        </div>
         
         <div class="chatBox">
           <p class="loadLink">Load More</p>

@@ -127,7 +127,27 @@
           <div class="clear"></div>
 
           <div class="postBody">
-            <p>Salami short ribs ham pig, prosciutto tri-tip strip steak sirloin. Ham ham hock cow, shank beef ribs pancetta sausage. Beef cow kevin short loin ball tip spare ribs ribeye tail pig meatloaf chicken biltong prosciutto picanha. Tri-tip shankle ham chicken alcatra buffalo frankfurter salami porchetta short ribs tail shank pork chop spare ribs ground round. Doner turducken sausage, turkey sirloin corned beef chicken burgdoggen capicola jowl. Strip steak rump pancetta capicola beef ribs drumstick alcatra tri-tip sirloin corned beef burgdoggen. Pastrami ham bresaola, tri-tip burgdoggen ball tip beef ribs shoulder.</p>
+          <form action="">
+            <!-- <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio1">
+              <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+            </div> -->
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            </div>
+          </form>
+            
+            
+            <p>Ham ham hock cow, shank beef ribs pancetta sausage. Beef cow kevin short loin ball tip spare ribs ribeye tail pig meatloaf chicken biltong prosciutto picanha. Tri-tip shankle ham chicken alcatra buffalo frankfurter salami porchetta short ribs tail shank pork chop spare ribs ground round. Doner turducken sausage, turkey sirloin corned beef chicken burgdoggen capicola jowl. Strip steak rump pancetta capicola beef ribs drumstick alcatra tri-tip sirloin corned beef burgdoggen. Pastrami ham bresaola, tri-tip burgdoggen ball tip beef ribs shoulder.</p>
           </div>
           
           <footer class="postFooter">
@@ -178,7 +198,7 @@
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/newsfeed.js"></script>
 
   </body>
 </html>

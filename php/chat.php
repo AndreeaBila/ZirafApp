@@ -117,7 +117,7 @@
               <!-- <form action="" method="" id="createChatForm"> -->
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chat Name</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                  <input type="email" class="form-control" id="chatNameInput" aria-describedby="emailHelp" placeholder="Enter name">
                 </div>
 
                 <div class="form-group">

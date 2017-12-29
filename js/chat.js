@@ -134,14 +134,27 @@ $(function() {
   //check if the user pressed the create chat button
   $('#createChatBtn').click(function(){
     var selectedOptions = $('#addedMembers').children();
+    var chatName = $('#chatNameInput').val();
     var chatEmails = {
-      chatEmails : ""
+      chatName : chatName,
+      emailList : ""
     };
     for(var i=0;i<selectedOptions.length;i++){
-      chatEmails.emailList += selectedOptions[i].val() + "&";
+      chatEmails.emailList += selectedOptions[i].childNodes[0].innerHTML + "&";
     }
     chatEmails.emailList = chatEmails.emailList.slice(0, -1);
-    console.log(chatEmails);
+    //send the chat data
+    $.ajax({
+      data: chatEmails,
+      url: "../php/phpDirectives/createChat.php",
+      type: "POST",
+      success: function(){
+        
+      },
+      error: function(){
+
+      }
+    }); 
   });
 });
 

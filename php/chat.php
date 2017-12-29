@@ -140,24 +140,6 @@
 
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembers">
-<<<<<<< HEAD
-=======
-                    <div class="members row">
-                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> test@test.com</p>
-                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                    </div>
-
-                    <div class="members row">
-                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> exec@exec.com</p>
-                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                    </div>
-
-                    <div class="members row">
-                      <p class="emails col-8"><i class="fa fa-user-circle" aria-hidden="true"></i> zirafer@zirafer.com</p>
-                      <button type="button" class="removeMemberBtn col-4 float-right">remove &times;</button>
-                    </div>
-
->>>>>>> 82639a20f13948acba3393f92cdfe9cc069d2415
                   </div>
                 </div>
                 <!-- ADDED MEMEBER TEMPLATE END -->

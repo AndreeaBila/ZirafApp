@@ -63,12 +63,12 @@
         -->
         <form id="loginForm" class="loginForm">
           <!-- login email -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="loginEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
             <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
           </div>
           <!-- login password -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="loginPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
             <input type="password" class="form-control" id="exampleInputPassword1" name="loginPassword" placeholder="Enter password" required>
           </div>
@@ -81,7 +81,7 @@
             </label>
           </div>
           <!-- login button -->
-          <button type="button" class="btn btn-primary" id="loginBtn" name="loginBtn">Log In</button>
+          <button type="button" class="btn btn-lg btn-primary" id="loginBtn" name="loginBtn">Log In</button>
           <!-- create account -->
           <button type="button" class="btn" id="loginToSignup" name="loginToSignup">Create New Account</button>
         </form>
@@ -103,17 +103,17 @@
         -->
         <form action="./phpDirectives/signup" method="POST" onsubmit="return signupVerification()" id="signupForm" name="signupForm" class="signupForm" enctype="multipart/form-data">
           <!-- signup name -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>
             <input type="text" class="form-control" id="signupName" name="signupName" placeholder="Name" required>
           </div>
           <!-- signup email -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
             <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email" required>
           </div>
           <!-- signup password -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
             <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password" required>
           </div>
@@ -121,27 +121,27 @@
             Your password must be 8 characters long.
           </small>
           <!-- signup confirm password -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupConfirmPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
             <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password" required>
           </div>
           <!-- signup username of social handle -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupUsernameAddon"><i class="fa fa-at" aria-hidden="true"></i></span>
             <input type="text" class="form-control" id="signupUsername" name="signupUsername" placeholder="Username of Main Social Handle">
           </div>
           <!-- signup description -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupDescriptionAddon"><i class="fa fa-address-card" aria-hidden="true"></i></span>
             <input type="text" class="form-control" id="signupDescription" name="signupDescription" placeholder="Description">
           </div>
           <!-- signup phone number -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupUsernameAddon"><i class="fa fa-phone" aria-hidden="true"></i></span>
             <input type="tel" class="form-control" id="signupPhoneNumber" name="signupPhoneNumber" placeholder="Phone Number">
           </div>
           <!-- signup profile picture -->
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <label for="signupProfilePictureBtn">Upload Profile Picture</label>
             <input type="file" class="form-control-file" id="signupProfilePictureBtn" name="signupProfilePictureBtn">
           </div>
@@ -153,7 +153,7 @@
             </label>
           </div>
           <!-- signup submit button -->
-          <button type="submit" class="btn btn-primary" id="signupBtn" name="signupBtn">Sign Up</button>
+          <button type="submit" class="btn btn-lg btn-primary" id="signupBtn" name="signupBtn">Sign Up</button>
           <!-- signup already have an account button -->
           <button type="button" class="btn" id="signupToLogin" name="singupToLogin">Already Have An Account</button>
         </form>

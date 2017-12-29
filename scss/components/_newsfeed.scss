@@ -1,0 +1,84 @@
+#newsfeed {
+  #newsfeedMenu {
+    button {
+      padding: 5px;
+      border: 0.2px solid rgba(242,145,10,0.05);;
+      background-color: rgba(242,145,10,0.2);
+      p{
+        color: $zirafColor;
+        font-size: 13px;
+        i{
+          font-size: 25px;
+        }
+      }
+    }
+
+    button:active,
+    button:active:focus,
+    button:focus {
+      outline: none;
+      background-color: rgba(242,145,10,0.4);
+    }
+  }
+
+  .post {
+    margin: 20px 5px;
+    padding: 10px;
+    background-color: rgba(242,145,10,0.1);
+    border: 1px solid rgba(242,145,10,0.1);
+    box-shadow: 0 0 15px -2px rgba(0,0,0,0.3);
+    .postHeader {
+      border-bottom: 1px solid rgba(242,145,10,0.15);
+      height: 45px;
+
+      img {
+        border-radius: 50px;
+      }
+
+      p {
+        padding: 8px 5px;
+        font-weight: 600;
+        color: $zirafColor;
+      }
+
+      small {
+        padding: 10px 5px;
+        color: $zirafColor;
+      }
+    }
+    .postBody {
+      p {
+        padding: 10px;
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 14px;
+      }
+      img {
+        padding: 10px 5px 0px;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .postFooter {
+      border-top: 1px solid rgba(242,145,10,0.15);
+      height: 40px;
+      .likePostBtn {
+        border: none;
+        background-color: transparent;
+        img {
+          height: 30px;
+          width: auto;
+        }
+        color: $zirafColor;
+      }
+
+      .likesCount {
+        color: $zirafColor;
+        padding: 15px 5px 0px;
+      }
+    }
+  }
+  .announcementPost {
+
+  }
+}

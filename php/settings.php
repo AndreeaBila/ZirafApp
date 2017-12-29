@@ -52,8 +52,53 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      <br><br><br><br>
-      <h1>SETTINGS</h1>
+      
+      <div id="settings">
+        <h2 class="text-center">Account Settings</h2>
+        <form action="" method="">
+          <!-- settings name -->
+          <div class="form-group">
+            <label for="settingsName">Name</label>
+            <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName">
+          </div>
+          <!-- settings email -->
+          <div class="form-group">
+            <label for="settingsEmail">Email Address</label>
+            <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail">
+          </div>
+          <!-- settings password -->
+          <div class="form-group">
+            <label for="settingsPassword">New Password</label>
+            <input type="password" class="form-control form-control-lg" id="settingsPassword" name="settingsPassword" placeholder="Enter New Password">
+          </div>
+          <!-- settings confirm password -->
+          <div class="form-group">
+          <label for="settingsConfirmPassword">Confirm New Password</label>
+            <input type="password" class="form-control form-control-lg" id="settingsConfirmPassword" name="settingsConfirmPassword" placeholder="Confirm New Password">
+          </div>
+          <!-- settings username of social handle -->
+          <div class="form-group">
+            <label for="settingsUsername">Username of Main Social Handle</label>
+            <input type="text" class="form-control form-control-lg" id="settingsUsername" name="settingsUsername">
+          </div>
+          <!-- settings phone number -->
+          <div class="form-group">
+            <label for="settingsPhoneNumber">Phone Number</label>
+            <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber">
+          </div>
+          
+          <!-- settings submit button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-info" id="settingsBtn" name="settingsBtn">Save Changes</button>
+          </div>
+          
+        </form>
+
+      </div>
+
+
+      </div>
+
       <?php
         include './phpComponents/footer.php';
       ?>

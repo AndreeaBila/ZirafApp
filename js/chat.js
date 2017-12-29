@@ -109,13 +109,16 @@ $(function() {
         $('#selectUserEmails').val("");
         //delete the selected email from the list of available options
         $('#chatCreator option[value="'+ selectedEmail +'"]').remove();
+         //chekc if a row from the selected emails list has been deleted
+        $('.removeMemberBtn').unbind('click');
+        $('.removeMemberBtn').bind('click', function(){
+          var deletedEmail = $(this).siblings().first().text();
+          //add the email back to the select
+          $('#chatCreator').append('<option value="'+ deletedEmail +'">');
+          $(this).parent().remove();
+        });
       }
     }
-
-    //chekc if a row from the selected emails list has been deleted
-    $('.removeMemberBtn').click(function(){
-      $(this).parent().remove();
-    });
   });
 
   //check if an option for creating a new group has been created
@@ -129,19 +132,22 @@ $(function() {
         //add the selected email to the list of selected emails
         $('#addedMembersToAdd').append('<div class="members row">' +
                                        '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                       '<button type="button" class="removeMemberBtn col-4">&times;</button>' +
+                                       '<button type="button" class="removeMemberBtnToAdd col-4">&times;</button>' +
                                        '</div>');
         //delete the input data
         $('#selectUserEmailsToAdd').val("");
         //delete the selected email from the list of available options
         $('#addUsers option[value="'+ selectedEmail +'"]').remove();
+        //chekc if a row from the selected emails list has been deleted
+        $('.removeMemberBtnToAdd').unbind('click');
+        $('.removeMemberBtnToAdd').bind('click', function(){
+          var deletedEmail = $(this).siblings().first().text();
+          //add the email back to the select
+          $('#addUsers').append('<option value="'+ deletedEmail +'">');
+          $(this).parent().remove();
+        });
       }
     }
-
-    //chekc if a row from the selected emails list has been deleted
-    $('.removeMemberBtn').click(function(){
-      $(this).parent().remove();
-    });
   });
 
   //check if the user pressed the create chat button
@@ -205,7 +211,21 @@ $(function() {
     url: "../php/phpDirectives/addUsersToChat.php",
     type: "POST",
     success: function(result){
-      
+      var userArray = JSON.parse(result);
+      for(var i=0;i<userArray.length;i++){
+        $('#membersList').append(parseUserData(userArray[i]));
+      }
+      $('#addUserModal').modal('toggle');
+      //get the current number of messages
+      var currentMessages = parseInt($('#participantCount').text()[0]);
+      var sum = currentMessages + userArray.length;
+      console.log(currentMessages);
+      //update the result
+      if(sum == 1){
+        $('#participantCount').text("1 participant");
+      }else{
+        $('#participantCount').text(sum + " participants");
+      }
     },
     error: function(){
       alert("An error has occured");
@@ -234,6 +254,54 @@ $(function() {
       //append the emails to the email list
       for(var i=0;i<data.length;i++){
         $('#membersList').append(parseUserData(data[i]));
+        $('.removeUser').unbind('click');
+        $('.removeUser').bind('click', function(){
+          var deletedUser = $(this).siblings().first().next().text();
+          var previousRow = this;
+          //check the confirm opeartion
+          $('#removeUserBtn').click(function(){
+            //delete the user from the database
+            var deleteData = {
+              chatId : selectedChat.chatId,
+              email : deletedUser
+            };
+            $.ajax({
+              data: deleteData,
+              url: "../php/phpDirectives/removeUser.php",
+              type: "GET",
+              success: function(){ 
+                $(previousRow).parent().remove();
+                $('#removeUserModal').modal('toggle');
+              },
+              error: function(){
+                alert("An error has occured");
+              }
+            });
+            //decrease count by one
+            var previousCount = parseInt($('#participantCount').text()[0]);
+            previousCount--;
+            if(previousCount == 1){
+              $('#participantCount').text("1 participant");
+            }else{
+              $('#participantCount').text(previousCount + " participants");
+            }
+          });
+        });
+      }
+    });
+  });
+
+  //check if the leave chat button has been clicked
+  $('#leaveChatBtn').click(function(){
+    $.ajax({
+      data: selectedChat,
+      url: "../php/phpDirectives/leaveChat.php",
+      type: "get",
+      success: function(){
+        location.reload();
+      },
+      error: function(){
+        alert("Error occured");
       }
     });
   });
@@ -366,7 +434,7 @@ function parseUserData(data){
   return '<div class="memberBox">' +
             '<img src="../img/userIcons/'+ data.userId +'.'+ data.iconExtension +'" alt="no" class="float-left">' +
             '<p class="float-left">'+ data.email +'</p>' +
-            '<button class="float-right" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>' +
+            '<button class="float-right removeUser" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>' +
           '</div>' +
           '<div class="clear"></div>';
 }

@@ -17,13 +17,14 @@
     //calculate teh today date
     $date = date("Y-m-d");
     //add the current email list to the given chat
+    $returnInfo = array();
     foreach($emailList as $email){
         //get the userId of the current email
-        $getIdQuery = "SELECT userId FROM USERS WHERE email = ?";
+        $getIdQuery = "SELECT userId, iconExtension FROM USERS WHERE email = ?";
         $stmt = $db->prepare($getIdQuery);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $stmt->bind_result($userId);
+        $stmt->bind_result($userId, $iconExtension);
         $stmt->fetch();
         $stmt->close();
 
@@ -42,6 +43,12 @@
             $stmt->bind_param("sss", $userId, $chatId, $date);
             $stmt->execute();
             $stmt->close();
+            $userData['userId'] = $userId;
+            $userData['email'] = $email;
+            $userData['iconExtension'] = $iconExtension;
+            array_push($returnInfo, $userData);
         }
     }
+
+    echo json_encode($returnInfo);
 ?>

@@ -97,7 +97,7 @@
           <div id="membersListTitleBox">
             <p id="membersListTitle">Members</p>
             <!-- number of participants -->
-            <small id="participantCount">n participants</small>
+            <small id="participantCount"></small>
           </div>
         
           <!-- List of chat participants -->

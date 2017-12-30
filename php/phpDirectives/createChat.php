@@ -11,6 +11,9 @@
 
     //get the user data
     $chatName = strip_tags(stripslashes($_POST['chatName']));
+    if($chatName === ""){
+        exit("Error");
+    }
     $emailList = strip_tags(stripslashes($_POST['emailList']));
     $emailList = explode(",", $emailList);
 

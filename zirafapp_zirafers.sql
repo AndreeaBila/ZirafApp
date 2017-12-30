@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2017 at 09:43 PM
+-- Generation Time: Dec 30, 2017 at 03:00 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -66,21 +66,6 @@ CREATE TABLE `messages` (
   `content` text NOT NULL,
   `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`messageId`, `userId`, `chatId`, `content`, `dateCreated`) VALUES
-(99, 81, 1, 'wtf is going on', '2017-12-28 20:22:00'),
-(100, 80, 1, 'nothing bro', '2017-12-28 20:22:00'),
-(101, 81, 1, 'alrgiht man...what you up to>', '2017-12-28 20:22:00'),
-(102, 80, 1, 'nothin man..[rgramming', '2017-12-28 20:23:00'),
-(103, 81, 1, 'oo cool man', '2017-12-28 20:23:00'),
-(104, 80, 1, 'ad', '2017-12-28 21:00:00'),
-(105, 80, 1, 'fsdf', '2017-12-28 21:00:00'),
-(106, 80, 1, 'sdf', '2017-12-28 21:00:00'),
-(107, 80, 1, 'sdfsdf', '2017-12-28 21:00:00');
 
 -- --------------------------------------------------------
 
@@ -171,8 +156,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `socialHandle`, `description`, `phone`, `rank`, `score`, `clearance`, `iconExtension`, `salt`, `activationKey`, `emailActivation`, `execActivation`, `cookieHash`, `dateJoined`) VALUES
-(80, 'test', 'test@test.com', 'a0fe9be7aa538f5b8fff0ffaa119b07a55f439c3', 'test', 'test', 'test', 'Baby Zirafer', 0, 1, 'jpeg', 'ff922f9134c61e157b245ed0ada99db0b457847e', '0aee021b8296929506e8e526afd910b489eda825', 1, 1, '19a1ee5efb6dd1ad3e04e52fc51564b59064da96', '2017-12-28'),
-(81, 'test', 'test1@test.com', '511963fef633cd290ed0e22bb1ef9e1396900d18', 'test', 'test', 'test', 'Baby Zirafer', 0, 0, 'jpg', '905b6b116f934914b71612a8888d6b462994ef9f', '6007ad1ed205342988e602a6f5196035df45e60b', 1, 1, '98e18a4290c91131ab2f33b6dd1d1a4e8dd792ae', '2017-12-28');
+(85, 'Vlad', 'vlad@email.com', 'ef6cbfb01ab4aa0c00e0207bb795151b54d0c0b5', 'vlad', 'vlad', '123456789', 'Baby Zirafer', 0, 1, 'jpg', '96df8ac2b06a9abce13ee9e0a6c4f5ec1889e3d5', '97a7c7e3006eda88cab06e28b46bce9e8aa3aea0', 1, 1, 'cc89904249120d0fce2b81dc68ee9435bcc9bd70', '2017-12-30'),
+(86, 'Andreea', 'andreea@email.com', 'bfa4fac4bf85bae6bb44ec168935d4ed301fe5f3', 'andreea', 'andreea', '123456789', 'Baby Zirafer', 0, 1, 'jpg', 'dba795a25f16fa02d365b446680e601a3e5a2274', '0e4f672e61cf331a86dbc29a79e27ff90909f09b', 1, 1, '2c33019102b18874ec32209bda9337da24ae7a2a', '2017-12-30'),
+(87, 'Maria', 'maria@email.com', '45d21d16e5caf83322d38489e8dd549be7e20286', 'maria', 'maria', '123456789', 'Baby Zirafer', 0, 0, 'jpeg', '3325f046fc59694d37f2b88ca9d30f6ce0e3e69b', '20bb3a40db719e5f31c1e5209c904d95b0b5e151', 1, 1, '07d75bef6e39fb867ea615e52378c7822ccbc4be', '2017-12-30');
 
 -- --------------------------------------------------------
 
@@ -203,8 +189,9 @@ CREATE TABLE `user_chats` (
 --
 
 INSERT INTO `user_chats` (`userId`, `chatId`, `dateAdded`) VALUES
-(80, 1, '2017-12-28'),
-(81, 1, '2017-12-28');
+(85, 1, '2017-12-30'),
+(86, 1, '2017-12-30'),
+(87, 1, '2017-12-30');
 
 -- --------------------------------------------------------
 
@@ -345,13 +332,13 @@ ALTER TABLE `badges`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `polls`
@@ -381,7 +368,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- Constraints for dumped tables

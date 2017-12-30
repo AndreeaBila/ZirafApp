@@ -27,6 +27,8 @@ $(function() {
   //   $('#chatMessageInputBox').effect('slide',{direction:'up', mode:'show'},500);
   // }
   
+  //updateURLChatId();
+
   initializeMessages();
 
   //check if the user pressed the send button
@@ -53,11 +55,6 @@ $(function() {
       $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     }
   });
-
-  //check for new message every 0.5 seconds
-  window.setInterval(function(){
-    messageTimeout();
-  }, 500);
 
   //check if the user pressed enter
   $('#chatMessageInput').keydown(function(e){
@@ -154,6 +151,11 @@ $(function() {
   $('#createChatBtn').click(function(){
     var selectedOptions = $('#addedMembers').children();
     var chatName = $('#chatNameInput').val();
+    //check if the chatName has been specified
+    if(chatName === ""){
+      alert("You have to specify a chat name!");
+      return;
+    }
     //clear the two inputs
     $('#selectUserEmails').val('');
     $('#chatNameInput').val('');
@@ -172,6 +174,7 @@ $(function() {
       url: "../php/phpDirectives/createChat.php",
       type: "POST",
       success: function(result){
+        if(result === "Error") return;
         var parsedResult = JSON.parse(result);
         //close the modal
         $('#closeModalBtn').click();
@@ -204,6 +207,10 @@ $(function() {
     for(var i=0;i<membersToAdd.length;i++){
       addEmails.emailList += membersToAdd[i].childNodes[0].innerHTML + ",";
     }
+    if(addEmails.emailList === ""){
+      alert("No zirafer has been specified.");
+      return;
+    }
     addEmails.emailList = addEmails.emailList.slice(0, -1);
     //send the chat data
     $.ajax({
@@ -211,6 +218,7 @@ $(function() {
     url: "../php/phpDirectives/addUsersToChat.php",
     type: "POST",
     success: function(result){
+      if(result === "Error") return;
       var userArray = JSON.parse(result);
       for(var i=0;i<userArray.length;i++){
         $('#membersList').append(parseUserData(userArray[i]));
@@ -395,6 +403,10 @@ function checkOptionValue(options, value){
 }
 
 function initializeMessages(){
+  //remove the event listener
+  window.clearInterval(messageTimeout);
+  //delete all messages that currently exist
+  $(".chatBox").children().filter(":not(.loadLink)").remove();
   //change the chat title
   $('#chatTitle').text(selectedChat.chatName);
   //create payload to select 20 messages from this chat
@@ -408,6 +420,10 @@ function initializeMessages(){
     success: function(data){
       messages = JSON.parse(data);
       displayChat(messages);
+      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+      //now start listening for new messages
+      //check for new message every 0.5 seconds
+      window.setInterval(messageTimeout, 500);
     },
     error: function(){
       alert("Error");
@@ -437,4 +453,10 @@ function parseUserData(data){
             '<button class="float-right removeUser" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>' +
           '</div>' +
           '<div class="clear"></div>';
+}
+
+function updateURLChatId(){
+  //append the chat id to the url for later detection
+  var url = location.href + "?chatId=" + selectedChat.chatId;
+  window.history.pushState(null, null, url);
 }

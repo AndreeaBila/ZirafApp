@@ -3,7 +3,7 @@ var selectedChat = {
   chatId : 1
 };
 
-var messages;
+var messages = [];
 
 $(function() {
   $('#chatMenu').hide();
@@ -27,6 +27,9 @@ $(function() {
   //   $('#chatMessageInputBox').effect('slide',{direction:'up', mode:'show'},500);
   // }
   
+  //append the url paramter
+  //window.history.pushState(null, null, "?chatId=");
+  //append the proper chatID
   //updateURLChatId();
 
   initializeMessages();
@@ -227,13 +230,13 @@ $(function() {
       //get the current number of messages
       var currentMessages = parseInt($('#participantCount').text()[0]);
       var sum = currentMessages + userArray.length;
-      console.log(currentMessages);
       //update the result
       if(sum == 1){
         $('#participantCount').text("1 participant");
       }else{
         $('#participantCount').text(sum + " participants");
       }
+      $('#chatSettingsBtn').click();
     },
     error: function(){
       alert("An error has occured");
@@ -264,10 +267,15 @@ $(function() {
         $('#membersList').append(parseUserData(data[i]));
         $('.removeUser').unbind('click');
         $('.removeUser').bind('click', function(){
-          var deletedUser = $(this).siblings().first().next().text();
-          var previousRow = this;
+          deletedUser = $(this).siblings().first().next().text();
+          previousRow = this;
           //check the confirm opeartion
           $('#removeUserBtn').click(function(){
+            if(selectedChat.chatId === 1){
+              alert("You cannot remove yourself or anybody else from the All Zirafers chat.");
+              location.reload();
+              return;
+            }
             //delete the user from the database
             var deleteData = {
               chatId : selectedChat.chatId,
@@ -277,21 +285,31 @@ $(function() {
               data: deleteData,
               url: "../php/phpDirectives/removeUser.php",
               type: "GET",
-              success: function(){ 
-                $(previousRow).parent().remove();
-                $('#removeUserModal').modal('toggle');
+              success: function(count){
+                if(count === 'self'){
+                  location.reload();
+                }else{
+                  $(previousRow).parent().remove();
+                  $('#removeUserModal').modal('toggle');
+                  //update count
+                  if(count == 1){
+                    $('#participantCount').text("1 participant");
+                  }else{
+                    $('#participantCount').text(count + " participants");
+                  }
+                }
               },
               error: function(){
                 alert("An error has occured");
               }
             });
-            //decrease count by one
-            var previousCount = parseInt($('#participantCount').text()[0]);
-            previousCount--;
-            if(previousCount == 1){
-              $('#participantCount').text("1 participant");
-            }else{
-              $('#participantCount').text(previousCount + " participants");
+          });
+          //check if the user has cancelled the removal operation and elete the data
+          $('#closeModalUserRemovalBtn').click(function(){
+            //delete the associated user data
+            if(typeof deletedUser !== 'undefined' && typeof previousRow !== 'undefined'){
+              delete deletedUser;
+              delete previousRow;
             }
           });
         });
@@ -301,6 +319,11 @@ $(function() {
 
   //check if the leave chat button has been clicked
   $('#leaveChatBtn').click(function(){
+    //check if the chatId is 1
+    if(selectedChat.chatId === 1){
+      alert("You cannot leave the All Zirafers chat.");
+      return;
+    }
     $.ajax({
       data: selectedChat,
       url: "../php/phpDirectives/leaveChat.php",
@@ -405,6 +428,8 @@ function checkOptionValue(options, value){
 function initializeMessages(){
   //remove the event listener
   window.clearInterval(messageTimeout);
+  //delete the already loaded elements if they exist
+  messages.splice(0);
   //delete all messages that currently exist
   $(".chatBox").children().filter(":not(.loadLink)").remove();
   //change the chat title
@@ -438,6 +463,8 @@ function switchChat(current){
   //update the current chat data
   selectedChat.chatId = newId;
   selectedChat.chatName = newName;
+  //update the url
+  //updateURLChatId();
   //reslide the chat selector
   $('#chatMenuBtn').click();
   //delete all messages from the page
@@ -457,6 +484,7 @@ function parseUserData(data){
 
 function updateURLChatId(){
   //append the chat id to the url for later detection
-  var url = location.href + "?chatId=" + selectedChat.chatId;
+  var url = selectedChat.chatId;
+  //update the url
   window.history.pushState(null, null, url);
 }

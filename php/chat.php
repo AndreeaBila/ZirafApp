@@ -250,7 +250,7 @@
               Are you sure you want to remove this user from the chat?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-secondary" id="closeModalUserRemovalBtn" data-dismiss="modal">Cancel</button>
               <button type="button" class="btn btn-danger" id="removeUserBtn">Remove</button>
             </div>
           </div>
@@ -280,6 +280,5 @@
 
     <!-- The js script for this file -->
     <script src="../js/chat.js"></script>
-
   </body>
 </html>

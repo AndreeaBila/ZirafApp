@@ -11,7 +11,7 @@
     //get the chat id
     $chatId = strip_tags(stripslashes($_GET['chatId']));
     $messageIndex = strip_tags(stripslashes($_GET['messageIndex']));
-    $query = "SELECT M.messageId, M.userId, M.chatId, M.content, M.dateCreated, U.userName, U.iconExtension FROM MESSAGES M INNER JOIN USERS U ON M.userId = U.userId WHERE chatId = ?";
+    $query = "SELECT M.messageId, M.userId, M.chatId, M.content, M.dateCreated, U.userName, U.iconExtension FROM MESSAGES M INNER JOIN USERS U ON M.userId = U.userId WHERE chatId = ? ORDER BY M.messageId ASC";
     $stmt = $db->prepare($query);
     $stmt->bind_param("s", $chatId);
     $stmt->execute();

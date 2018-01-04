@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2018 at 02:46 PM
+-- Generation Time: Jan 04, 2018 at 09:32 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -153,8 +153,28 @@ INSERT INTO `messages` (`messageId`, `userId`, `chatId`, `content`, `dateCreated
 CREATE TABLE `polls` (
   `pollId` int(11) NOT NULL,
   `pollStatement` varchar(50) NOT NULL,
+  `pollDescription` text NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `polls`
+--
+
+INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
+(1, '', '', '2018-01-04'),
+(2, '', '', '2018-01-04'),
+(3, '', '', '2018-01-04'),
+(4, 'asdasd', 'dadasd', '2018-01-04'),
+(5, 'sdfsdf', 'dfgdfgdfgfg', '2018-01-04'),
+(6, 'What are you doing?', 'This is a test', '2018-01-04'),
+(7, 'dfgdfg', 'sdfsdfsdf', '2018-01-04'),
+(8, 'zzsdasdas', 'sdfdsfsdf', '2018-01-04'),
+(9, 'sdfsdf', 'adsafsdfsdf', '2018-01-04'),
+(10, 'sdfsdf', 'afsgfhhghfgh', '2018-01-04'),
+(11, 'hfhf', 'sdfsdf', '2018-01-04'),
+(12, 'dfgdfgdg', 'hfghfghfg', '2018-01-04'),
+(13, 'sdf', 'sdfsdfdsf', '2018-01-04');
 
 -- --------------------------------------------------------
 
@@ -168,6 +188,58 @@ CREATE TABLE `poll_options` (
   `content` text NOT NULL,
   `votes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `poll_options`
+--
+
+INSERT INTO `poll_options` (`optionId`, `pollId`, `content`, `votes`) VALUES
+(1, 1, '', 0),
+(2, 2, '', 0),
+(3, 3, '', 0),
+(4, 4, '1', 0),
+(5, 4, '2', 0),
+(6, 4, '3', 0),
+(7, 4, '4', 0),
+(8, 4, '5', 0),
+(9, 5, '1', 0),
+(10, 5, '2', 0),
+(11, 5, '3', 0),
+(12, 5, '4', 0),
+(13, 5, '5', 0),
+(14, 6, 'yes', 0),
+(15, 6, 'no', 0),
+(16, 6, 'nothing', 0),
+(17, 6, 'dunno', 0),
+(18, 7, 'sdf', 0),
+(19, 7, 'sdf', 0),
+(20, 7, 'sdf', 0),
+(21, 7, 'sdf', 0),
+(22, 8, 'sdfsd', 0),
+(23, 8, 'sdf', 0),
+(24, 8, 'gd', 0),
+(25, 8, 'hgj', 0),
+(26, 9, 'asd', 0),
+(27, 9, 'sdf', 0),
+(28, 9, 'gdf', 0),
+(29, 9, 'hf', 0),
+(30, 9, 'jh', 0),
+(31, 10, 'ghj', 0),
+(32, 10, 'zcx', 0),
+(33, 10, 'qew', 0),
+(34, 10, 'fsd', 0),
+(35, 11, 'sdf', 0),
+(36, 11, 'dfg', 0),
+(37, 11, 'fgh', 0),
+(38, 11, 'jg', 0),
+(39, 12, 'asd', 0),
+(40, 12, 'sdf', 0),
+(41, 12, 'dfg', 0),
+(42, 12, 'fgh', 0),
+(43, 12, 'ghj', 0),
+(44, 13, 'sdf', 0),
+(45, 13, 'sdf', 0),
+(46, 13, 'sdf', 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +262,15 @@ INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
 (5, 'This is my last post\nGoodbye!', '2018-01-04'),
 (6, 'dasdasdasdas', '2018-01-04'),
 (7, 'asdasdasdasd', '2018-01-04'),
-(8, 'asdasdsadsad\nasdasd\nasdasdasd\nadasdasdasd', '2018-01-04');
+(8, 'asdasdsadsad\nasdasd\nasdasdasd\nadasdasdasd', '2018-01-04'),
+(9, 'This is the first post\nHere you go', '2018-01-04'),
+(10, 'fsdfsdf\nsfsdf\nsdfsdfsdfsdf', '2018-01-04'),
+(11, 'sfsdf', '2018-01-04'),
+(12, 'sfsdfsdfsdf\nsdfsd\nsdfsdfsdf', '2018-01-04'),
+(13, 'dfgdfg\ndfgdfg', '2018-01-04'),
+(14, 'dfgdfg\ndfgdfgdfg', '2018-01-04'),
+(15, 'gdfgdfg\ndfgdfg\ndfgdfgd\n\ndfgdfg', '2018-01-04'),
+(16, 'dfgdfgd\ndfgdg\ndfgdfgdfg', '2018-01-04');
 
 -- --------------------------------------------------------
 
@@ -302,9 +382,22 @@ CREATE TABLE `user_likes` (
 
 CREATE TABLE `user_polls` (
   `userId` int(11) NOT NULL,
-  `pollId` int(11) NOT NULL,
-  `userName` varchar(30) NOT NULL
+  `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_polls`
+--
+
+INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
+(85, 6),
+(85, 7),
+(85, 8),
+(85, 9),
+(85, 10),
+(85, 11),
+(85, 12),
+(85, 13);
 
 -- --------------------------------------------------------
 
@@ -326,7 +419,15 @@ INSERT INTO `user_posts` (`userId`, `postId`) VALUES
 (85, 5),
 (85, 6),
 (85, 7),
-(85, 8);
+(85, 8),
+(85, 9),
+(85, 10),
+(85, 11),
+(85, 12),
+(85, 13),
+(85, 14),
+(85, 15),
+(85, 16);
 
 -- --------------------------------------------------------
 
@@ -462,19 +563,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `polls`
 --
 ALTER TABLE `polls`
-  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `poll_options`
 --
 ALTER TABLE `poll_options`
-  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `reviews`

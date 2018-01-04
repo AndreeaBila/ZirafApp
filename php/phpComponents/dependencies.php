@@ -138,18 +138,36 @@
     class Poll{
         private $pollId;
         private $pollStatement;
+        private $pollDescription;
+        private $totalVotes;
+        private $likes;
         private $dateCreated;
+        private $userId;
+        private $userName;
+        private $iconExtension;
 
-        public function __construct($pollId, $pollStatement, $dateCreated){
+        public function __construct($pollId, $pollStatement, $pollDescription, $totalVotes, $likes, $dateCreated, $userId, $userName, $iconExtension){
             $this->pollId = $pollId;
             $this->pollStatement = $pollStatement;
+            $this->pollDescription = $pollDescription;
+            $this->totalVotes = $totalVotes;
+            $this->likes = $likes;
             $this->dateCreated = $dateCreated;
+            $this->userId = $userId;
+            $this->userName = $userName;
+            $this->iconExtension = $iconExtension;
         }
 
         public function getPollData(){
             $pollInfo = array("pollId" => $this->pollId,
                               "pollStatement" => $this->pollStatement,
-                              "dateCreated" => $this->dateCreated);
+                              "pollDescription" => $this->pollDescription,
+                              "totalVotes" => $this->totalVotes,
+                              "likes" => $this->likes,
+                              "dateCreated" => $this->dateCreated,
+                              "userId" => $this->userId,
+                              "userName" => $this->userName,
+                              "iconExtension" => $this->iconExtension);
             return $pollInfo;
         }
     }

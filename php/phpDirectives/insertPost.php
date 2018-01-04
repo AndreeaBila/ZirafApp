@@ -12,7 +12,7 @@
     //get the user id
     $userId = $_SESSION['userId'];
     //get the user input from the client
-    $postContent = strip_tags(stripslashes(nl2br($_POST['postContent'])));
+    $postContent = strip_tags(stripslashes($_POST['postContent']));
     //get the post date
     $postDate = date("Y-m-d");
     //insert the new post in the database

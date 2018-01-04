@@ -184,26 +184,32 @@
     //post dependency
     class Post{
         private $postId;
-        private $title;
         private $content;
-        private $likes;
         private $dateCreated;
+        private $likes;
+        private $userId;
+        private $userName;
+        private $iconExtension;
 
-        public function __construct($postId, $title, $content, $likes, $dateCreated){
-            $this->postId = postId;
-            $this->title = title;
-            $this->content = content;
-            $this->likes = likes;
-            $this->dateCreated = dateCreated;
+        public function __construct($postId, $content, $dateCreated, $likes, $userId, $userName, $iconExtension){
+            $this->postId = $postId;
+            $this->content = $content;
+            $this->dateCreated = $dateCreated;
+            $this->likes = $likes;
+            $this->userId = $userId;
+            $this->userName = $userName;
+            $this->iconExtension = $iconExtension;
         }
 
         public function getPostData(){
             $postInfo = array("postId" => $this->postId,
-                              "title" => $this->title,
                               "content" => $this->content,
+                              "dateCreated" => $this->dateCreated,
                               "likes" => $this->likes,
-                              "dateCreated" => $this->dateCreated);
-            return $this->postInfo;
+                              "userId" => $this->userId,
+                              "userName" => $this->userName,
+                              "iconExtension" => $this->iconExtension);
+            return $postInfo;
         }
     }
 

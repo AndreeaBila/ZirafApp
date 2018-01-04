@@ -389,28 +389,17 @@ function messageTimeout(){
   //check if there are any new messages and get the number of messages
   $.ajax({
     data: lastMessage,
-    url: "../php/phpDirectives/getNumberOfNewMessages.php",
+    url: "../php/phpDirectives/getLastMessages.php",
     type: "GET",
-    success: function(result){
-      if(result > 0){
-        //query the last reuslt messages
-        var queryMessages = {
-          count : result,
-          chatId : selectedChat.chatId
-        };
-        $.ajax({
-          data: queryMessages,
-          url: "../php/phpDirectives/getLastMessages.php",
-          type: "GET",
-          success: function(response){
-            var messageArray = JSON.parse(response);
-            if(messageArray.length > 0){
-              displayChat(messageArray);
-              messages = messages.concat(messageArray);
-              $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-            }
-          }
-        });
+    success: function(response){
+      if(response === 'undefined'){
+        return;
+      }
+      var messageArray = JSON.parse(response);
+      if(messageArray.length > 0){
+        displayChat(messageArray);
+        messages = messages.concat(messageArray);
+        $("html, body").animate({ scrollTop: $(document).height() }, 1000);
       }
     }
   });

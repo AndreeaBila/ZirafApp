@@ -10,7 +10,18 @@
     $db = createConnection();
     //get the chat id
     $chatId = strip_tags(stripslashes($_GET['chatId']));
-    $count = strip_tags(stripslashes($_GET['count']));
+    $lastId = strip_tags(stripslashes($_GET['messageId']));
+    //check how many messages have been added
+    $query = "SELECT COUNT(*) AS total FROM MESSAGES WHERE chatId = ? AND messageId > ?";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("ss", $chatId, $lastId);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+    if($count <= 0){
+        exit("undefined");
+    }
     //get the last messages
     $query = "SELECT M.messageId, M.userId, M.chatId, M.content, M.dateCreated, U.userName, U.iconExtension FROM MESSAGES M INNER JOIN USERS U ON M.userId = U.userId WHERE chatId = ? ORDER BY M.messageId DESC LIMIT ?";
     $stmt = $db->prepare($query);

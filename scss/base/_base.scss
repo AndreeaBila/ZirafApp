@@ -24,3 +24,53 @@ html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing:grayscale
 }
+
+.bgGreen {
+	background-color: $green;
+	color: white;
+}
+
+.bgGreen:hover,
+.bgGreen:active, 
+.bgGreen:focus,
+.bgGreen:active:focus {
+	background-color: rgba(51, 204, 102, 0.8);
+}
+
+.bgRed {
+	background-color: $red;
+	color: white;
+}
+
+.bgRed:hover,
+.bgRed:active, 
+.bgRed:focus,
+.bgRed:active:focus {
+	background-color: rgba(236, 63, 63, 0.8);
+}
+
+.bgZiraf {
+	background-color: $zirafColor;
+	color: white;
+}
+
+.bgZiraf:hover,
+.bgZiraf:active, 
+.bgZiraf:focus,
+.bgZiraf:active:focus {
+	background-color: rgba(242,145,10,0.8);
+}
+
+.bgNeutral {
+	background-color: white;
+	color: $neutral;
+	border: 1.1px solid $neutral;
+}
+
+.bgNeutral:hover,
+.bgNeutral:active, 
+.bgNeutral:focus,
+.bgNeutral:active:focus {
+	background-color: $neutral;
+	color: white;
+}

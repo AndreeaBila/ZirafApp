@@ -103,7 +103,7 @@ $(function() {
         //add the selected email to the list of selected emails
         $('#addedMembers').append('<div class="members row">' +
                                   '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                  '<button type="button" class="removeMemberBtn col-4">&times;</button>' +
+                                  '<button type="button" class="removeMemberBtn col-4">remove &times;</button>' +
                                   '</div>');
         //delete the input data
         $('#selectUserEmails').val("");
@@ -132,7 +132,7 @@ $(function() {
         //add the selected email to the list of selected emails
         $('#addedMembersToAdd').append('<div class="members row">' +
                                        '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                       '<button type="button" class="removeMemberBtnToAdd col-4">&times;</button>' +
+                                       '<button type="button" class="removeMemberBtnToAdd removeMemberBtn col-4">remove &times;</button>' +
                                        '</div>');
         //delete the input data
         $('#selectUserEmailsToAdd').val("");

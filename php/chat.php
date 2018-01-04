@@ -85,7 +85,7 @@
             ?>
           </ul>
           
-          <button type="button" id="createNewChat" class="text-center float-right" data-toggle="modal" data-target="#createChatModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button type="button" id="createNewChat" class="text-center float-right bgZiraf" data-toggle="modal" data-target="#createChatModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
           <div class="clear"></div>
         </div>
 
@@ -133,27 +133,32 @@
               <!-- <form action="" method="" id="createChatForm"> -->
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chat Name</label>
-                  <input type="email" class="form-control" id="chatNameInput" aria-describedby="emailHelp" placeholder="Enter name">
+                  <input type="email" class="form-control form-control-lg" id="chatNameInput" aria-describedby="emailHelp" placeholder="Enter name">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Add Members</label>
-                  <input type="text" list="userEmails" class="form-control" id="selectUserEmails">
-                  <datalist id="userEmails">
-                    <select id="chatCreator">
-                      <?php
-                        //script required to insert the avaialble email options
-                        //select all email address from the server
-                        $userId = $_SESSION['userId'];
-                        $query = "SELECT email FROM USERS WHERE userId != $userId";
-                        $result = $db->query($query);
-                        while($row = $result->fetch_assoc()){
-                          $currentEmail = $row['email'];
-                          echo '<option value="'.$currentEmail.'">';
-                        }
-                      ?>
-                    </select>
-                  </datalist>
+                  <div class="input-group mb-3">
+                    <input type="text" list="userEmails" class="form-control form-control-lg" id="selectUserEmails">
+                    <datalist id="userEmails">
+                      <select id="chatCreator">
+                        <?php
+                          //script required to insert the avaialble email options
+                          //select all email address from the server
+                          $userId = $_SESSION['userId'];
+                          $query = "SELECT email FROM USERS WHERE userId != $userId";
+                          $result = $db->query($query);
+                          while($row = $result->fetch_assoc()){
+                            $currentEmail = $row['email'];
+                            echo '<option value="'.$currentEmail.'">';
+                          }
+                        ?>
+                      </select>
+                    </datalist> 
+
+                    <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  </div>
+                  
 
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembers">
@@ -162,8 +167,8 @@
                 <!-- ADDED MEMEBER TEMPLATE END -->
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-success" id="createChatBtn">Create Chat</button>
+                  <button type="button" class="btn bgNeutral" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn bgGreen" id="createChatBtn">Create Chat</button>
                 </div>
               <!-- </form> -->
             </div>
@@ -184,22 +189,26 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Search User Email</label>
-                <input type="text" list="userEmailsToAdd" id="selectUserEmailsToAdd" class="form-control">
-                <datalist id="userEmailsToAdd">
-                  <select id="addUsers">
-                    <?php
-                        //script required to insert the avaialble email options
-                        //select all email address from the server
-                        $userId = $_SESSION['userId'];
-                        $query = "SELECT email FROM USERS WHERE userId != $userId";
-                        $result = $db->query($query);
-                        while($row = $result->fetch_assoc()){
-                          $currentEmail = $row['email'];
-                          echo '<option value="'.$currentEmail.'">';
-                        }
-                    ?>
-                  </select>
-                </datalist>
+                <div class="input-group mb-3">
+                  <input type="text" list="userEmailsToAdd" id="selectUserEmailsToAdd" class="form-control form-control-lg">
+                  <datalist id="userEmailsToAdd">
+                    <select id="addUsers">
+                      <?php
+                          //script required to insert the avaialble email options
+                          //select all email address from the server
+                          $userId = $_SESSION['userId'];
+                          $query = "SELECT email FROM USERS WHERE userId != $userId";
+                          $result = $db->query($query);
+                          while($row = $result->fetch_assoc()){
+                            $currentEmail = $row['email'];
+                            echo '<option value="'.$currentEmail.'">';
+                          }
+                      ?>
+                    </select>
+                  </datalist>
+                  <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
+                
 
                 <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                 <div id="addedMembersToAdd"></div>
@@ -208,8 +217,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-success" id="addBtn">Add</button>
+              <button type="button" class="btn bgNeutral" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn bgGreen" id="addBtn">Add</button>
             </div>
           </div>
         </div>
@@ -229,8 +238,8 @@
               Are you sure you want to leave this chat?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-danger" id="leaveChatBtn">Leave</button>
+              <button type="button" class="btn bgNeutral" id="closeModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn bgRed" id="leaveChatBtn">Leave</button>
             </div>
           </div>
         </div>
@@ -250,8 +259,8 @@
               Are you sure you want to remove this user from the chat?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeModalUserRemovalBtn" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-danger" id="removeUserBtn">Remove</button>
+              <button type="button" class="btn bgNeutral" id="closeModalUserRemovalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn bgRed" id="removeUserBtn">Remove</button>
             </div>
           </div>
         </div>

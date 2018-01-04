@@ -35,6 +35,7 @@ html {
 .bgGreen:focus,
 .bgGreen:active:focus {
 	background-color: rgba(51, 204, 102, 0.8);
+	box-shadow: 0 0 0 0.2rem rgba(51, 204, 102, 0.2);
 }
 
 .bgRed {
@@ -47,6 +48,7 @@ html {
 .bgRed:focus,
 .bgRed:active:focus {
 	background-color: rgba(236, 63, 63, 0.8);
+	box-shadow: 0 0 0 0.2rem rgba(236, 63, 63, 0.2);
 }
 
 .bgZiraf {
@@ -59,6 +61,7 @@ html {
 .bgZiraf:focus,
 .bgZiraf:active:focus {
 	background-color: rgba(242,145,10,0.8);
+	box-shadow: 0 0 0 0.2rem rgba(242,145,10, 0.2);
 }
 
 .bgNeutral {
@@ -73,4 +76,5 @@ html {
 .bgNeutral:active:focus {
 	background-color: $neutral;
 	color: white;
+	box-shadow: 0 0 0 0.2rem rgba(50, 78, 78, 0.2);
 }

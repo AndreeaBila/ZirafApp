@@ -48,6 +48,13 @@
       border: none;
     }
 
+    .custom-file-control::before:hover,
+    .custom-file-control::before:active, 
+    .custom-file-control::before:focus,
+    .custom-file-control::before:active:focus {
+      background-color: rgba(242,145,10,0.8)!important;
+    }
+
     input[type="text"] {
       margin: 0px 0px 10px;
     }
@@ -94,7 +101,6 @@
     }
     
     button {
-      background-color: rgba(242,145,10,1);
       color: white;
       float: right!important;
       margin: 10px -10px;

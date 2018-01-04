@@ -22,8 +22,9 @@
 <!-- WRITE ANNOUNCEMENT BOX -->
 <div class="newsfeedAddPost row" id="writeAnnouncement">
     <textarea name="announcementTextarea" id="announcementTextarea" placeholder="Write Announcement..." class="form-control form-control-lg"></textarea>
+    
     <div class="col-12">
-    <button type="button" class="btn btn-lg float-right" id="postAnnouncementBtn">Post</button>
+        <button type="button" class="btn btn-lg bgZiraf float-right" id="postAnnouncementBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>
@@ -31,14 +32,14 @@
 <!-- UPLOAD PICTURE BOX -->
 <div class="newsfeedAddPost row" id="uploadPicture">
     <div class="custom-file form-control-lg">
-    <input type="file" class="custom-file-input" id="customFile">
-    <span class="custom-file-control"></span>
-    
-    </label>
+        <input type="file" class="custom-file-input" id="customFile">
+        <span class="custom-file-control"></span>
     </div>
+    
     <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
+    
     <div class="col-12">
-    <button type="button" class="float-right btn btn-lg" id="postPictureBtn">Post</button>
+        <button type="button" class="float-right btn btn-lg bgZiraf" id="postPictureBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>
@@ -48,8 +49,9 @@
     <input type="text" class="form-control form-control-lg" id="pollQuestion" placeholder="Poll Question">
     <input type="text" class="form-control form-control-lg" id="pollOptionInput" placeholder="Poll Option">
     <textarea name="pictureTextarea" id="pollTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
+    
     <div class="col-12">
-    <button type="button" class="float-right btn btn-lg" id="postPollBtn">Post</button>
+        <button type="button" class="float-right btn btn-lg bgZiraf" id="postPollBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>

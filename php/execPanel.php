@@ -87,8 +87,8 @@
             </div>
             
             <div class="col-6">
-              <button type="button" class="float-right declineRequestBtn" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
-              <button type="button" class="float-right confirmRequestBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+              <button type="button" class="float-right bgRed declineRequestBtn" data-toggle="modal" data-target="#confirmDeclineModal"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="float-right bgGreen confirmRequestBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
   
             <div class="clear"></div>
@@ -110,8 +110,8 @@
                 Are you sure you want to decline this request?
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="Dismiss">Close</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Decline</button>
+                <button type="button" class="btn bgNeutral" id="closeModalBtn" data-dismiss="Dismiss">Close</button>
+                <button type="button" class="btn bgRed" id="confirmDeleteBtn">Decline</button>
               </div>
             </div>
           </div>
@@ -119,25 +119,52 @@
 
         <!-- REVOKE USER ACCESS BUTTON -->
         <div class="text-center">
-          <button type="button" id="revokeAccessBtn" data-toggle="modal" data-target="#searchUserModal">Revoke User Access</button>
+          <button type="button" id="revokeAccessBtn" class="bgZiraf" data-toggle="modal" data-target="#searchUserModal">Revoke User Access</button>
         </div>
 
         <!-- REVOKE USER ACCESS MODAL -->
         <div class="modal fade" id="searchUserModal" tabindex="-1" role="dialog" aria-labelledby="searchUserModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body">
-                <form class="form-inline my-2 my-lg-0 float-left">
-                  <input class="form-control mr-sm-2 float-left" id="revokeAccessSearchBox" type="search" placeholder="Search User" aria-label="Search">
-                  <button class="my-2 my-sm-0 float-left" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>  
-                <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+              <div class="modal-header">
+                <h5 class="modal-title" id="searchUserModalLabel">Revoke User Access</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
-                </button>                
+                </button>
               </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Search User Email</label>
+                  <div class="input-group mb-3">
+                    <input type="text" list="userEmailsToRevoke" id="selectUserEmailsToRevoke" class="form-control form-control-lg">
+                    <datalist id="userEmailsToRevoke">
+                      <select id="revokeUsers">
+                        <?php
+                            //script required to insert the avaialble email options
+                            //select all email address from the server
+                            $userId = $_SESSION['userId'];
+                            $query = "SELECT email FROM USERS WHERE userId != $userId";
+                            $result = $db->query($query);
+                            while($row = $result->fetch_assoc()){
+                              $currentEmail = $row['email'];
+                              echo '<option value="'.$currentEmail.'">';
+                            }
+                        ?>
+                      </select>
+                    </datalist>
+                    <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  </div>
+                  
+
+                  <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
+                  <div id="addedMembersToRevoke"></div>
+                  <!-- ADDED MEMEBER TEMPLATE END -->
+                </div>
+              </div>
+
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Revoke Access</button>
+                <button type="button" class="btn bgNeutral" id="closeUserRevokeModalBtn" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn bgRed" id="confirmUserRevokeModalBtn">Revoke Access</button>
               </div>
             </div>
           </div>

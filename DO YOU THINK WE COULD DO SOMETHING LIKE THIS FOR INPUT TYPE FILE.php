@@ -23,7 +23,7 @@ $(document).ready(function()
     $('input[type=file]').each(function()
     {
         $(this).attr('onchange',"sub(this)");
-        $('<div id="yourBtn" onclick="getFile()">choose a profile picture</div>').insertBefore(this);
+        $('<div id="uploadPicBtn" onclick="getFile()">choose a profile picture</div>').insertBefore(this);
         $(this).wrapAll('<div style="height: 0px;width: 0px; overflow:hidden;"></div>');
     });
 });
@@ -33,7 +33,7 @@ $(document).ready(function()
  function sub(obj){
     var file = obj.value;
     var fileName = file.split("\\");
-    document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+    document.getElementById("uploadPicBtn").innerHTML = fileName[fileName.length-1];
  }
 </script>
 </head>

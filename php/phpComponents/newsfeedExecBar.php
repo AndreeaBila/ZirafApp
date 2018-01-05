@@ -34,7 +34,7 @@
     <form action="./phpDirectives/uploadImagePost.php" method="POST" enctype="multipart/form-data" name="uploadImagePostForm" id="uploadImagePostForm">
         <input id="upfile" name="upfile" type="file" value="upload"/>
         <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
-        <input type="submit" value='submit'>
+        <input type="submit" value='Post' class='btn btn-lg bgZiraf float-right postBtn' id="postPictureBtn">
     </form>
     <!-- <div class="custom-file form-control-lg">
         <input type="file" class="custom-file-input" id="customFile">

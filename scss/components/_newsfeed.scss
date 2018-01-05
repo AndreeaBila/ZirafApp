@@ -32,33 +32,6 @@
       border: 1px solid rgba(242,145,10,0.1)!important;
     }
 
-    .custom-file-control {
-      border: 1px solid rgba(242,145,10,0.2);
-      color: rgba(242,145,10,0.6);
-     
-    }
-
-    .custom-file {
-      margin: 0px 0px 10px;
-    }
-
-    .custom-file-control::before {
-      background-color: $zirafColor;
-      color: white;
-      border: none;
-    }
-
-    .custom-file-control::before:hover,
-    .custom-file-control::before:active, 
-    .custom-file-control::before:focus,
-    .custom-file-control::before:active:focus {
-      background-color: rgba(242,145,10,0.8)!important;
-    }
-
-    input[type="text"] {
-     // margin: 0px 0px 10px;
-    }
-
     textarea:active,
     textarea:active:focus,
     textarea:focus,
@@ -67,10 +40,6 @@
     input[type="text"]:focus {
       box-shadow: none;
     }
-
-    .custom-file-input:focus~.custom-file-control {
-      box-shadow: none;
-  }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: rgba(242,145,10,0.6);
@@ -89,21 +58,32 @@
       height: 100px;
     }
 
+    #uploadPicBtn{
+      width: 100%;
+      padding: 10px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border: 1px solid rgba(242,145,10,0.1); 
+      text-align: center;
+      background-color: rgba(242,145,10,0.2); 
+      color: $zirafColor;
+      margin: 0px 0px 10px;
+      cursor:pointer;
+     }
+
     #pictureTextarea,
     #pollTextarea {
       height: 70px;
-    }
-
-    .custom-file {
-      .custom-file-label {
-        margin-top: -50px!important;
-      }
     }
     
     .postBtn {
       color: white;
       float: right!important;
-      margin: 10px -10px;
+      margin: 10px -15px;
+    }
+
+    #postPictureBtn {
+      margin: 10px 0px!important;
     }
 
     .input-group {

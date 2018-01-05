@@ -337,32 +337,6 @@ html {
 }
 
 /* line 35, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file-control {
-  border: 1px solid rgba(242, 145, 10, 0.2);
-  color: rgba(242, 145, 10, 0.6);
-}
-
-/* line 41, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file {
-  margin: 0px 0px 10px;
-}
-
-/* line 45, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file-control::before {
-  background-color: #f2910a;
-  color: white;
-  border: none;
-}
-
-/* line 51, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file-control::before:hover,
-#newsfeed .newsfeedAddPost .custom-file-control::before:active,
-#newsfeed .newsfeedAddPost .custom-file-control::before:focus,
-#newsfeed .newsfeedAddPost .custom-file-control::before:active:focus {
-  background-color: rgba(242, 145, 10, 0.8) !important;
-}
-
-/* line 62, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost textarea:active,
 #newsfeed .newsfeedAddPost textarea:active:focus,
 #newsfeed .newsfeedAddPost textarea:focus,
@@ -372,12 +346,7 @@ html {
   box-shadow: none;
 }
 
-/* line 71, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file-input:focus ~ .custom-file-control {
-  box-shadow: none;
-}
-
-/* line 75, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 44, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(242, 145, 10, 0.6);
@@ -385,52 +354,66 @@ html {
   /* Firefox */
 }
 
-/* line 80, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 49, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(242, 145, 10, 0.6);
 }
 
-/* line 84, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 53, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(242, 145, 10, 0.6);
 }
 
-/* line 88, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 57, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #announcementTextarea {
   height: 100px;
 }
 
-/* line 92, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 61, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+#newsfeed .newsfeedAddPost #uploadPicBtn {
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid rgba(242, 145, 10, 0.1);
+  text-align: center;
+  background-color: rgba(242, 145, 10, 0.2);
+  color: #f2910a;
+  margin: 0px 0px 10px;
+  cursor: pointer;
+}
+
+/* line 74, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #pictureTextarea,
 #newsfeed .newsfeedAddPost #pollTextarea {
   height: 70px;
 }
 
-/* line 98, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
-#newsfeed .newsfeedAddPost .custom-file .custom-file-label {
-  margin-top: -50px !important;
-}
-
-/* line 103, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 79, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost .postBtn {
   color: white;
   float: right !important;
-  margin: 10px -10px;
+  margin: 10px -15px;
 }
 
-/* line 109, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 85, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+#newsfeed .newsfeedAddPost #postPictureBtn {
+  margin: 10px 0px !important;
+}
+
+/* line 89, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost .input-group {
   margin: 13px 0px 0px;
 }
 
-/* line 111, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 91, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost .input-group input {
   height: 50px;
 }
 
-/* line 114, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 94, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost .input-group .plusBtn {
   height: 50px;
   width: 50px;
@@ -444,7 +427,7 @@ html {
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.1);
 }
 
-/* line 122, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 102, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost .input-group .plusBtn i {
   font-size: 25px;
   line-height: 40px;
@@ -452,24 +435,24 @@ html {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 115, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #addedPollOptions {
   width: 100%;
 }
 
-/* line 137, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 117, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #addedPollOptions .addedPollOptionsContainer {
   background-color: rgba(242, 145, 10, 0.1);
   margin: 5px;
   padding: 5px;
 }
 
-/* line 141, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 121, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #addedPollOptions .addedPollOptionsContainer .addedPollOptions {
   font-size: 14px;
 }
 
-/* line 145, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 125, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .newsfeedAddPost #addedPollOptions .addedPollOptionsContainer .removeAddedPollOption {
   border: none;
   background-color: transparent;
@@ -477,7 +460,7 @@ html {
   color: red;
 }
 
-/* line 155, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post {
   margin: 20px 5px;
   padding: 10px;
@@ -486,31 +469,31 @@ html {
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 161, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 141, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postHeader {
   border-bottom: 1px solid rgba(242, 145, 10, 0.15);
   height: 45px;
 }
 
-/* line 165, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 145, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postHeader img {
   border-radius: 50px;
 }
 
-/* line 169, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 149, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postHeader p {
   padding: 8px 5px;
   font-weight: 600;
   color: #f2910a;
 }
 
-/* line 175, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 155, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postHeader small {
   padding: 10px 5px;
   color: #f2910a;
 }
 
-/* line 181, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 161, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody p {
   padding: 10px;
   text-align: justify;
@@ -518,19 +501,19 @@ html {
   font-size: 14px;
 }
 
-/* line 187, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 167, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody img {
   padding: 10px 5px 0px;
   width: 100%;
   height: auto;
 }
 
-/* line 194, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 174, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption p {
   color: #f2910a;
 }
 
-/* line 197, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 177, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .progress {
   border-radius: 2px;
   width: 60%;
@@ -541,24 +524,24 @@ html {
   border: 0.5px solid rgba(242, 145, 10, 0.25);
 }
 
-/* line 206, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 186, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .progress .progress-bar {
   background-color: rgba(242, 145, 10, 0.3);
 }
 
-/* line 208, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 188, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .progress .progress-bar p {
   position: absolute;
   left: 0;
   color: #f2910a;
 }
 
-/* line 216, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 196, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .custom-radio {
   margin: 10px 0px;
 }
 
-/* line 220, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 200, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .custom-control-indicator {
   background-color: white;
   border: 0.5px solid rgba(242, 145, 10, 0.25);
@@ -566,32 +549,32 @@ html {
   width: 25px;
 }
 
-/* line 227, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 207, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postBody .poll .pollOption .custom-control-input:checked ~ .custom-control-indicator {
   color: #fff;
   background-color: #f2910a;
 }
 
-/* line 235, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 215, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postFooter {
   border-top: 1px solid rgba(242, 145, 10, 0.15);
   height: 40px;
 }
 
-/* line 238, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 218, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postFooter .likePostBtn {
   border: none;
   background-color: transparent;
   color: #f2910a;
 }
 
-/* line 241, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 221, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postFooter .likePostBtn img {
   height: 30px;
   width: auto;
 }
 
-/* line 248, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+/* line 228, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postFooter .likesCount {
   color: #f2910a;
   padding: 10px 5px 0px;

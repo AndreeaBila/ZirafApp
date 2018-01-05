@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2018 at 09:32 PM
+-- Generation Time: Jan 05, 2018 at 04:27 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -58,6 +58,28 @@ INSERT INTO `chats` (`chatId`, `chatName`, `dateCreated`) VALUES
 (5, 'Tweeks', '2018-01-03'),
 (6, 'Test', '2018-01-03'),
 (7, 'Last Test', '2018-01-03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image_uploads`
+--
+
+CREATE TABLE `image_uploads` (
+  `imageId` int(11) NOT NULL,
+  `fileName` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `dateCreated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `image_uploads`
+--
+
+INSERT INTO `image_uploads` (`imageId`, `fileName`, `description`, `dateCreated`) VALUES
+(4, '85_default.jpeg', 'First', '2018-01-05'),
+(5, '85_Testing.jpg', 'Second', '2018-01-05'),
+(6, '85_ziraf.png', 'Third', '2018-01-05');
 
 -- --------------------------------------------------------
 
@@ -162,19 +184,7 @@ CREATE TABLE `polls` (
 --
 
 INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
-(1, '', '', '2018-01-04'),
-(2, '', '', '2018-01-04'),
-(3, '', '', '2018-01-04'),
-(4, 'asdasd', 'dadasd', '2018-01-04'),
-(5, 'sdfsdf', 'dfgdfgdfgfg', '2018-01-04'),
-(6, 'What are you doing?', 'This is a test', '2018-01-04'),
-(7, 'dfgdfg', 'sdfsdfsdf', '2018-01-04'),
-(8, 'zzsdasdas', 'sdfdsfsdf', '2018-01-04'),
-(9, 'sdfsdf', 'adsafsdfsdf', '2018-01-04'),
-(10, 'sdfsdf', 'afsgfhhghfgh', '2018-01-04'),
-(11, 'hfhf', 'sdfsdf', '2018-01-04'),
-(12, 'dfgdfgdg', 'hfghfghfg', '2018-01-04'),
-(13, 'sdf', 'sdfsdfdsf', '2018-01-04');
+(19, 'First Poll', 'DEsc', '2018-01-05');
 
 -- --------------------------------------------------------
 
@@ -194,52 +204,9 @@ CREATE TABLE `poll_options` (
 --
 
 INSERT INTO `poll_options` (`optionId`, `pollId`, `content`, `votes`) VALUES
-(1, 1, '', 0),
-(2, 2, '', 0),
-(3, 3, '', 0),
-(4, 4, '1', 0),
-(5, 4, '2', 0),
-(6, 4, '3', 0),
-(7, 4, '4', 0),
-(8, 4, '5', 0),
-(9, 5, '1', 0),
-(10, 5, '2', 0),
-(11, 5, '3', 0),
-(12, 5, '4', 0),
-(13, 5, '5', 0),
-(14, 6, 'yes', 0),
-(15, 6, 'no', 0),
-(16, 6, 'nothing', 0),
-(17, 6, 'dunno', 0),
-(18, 7, 'sdf', 0),
-(19, 7, 'sdf', 0),
-(20, 7, 'sdf', 0),
-(21, 7, 'sdf', 0),
-(22, 8, 'sdfsd', 0),
-(23, 8, 'sdf', 0),
-(24, 8, 'gd', 0),
-(25, 8, 'hgj', 0),
-(26, 9, 'asd', 0),
-(27, 9, 'sdf', 0),
-(28, 9, 'gdf', 0),
-(29, 9, 'hf', 0),
-(30, 9, 'jh', 0),
-(31, 10, 'ghj', 0),
-(32, 10, 'zcx', 0),
-(33, 10, 'qew', 0),
-(34, 10, 'fsd', 0),
-(35, 11, 'sdf', 0),
-(36, 11, 'dfg', 0),
-(37, 11, 'fgh', 0),
-(38, 11, 'jg', 0),
-(39, 12, 'asd', 0),
-(40, 12, 'sdf', 0),
-(41, 12, 'dfg', 0),
-(42, 12, 'fgh', 0),
-(43, 12, 'ghj', 0),
-(44, 13, 'sdf', 0),
-(45, 13, 'sdf', 0),
-(46, 13, 'sdf', 0);
+(60, 19, '1', 0),
+(61, 19, '2', 0),
+(62, 19, '3', 0);
 
 -- --------------------------------------------------------
 
@@ -258,19 +225,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
-(4, 'Hi there\nThsi is vlad', '2018-01-04'),
-(5, 'This is my last post\nGoodbye!', '2018-01-04'),
-(6, 'dasdasdasdas', '2018-01-04'),
-(7, 'asdasdasdasd', '2018-01-04'),
-(8, 'asdasdsadsad\nasdasd\nasdasdasd\nadasdasdasd', '2018-01-04'),
-(9, 'This is the first post\nHere you go', '2018-01-04'),
-(10, 'fsdfsdf\nsfsdf\nsdfsdfsdfsdf', '2018-01-04'),
-(11, 'sfsdf', '2018-01-04'),
-(12, 'sfsdfsdfsdf\nsdfsd\nsdfsdfsdf', '2018-01-04'),
-(13, 'dfgdfg\ndfgdfg', '2018-01-04'),
-(14, 'dfgdfg\ndfgdfgdfg', '2018-01-04'),
-(15, 'gdfgdfg\ndfgdfg\ndfgdfgd\n\ndfgdfg', '2018-01-04'),
-(16, 'dfgdfgd\ndfgdg\ndfgdfgdfg', '2018-01-04');
+(20, 'This is the first announcement', '2018-01-05'),
+(21, 'And this is the second announcement.', '2018-01-05'),
+(22, 'This is my final announcement.', '2018-01-05');
 
 -- --------------------------------------------------------
 
@@ -366,6 +323,26 @@ INSERT INTO `user_chats` (`userId`, `chatId`, `dateAdded`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_images`
+--
+
+CREATE TABLE `user_images` (
+  `userId` int(11) NOT NULL,
+  `imageId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_images`
+--
+
+INSERT INTO `user_images` (`userId`, `imageId`) VALUES
+(85, 4),
+(85, 5),
+(85, 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_likes`
 --
 
@@ -390,14 +367,7 @@ CREATE TABLE `user_polls` (
 --
 
 INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
-(85, 6),
-(85, 7),
-(85, 8),
-(85, 9),
-(85, 10),
-(85, 11),
-(85, 12),
-(85, 13);
+(85, 19);
 
 -- --------------------------------------------------------
 
@@ -415,19 +385,9 @@ CREATE TABLE `user_posts` (
 --
 
 INSERT INTO `user_posts` (`userId`, `postId`) VALUES
-(85, 4),
-(85, 5),
-(85, 6),
-(85, 7),
-(85, 8),
-(85, 9),
-(85, 10),
-(85, 11),
-(85, 12),
-(85, 13),
-(85, 14),
-(85, 15),
-(85, 16);
+(85, 20),
+(85, 21),
+(85, 22);
 
 -- --------------------------------------------------------
 
@@ -456,6 +416,12 @@ ALTER TABLE `badges`
 --
 ALTER TABLE `chats`
   ADD PRIMARY KEY (`chatId`);
+
+--
+-- Indexes for table `image_uploads`
+--
+ALTER TABLE `image_uploads`
+  ADD PRIMARY KEY (`imageId`);
 
 --
 -- Indexes for table `messages`
@@ -511,6 +477,13 @@ ALTER TABLE `user_chats`
   ADD KEY `chatId` (`chatId`);
 
 --
+-- Indexes for table `user_images`
+--
+ALTER TABLE `user_images`
+  ADD PRIMARY KEY (`userId`,`imageId`),
+  ADD KEY `imageId` (`imageId`);
+
+--
 -- Indexes for table `user_likes`
 --
 ALTER TABLE `user_likes`
@@ -521,7 +494,8 @@ ALTER TABLE `user_likes`
 -- Indexes for table `user_polls`
 --
 ALTER TABLE `user_polls`
-  ADD PRIMARY KEY (`userId`,`pollId`);
+  ADD PRIMARY KEY (`userId`,`pollId`),
+  ADD KEY `pollId` (`pollId`);
 
 --
 -- Indexes for table `user_posts`
@@ -554,6 +528,12 @@ ALTER TABLE `chats`
   MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `image_uploads`
+--
+ALTER TABLE `image_uploads`
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
@@ -563,19 +543,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `polls`
 --
 ALTER TABLE `polls`
-  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `poll_options`
 --
 ALTER TABLE `poll_options`
-  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -621,11 +601,27 @@ ALTER TABLE `user_chats`
   ADD CONSTRAINT `USER_CHAT_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chats` (`chatId`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `user_images`
+--
+ALTER TABLE `user_images`
+  ADD CONSTRAINT `user_images_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_images_ibfk_2` FOREIGN KEY (`imageId`) REFERENCES `image_uploads` (`imageId`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `user_likes`
 --
 ALTER TABLE `user_likes`
   ADD CONSTRAINT `user_likes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_likes_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`) ON DELETE CASCADE;
+  ADD CONSTRAINT `user_likes_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_likes_ibfk_3` FOREIGN KEY (`postId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_likes_ibfk_4` FOREIGN KEY (`postId`) REFERENCES `image_uploads` (`imageId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_polls`
+--
+ALTER TABLE `user_polls`
+  ADD CONSTRAINT `user_polls_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_polls_ibfk_2` FOREIGN KEY (`pollId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_posts`

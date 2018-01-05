@@ -1,4 +1,7 @@
 $(function(){
+    //create a poll option array which is empty at the start
+    var pollOptionArray = [];
+
     //manage the design of the exec bar
     //========== DESIGN ==========
     $('#writeAnnouncement').hide();
@@ -24,8 +27,9 @@ $(function(){
     });
     //========== END DESIGN ==========
 
-    //create a poll option array which is empty at the start
-    var pollOptionArray = [];
+    //insert the exsiting posts
+    insertDatabaseItems();
+
     //check if the user pressed the post button from the announcement form
     $('#postAnnouncementBtn').click(function(){
         postAnnouncement();
@@ -34,13 +38,24 @@ $(function(){
     //check if the user pressend enter while having selected the poll option bar
     $('#pollOptionInput').keydown(function(e){
         if(e.keyCode === 13){
-            //add option to the array
-            var currentOption = $('#pollOptionInput').val();
-            //clear the input
-            $('#pollOptionInput').val('');
-            //add the option to the option array
-            pollOptionArray.push(currentOption);
+            $('#addPollOptionBtn').click();
         }
+    });
+
+    //check if the user tried to enter a new poll option by clicking the plus button
+    $('#addPollOptionBtn').click(function(){
+        //add option to the array
+        var currentOption = $('#pollOptionInput').val();
+        //clear the input
+        $('#pollOptionInput').val('');
+        //add the option to the option array
+        pollOptionArray.push(currentOption);
+        lastIndex = pollOptionArray.length - 1;
+        //display the added user
+        $('#addedPollOptions').append('<div class="addedPollOptionsContainer row" id="pollOptionRow'+ lastIndex +'">' +
+                                            '<p class="addedPollOptions col-8">' + currentOption + '</p>' +
+                                            '<button type="button" class="removeAddedPollOption col-4">remove &times;</button>' +
+                                      '</div>');
     });
 
     //check if the user pressed the post button from the poll form
@@ -51,22 +66,16 @@ $(function(){
         pollOptionArray.splice(0);
     });
 
-
-    //show added poll options in add post menu
-    $('#pollOptionInput').keydown(function(e){
-        if(e.keyCode == 13){
-          //get the value of the selected email
-          var pollOption = $('#pollOptionInput').val();
-          console.log($('#pollOptionInput').val());
-          console.log($('#pollQuestion').val());
-          $('#addedPollOptions').append('<div class="addedPollOptionsContainer row">' +
-                                            '<p class="addedPollOptions col-8">' + pollOption + '</p>' +
-                                            '<button type="button" class="removeAddedPollOption col-4">remove &times;</button>' +
-                                            '</div>');
-            //delete the input data
-            //$('#pollOptionInput').val("");
-        
-        }
+    //check if the user tried to remove an added poll option
+    $(document).on('click', 'button.removeAddedPollOption', function(){
+        //get the id of the row to be removed
+        var index = $(this).parent().attr('id');
+        //extract the index only
+        index = index.replace('pollOptionRow', '');
+        //remove the element from the array
+        pollOptionArray.splice(index, 1);
+        //remove the acutal element frm the page
+        $(this).parent().remove();
     });
 });
 
@@ -96,6 +105,7 @@ function postAnnouncement(){
 
 //convert a json format into html for a post
 function parsePost(post){
+    var likeMessage = (post.likes === 1) ? '1 Like' : post.likes + ' Likes';
     return '<div class="post" id="post'+ post.postId +'">' +
                 '<div class="postHeader">' +
                     '<img src="../img/userIcons/' + post.userId + '.'+ post.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
@@ -110,7 +120,7 @@ function parsePost(post){
                 
                 '<footer class="postFooter">' +
                     '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
-                    '<p class="likesCount float-right">' + post.likes + '</p>' +
+                    '<p class="likesCount float-right">' + likeMessage + '</p>' +
                 '</footer>' +
                 '<div class="clear"></div>' +
             '</div>'
@@ -153,11 +163,14 @@ function postPoll(pollOptionArray){
     //clear the input fields of the form
     $('#pollQuestion').val('');
     $('#pollTextarea').val('');
+    $('#addedPollOptions').empty();
 }
 
+//parse the poll object received from the database
 function parsePoll(pollInfo){
     //get the html for the options array
     var htmlOptionsArray = parsePollOption(pollInfo.pollOptionArray, pollInfo.totalVotes);
+    var likeVar = (pollInfo.likes === 1) ? "1 Like" : pollInfo.likes + " Likes";
     return '<div class="post" id="poll'+ pollInfo.pollId +'">' +
                 '<div class="postHeader">' +
                     '<img src="../img/userIcons/'+ pollInfo.userId +'.'+ pollInfo.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
@@ -176,12 +189,13 @@ function parsePoll(pollInfo){
                 '<p>'+ pollInfo.pollDescription +'</p>' +
                 '<footer class="postFooter">' +
                     '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
-                    '<p class="likesCount float-right">'+ pollInfo.likes +' Likes</p>' +
+                    '<p class="likesCount float-right">'+ likeVar +'</p>' +
                 '</footer>' +
                 '<div class="clear"></div>' +
             '</div>';
 }
 
+//parse the list of poll options contained by the pollInfo
 function parsePollOption(optionsInfo, totalVotes){
     var optionsHtml = '';
     for(i=0;i<optionsInfo.length;i++){
@@ -203,4 +217,13 @@ function parsePollOption(optionsInfo, totalVotes){
                         '<div class="clear"></div>';
     }
     return optionsHtml;
+}
+
+//insert all the elements from the database into the newsfeed at load time
+function insertDatabaseItems(){
+    $.getJSON("../php/phpDirectives/getDatabaseItems.php", function(data){
+        console.log(data);
+        var jsonData = JSON.parse(data);
+        console.log(jsonData);
+    });
 }

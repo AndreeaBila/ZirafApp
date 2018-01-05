@@ -233,6 +233,43 @@
 
     //=================================//
 
+    //imageUpload dependency
+    class ImageUpload{
+        private $imageId;
+        private $fileName;
+        private $description;
+        private $dateCreated;
+        private $likes;
+        private $userId;
+        private $userName;
+        private $iconExtension;
+
+        public function __construct($imageId, $fileName, $description, $dateCreated, $likes, $userId, $userName, $iconExtension){
+            $this->imageId = $imageId;
+            $this->fileName = $fileName;
+            $this->description = $description;
+            $this->dateCreated = $dateCreated;
+            $this->likes = $likes;
+            $this->userId = $userId;
+            $this->userName = $userName;
+            $this->iconExtension = $iconExtension;
+        }
+
+        public function getImageUploadData(){
+            $imageUploadInfo = array('imageId' => $this->imageId,
+                                     'fileName' => $this->fileName,
+                                     'description' => $this->description,
+                                     'dateCreated' => $this->dateCreated,
+                                     'likes' => $this->likes,
+                                     'userId' => $this->userId,
+                                     'userName' => $this->userName,
+                                     'iconExtension' => $this->iconExtension);
+            return $imageUploadInfo;
+        }
+    }
+
+    //=================================//
+
     //review dependency
     class Review{
         private $reviewId;

@@ -31,16 +31,19 @@
 
 <!-- UPLOAD PICTURE BOX -->
 <div class="newsfeedAddPost row" id="uploadPicture">
-    <div class="custom-file form-control-lg">
+    <form action="./phpDirectives/uploadImagePost.php" method="POST" enctype="multipart/form-data" name="uploadImagePostForm" id="uploadImagePostForm">
+        <input id="upfile" name="upfile" type="file" value="upload"/>
+        <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
+        <input type="submit" value='submit'>
+    </form>
+    <!-- <div class="custom-file form-control-lg">
         <input type="file" class="custom-file-input" id="customFile">
         <span class="custom-file-control"></span>
-    </div>
-    
-    <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
-    
-    <div class="col-12">
+    </div> -->
+        
+    <!-- <div class="col-12">
         <button type="button" class="float-right btn btn-lg bgZiraf postBtn" id="postPictureBtn">Post</button>
-    </div>
+    </div> -->
     <div class="clear"></div>
 </div>
 
@@ -50,7 +53,7 @@
 
     <div class="input-group mb-3">
         <input type="text" class="form-control form-control-lg" id="pollOptionInput" placeholder="Poll Option">
-        <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button type="button" class="btn plusBtn bgGreen" id="addPollOptionBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
     </div>
 
     <!-- Display of options already added -->

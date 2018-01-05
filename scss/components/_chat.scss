@@ -115,14 +115,14 @@
     -webkit-box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
     box-shadow: 0px 20px 36px 4px rgba(0,0,0,0.2);
-    padding: 10px 0px;
+    padding: 0px;
 
     #addMembers,
     #leaveChat {
       background-color: rgba(242,145,10,0.05);
       border: 0.5px solid rgba(242,145,10,0.2);
       padding: 10px 10px;
-      color: red;
+      color: rgba(242,145,10,1);
       font-size: 16px;
       text-align: left;
     }
@@ -138,16 +138,16 @@
     }
     
     #membersListTitleBox {
-      margin-top: 10px;
+      margin-top:0px;
       #membersListTitle {
         font-size: 22px;
         font-weight: 600;
-        margin: -10px 0px -12px;
+        margin-bottom: -12px;
       }
       color: $zirafColor;
       background-color: rgba(242,145,10,0.2);
       border-bottom: 0.5px solid rgba(242,145,10,0.25);
-      padding: 10px 10px 5px;
+      padding: 10px;
     }
 
     #membersList {
@@ -230,7 +230,7 @@
       border: 0.5px solid rgba(242,145,10,0.2);
     }
     .otherMessage {
-      background-color: rgba(242,145,10,1);
+      background-color: rgba(242,145,10,0.7);
       border: 0.5px solid rgba(242,145,10,0.6);
     }
   }

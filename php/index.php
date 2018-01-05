@@ -74,16 +74,21 @@
           </div>
           
           <!-- login keep logged in -->
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" id="keepLogged" name="keepLogged[]">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input form-check-input" id="keepLogged" name="keepLogged[]">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">
               Keep me logged in
-            </label>
+            </span>
+          </label>
+
+          <div class="text-center">
+            <!-- login button -->
+            <button type="button" class="btn btn-lg bgZiraf" id="loginBtn" name="loginBtn">Log In</button>
+            <!-- create account --><br>
+            <button type="button" class="btn linkBtn" id="loginToSignup" name="loginToSignup">Create New Account</button>
           </div>
-          <!-- login button -->
-          <button type="button" class="btn btn-lg btn-primary" id="loginBtn" name="loginBtn">Log In</button>
-          <!-- create account -->
-          <button type="button" class="btn" id="loginToSignup" name="loginToSignup">Create New Account</button>
+          
         </form>
       </div>
       
@@ -117,9 +122,6 @@
             <span class="input-group-addon" id="signupPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
             <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password" required>
           </div>
-          <small id="passwordHelpBlock" class="form-text text-muted">
-            Your password must be 8 characters long.
-          </small>
           <!-- signup confirm password -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupConfirmPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
@@ -141,21 +143,25 @@
             <input type="tel" class="form-control" id="signupPhoneNumber" name="signupPhoneNumber" placeholder="Phone Number">
           </div>
           <!-- signup profile picture -->
-          <div class="input-group input-group-lg">
+          <div class="form-group form-group-lg">
             <label for="signupProfilePictureBtn">Upload Profile Picture</label>
             <input type="file" class="form-control-file" id="signupProfilePictureBtn" name="signupProfilePictureBtn">
           </div>
           <!-- signup terms and conditions -->
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" id="termsCheckbox" name="termsCheckbox" required>
-              I have read and agreed with The <a href="#">Terms and Conditions</a>
-            </label>
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input form-check-input" id="termsCheckbox" name="termsCheckbox" required>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">
+              I have read and agreed with the <a href="#">Terms and Conditions</a>
+            </span>
+          </label>
+          <div class="text-center">
+            <!-- signup submit button -->
+            <button type="submit" class="btn btn-lg bgZiraf" id="signupBtn" name="signupBtn">Sign Up</button>
+            <!-- signup already have an account button --><br>
+            <button type="button" class="btn linkBtn" id="signupToLogin" name="singupToLogin">Already Have An Account</button>
           </div>
-          <!-- signup submit button -->
-          <button type="submit" class="btn btn-lg btn-primary" id="signupBtn" name="signupBtn">Sign Up</button>
-          <!-- signup already have an account button -->
-          <button type="button" class="btn" id="signupToLogin" name="singupToLogin">Already Have An Account</button>
+          
         </form>
       </div>
     </div>

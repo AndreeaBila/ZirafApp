@@ -1,4 +1,7 @@
 $(function() {
+
+  $('.your-checkbox').prop('indeterminate', true)
+  
   //=================== DELETE THIS SECTION ==================//
   $('#fillSignupInfo').click(function(){
     //fill the signup form data

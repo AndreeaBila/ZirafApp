@@ -24,7 +24,7 @@
     <textarea name="announcementTextarea" id="announcementTextarea" placeholder="Write Announcement..." class="form-control form-control-lg"></textarea>
     
     <div class="col-12">
-        <button type="button" class="btn btn-lg bgZiraf float-right" id="postAnnouncementBtn">Post</button>
+        <button type="button" class="btn btn-lg bgZiraf float-right postBtn" id="postAnnouncementBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>
@@ -39,7 +39,7 @@
     <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
     
     <div class="col-12">
-        <button type="button" class="float-right btn btn-lg bgZiraf" id="postPictureBtn">Post</button>
+        <button type="button" class="float-right btn btn-lg bgZiraf postBtn" id="postPictureBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>
@@ -47,11 +47,25 @@
 <!-- CREATE POLL BOX -->
 <div class="newsfeedAddPost row" id="createPoll">
     <input type="text" class="form-control form-control-lg" id="pollQuestion" placeholder="Poll Question">
-    <input type="text" class="form-control form-control-lg" id="pollOptionInput" placeholder="Poll Option">
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-lg" id="pollOptionInput" placeholder="Poll Option">
+        <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </div>
+
+    <!-- Display of options already added -->
+    <div id="addedPollOptions">
+        <!-- <div class="addedPollOptionsContainer row">
+            <p class="addedPollOptions col-8">Abc</p>
+            <button type="button" class="removeAddedPollOption col-4">remove &times;</button>
+        </div> -->
+
+    </div>
+
     <textarea name="pictureTextarea" id="pollTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
     
     <div class="col-12">
-        <button type="button" class="float-right btn btn-lg bgZiraf" id="postPollBtn">Post</button>
+        <button type="button" class="float-right btn btn-lg bgZiraf postBtn" id="postPollBtn">Post</button>
     </div>
     <div class="clear"></div>
 </div>

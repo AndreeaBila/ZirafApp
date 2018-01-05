@@ -9,7 +9,7 @@
       border-color: $zirafColor;
       margin-top: 5px;
     }
-    span {
+    .input-group-addon {
       background-color: $zirafColor;
       margin-top: 5px;
       border-color: $zirafColor;
@@ -17,11 +17,13 @@
       width: 50px;
     }
     #loginBtn, #signupBtn {
-      background-color: $zirafColor;
       border-color: $zirafColor;
+      margin: 10px 0px 0px;
     }
 
+    .linkBtn {
+      background-color: transparent;
+      text-decoration: underline;
+    }
   }
-
-
 }

@@ -50,6 +50,24 @@ $(function(){
         //delete the array data
         pollOptionArray.splice(0);
     });
+
+
+    //show added poll options in add post menu
+    $('#pollOptionInput').keydown(function(e){
+        if(e.keyCode == 13){
+          //get the value of the selected email
+          var pollOption = $('#pollOptionInput').val();
+          console.log($('#pollOptionInput').val());
+          console.log($('#pollQuestion').val());
+          $('#addedPollOptions').append('<div class="addedPollOptionsContainer row">' +
+                                            '<p class="addedPollOptions col-8">' + pollOption + '</p>' +
+                                            '<button type="button" class="removeAddedPollOption col-4">remove &times;</button>' +
+                                            '</div>');
+            //delete the input data
+            //$('#pollOptionInput').val("");
+        
+        }
+    });
 });
 
 //manage the post operation of a post

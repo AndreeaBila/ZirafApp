@@ -79,7 +79,7 @@
               $stmt->execute();
               $stmt->bind_result($chatList, $chatId);
               while($stmt->fetch()){
-                echo '<li class="chats" id="chat'.$chatId.'"><i class="fa fa-comments-o" aria-hidden="true"></i>'.$chatList.'</li>';
+                echo '<li class="chats" id="chat'.$chatId.'"><i class="fa fa-comments-o" aria-hidden="true"></i> '.$chatList.'</li>';
               }
               $stmt->close();
             ?>
@@ -91,9 +91,7 @@
 
         <!-- Chat settings side menu -->
         <div id="chatSettings">
-          <button type="button" id="addMembers" class="col-12" data-toggle="modal" data-target="#addUserModal">Add Members</button>
-          <button type="button" id="leaveChat" class="col-12" data-toggle="modal" data-target="#leaveChatModal">Leave Chat</button>
-
+          
           <div id="membersListTitleBox">
             <p id="membersListTitle">Members</p>
             <!-- number of participants -->
@@ -103,6 +101,10 @@
           <!-- List of chat participants -->
           <div id="membersList">
           </div>
+
+          <button type="button" id="addMembers" class="col-12" data-toggle="modal" data-target="#addUserModal">Add Members</button>
+          <button type="button" id="leaveChat" class="col-12" data-toggle="modal" data-target="#leaveChatModal">Leave Chat</button>
+
         </div>
         
         <div class="chatBox">

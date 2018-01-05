@@ -15,7 +15,7 @@
     //insert the data in the database
 
     //get the current date
-    $dateCreated = date("Y-m-d");
+    $dateCreated = date("Y-m-d H:i:s");
     $query = "INSERT INTO IMAGE_UPLOADS VALUES(NULL, ?, ?, ?)";
     $stmt = $db->prepare($query);
     $stmt->bind_param("sss", $fileName, $description, $dateCreated);

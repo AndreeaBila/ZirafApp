@@ -3,7 +3,7 @@
     //get the database logic
     require_once "../phpComponents/databaseConnection.php";
     //check type of access
-    //checkRequestType();
+    checkRequestType();
     //get the dependenceis
     require_once "../phpComponents/dependencies.php";
     //create database connection
@@ -12,7 +12,7 @@
     //create distinct selects for the three types of posts
 
     //selecting announcements
-    $announcement_query = "SELECT P.postId, P.content, P.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_LIKES UL WHERE UL.postId = P.postId) AS announcementLikes ".
+    $announcement_query = "SELECT P.postId, P.content, P.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_POSTLIKES UL WHERE UL.postId = P.postId) AS announcementLikes ".
                           "FROM POSTS P INNER JOIN USER_POSTS UP ON P.postId = UP.postId ".
                           "INNER JOIN USERS U ON U.userId = UP.userId";
 
@@ -23,12 +23,13 @@
         $announcement = new Post($row['postId'], $row['content'], $row['dateCreated'], $row['announcementLikes'], $row['userId'], $row['userName'], $row['iconExtension']);
         //fetch the object data
         $announcementData = $announcement->getPostData();
+        $announcementData['type'] = 'announcement';
         //add the new data array to the array of posts
         array_push($announcementArray, $announcementData);
     }
 
     //selecting image uploads
-    $imageUpload_query = "SELECT IU.imageId, IU.fileName, IU.description, IU.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_LIKES UL WHERE UL.postId = IU.imageId) AS imageUploadsLikes ".
+    $imageUpload_query = "SELECT IU.imageId, IU.fileName, IU.description, IU.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_IMAGELIKES UL WHERE UL.imageId = IU.imageId) AS imageUploadsLikes ".
                          "FROM IMAGE_UPLOADS IU INNER JOIN USER_IMAGES UI ON IU.imageId = UI.imageId ".
                          "INNER JOIN USERS U ON U.userId = UI.userId";
 
@@ -36,15 +37,16 @@
     //an array with all the announcement data
     $imageUploadArray = array();
     while($row = $result->fetch_assoc()){
-        $image = new ImageUpload($row['imageId'], $row['fileName'], $row['description'], $row['dateCreated'], $row['imageUploadLikes'], $row['userId'], $row['userName'], $row['iconExtension']);
+        $image = new ImageUpload($row['imageId'], $row['fileName'], $row['description'], $row['dateCreated'], $row['imageUploadsLikes'], $row['userId'], $row['userName'], $row['iconExtension']);
         //fetch the object data
         $imageData = $image->getImageUploadData();
+        $imageData['type'] = 'image';
         //add the new data array to the array of posts
         array_push($imageUploadArray, $imageData);
     }
 
     //selecting polls
-    $poll_query = "SELECT PL.pollId, PL.pollStatement, PL.pollDescription, PL.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_LIKES UL WHERE UL.postId = PL.pollId) AS pollLikes ".
+    $poll_query = "SELECT PL.pollId, PL.pollStatement, PL.pollDescription, PL.dateCreated, U.userId, U.userName, U.iconExtension, (SELECT COUNT(*) FROM USER_POLLLIKES UL WHERE UL.pollId = PL.pollId) AS pollLikes ".
                   "FROM POLLS PL INNER JOIN USER_POLLS UPL ON PL.pollId = UPL.pollId " .
                   "INNER JOIN USERS U ON U.userId = UPL.userId";
 
@@ -59,7 +61,7 @@
         $optionResults = $db->query($pollOptions_query);
         $pollOptionsArray = array();
         while($optionsRow = $optionResults->fetch_assoc()){
-            $pollOption = new PollOption($row['optionId'], $row['pollId'], $row['content'], $row['votes']);
+            $pollOption = new PollOption($optionsRow['optionId'], $optionsRow['pollId'], $optionsRow['content'], $optionsRow['votes']);
             $currentPollVotes += $optionsRow['votes'];
             $pollOptionsData = $pollOption->getPollOptionData();
             array_push($pollOptionsArray, $pollOptionsData);
@@ -70,9 +72,31 @@
         $pollData = $poll->getPollData();
         //append the array of options
         $pollData['pollOptionArray'] = $pollOptionsArray;
+        $pollData['type'] = 'poll';
         array_push($pollArray, $pollData);
     }
 
-    //break the arrays into categories 
-    
+    //break the arrays into categories
+    $finalArray = array();
+    foreach($announcementArray as $announcement){
+        $finalArray[strtotime($announcement['dateCreated'])] = $announcement;
+    }
+
+    foreach($imageUploadArray as $image){
+        $finalArray[strtotime($image['dateCreated'])] = $image;
+    }
+
+    foreach($pollArray as $poll){
+        $finalArray[strtotime($poll['dateCreated'])] = $poll;
+    }
+
+    krsort($finalArray);
+
+    //dump the data into a normal array
+    $postData = array();
+
+    foreach($finalArray as $key => $value){
+        array_push($postData, $value);
+    }
+    echo json_encode($postData);
 ?>

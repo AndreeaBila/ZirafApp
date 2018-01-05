@@ -14,7 +14,7 @@
     //get the user input from the client
     $postContent = strip_tags(stripslashes($_POST['postContent']));
     //get the post date
-    $postDate = date("Y-m-d");
+    $postDate = date("Y-m-d H:i:s");
     //insert the new post in the database
     $query = "INSERT INTO POSTS VALUES(NULL, ?, ?)";
     $stmt = $db->prepare($query);

@@ -15,7 +15,7 @@
     $pollDescription = strip_tags(stripslashes($_POST['pollDescription']));
     //break the string into an array
     $pollOptionArray = explode('^$/', $pollOptionString);
-    $dateCreated = date("Y-m-d");
+    $dateCreated = date("Y-m-d H:i:s");
     //create a new poll item in the database
     $query = "INSERT INTO POLLS VALUES(NULL, ?, ?, ?)";
     $stmt = $db->prepare($query);

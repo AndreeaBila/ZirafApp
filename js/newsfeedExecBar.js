@@ -25,6 +25,13 @@ $(function(){
         $('#writeAnnouncement').hide();
         $('#createPoll').toggle('slide',{direction:'up'},500);
     });
+
+    //style upload file
+    $('input[type=file]').each(function(){
+        $(this).attr('onchange',"sub(this)");
+        $('<div id="uploadPicBtn" onclick="getFile()">Choose a Picture to Upload</div>').insertBefore(this);
+        $(this).wrapAll('<div style="height: 0px;width: 0px; overflow:hidden;"></div>');
+    });
     //========== END DESIGN ==========
 
     //insert the exsiting posts
@@ -78,12 +85,10 @@ $(function(){
         $(this).parent().remove();
     });
 
-    //style upload file
-    $('input[type=file]').each(function()
-    {
-        $(this).attr('onchange',"sub(this)");
-        $('<div id="uploadPicBtn" onclick="getFile()">Choose a Picture to Upload</div>').insertBefore(this);
-        $(this).wrapAll('<div style="height: 0px;width: 0px; overflow:hidden;"></div>');
+    //check if the user pressed the like button for any element
+    $(document).on('click', 'button.likePostBtn', function(){
+        //send like signal
+        likePost(this);
     });
 });
 
@@ -142,6 +147,29 @@ function parsePost(post){
                 '</footer>' +
                 '<div class="clear"></div>' +
             '</div>'
+}
+
+function parseImage(imageElement){
+    likeMessage = (imageElement.likes === 1) ? "1 Like" : imageElement.likes + " Likes";
+    return '<div class="post" id="image'+ imageElement.imageId +'">' +
+                '<div class="postHeader">' +
+                    '<img src="../img/userIcons/'+ imageElement.userId +'.'+ imageElement.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
+                    '<p class="float-left">'+ imageElement.userName +'</p>' +
+                    '<small class="float-right">'+ imageElement.dateCreated +'</small>' +
+                '</div>' +
+                '<div class="clear"></div>' +
+
+                '<div class="postBody">' +
+                    '<img src="../img/imageUploads/'+ imageElement.fileName +'" alt="no">' +
+                    '<p>'+ imageElement.description.replace(/\n/g, '<br>\n') +'</p>' +
+                '</div>' +
+                
+                '<footer class="postFooter">' +
+                    '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
+                    '<p class="likesCount float-right">'+ likeMessage +'</p>' +
+                '</footer>' +
+                '<div class="clear"></div>' +
+            '</div>';
 }
 
 //send the poll to the database
@@ -204,7 +232,7 @@ function parsePoll(pollInfo){
                     '</div>' +
                     '<div class="clear"></div>' +
                 '</div>' +
-                '<p>'+ pollInfo.pollDescription +'</p>' +
+                '<p>'+ pollInfo.pollDescription.replace(/\n/g, '<br>\n') +'</p>' +
                 '<footer class="postFooter">' +
                     '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
                     '<p class="likesCount float-right">'+ likeVar +'</p>' +
@@ -240,8 +268,60 @@ function parsePollOption(optionsInfo, totalVotes){
 //insert all the elements from the database into the newsfeed at load time
 function insertDatabaseItems(){
     $.getJSON("../php/phpDirectives/getDatabaseItems.php", function(data){
-        console.log(data);
-        var jsonData = JSON.parse(data);
-        console.log(jsonData);
+        data.forEach(function(object){
+            appendItem = '';
+            if(object.type == 'announcement'){
+                appendItem = parsePost(object);
+            }else if(object.type == 'image'){
+                appendItem = parseImage(object);
+            }else if(object.type == 'poll'){
+               appendItem = parsePoll(object);
+            }
+
+            $('#newsfeedPostBody').append(appendItem);
+        });
+    });
+}
+
+//update the number of likes for a post
+function likePost(identifier){
+    //get the id of the liked post
+    var elementId = $(identifier).parent().parent().attr('id');
+    //check the type of element
+    if(elementId.includes('post')){
+        //remove the identifier
+        elementId = elementId.replace('post', '');
+        var likedData = {
+            elementId : elementId,
+            elementType : 'post'
+        };
+    }else if(elementId.includes('image')){
+        //remove the identifier
+        elementId = elementId.replace('image', '');
+        var likedData = {
+            elementId : elementId,
+            elementType : 'image'
+        };
+    }else if(elementId.includes('poll')){
+        //remove the identifier
+        elementId = elementId.replace('poll', '');
+        var likedData = {
+            elementId : elementId,
+            elementType : 'poll'
+        };
+    }
+
+    //send the data to the server
+    $.ajax({
+        data: likedData,
+        type: 'GET',
+        url: "./phpDirectives/likePost.php",
+        success: function(response){
+            //update the likes counter
+            console.log(response);
+        },
+        error: function(){
+            alert("An error has occured while likeing the post.");
+        }
     });
 }

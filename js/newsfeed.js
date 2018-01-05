@@ -1,4 +1,3 @@
 $(function() {
-  //check if the user pressed the post button
-
+  //retrieve all the posts from the database
 });

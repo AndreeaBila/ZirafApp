@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 04:27 PM
+-- Generation Time: Jan 05, 2018 at 07:38 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -69,7 +69,7 @@ CREATE TABLE `image_uploads` (
   `imageId` int(11) NOT NULL,
   `fileName` varchar(50) NOT NULL,
   `description` text NOT NULL,
-  `dateCreated` date NOT NULL
+  `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -77,9 +77,8 @@ CREATE TABLE `image_uploads` (
 --
 
 INSERT INTO `image_uploads` (`imageId`, `fileName`, `description`, `dateCreated`) VALUES
-(4, '85_default.jpeg', 'First', '2018-01-05'),
-(5, '85_Testing.jpg', 'Second', '2018-01-05'),
-(6, '85_ziraf.png', 'Third', '2018-01-05');
+(11, '85_default.jpeg', 'First image', '2018-01-05 18:54:34'),
+(12, '85_Testing.jpg', 'Second\r\nphoto', '2018-01-05 19:09:26');
 
 -- --------------------------------------------------------
 
@@ -176,7 +175,7 @@ CREATE TABLE `polls` (
   `pollId` int(11) NOT NULL,
   `pollStatement` varchar(50) NOT NULL,
   `pollDescription` text NOT NULL,
-  `dateCreated` date NOT NULL
+  `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -184,7 +183,8 @@ CREATE TABLE `polls` (
 --
 
 INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
-(19, 'First Poll', 'DEsc', '2018-01-05');
+(23, 'Poll', 'First Poll', '2018-01-05 18:54:18'),
+(24, 'Seocnd poll', 'bla', '2018-01-05 19:09:46');
 
 -- --------------------------------------------------------
 
@@ -204,9 +204,13 @@ CREATE TABLE `poll_options` (
 --
 
 INSERT INTO `poll_options` (`optionId`, `pollId`, `content`, `votes`) VALUES
-(60, 19, '1', 0),
-(61, 19, '2', 0),
-(62, 19, '3', 0);
+(68, 23, 'Answer 1', 0),
+(69, 23, 'Answer 2', 0),
+(70, 23, 'Answer 3', 0),
+(71, 24, 'answer', 0),
+(72, 24, '1', 0),
+(73, 24, '2', 0),
+(74, 24, '3', 0);
 
 -- --------------------------------------------------------
 
@@ -217,7 +221,7 @@ INSERT INTO `poll_options` (`optionId`, `pollId`, `content`, `votes`) VALUES
 CREATE TABLE `posts` (
   `postId` int(11) NOT NULL,
   `content` text NOT NULL,
-  `dateCreated` date NOT NULL
+  `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -225,9 +229,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
-(20, 'This is the first announcement', '2018-01-05'),
-(21, 'And this is the second announcement.', '2018-01-05'),
-(22, 'This is my final announcement.', '2018-01-05');
+(27, 'First announcement', '2018-01-05 18:52:37'),
+(28, 'Second announcement', '2018-01-05 19:07:58');
 
 -- --------------------------------------------------------
 
@@ -323,6 +326,17 @@ INSERT INTO `user_chats` (`userId`, `chatId`, `dateAdded`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_imagelikes`
+--
+
+CREATE TABLE `user_imagelikes` (
+  `userId` int(11) NOT NULL,
+  `imageId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_images`
 --
 
@@ -336,19 +350,18 @@ CREATE TABLE `user_images` (
 --
 
 INSERT INTO `user_images` (`userId`, `imageId`) VALUES
-(85, 4),
-(85, 5),
-(85, 6);
+(85, 11),
+(85, 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_likes`
+-- Table structure for table `user_polllikes`
 --
 
-CREATE TABLE `user_likes` (
+CREATE TABLE `user_polllikes` (
   `userId` int(11) NOT NULL,
-  `postId` int(11) NOT NULL
+  `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -367,7 +380,19 @@ CREATE TABLE `user_polls` (
 --
 
 INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
-(85, 19);
+(85, 23),
+(85, 24);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_postlikes`
+--
+
+CREATE TABLE `user_postlikes` (
+  `userId` int(11) NOT NULL,
+  `postId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -385,9 +410,8 @@ CREATE TABLE `user_posts` (
 --
 
 INSERT INTO `user_posts` (`userId`, `postId`) VALUES
-(85, 20),
-(85, 21),
-(85, 22);
+(85, 27),
+(85, 28);
 
 -- --------------------------------------------------------
 
@@ -477,6 +501,13 @@ ALTER TABLE `user_chats`
   ADD KEY `chatId` (`chatId`);
 
 --
+-- Indexes for table `user_imagelikes`
+--
+ALTER TABLE `user_imagelikes`
+  ADD PRIMARY KEY (`userId`,`imageId`),
+  ADD KEY `imageId` (`imageId`);
+
+--
 -- Indexes for table `user_images`
 --
 ALTER TABLE `user_images`
@@ -484,11 +515,11 @@ ALTER TABLE `user_images`
   ADD KEY `imageId` (`imageId`);
 
 --
--- Indexes for table `user_likes`
+-- Indexes for table `user_polllikes`
 --
-ALTER TABLE `user_likes`
-  ADD PRIMARY KEY (`userId`,`postId`),
-  ADD KEY `postId` (`postId`);
+ALTER TABLE `user_polllikes`
+  ADD PRIMARY KEY (`userId`,`pollId`),
+  ADD KEY `pollId` (`pollId`);
 
 --
 -- Indexes for table `user_polls`
@@ -496,6 +527,13 @@ ALTER TABLE `user_likes`
 ALTER TABLE `user_polls`
   ADD PRIMARY KEY (`userId`,`pollId`),
   ADD KEY `pollId` (`pollId`);
+
+--
+-- Indexes for table `user_postlikes`
+--
+ALTER TABLE `user_postlikes`
+  ADD PRIMARY KEY (`userId`,`postId`),
+  ADD KEY `postId` (`postId`);
 
 --
 -- Indexes for table `user_posts`
@@ -531,7 +569,7 @@ ALTER TABLE `chats`
 -- AUTO_INCREMENT for table `image_uploads`
 --
 ALTER TABLE `image_uploads`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -543,19 +581,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `polls`
 --
 ALTER TABLE `polls`
-  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `poll_options`
 --
 ALTER TABLE `poll_options`
-  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -601,6 +639,13 @@ ALTER TABLE `user_chats`
   ADD CONSTRAINT `USER_CHAT_ibfk_2` FOREIGN KEY (`chatId`) REFERENCES `chats` (`chatId`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `user_imagelikes`
+--
+ALTER TABLE `user_imagelikes`
+  ADD CONSTRAINT `user_imagelikes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_imagelikes_ibfk_2` FOREIGN KEY (`imageId`) REFERENCES `image_uploads` (`imageId`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `user_images`
 --
 ALTER TABLE `user_images`
@@ -608,13 +653,11 @@ ALTER TABLE `user_images`
   ADD CONSTRAINT `user_images_ibfk_2` FOREIGN KEY (`imageId`) REFERENCES `image_uploads` (`imageId`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_likes`
+-- Constraints for table `user_polllikes`
 --
-ALTER TABLE `user_likes`
-  ADD CONSTRAINT `user_likes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_likes_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_likes_ibfk_3` FOREIGN KEY (`postId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_likes_ibfk_4` FOREIGN KEY (`postId`) REFERENCES `image_uploads` (`imageId`) ON DELETE CASCADE;
+ALTER TABLE `user_polllikes`
+  ADD CONSTRAINT `user_polllikes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_polllikes_ibfk_2` FOREIGN KEY (`pollId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_polls`
@@ -622,6 +665,13 @@ ALTER TABLE `user_likes`
 ALTER TABLE `user_polls`
   ADD CONSTRAINT `user_polls_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_polls_ibfk_2` FOREIGN KEY (`pollId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_postlikes`
+--
+ALTER TABLE `user_postlikes`
+  ADD CONSTRAINT `user_postlikes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_postlikes_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_posts`

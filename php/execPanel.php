@@ -117,6 +117,13 @@
           </div>
         </div>
 
+        <div id="execErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error has occured
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
         <!-- REVOKE USER ACCESS BUTTON -->
         <div class="text-center">
           <button type="button" id="revokeAccessBtn" class="bgZiraf" data-toggle="modal" data-target="#searchUserModal">Revoke User Access</button>

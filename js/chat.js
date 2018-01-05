@@ -8,6 +8,7 @@ var messages = [];
 $(function() {
   $('#chatMenu').hide();
   $('#chatSettings').hide();
+  $('.alert').hide();
 
   $('#chatMenuBtn').click(function() {
     $('#chatMenu').toggle('slide',{direction:'left'},500);
@@ -86,7 +87,7 @@ $(function() {
           displayPreviousMessages(response);
         },
         error: function(){
-          alert("Error");
+          $('#messageErrorAlert').show();
         }
       });
     }
@@ -156,7 +157,7 @@ $(function() {
     var chatName = $('#chatNameInput').val();
     //check if the chatName has been specified
     if(chatName === ""){
-      alert("You have to specify a chat name!");
+      $('#chatNameAlert').show();
       return;
     }
     //clear the two inputs
@@ -191,7 +192,7 @@ $(function() {
         $('#chatsList li#chat' + parsedResult.chatId).click();
       },
       error: function(){
-        alert("An error has occured");
+        $('#createChatErrorAlert').show();
       }
     }); 
   });
@@ -211,7 +212,7 @@ $(function() {
       addEmails.emailList += membersToAdd[i].childNodes[0].innerHTML + ",";
     }
     if(addEmails.emailList === ""){
-      alert("No zirafer has been specified.");
+      $('#addMembersAlert').show();
       return;
     }
     addEmails.emailList = addEmails.emailList.slice(0, -1);
@@ -239,7 +240,7 @@ $(function() {
       $('#chatSettingsBtn').click();
     },
     error: function(){
-      alert("An error has occured");
+      $('#addMembersErrorAlert').show();
     }
     });
 

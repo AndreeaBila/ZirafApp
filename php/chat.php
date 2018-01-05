@@ -119,6 +119,13 @@
           <!-- </form> -->
         </div>
 
+        <div id="messageErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error has occured
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
       </div>
 
       <!-- CREATE NEW GROUP MODAL -->
@@ -136,7 +143,16 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chat Name</label>
                   <input type="email" class="form-control form-control-lg" id="chatNameInput" aria-describedby="emailHelp" placeholder="Enter name">
+                  
+                  <div id="chatNameAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> You have to specify a chat name
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 </div>
+
+                
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Add Members</label>
@@ -159,6 +175,13 @@
                     </datalist> 
 
                     <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  </div>
+                  
+                  <div id="createChatErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error occured
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
                   
 
@@ -210,7 +233,20 @@
                   </datalist>
                   <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
-                
+
+                <div id="addMembersAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> You must select at least one user to add
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div id="addMembersErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error has occured
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>                
 
                 <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                 <div id="addedMembersToAdd"></div>

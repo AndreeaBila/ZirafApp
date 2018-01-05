@@ -89,7 +89,7 @@
           
           <!-- settings submit button -->
           <div class="text-center">
-            <button type="submit" class="btn btn-lg btn-info" id="settingsBtn" name="settingsBtn">Save Changes</button>
+            <button type="submit" class="btn btn-lg bgNeutral" id="settingsBtn" name="settingsBtn">Save Changes</button>
           </div>
           
         </form>

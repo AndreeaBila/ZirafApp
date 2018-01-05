@@ -1,4 +1,5 @@
 $(function(){
+    $('.alert').hide();
     //check if the accept request button is clicked
     $('.confirmRequestBtn').click(function(){
         var user = getUserData(this);
@@ -17,7 +18,7 @@ $(function(){
                 }
             },
             error: function(){
-                alert("Something went wrong");
+                $('#execErrorAlert').show();
             }
         });
     });
@@ -42,7 +43,7 @@ $(function(){
                     }
                 },
                 error: function(){
-                    alert("Error");
+                    $('#execErrorAlert').show();
                 }
             });
         });

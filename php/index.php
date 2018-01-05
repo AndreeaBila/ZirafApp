@@ -65,14 +65,42 @@
           <!-- login email -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="loginEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-            <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
+            <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter email*" required>
           </div>
           <!-- login password -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="loginPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="loginPassword" placeholder="Enter password" required>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="loginPassword" placeholder="Enter password*" required>
           </div>
-          
+
+          <div id="invalidLoginAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> Your login information is invalid
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="emailNotConfirmedAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> You haven't confirmed your email address
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="accountNotConfirmedAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> Your account hasn't been verified by a member of the exec team
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="loginErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error has occured
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
           <!-- login keep logged in -->
           <label class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input form-check-input" id="keepLogged" name="keepLogged[]">
@@ -110,23 +138,40 @@
           <!-- signup name -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupNameAddon"><i class="fa fa-user" aria-hidden="true"></i></span>
-            <input type="text" class="form-control" id="signupName" name="signupName" placeholder="Name" required>
+            <input type="text" class="form-control" id="signupName" name="signupName" placeholder="Name*" required>
           </div>
           <!-- signup email -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupEmailAddon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-            <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email" required>
+            <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email*" required>
           </div>
+
+          <div id="uniqueEmailAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> This email address is associated with an existing account. 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
           <!-- signup password -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password" required>
+            <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password*" required>
           </div>
           <!-- signup confirm password -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupConfirmPasswordAddon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password" required>
+            <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password*" required>
           </div>
+
+          <!-- unmatching passwords alert -->
+          <div id="matchingPasswordsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> The two passwords do not match
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
           <!-- signup username of social handle -->
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="signupUsernameAddon"><i class="fa fa-at" aria-hidden="true"></i></span>
@@ -142,19 +187,29 @@
             <span class="input-group-addon" id="signupUsernameAddon"><i class="fa fa-phone" aria-hidden="true"></i></span>
             <input type="tel" class="form-control" id="signupPhoneNumber" name="signupPhoneNumber" placeholder="Phone Number">
           </div>
+          
           <!-- signup profile picture -->
-          <div class="form-group form-group-lg">
-            <label for="signupProfilePictureBtn">Upload Profile Picture</label>
-            <input type="file" class="form-control-file" id="signupProfilePictureBtn" name="signupProfilePictureBtn">
+          <div class="input-group input-group-lg">
+            <input type="file" value="upload" class="form-control-lg form-control" id="signupProfilePictureBtn" name="signupProfilePictureBtn">
           </div>
+
+          <!-- unmatching passwords alert -->
+          <div id="invalidFileAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i>  Invalid picture format.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
           <!-- signup terms and conditions -->
           <label class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input form-check-input" id="termsCheckbox" name="termsCheckbox" required>
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">
-              I have read and agreed with the <a href="#">Terms and Conditions</a>
+              I have read and agreed with the <a href="#">Terms and Conditions</a>*
             </span>
           </label>
+          <small>*Required fields</small>
           <div class="text-center">
             <!-- signup submit button -->
             <button type="submit" class="btn btn-lg bgZiraf" id="signupBtn" name="signupBtn">Sign Up</button>

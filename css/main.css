@@ -163,6 +163,11 @@ html {
   box-shadow: 0 0 0 0.2rem rgba(50, 78, 78, 0.2);
 }
 
+/* line 82, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+.alert {
+  margin: 5px 0px 0px;
+}
+
 /* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
 .header {
   position: fixed;
@@ -293,6 +298,63 @@ html {
 #loginContainer #loginForm .linkBtn, #loginContainer #signupForm .linkBtn, #signupContainer #loginForm .linkBtn, #signupContainer #signupForm .linkBtn {
   background-color: transparent;
   text-decoration: underline;
+}
+
+/* line 29, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm #uploadProfilePicBtn, #loginContainer #signupForm #uploadProfilePicBtn, #signupContainer #loginForm #uploadProfilePicBtn, #signupContainer #signupForm #uploadProfilePicBtn {
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid rgba(242, 145, 10, 0.2);
+  text-align: center;
+  background-color: rgba(242, 145, 10, 0.1);
+  color: #f2910a;
+  margin: 10px 0px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* line 41, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm #uploadProfilePicBtn i, #loginContainer #signupForm #uploadProfilePicBtn i, #signupContainer #loginForm #uploadProfilePicBtn i, #signupContainer #signupForm #uploadProfilePicBtn i {
+  color: #f2910a;
+  font-size: 1.5rem;
+}
+
+/* line 47, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm .custom-control-description, #loginContainer #signupForm .custom-control-description, #signupContainer #loginForm .custom-control-description, #signupContainer #signupForm .custom-control-description {
+  font-size: 1.25rem;
+}
+
+/* line 51, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm .custom-control-indicator, #loginContainer #signupForm .custom-control-indicator, #signupContainer #loginForm .custom-control-indicator, #signupContainer #signupForm .custom-control-indicator {
+  height: 22px;
+  width: 22px;
+}
+
+/* line 56, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm ::placeholder, #loginContainer #signupForm ::placeholder, #signupContainer #loginForm ::placeholder, #signupContainer #signupForm ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(242, 145, 10, 0.7);
+  opacity: 1;
+  /* Firefox */
+}
+
+/* line 61, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm :-ms-input-placeholder, #loginContainer #signupForm :-ms-input-placeholder, #signupContainer #loginForm :-ms-input-placeholder, #signupContainer #signupForm :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(242, 145, 10, 0.7);
+}
+
+/* line 65, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm ::-ms-input-placeholder, #loginContainer #signupForm ::-ms-input-placeholder, #signupContainer #loginForm ::-ms-input-placeholder, #signupContainer #signupForm ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(242, 145, 10, 0.7);
+}
+
+/* line 69, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_forms.scss */
+#loginContainer #loginForm small, #loginContainer #signupForm small, #signupContainer #loginForm small, #signupContainer #signupForm small {
+  color: #ec3f3f;
 }
 
 /* line 3, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */

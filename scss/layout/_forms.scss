@@ -25,5 +25,49 @@
       background-color: transparent;
       text-decoration: underline;
     }
+
+    #uploadProfilePicBtn {
+      width: 100%;
+      padding: 10px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border: 1px solid rgba(242,145,10,0.2); 
+      text-align: center;
+      background-color: rgba(242,145,10,0.1); 
+      color: rgba(242,145,10,1); 
+      margin: 10px 0px;
+      cursor:pointer;
+      font-size: 1.25rem;
+      i{
+        color: rgba(242,145,10,1); 
+        font-size: 1.5rem;
+      }
+    }
+    
+    .custom-control-description {
+      font-size: 1.25rem;
+    }
+
+    .custom-control-indicator {
+      height: 22px;
+      width: 22px;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgba(242,145,10,0.7);
+      opacity: 1; /* Firefox */
+    }
+  
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: rgba(242,145,10,0.7);
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: rgba(242,145,10,0.7);
+    }
+
+    small {
+      color: $red;
+    }
   }
 }

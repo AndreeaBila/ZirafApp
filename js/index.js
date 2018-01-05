@@ -1,5 +1,6 @@
 $(function() {
 
+  $('.alert').hide();
   $('.your-checkbox').prop('indeterminate', true)
   
   //=================== DELETE THIS SECTION ==================//
@@ -53,21 +54,39 @@ $(function() {
       $('#signupBtn').click();
     }
   }); 
+
+  //style upload file
+  $('input[type=file]').each(function()
+  {
+      $(this).attr('onchange',"sub(this)");
+      $('<div id="uploadProfilePicBtn" onclick="getFile()"><i class="fa fa-camera-retro" aria-hidden="true"></i> Choose a Profile Picture</div>').insertBefore(this);
+      $(this).wrapAll('<div style="height: 0px;width: 0px; overflow:hidden;"></div>');
+  });
 });
+
+//upload file button
+function getFile(){
+  $('input[type=file]').click();
+}
+function sub(obj){
+ var file = obj.value;
+ var fileName = file.split("\\");
+ document.getElementById("uploadProfilePicBtn").innerHTML = fileName[fileName.length-1];
+}
 
 //verify the data passed by the user on the client side
 function signupVerification(){
   //check if the provided email address is unique
   if(!checkUniqueEmail()){
-    alert("Email not unique");
+    $('#uniqueEmailAlert').show();
     return false;
   }else if($('#signupPassword').val() != $('#signupConfirmPassword').val()){
     //check if the two passwords are equal
-    alert("The two passwords do not match");
+    $('#matchingPasswordsAlert').show();
     return false;
   }else if(!checkFile()){
     //check if the submitted file is of an accepted file type
-    alert("Submitted file type is not correct");
+    $('#invalidFileAlert').show();
     return false;
   }
   return true;
@@ -119,20 +138,20 @@ function processLoginRequest(){
     url: "../php/phpDirectives/login.php",
     success: function(result){
       if(result === "loginInfo"){
-        alert("Login information incorrect");
+        $('#invalidLoginAlert').show();
       }else if(result === "email"){
-        alert("You haven't activated your account");
+        $('#emailNotConfirmedAlert').show();
       }else if(result === "exec"){
-        alert("Your account hasn't been verified by a member of the exec team");
+        $('#accountNotConfirmedAlert').show();
       }else if(result === "success"){
         //redirect user
         location.href = "newsfeed";
       }else{
-        alert("error");
+        $('#loginErrorAlert').show();
       }
     },
     error: function(){
-      alert("An error has occured");
+      $('#loginErrorAlert').show();
     }
   });
 }

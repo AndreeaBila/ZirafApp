@@ -58,13 +58,34 @@
         <form action="" method="">
           <!-- settings name -->
           <div class="form-group">
-            <label for="settingsName">Name</label>
+
+            <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> All required fields must be filled
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <label for="settingsName">Name*</label>
             <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName">
           </div>
           <!-- settings email -->
           <div class="form-group">
-            <label for="settingsEmail">Email Address</label>
+            <label for="settingsEmail">Email Address*</label>
             <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail">
+            <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> This email address is already in use
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div id="settingsFieldsAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+              Please confirm your new email address
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           </div>
           <!-- settings password -->
           <div class="form-group">
@@ -75,6 +96,13 @@
           <div class="form-group">
           <label for="settingsConfirmPassword">Confirm New Password</label>
             <input type="password" class="form-control form-control-lg" id="settingsConfirmPassword" name="settingsConfirmPassword" placeholder="Confirm New Password">
+
+            <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> The two passwords do not match
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           </div>
           <!-- settings username of social handle -->
           <div class="form-group">
@@ -85,7 +113,10 @@
           <div class="form-group">
             <label for="settingsPhoneNumber">Phone Number</label>
             <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber">
+            <small>*Required fields</small>
           </div>
+
+          
           
           <!-- settings submit button -->
           <div class="text-center">
@@ -118,7 +149,7 @@
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/settings.js"></script>
 
   </body>
 </html>

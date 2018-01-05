@@ -22,7 +22,12 @@
 <!-- WRITE ANNOUNCEMENT BOX -->
 <div class="newsfeedAddPost row" id="writeAnnouncement">
     <textarea name="announcementTextarea" id="announcementTextarea" placeholder="Write Announcement..." class="form-control form-control-lg"></textarea>
-    
+    <div id="noMessageNewsfeedAlert" class="alert alert-danger alert-dismissible fade show col-12" role="alert">
+        <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> No message entered
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <div class="col-12">
         <button type="button" class="btn btn-lg bgZiraf float-right postBtn" id="postAnnouncementBtn">Post</button>
     </div>
@@ -34,6 +39,21 @@
     <form action="./phpDirectives/uploadImagePost.php" method="POST" enctype="multipart/form-data" name="uploadImagePostForm" id="uploadImagePostForm">
         <input id="upfile" name="upfile" type="file" value="upload"/>
         <textarea name="pictureTextarea" id="pictureTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
+        
+        <div id="noPictureAlert" class="alert alert-danger alert-dismissible fade show col-12" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> No picture uploaded
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="invalidFileNewsfeedAlert" class="alert alert-danger alert-dismissible fade show col-12" role="alert">
+            <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> Invalid file type uploaded
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
         <input type="submit" value='Post' class='btn btn-lg bgZiraf float-right postBtn' id="postPictureBtn">
     </form>
     <!-- <div class="custom-file form-control-lg">
@@ -50,12 +70,25 @@
 <!-- CREATE POLL BOX -->
 <div class="newsfeedAddPost row" id="createPoll">
     <input type="text" class="form-control form-control-lg" id="pollQuestion" placeholder="Poll Question">
+    <div id="pollQuestionAlert" class="alert alert-danger alert-dismissible fade show col-12" role="alert">
+        <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> You must provide a poll question
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
     <div class="input-group mb-3">
         <input type="text" class="form-control form-control-lg" id="pollOptionInput" placeholder="Poll Option">
         <button type="button" class="btn plusBtn bgGreen" id="addPollOptionBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
     </div>
 
+    <div id="pollOptionsAlert" class="alert alert-danger alert-dismissible fade show col-12" role="alert">
+        <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> No poll options provided
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
     <!-- Display of options already added -->
     <div id="addedPollOptions">
         <!-- <div class="addedPollOptionsContainer row">
@@ -64,6 +97,7 @@
         </div> -->
 
     </div>
+    
 
     <textarea name="pictureTextarea" id="pollTextarea" cols="30" rows="2" placeholder="Description" class="form-control form-control-lg"></textarea>
     

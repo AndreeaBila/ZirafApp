@@ -1,3 +1,5 @@
+var selectedEmails = [];
+
 $(function(){
     $('.alert').hide();
     //check if the accept request button is clicked
@@ -73,6 +75,19 @@ $(function(){
     $('#selectEmailForRevoke').click(function(){
         selectUserToRevoke();
     });
+
+    //when the user tries to remove an option
+    $(document).on('click', 'button.removeMemberBtnToAdd', function(){
+        var deletedEmail = $(this).siblings().first().text();
+        //remove the email from the list of selected emails
+        //get the index
+        elementIndex = selectedEmails.indexOf(deletedEmail);
+        //remove the element itself
+        selectedEmails.splice(elementIndex, 1);
+        //add the email back to the select
+        $('#revokeUsers').append('<option value="'+ deletedEmail +'">');
+        $(this).parent().remove();
+    });
 });
 
 function getUserData(index){
@@ -84,9 +99,11 @@ function getUserData(index){
 function selectUserToRevoke(){
     //get the value of the selected email
     var selectedEmail = $('#selectUserEmailsToRevoke').val();
+    //add the email to a list of selected emails
     //get the list of all options
     var allOptions = $('#revokeUsers').children();
     if(checkOptionValue(allOptions, selectedEmail)){
+        selectedEmails.push(selectedEmail);
         //add the selected email to the list of selected emails
         $('#addedMembersToRevoke').append('<div class="members row">' +
                                         '<p class="emails col-8">' + selectedEmail + '</p>' +
@@ -96,13 +113,27 @@ function selectUserToRevoke(){
         $('#selectUserEmailsToRevoke').val("");
         //delete the selected email from the list of available options
         $('#revokeUsers option[value="'+ selectedEmail +'"]').remove();
-        //chekc if a row from the selected emails list has been deleted
-        $('.removeMemberBtnToAdd').unbind('click');
-        $('.removeMemberBtnToAdd').bind('click', function(){
-            var deletedEmail = $(this).siblings().first().text();
-            //add the email back to the select
-            $('#revokeUsers').append('<option value="'+ deletedEmail +'">');
-            $(this).parent().remove();
+
+        //check if the user pressed on the revoke vonfirm button
+        $('#confirmUserRevokeModalBtn').click(function(){
+            //send the array of emails to the server
+            $.ajax({
+                data: {emails: JSON.stringify(selectedEmails)},
+                url: "../php/phpDirectives/revokeUserAccess.php",
+                type: "GET",
+                success: function(response){
+                    console.log(response);
+                },
+                error: function(){
+                    alert("An error occured while trying to remove the selected user.");
+                }
+            });
+            //close the modal
+            $('#searchUserModal').modal('toggle');
+        });
+        //check if the user pressed cancel
+        $('#closeUserRevokeModalBtn').click(function(){
+            location.reload();
         });
     }
 }

@@ -132,9 +132,10 @@
     function setDefaultIcon($db, $userEmail, $userData){
         //create insert statement
         $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, ?, 0, 0, ?, ?)";
+        $ext = "jpeg";
         //create statement
         $stmt = $db->prepare($query);
-        $stmt->bind_param("ssssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], 'jpeg', $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
+        $stmt->bind_param("ssssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $ext, $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
         $stmt->execute() or die("Error occured while saving the data");
         $stmt->close();
         //get the id of the current user

@@ -124,22 +124,22 @@ function postPoll(pollOptionArray){
     var pollData = {
         pollQuestion : $('#pollQuestion').val(),
         pollDescription : $('#pollTextarea').val(),
-        pollOptionString : ''
+        pollOptionString : []
     };
     //break the array intro a string of poll options delimited by the '^$/' character
     for(i=0;i<pollOptionArray.length;i++){
         currentOption = pollOptionArray[i];
-        pollData.pollOptionString += currentOption;
-        if(i < pollOptionArray.length -1){
-            pollData.pollOptionString += '^$/';
-        }
+        pollData.pollOptionString.push(currentOption);
     }
+
+    pollData.pollOptionString = JSON.stringify(pollData.pollOptionString);
     //send the poll to the server
     $.ajax({
         data: pollData,
         url: "../php/phpDirectives/insertPoll.php",
         type: "POST",
         success: function(response){
+            console.log(response);
             var pollInfo = JSON.parse(response);
             //convert the poll to the appropriate poll html code
             var htmlPoll = parsePoll(pollInfo);

@@ -3,7 +3,7 @@
     //get the database logic
     require_once "../phpComponents/databaseConnection.php";
     //check type of access
-    //checkRequestType();
+    checkRequestType();
     //get the post and user dependencies
     require_once "../phpComponents/dependencies.php";
     //create database connection

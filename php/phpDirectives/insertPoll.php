@@ -11,10 +11,15 @@
 
     //get the poll data
     $pollQuestion = strip_tags(stripslashes($_POST['pollQuestion']));
-    $pollOptionString = strip_tags(stripslashes($_POST['pollOptionString']));
+    $pollOptionString = $_POST['pollOptionString'];
     $pollDescription = strip_tags(stripslashes($_POST['pollDescription']));
+
+    $pollOptionString = json_decode($pollOptionString, true);
     //break the string into an array
-    $pollOptionArray = explode('^$/', $pollOptionString);
+    $pollOptionArray = array();
+    foreach($pollOptionString as $string){
+        array_push($pollOptionArray, $string);
+    }
     $dateCreated = date("Y-m-d H:i:s");
     //create a new poll item in the database
     $query = "INSERT INTO POLLS VALUES(NULL, ?, ?, ?)";

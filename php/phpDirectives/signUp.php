@@ -48,12 +48,11 @@
     $stmt->execute();
     $stmt->close();
     //don't execute the statemetn now and wait for the file upload
-    header("Location: ../signupResult.php");
+    header("Location: ../signupResult");
 
 
     function manageFileUpload($db, $userData){
-        try {
-            
+        try {            
             // Undefined | Multiple Files | $_FILES Corruption Attack
             // If this request falls under any of them, treat it invalid.
             if (
@@ -69,7 +68,7 @@
                     break;
                 case UPLOAD_ERR_NO_FILE:
                     //if no file has been sent select a new one
-                    setDefaultIcon($db, $userData['email']);
+                    setDefaultIcon($db, $userData['email'], $userData);
                     return;
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
@@ -77,7 +76,7 @@
                 default:
                     throw new RuntimeException('Unknown errors.');
             }
-        
+            
             // DO NOT TRUST $_FILES['signupProfilePictureBtn']['mime'] VALUE !!
             // Check MIME Type by yourself.
             $finfo = new finfo(FILEINFO_MIME_TYPE);
@@ -130,10 +129,20 @@
         return $result;
     }
 
-    function setDefaultIcon($db, $userEmail){
+    function setDefaultIcon($db, $userEmail, $userData){
+        //create insert statement
+        $query = "INSERT INTO USERS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?, ?, 0, 0, ?, ?)";
+        //create statement
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("ssssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], 'jpeg', $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
+        $stmt->execute() or die("Error occured while saving the data");
+        $stmt->close();
         //get the id of the current user
         $userId = getUserId($db, $userEmail);
         //copy the default picture into userIcons
         copy('../../img/default.jpeg', '../../img/userIcons/'.$userId.'.jpeg');
+
+        //exit
+        header("Location: ../signupResult");
     }
 ?>

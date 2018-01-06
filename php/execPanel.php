@@ -159,7 +159,7 @@
                         ?>
                       </select>
                     </datalist>
-                    <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button type="button" class="btn plusBtn bgGreen" id="selectEmailForRevoke"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
                   
 

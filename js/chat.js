@@ -93,62 +93,27 @@ $(function() {
     }
   });
 
-  //check if an option for creating a new group has been created
+  //check if an option for creating a new group has been created by pressing enter
   $('#selectUserEmails').keydown(function(e){
     if(e.keyCode == 13){
-      //get the value of the selected email
-      var selectedEmail = $('#selectUserEmails').val();
-      //get the list of all options
-      var allOptions = $('#chatCreator').children();
-      if(checkOptionValue(allOptions, selectedEmail)){
-        //add the selected email to the list of selected emails
-        $('#addedMembers').append('<div class="members row">' +
-                                  '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                  '<button type="button" class="removeMemberBtn col-4">remove &times;</button>' +
-                                  '</div>');
-        //delete the input data
-        $('#selectUserEmails').val("");
-        //delete the selected email from the list of available options
-        $('#chatCreator option[value="'+ selectedEmail +'"]').remove();
-         //chekc if a row from the selected emails list has been deleted
-        $('.removeMemberBtn').unbind('click');
-        $('.removeMemberBtn').bind('click', function(){
-          var deletedEmail = $(this).siblings().first().text();
-          //add the email back to the select
-          $('#chatCreator').append('<option value="'+ deletedEmail +'">');
-          $(this).parent().remove();
-        });
-      }
+      addUserToNewGroup();
     }
   });
+  //or by pressing the provided button
+  $('#addUserToNewGroupBtn').click(function(){
+    addUserToNewGroup();
+  });
 
-  //check if an option for creating a new group has been created
+
+  //check if the user is trying to add a member to an existing group by enter
   $('#selectUserEmailsToAdd').keydown(function(e){
     if(e.keyCode == 13){
-      //get the value of the selected email
-      var selectedEmail = $('#selectUserEmailsToAdd').val();
-      //get the list of all options
-      var allOptions = $('#addUsers').children();
-      if(checkOptionValue(allOptions, selectedEmail)){
-        //add the selected email to the list of selected emails
-        $('#addedMembersToAdd').append('<div class="members row">' +
-                                       '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                       '<button type="button" class="removeMemberBtnToAdd removeMemberBtn col-4">remove &times;</button>' +
-                                       '</div>');
-        //delete the input data
-        $('#selectUserEmailsToAdd').val("");
-        //delete the selected email from the list of available options
-        $('#addUsers option[value="'+ selectedEmail +'"]').remove();
-        //chekc if a row from the selected emails list has been deleted
-        $('.removeMemberBtnToAdd').unbind('click');
-        $('.removeMemberBtnToAdd').bind('click', function(){
-          var deletedEmail = $(this).siblings().first().text();
-          //add the email back to the select
-          $('#addUsers').append('<option value="'+ deletedEmail +'">');
-          $(this).parent().remove();
-        });
-      }
+      addUserToExistingGroup();
     }
+  });
+  //or by pressing the provided button
+  $('#addUsertToExistingGroupBtn').click(function(){
+    addUserToExistingGroup();
   });
 
   //check if the user pressed the create chat button
@@ -269,6 +234,10 @@ $(function() {
         $('.removeUser').unbind('click');
         $('.removeUser').bind('click', function(){
           deletedUser = $(this).siblings().first().next().text();
+          //add the deleted user to the list of users that can be added
+          //create the adding html
+          deletedUserHtmlObject = '<option value="'+ deletedUser +'">';
+          $('#addUsers').append(deletedUserHtmlObject);
           previousRow = this;
           //check the confirm opeartion
           $('#removeUserBtn').click(function(){
@@ -477,4 +446,56 @@ function updateURLChatId(){
   var url = selectedChat.chatId;
   //update the url
   window.history.pushState(null, null, url);
+}
+
+function addUserToNewGroup(){
+  //get the value of the selected email
+  var selectedEmail = $('#selectUserEmails').val();
+  //get the list of all options
+  var allOptions = $('#chatCreator').children();
+  if(checkOptionValue(allOptions, selectedEmail)){
+    //add the selected email to the list of selected emails
+    $('#addedMembers').append('<div class="members row">' +
+                              '<p class="emails col-8">' + selectedEmail + '</p>' +
+                              '<button type="button" class="removeMemberBtn col-4">remove &times;</button>' +
+                              '</div>');
+    //delete the input data
+    $('#selectUserEmails').val("");
+    //delete the selected email from the list of available options
+    $('#chatCreator option[value="'+ selectedEmail +'"]').remove();
+     //chekc if a row from the selected emails list has been deleted
+    $('.removeMemberBtn').unbind('click');
+    $('.removeMemberBtn').bind('click', function(){
+      var deletedEmail = $(this).siblings().first().text();
+      //add the email back to the select
+      $('#chatCreator').append('<option value="'+ deletedEmail +'">');
+      $(this).parent().remove();
+    });
+  }
+}
+
+function addUserToExistingGroup(){
+  //get the value of the selected email
+  var selectedEmail = $('#selectUserEmailsToAdd').val();
+  //get the list of all options
+  var allOptions = $('#addUsers').children();
+  if(checkOptionValue(allOptions, selectedEmail)){
+    //add the selected email to the list of selected emails
+    $('#addedMembersToAdd').append('<div class="members row">' +
+                                   '<p class="emails col-8">' + selectedEmail + '</p>' +
+                                   '<button type="button" class="removeMemberBtnToAdd removeMemberBtn col-4">remove &times;</button>' +
+                                   '</div>');
+    //delete the input data
+    $('#selectUserEmailsToAdd').val("");
+    //delete the selected email from the list of available options
+    $('#addUsers option[value="'+ selectedEmail +'"]').remove();
+    //chekc if a row from the selected emails list has been deleted
+    $('.removeMemberBtnToAdd').unbind('click');
+    $('.removeMemberBtnToAdd').bind('click', function(){
+      var deletedEmail = $(this).siblings().first().text();
+      //add the email back to the select
+      $('#addUsers').append('<option value="'+ deletedEmail +'">');
+      $(this).parent().remove();
+    });
+  }
 }

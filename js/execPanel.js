@@ -62,46 +62,56 @@ $(function(){
     //         source: data
     //     });
     // });
-    function checkOptionValue(options, value){
-        for(var i=0;i<options.length;i++){
-          if(options[i].value == value){
-            return true;
-          }
-        }
-        return false;
-      }
-
+      
+    //chekc if the user tried to select email addres to revoke by enter
     $('#selectUserEmailsToRevoke').keydown(function(e){
         if(e.keyCode == 13){
-          //get the value of the selected email
-          var selectedEmail = $('#selectUserEmailsToRevoke').val();
-          //get the list of all options
-          var allOptions = $('#revokeUsers').children();
-          if(checkOptionValue(allOptions, selectedEmail)){
-            //add the selected email to the list of selected emails
-            $('#addedMembersToRevoke').append('<div class="members row">' +
-                                           '<p class="emails col-8">' + selectedEmail + '</p>' +
-                                           '<button type="button" class="removeMemberBtnToAdd removeMemberBtn col-4">cancel &times;</button>' +
-                                           '</div>');
-            //delete the input data
-            $('#selectUserEmailsToRevoke').val("");
-            //delete the selected email from the list of available options
-            $('#revokeUsers option[value="'+ selectedEmail +'"]').remove();
-            //chekc if a row from the selected emails list has been deleted
-            $('.removeMemberBtnToAdd').unbind('click');
-            $('.removeMemberBtnToAdd').bind('click', function(){
-              var deletedEmail = $(this).siblings().first().text();
-              //add the email back to the select
-              $('#revokeUsers').append('<option value="'+ deletedEmail +'">');
-              $(this).parent().remove();
-            });
-          }
+            selectUserToRevoke();
         }
-      });
+    });
+    //or by button
+    $('#selectEmailForRevoke').click(function(){
+        selectUserToRevoke();
+    });
 });
 
 function getUserData(index){
     var user = {email: $(index).parent().siblings().first().children().first().children().first().next().html(),
                 rowId: $(index).parent().parent().attr('id')};
     return user;
+}
+
+function selectUserToRevoke(){
+    //get the value of the selected email
+    var selectedEmail = $('#selectUserEmailsToRevoke').val();
+    //get the list of all options
+    var allOptions = $('#revokeUsers').children();
+    if(checkOptionValue(allOptions, selectedEmail)){
+        //add the selected email to the list of selected emails
+        $('#addedMembersToRevoke').append('<div class="members row">' +
+                                        '<p class="emails col-8">' + selectedEmail + '</p>' +
+                                        '<button type="button" class="removeMemberBtnToAdd removeMemberBtn col-4">cancel &times;</button>' +
+                                        '</div>');
+        //delete the input data
+        $('#selectUserEmailsToRevoke').val("");
+        //delete the selected email from the list of available options
+        $('#revokeUsers option[value="'+ selectedEmail +'"]').remove();
+        //chekc if a row from the selected emails list has been deleted
+        $('.removeMemberBtnToAdd').unbind('click');
+        $('.removeMemberBtnToAdd').bind('click', function(){
+            var deletedEmail = $(this).siblings().first().text();
+            //add the email back to the select
+            $('#revokeUsers').append('<option value="'+ deletedEmail +'">');
+            $(this).parent().remove();
+        });
+    }
+}
+
+function checkOptionValue(options, value){
+    for(var i=0;i<options.length;i++){
+      if(options[i].value == value){
+        return true;
+      }
+    }
+    return false;
 }

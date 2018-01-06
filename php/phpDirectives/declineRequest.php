@@ -12,11 +12,11 @@
     //verify the user's account
     //create database connection
     $db = createConnection();
-    $query = "SELECT userId FROM USERS WHERE email = ?";
+    $query = "SELECT userId, iconExtension FROM USERS WHERE email = ?";
     $stmt = $db->prepare($query);
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($userId);
+    $stmt->bind_result($userId, $iconExtension);
     $stmt->fetch();
     $stmt->close();
 
@@ -24,7 +24,7 @@
     $query = "DELETE FROM USERS WHERE userId = $userId";
     $db->query($query);
     //delete the associated profile picture
-    unlink("../../img/userIcons/$userId".".jpeg");
+    unlink("../../img/userIcons/$userId".".".$iconExtension);
 
     //get the left users
     //get the number of pending requests

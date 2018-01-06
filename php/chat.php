@@ -174,7 +174,7 @@
                       </select>
                     </datalist> 
 
-                    <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button type="button" class="btn plusBtn bgGreen" id="addUserToNewGroupBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
                   
                   <div id="createChatErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -231,7 +231,7 @@
                       ?>
                     </select>
                   </datalist>
-                  <button type="button" class="btn plusBtn bgGreen"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  <button type="button" class="btn plusBtn bgGreen" id="addUsertToExistingGroupBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
 
                 <div id="addMembersAlert" class="alert alert-danger alert-dismissible fade show" role="alert">

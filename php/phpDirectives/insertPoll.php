@@ -51,7 +51,7 @@
     $pollInfo = $pollObject->getPollData();
     //insert each option into the database
     foreach($pollOptionArray as $currentOption){
-        $query = "INSERT INTO POLL_OPTIONS VALUES(NULL, $pollId, ?, 0)";
+        $query = "INSERT INTO POLL_OPTIONS VALUES(NULL, $pollId, ?)";
         $stmt = $db->prepare($query);
         $stmt->bind_param("s", $currentOption);
         $stmt->execute();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 07:38 PM
+-- Generation Time: Jan 06, 2018 at 02:13 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -78,7 +78,9 @@ CREATE TABLE `image_uploads` (
 
 INSERT INTO `image_uploads` (`imageId`, `fileName`, `description`, `dateCreated`) VALUES
 (11, '85_default.jpeg', 'First image', '2018-01-05 18:54:34'),
-(12, '85_Testing.jpg', 'Second\r\nphoto', '2018-01-05 19:09:26');
+(12, '85_Testing.jpg', 'Second\r\nphoto', '2018-01-05 19:09:26'),
+(13, '85_573dc54ef677ad80fb9881feaa7be7fb.jpg', 'Poza de la mare', '2018-01-05 19:44:19'),
+(14, '85_ziraf.png', 'This is the last photo', '2018-01-05 22:56:06');
 
 -- --------------------------------------------------------
 
@@ -163,7 +165,8 @@ INSERT INTO `messages` (`messageId`, `userId`, `chatId`, `content`, `dateCreated
 (81, 85, 1, 'yep', '2018-01-04 12:36:00'),
 (82, 85, 1, 'hai ca merge', '2018-01-04 12:37:00'),
 (83, 87, 1, 'ok', '2018-01-04 12:37:00'),
-(84, 87, 1, 'lets do posts', '2018-01-04 12:37:00');
+(84, 87, 1, 'lets do posts', '2018-01-04 12:37:00'),
+(85, 86, 1, 'Hey', '2018-01-06 02:09:00');
 
 -- --------------------------------------------------------
 
@@ -184,7 +187,11 @@ CREATE TABLE `polls` (
 
 INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
 (23, 'Poll', 'First Poll', '2018-01-05 18:54:18'),
-(24, 'Seocnd poll', 'bla', '2018-01-05 19:09:46');
+(24, 'Seocnd poll', 'bla', '2018-01-05 19:09:46'),
+(25, 'Cum e maria', 'Primul meu poll', '2018-01-05 19:45:22'),
+(26, 'This is the last poll', 'Last one', '2018-01-05 22:56:37'),
+(27, 'new test poll', 'TEst', '2018-01-06 01:46:18'),
+(28, 'Last Poll', 'Test Poll', '2018-01-06 01:47:53');
 
 -- --------------------------------------------------------
 
@@ -195,22 +202,33 @@ INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`
 CREATE TABLE `poll_options` (
   `optionId` int(11) NOT NULL,
   `pollId` int(11) NOT NULL,
-  `content` text NOT NULL,
-  `votes` int(11) NOT NULL
+  `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `poll_options`
 --
 
-INSERT INTO `poll_options` (`optionId`, `pollId`, `content`, `votes`) VALUES
-(68, 23, 'Answer 1', 0),
-(69, 23, 'Answer 2', 0),
-(70, 23, 'Answer 3', 0),
-(71, 24, 'answer', 0),
-(72, 24, '1', 0),
-(73, 24, '2', 0),
-(74, 24, '3', 0);
+INSERT INTO `poll_options` (`optionId`, `pollId`, `content`) VALUES
+(68, 23, 'Answer 1'),
+(69, 23, 'Answer 2'),
+(70, 23, 'Answer 3'),
+(71, 24, 'answer'),
+(72, 24, '1'),
+(73, 24, '2'),
+(74, 24, '3'),
+(75, 25, 'Varza'),
+(76, 25, 'È˜mechera'),
+(77, 25, 'Vlad e cel mai tare'),
+(78, 26, '1'),
+(79, 26, '2'),
+(80, 26, '3'),
+(81, 27, '1'),
+(82, 27, '2'),
+(83, 27, '3'),
+(84, 28, 'First answer'),
+(85, 28, 'Second answer'),
+(86, 28, 'third one');
 
 -- --------------------------------------------------------
 
@@ -230,7 +248,9 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
 (27, 'First announcement', '2018-01-05 18:52:37'),
-(28, 'Second announcement', '2018-01-05 19:07:58');
+(28, 'Second announcement', '2018-01-05 19:07:58'),
+(29, 'Maria e cea mai È™mechera', '2018-01-05 19:42:54'),
+(30, 'This is the last post', '2018-01-05 22:55:38');
 
 -- --------------------------------------------------------
 
@@ -334,6 +354,13 @@ CREATE TABLE `user_imagelikes` (
   `imageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `user_imagelikes`
+--
+
+INSERT INTO `user_imagelikes` (`userId`, `imageId`) VALUES
+(85, 13);
+
 -- --------------------------------------------------------
 
 --
@@ -351,7 +378,9 @@ CREATE TABLE `user_images` (
 
 INSERT INTO `user_images` (`userId`, `imageId`) VALUES
 (85, 11),
-(85, 12);
+(85, 12),
+(85, 13),
+(85, 14);
 
 -- --------------------------------------------------------
 
@@ -363,6 +392,15 @@ CREATE TABLE `user_polllikes` (
   `userId` int(11) NOT NULL,
   `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_polllikes`
+--
+
+INSERT INTO `user_polllikes` (`userId`, `pollId`) VALUES
+(85, 25),
+(85, 28),
+(86, 28);
 
 -- --------------------------------------------------------
 
@@ -381,7 +419,11 @@ CREATE TABLE `user_polls` (
 
 INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
 (85, 23),
-(85, 24);
+(85, 24),
+(85, 25),
+(85, 26),
+(85, 27),
+(85, 28);
 
 -- --------------------------------------------------------
 
@@ -393,6 +435,13 @@ CREATE TABLE `user_postlikes` (
   `userId` int(11) NOT NULL,
   `postId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_postlikes`
+--
+
+INSERT INTO `user_postlikes` (`userId`, `postId`) VALUES
+(85, 30);
 
 -- --------------------------------------------------------
 
@@ -411,7 +460,9 @@ CREATE TABLE `user_posts` (
 
 INSERT INTO `user_posts` (`userId`, `postId`) VALUES
 (85, 27),
-(85, 28);
+(85, 28),
+(85, 29),
+(85, 30);
 
 -- --------------------------------------------------------
 
@@ -424,6 +475,34 @@ CREATE TABLE `user_reviews` (
   `reviewId` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_votes`
+--
+
+CREATE TABLE `user_votes` (
+  `userId` int(11) NOT NULL,
+  `pollId` int(11) NOT NULL,
+  `optionId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_votes`
+--
+
+INSERT INTO `user_votes` (`userId`, `pollId`, `optionId`) VALUES
+(85, 25, 75),
+(85, 25, 76),
+(85, 25, 77),
+(85, 26, 78),
+(85, 26, 79),
+(85, 26, 80),
+(85, 27, 82),
+(85, 28, 86),
+(86, 28, 86),
+(87, 28, 86);
 
 --
 -- Indexes for dumped tables
@@ -550,6 +629,14 @@ ALTER TABLE `user_reviews`
   ADD KEY `reviewId` (`reviewId`);
 
 --
+-- Indexes for table `user_votes`
+--
+ALTER TABLE `user_votes`
+  ADD PRIMARY KEY (`userId`,`pollId`,`optionId`),
+  ADD KEY `pollId` (`pollId`),
+  ADD KEY `optionId` (`optionId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -569,31 +656,31 @@ ALTER TABLE `chats`
 -- AUTO_INCREMENT for table `image_uploads`
 --
 ALTER TABLE `image_uploads`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `polls`
 --
 ALTER TABLE `polls`
-  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `poll_options`
 --
 ALTER TABLE `poll_options`
-  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -686,6 +773,14 @@ ALTER TABLE `user_posts`
 ALTER TABLE `user_reviews`
   ADD CONSTRAINT `USER_REVIEW_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
   ADD CONSTRAINT `USER_REVIEW_ibfk_2` FOREIGN KEY (`reviewId`) REFERENCES `reviews` (`reviewId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_votes`
+--
+ALTER TABLE `user_votes`
+  ADD CONSTRAINT `user_votes_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_votes_ibfk_2` FOREIGN KEY (`pollId`) REFERENCES `polls` (`pollId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_votes_ibfk_3` FOREIGN KEY (`optionId`) REFERENCES `poll_options` (`optionId`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

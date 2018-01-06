@@ -61,8 +61,13 @@
         $optionResults = $db->query($pollOptions_query);
         $pollOptionsArray = array();
         while($optionsRow = $optionResults->fetch_assoc()){
-            $pollOption = new PollOption($optionsRow['optionId'], $optionsRow['pollId'], $optionsRow['content'], $optionsRow['votes']);
-            $currentPollVotes += $optionsRow['votes'];
+            //get the number of votes for a particular option
+            $optionId = $optionsRow['optionId'];
+            $query = "SELECT COUNT(*) AS numberOfVotes FROM USER_VOTES WHERE pollId = $pollId AND optionId = $optionId";
+            $voteResults = $db->query($query);
+            $voteRow = $voteResults->fetch_assoc();
+            $pollOption = new PollOption($optionsRow['optionId'], $optionsRow['pollId'], $optionsRow['content'], $voteRow['numberOfVotes']);
+            $currentPollVotes += $voteRow['numberOfVotes'];
             $pollOptionsData = $pollOption->getPollOptionData();
             array_push($pollOptionsArray, $pollOptionsData);
         }

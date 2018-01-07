@@ -47,14 +47,6 @@ $(function() {
     }
   });
 
-  //verify if the enter key was pressed while the signup form was selected
-  $('#signupForm').keydown(function(e){
-    //verify what key was pressed
-    if(e.keyCode == 13){
-      $('#signupBtn').click();
-    }
-  }); 
-
   //style upload file
   $('input[type=file]').each(function()
   {

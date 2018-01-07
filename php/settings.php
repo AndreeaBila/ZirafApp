@@ -69,7 +69,7 @@
       
       <div id="settings">
         <h2 class="text-center">Account Settings</h2>
-        <form id="settingsForm">
+        <form action="./phpDirectives/updateUserSettings" method="POST" onsubmit="return submitUserData()" id="updateSettingsForm">
           <!-- settings name -->
           <div class="form-group">
 

@@ -4,6 +4,20 @@
   require_once "./phpComponents/security.php";
   //check authentication
   authenticate();
+  //get the user information from the database
+  //create a database connection
+  require_once "./phpComponents/databaseConnection.php";
+  $db = createConnection();
+  //get the user id
+  $userId = $_SESSION['userId'];
+
+  $query = "SELECT userName, email, socialHandle, phone FROM USERS WHERE userId = ?";
+  $stmt = $db->prepare($query);
+  $stmt->bind_param("s", $userId);
+  $stmt->execute();
+  $stmt->bind_result($userName, $email, $socialHandle, $phone);
+  $stmt->fetch();
+  $stmt->close();
 ?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
@@ -55,7 +69,7 @@
       
       <div id="settings">
         <h2 class="text-center">Account Settings</h2>
-        <form action="" method="">
+        <form id="settingsForm">
           <!-- settings name -->
           <div class="form-group">
 
@@ -67,12 +81,12 @@
             </div>
 
             <label for="settingsName">Name*</label>
-            <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName">
+            <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName" value=<?php echo "$userName"; ?>>
           </div>
           <!-- settings email -->
           <div class="form-group">
             <label for="settingsEmail">Email Address*</label>
-            <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail">
+            <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail" value=<?php echo "$email"; ?>>
             <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
               <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> This email address is already in use
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -107,12 +121,12 @@
           <!-- settings username of social handle -->
           <div class="form-group">
             <label for="settingsUsername">Username of Main Social Handle</label>
-            <input type="text" class="form-control form-control-lg" id="settingsUsername" name="settingsUsername">
+            <input type="text" class="form-control form-control-lg" id="settingsUsername" name="settingsUsername" value=<?php echo "$socialHandle"; ?>>
           </div>
           <!-- settings phone number -->
           <div class="form-group">
             <label for="settingsPhoneNumber">Phone Number</label>
-            <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber">
+            <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber" value=<?php echo "$phone"; ?>>
             <small>*Required fields</small>
           </div>
 

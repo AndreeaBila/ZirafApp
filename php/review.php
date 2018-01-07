@@ -52,8 +52,147 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      <br><br><br><br>
-      <h1>REVIEW</h1>
+      
+      <div id="review">
+        <div class="text-center row" id="goToReview">
+          <button id="newreviewBtn" class="bgZiraf btn btn-lg">New Review</button>
+        </div>
+
+        <div id="reviewForm">
+          <div id="nameQuestion" class="form-group">
+            <label for="restaurantName" class="col-form-label-lg">What restaurant do you want to review?</label>
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-addon" id="restaurantNameAddon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+              <input type="text" id="restaurantName" name="restaurantName" class="form-control form-control-lg" aria-label="Large" placeholder="Name of Place" required>
+            </div>
+
+            <div id="nameQuestionAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i>  Please insert a response
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmRestaurantName"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+          
+
+          <div id="topDishesQuestion" class="form-group">
+            <label for="topDishes" class="col-form-label-lg">What are the top dishes here?</label>
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-addon" id="topDishesAddon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+              <input type="text" id="topDishes" name="topDishes" class="form-control form-control-lg" aria-label="Large" placeholder="Name of Dish" required>
+              <button type="button" class="btn bgGreen" id="addTopDish"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+
+            <div id="topDishesAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i>  Please insert a response
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- Display added top dishes -->
+            <div class="addedTopDishesContainer row">
+              <p class="addedTopDishes col-8">Abc</p>
+              <button type="button" class="removeAddedTopDishes col-4">remove &times;</button>
+            </div>
+
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmTopDishes"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="foodRatingQuestion" class="form-group">
+            <label for="foodRating" class="col-form-label-lg">How would you rate the food?</label>
+            <div class="input-group input-group-lg mb-3 sliderContainer">
+              <input type="range" min="0" max="10" value="5" class="slider" id="foodRating">
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmFoodRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="ambienceRatingQuestion" class="form-group">
+            <label for="ambienceRating" class="col-form-label-lg">How would you rate the ambience?</label>
+            <div class="input-group input-group-lg mb-3 sliderContainer">
+              <input type="range" min="0" max="10" value="5" class="slider" id="ambienceRating">
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmAmbienceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="serviceRatingQuestion" class="form-group">
+            <label for="serviceRating" class="col-form-label-lg">How would you rate the service?</label>
+            <div class="input-group input-group-lg mb-3 sliderContainer">
+              <input type="range" min="0" max="10" value="5" class="slider" id="serviceRating">
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmServiceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+          
+          <div id="moneyValueQuestion" class="form-group">
+            <label for="moneyValue" class="col-form-label-lg">Value for money</label>
+            <div class="input-group input-group-lg mb-3 sliderContainer">
+              <input type="range" min="0" max="10" value="5" class="slider" id="moneyValue">
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmMoneyValue"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="reviewQuestion" class="form-group">
+            <label for="review" class="col-form-label-lg">Share your food review in detail</label>
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-addon" id="reviewAddon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+              <textarea type="text" id="review" name="review" class="form-control form-control-lg" aria-label="Large" placeholder="Review" required></textarea>
+            </div>
+
+            <div id="reviewAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i>  Please insert a response
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmReview"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="xFactorQuestion" class="form-group">
+            <label for="xFactor" class="col-form-label-lg">What is the X-Factor for this place?</label>
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-addon" id="xFactorAddon"><i class="fa fa-star" aria-hidden="true"></i></span>
+              <input type="text" id="xFactor" name="xFactor" class="form-control form-control-lg" aria-label="Large" placeholder="X-Factor" required>
+            </div>
+
+            <div id="xFactorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i>  Please insert a response
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmXFactor"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="reviewPicturesQuestion" class="form-group">
+            <label for="reviewPictures" class="col-form-label-lg">Pictures of the dishes or the restuarant itself.</label>
+            <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn" name="reviewPicturesBtn">
+
+            <!-- Display small previews of the pics? -->
+            <div class="addedReviewPicturesContainer">
+              <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
+              <img class="addedReviewPicture" src="https://placeimg.com/500/480/animals" alt="">
+            </div>
+            <div class="addedReviewPicturesContainer">
+              <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
+              <img class="addedReviewPicture" src="https://placeimg.com/400/480/animals" alt="">
+            </div>
+            <div class="addedReviewPicturesContainer">
+              <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
+              <img class="addedReviewPicture" src="https://placeimg.com/450/480/animals" alt="">
+            </div>
+            <div class="addedReviewPicturesContainer">
+              <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
+              <img class="addedReviewPicture" src="https://placeimg.com/480/400/animals" alt="">
+            </div>
+
+
+            <button type="button" class="btn bgGreen confirmBtn" id="confirmReviewPictures"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+        </div>
+       
+      </div>
+
       <?php
         include './phpComponents/footer.php';
       ?>
@@ -73,7 +212,7 @@
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/review.js"></script>
 
   </body>
 </html>

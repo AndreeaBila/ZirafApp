@@ -1,0 +1,51 @@
+#profile {
+  #profileHeader {
+    img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50px;
+      margin: 10px 0px;
+    }
+
+    #profileDescriptionTitle {
+      margin: 10px 0px 0px 5px;
+    }
+
+    #profileDescription {
+      width: 100%;
+      margin: 0px 5px 0px 5px;
+      height: 60px;
+    }
+
+    #changeProfilePictureBtn {
+      font-size: 12px;
+      width: 90px;
+    }
+
+    -webkit-box-shadow: 0px -10px 25px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px -10px 25px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px -10px 25px 5px rgba(0,0,0,0.2);
+  }
+
+  #profileMenu {
+    button {
+      padding: 5px;
+      border: 0.2px solid rgba(242,145,10,0.05);;
+      background-color: rgba(242,145,10,0.2);
+      p{
+        color: $zirafColor;
+        font-size: 13px;
+        i{
+          font-size: 25px;
+        }
+      }
+    }
+
+    button:active,
+    button:active:focus,
+    button:focus {
+      outline: none;
+      background-color: rgba(242,145,10,0.4);
+    }
+  }
+}

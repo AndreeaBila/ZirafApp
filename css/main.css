@@ -168,6 +168,32 @@ html {
   margin: 5px 0px 0px;
 }
 
+/* line 86, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+input[type="text"]:active,
+input[type="text"]:focus,
+input[type="text"]:active:focus,
+input[type="email"]:active,
+input[type="email"]:focus,
+input[type="email"]:active:focus,
+input[type="password"]:active,
+input[type="password"]:focus,
+input[type="password"]:active:focus,
+input[type="tel"]:active,
+input[type="tel"]:focus,
+input[type="tel"]:active:focus,
+textarea:active,
+textarea:focus,
+textarea:active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(242, 145, 10, 0.2);
+  border-color: rgba(242, 145, 10, 0.3);
+}
+
+/* line 105, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(242, 145, 10, 0.2);
+  border-color: rgba(242, 145, 10, 0.3);
+}
+
 /* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
 .header {
   position: fixed;
@@ -1191,6 +1217,293 @@ html {
   #chat #chatMessageInputBox {
     bottom: 15vh;
   }
+}
+
+/* line 2, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileHeader {
+  -webkit-box-shadow: 0px -10px 25px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px -10px 25px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -10px 25px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* line 3, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileHeader img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  margin: 10px 0px;
+}
+
+/* line 10, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileHeader #profileDescriptionTitle {
+  margin: 10px 0px 0px 5px;
+}
+
+/* line 14, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileHeader #profileDescription {
+  width: 100%;
+  margin: 0px 5px 0px 5px;
+  height: 60px;
+}
+
+/* line 20, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileHeader #changeProfilePictureBtn {
+  font-size: 12px;
+  width: 90px;
+}
+
+/* line 31, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileMenu button {
+  padding: 5px;
+  border: 0.2px solid rgba(242, 145, 10, 0.05);
+  background-color: rgba(242, 145, 10, 0.2);
+}
+
+/* line 35, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileMenu button p {
+  color: #f2910a;
+  font-size: 13px;
+}
+
+/* line 38, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileMenu button p i {
+  font-size: 25px;
+}
+
+/* line 44, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_profile.scss */
+#profile #profileMenu button:active,
+#profile #profileMenu button:active:focus,
+#profile #profileMenu button:focus {
+  outline: none;
+  background-color: rgba(242, 145, 10, 0.4);
+}
+
+/* line 2, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #goToReview {
+  height: 80vh;
+  background-image: url("../img/food.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* line 9, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #goToReview #newreviewBtn {
+  height: 8vh;
+  width: 40vw;
+  position: absolute;
+  top: 46vh;
+  left: 30vw;
+}
+
+/* line 18, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm {
+  /* The slider itself */
+  /* Mouse-over effects */
+  /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+}
+
+/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .confirmBtn {
+  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid rgba(242, 145, 10, 0.1);
+  -webkit-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* line 24, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .confirmBtn i {
+  font-size: 30px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 33, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm #addTopDish {
+  height: 50px;
+  width: 50px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 1px solid rgba(242, 145, 10, 0.1);
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* line 41, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm #addTopDish i {
+  font-size: 25px;
+  line-height: 40px;
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 53, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedTopDishesContainer {
+  background-color: rgba(242, 145, 10, 0.1);
+  margin: 5px;
+  padding: 5px;
+}
+
+/* line 57, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedTopDishesContainer .addedTopDishes {
+  font-size: 14px;
+}
+
+/* line 61, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedTopDishesContainer .removeAddedTopDishes {
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  color: red;
+}
+
+/* line 69, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedReviewPicturesContainer {
+  background-color: rgba(242, 145, 10, 0.1);
+  margin: 10px;
+  padding: 15px;
+}
+
+/* line 73, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedReviewPicturesContainer .addedReviewPicture {
+  width: 100%;
+  height: auto;
+}
+
+/* line 78, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .addedReviewPicturesContainer .removeAddedReviewPicture {
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  color: red;
+}
+
+/* line 86, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .slideContainer {
+  width: 100%;
+  /* Width of the outside container */
+}
+
+/* line 91, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 25px;
+  /* Specified height */
+  background: #d3d3d3;
+  /* Grey background */
+  outline: none;
+  /* Remove outline */
+  opacity: 0.7;
+  /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s;
+  /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* line 104, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .slider:hover {
+  opacity: 1;
+  /* Fully shown on mouse-over */
+}
+
+/* line 109, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #33cc66;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+/* line 118, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .slider::-moz-range-thumb {
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #33cc66;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+/* line 125, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm input, #review #reviewForm textarea {
+  border-color: rgba(242, 145, 10, 0.5);
+}
+
+/* line 128, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .input-group-addon {
+  background-color: #f2910a;
+  border: 2px solid #f2910a;
+  color: #fff;
+  width: 50px;
+}
+
+/* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm #reviewPicturesBtn {
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid rgba(242, 145, 10, 0.2);
+  text-align: center;
+  background-color: rgba(242, 145, 10, 0.1);
+  color: #f2910a;
+  margin: 10px 0px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* line 147, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm #reviewPicturesBtn i {
+  color: #f2910a;
+  font-size: 1.5rem;
+}
+
+/* line 153, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .custom-control-description {
+  font-size: 1.25rem;
+}
+
+/* line 157, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm .custom-control-indicator {
+  height: 22px;
+  width: 22px;
+}
+
+/* line 162, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(242, 145, 10, 0.5);
+  opacity: 1;
+  /* Firefox */
+}
+
+/* line 167, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(242, 145, 10, 0.5);
+}
+
+/* line 171, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+#review #reviewForm ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(242, 145, 10, 0.5);
 }
 
 /* line 2, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_settings.scss */

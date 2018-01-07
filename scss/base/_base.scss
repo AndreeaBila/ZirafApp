@@ -82,3 +82,27 @@ html {
 .alert {
 	margin: 5px 0px 0px;
 }
+
+input[type="text"]:active, 
+input[type="text"]:focus,
+input[type="text"]:active:focus,
+input[type="email"]:active, 
+input[type="email"]:focus,
+input[type="email"]:active:focus,
+input[type="password"]:active, 
+input[type="password"]:focus,
+input[type="password"]:active:focus,
+input[type="tel"]:active, 
+input[type="tel"]:focus,
+input[type="tel"]:active:focus,
+textarea:active, 
+textarea:focus,
+textarea:active:focus {
+	box-shadow: 0 0 0 0.2rem rgba(242,145,10, 0.2);
+	border-color: rgba(242,145,10, 0.3);
+}
+
+.form-control:focus {
+	box-shadow: 0 0 0 0.2rem rgba(242,145,10, 0.2);
+	border-color: rgba(242,145,10, 0.3);
+}

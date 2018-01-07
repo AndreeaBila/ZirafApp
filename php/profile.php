@@ -55,14 +55,30 @@
       
       <div id="profile">
       
-        <div id="profileHeader">
-          <img src="http://placekitten.com/500/300" alt="no">
-          <p>Change profile picture</p>
-          <input type="text" id="profileDescription" class="form-control">
-          <button class="btn bg-warning">Save Changes</button>
+        <div id="profileHeader" class="row">
+          <div class="col-12">
+          <div class="row">
+            <div class="col-3">
+              <img src="http://placekitten.com/320/400" alt="no" class="float-left">
+            </div>
+            
+            <div class="col-9">
+              <label for="profileDescription" id="profileDescriptionTitle">Your Tagline</label>
+              <textarea name="profileDescription" id="profileDescription" class="form-control float-left"></textarea>
+            </div>
+          </div>
+          
+          <div class="clear"></div>
+          <div class="form-group float-left">
+            <input type="file" value="upload" class="form-control-lg form-control" id="changeProfilePicture" name="changeProfilePicture">
+          </div>
+          
+          <button class="btn bgZiraf float-right">Save Changes</button>
+          <div class="clear"></div>
+          </div>
         </div>
 
-        <div class="profileMenu row">
+        <div id="profileMenu" class="row">
           <button class="col-4 text-center" id="profileRankBtn">
             <p><i class="fa fa-trophy" aria-hidden="true"></i></p>
             <p>Rank</p>
@@ -77,6 +93,18 @@
             <p><i class="fa fa-file-text" aria-hidden="true"></i></p>
             <p>Reviews</p>
           </button>
+        </div>
+
+        <div id="rankTab">
+          rank
+        </div>
+
+        <div id="badgesTab">
+          badges
+        </div>
+
+        <div id="reviewsTab">
+          reviews
         </div>
 
       </div>
@@ -100,7 +128,7 @@
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
 
     <!-- The js script for this file -->
-    <script src="../js/index.js"></script>
+    <script src="../js/profile.js"></script>
 
   </body>
 </html>

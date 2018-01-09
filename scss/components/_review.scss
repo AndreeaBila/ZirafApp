@@ -6,7 +6,7 @@
     background-position: center;
     background-size: cover;
 
-    #newreviewBtn {
+    #newReviewBtn {
       height: 8vh;
       width: 40vw;
       position: absolute;
@@ -16,6 +16,9 @@
   }
 
   #reviewForm {
+    .questionButtons {
+      margin: 30px 0px;
+    }
     .confirmBtn {
       border-radius: 50px;
       height: 60px;

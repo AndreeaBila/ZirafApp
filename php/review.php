@@ -52,10 +52,10 @@
       <?php
         include './phpComponents/header.php';
       ?>
-      
+           
       <div id="review">
         <div class="text-center row" id="goToReview">
-          <button id="newreviewBtn" class="bgZiraf btn btn-lg">New Review</button>
+          <button id="newReviewBtn" class="bgZiraf btn btn-lg">New Review</button>
         </div>
 
         <div id="reviewForm">
@@ -72,10 +72,12 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmRestaurantName"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backRestaurantName"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmRestaurantName"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
           
-
           <div id="topDishesQuestion" class="form-group">
             <label for="topDishes" class="col-form-label-lg">What are the top dishes here?</label>
             <div class="input-group input-group-lg mb-3">
@@ -97,7 +99,10 @@
               <button type="button" class="removeAddedTopDishes col-4">remove &times;</button>
             </div>
 
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmTopDishes"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backTopDishes"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmTopDishes"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="foodRatingQuestion" class="form-group">
@@ -105,7 +110,10 @@
             <div class="input-group input-group-lg mb-3 sliderContainer">
               <input type="range" min="0" max="10" value="5" class="slider" id="foodRating">
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmFoodRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backFoodRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmFoodRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="ambienceRatingQuestion" class="form-group">
@@ -113,7 +121,10 @@
             <div class="input-group input-group-lg mb-3 sliderContainer">
               <input type="range" min="0" max="10" value="5" class="slider" id="ambienceRating">
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmAmbienceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backAmbienceRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmAmbienceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="serviceRatingQuestion" class="form-group">
@@ -121,15 +132,21 @@
             <div class="input-group input-group-lg mb-3 sliderContainer">
               <input type="range" min="0" max="10" value="5" class="slider" id="serviceRating">
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmServiceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backServiceRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmServiceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
-          
+
           <div id="moneyValueQuestion" class="form-group">
             <label for="moneyValue" class="col-form-label-lg">Value for money</label>
             <div class="input-group input-group-lg mb-3 sliderContainer">
               <input type="range" min="0" max="10" value="5" class="slider" id="moneyValue">
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmMoneyValue"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backMoneyValue"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmMoneyValue"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="reviewQuestion" class="form-group">
@@ -145,7 +162,10 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmReview"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backReview"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmReview"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="xFactorQuestion" class="form-group">
@@ -161,7 +181,10 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmXFactor"><i class="fa fa-check" aria-hidden="true"></i></button>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backXFactor"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmXFactor"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
           </div>
 
           <div id="reviewPicturesQuestion" class="form-group">
@@ -185,12 +208,18 @@
               <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
               <img class="addedReviewPicture" src="https://placeimg.com/480/400/animals" alt="">
             </div>
+            <div class="text-center questionButtons">
+              <button type="button" class="btn bgRed confirmBtn" id="backReviewPictures"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgGreen confirmBtn" id="confirmReviewPictures"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </div>
+          </div>
 
-
-            <button type="button" class="btn bgGreen confirmBtn" id="confirmReviewPictures"><i class="fa fa-check" aria-hidden="true"></i></button>
+          <div class="text-center" id="endReviewMessage">
+            <h3>Done! <i class="fa fa-smile-o" aria-hidden="true"></i></h3>
+            <h3>Thank you for submitting a new review!</h3>
+            <h3>You're one step closer to your next badge.</h3>
           </div>
         </div>
-       
       </div>
 
       <?php
@@ -210,6 +239,10 @@
 
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/74007ae870.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
     <!-- The js script for this file -->
     <script src="../js/review.js"></script>

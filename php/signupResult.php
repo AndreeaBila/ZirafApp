@@ -50,6 +50,10 @@
             echo $exitMessage;
           ?>
         </h4>
+
+        <div class="text-center">
+          <a href="index" class="btn btn-lg bgZiraf">Back to login</a>
+        </div>
       </div>     
 
     </div>

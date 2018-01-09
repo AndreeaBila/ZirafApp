@@ -1,3 +1,4 @@
+<?php session_start(); $exitMessage = $_SESSION['exitMessage']; session_destroy(); ?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
 <html lang="en">
@@ -42,18 +43,14 @@
 
     <div id="wrapper" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-      <!-- SIGNUP SUCCESS -->
-      <div id="signupSuccess">
-        <h4>Thank you for joining our zirafers team! You will be able to access your account once you confirm your email 
-        address and your account is approved.</h4>
-      </div>
-
-      <!-- SIGNUP FAILURE -->
-      <div id="signupFailure">
-        <h4>Something went wrong! Please try signing up again.</h4>
-      </div>
-
-      
+      <!-- SIGNUP MESSAGE -->
+      <div id="signupMessage">
+        <h4>
+          <?php
+            echo $exitMessage;
+          ?>
+        </h4>
+      </div>     
 
     </div>
 

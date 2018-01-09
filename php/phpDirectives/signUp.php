@@ -1,9 +1,10 @@
 <?php
+    session_start();
     //file needed to input the user data into the database and thus create the user account
 
     //create a database connection
     require_once "../phpComponents/databaseConnection.php";
-    $db = createConnection();
+    $db = createConnection() or terminateSignup("Unable to connect to database");
     //get the user dependecy
     require_once "../phpComponents/dependencies.php";
     //get the user data from the client and check for xss attacks
@@ -17,7 +18,7 @@
                       "dateJoined" => date("Y-m-d"));
     //verify provided email address
     if(!filter_var($userData['email'], FILTER_VALIDATE_EMAIL)){
-        die("Error with email");
+        terminateSignup("The provided email address is not correct");
     }
     //create salt
     $userData["salt"] = sha1(time());
@@ -48,7 +49,7 @@
     $stmt->execute();
     $stmt->close();
     //don't execute the statemetn now and wait for the file upload
-    header("Location: ../signupResult");
+    terminateSignup("All good");
 
 
     function manageFileUpload($db, $userData){
@@ -99,7 +100,7 @@
             //create statement
             $stmt = $db->prepare($query);
             $stmt->bind_param("ssssssssssss", $userData['userName'], $userData['email'], $userData['password'], $userData['socialHandle'], $userData['description'], $userData['phone'], $userData['rank'], $ext, $userData['salt'], $userData['activationKey'], $userData['cookie'], $userData['dateJoined']);
-            $stmt->execute() or die("Error occured while saving the data");
+            $stmt->execute() or terminateSignup("Error occured while saving the data");
             $stmt->close();
             $newname = getUserId($db, $userData['email']).'.'.$ext;
             $target = '../../img/userIcons/'.$newname;
@@ -114,7 +115,7 @@
                 throw new RuntimeException('Failed to move uploaded file.');
             }
         } catch (RuntimeException $e) {
-            die($e->getMessage());
+            terminateSignup($e->getMessage());
         }
     }
 
@@ -144,6 +145,13 @@
         copy('../../img/default.jpeg', '../../img/userIcons/'.$userId.'.jpeg');
 
         //exit
+        header("Location: ../signupResult");
+    }
+
+    function terminateSignup($exitMessage){
+        //cache the message
+        $_SESSION['exitMessage'] = $exitMessage;
+        //redirect the user
         header("Location: ../signupResult");
     }
 ?>

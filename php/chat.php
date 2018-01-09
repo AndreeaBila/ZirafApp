@@ -168,7 +168,7 @@
                           $result = $db->query($query);
                           while($row = $result->fetch_assoc()){
                             $currentEmail = $row['email'];
-                            echo '<option value="'.$currentEmail.'">';
+                            echo '<option value="'.$currentEmail.'">'.$currentEmail.'</option>';
                           }
                         ?>
                       </select>
@@ -226,7 +226,7 @@
                           $result = $db->query($query);
                           while($row = $result->fetch_assoc()){
                             $currentEmail = $row['email'];
-                            echo '<option value="'.$currentEmail.'">';
+                            echo '<option value="'.$currentEmail.'">'.$currentEmail.'</option>';
                           }
                       ?>
                     </select>

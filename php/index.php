@@ -125,9 +125,6 @@
       <div id="signupContainer">
         <!-- signup form title -->
         <h2 class="text-center" id="signupTitle">Sign Up</h2>
-        <!-- DELETE THIS BUTTON -->
-        <button type="button" id="fillSignupInfo" class="btn">Fill Signup Info</button><br><br>
-
         <!-- SIGNUP FORM -->
         <!-- we need these alerts:
           Assuming that browser will make sure that all required fields are completed and email adress is valid

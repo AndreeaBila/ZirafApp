@@ -31,12 +31,7 @@
     //get the user file
     manageFileUpload($db, $userData);
 
-    //send email to user address
-    $subject = "ZirafApp activation key";
-    $token = $userData['activationKey'];
-    $message= "Hello, please click on the following link to activate your account: zirafers.zirafapp.com?token=$token";
-    //====== REMEMBER TO ACTIVATE ======
-    //mail($userData['email'], $subject, $message);
+    require_once "../phpComponents/prepareEmail.php";
 
     //insert user into the default chat: All Zirafers
     //create a new record in the user_chats table between the current user and the all zirafers chat

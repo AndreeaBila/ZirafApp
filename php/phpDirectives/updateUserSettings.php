@@ -62,13 +62,7 @@
         $stmt->execute();
         $stmt->close();
 
-        //email the user the activation key
-        //send email to user address
-        $subject = "ZirafApp activation key";
-        $token = $activationKey;
-        $message= "Hello, please click on the following link to activate your account: zirafers.zirafapp.com?token=$token";
-        //====== REMEMBER TO ACTIVATE ======
-        //mail($userData['email'], $subject, $message);
+        require_once "../phpComponents/prepareEmail.php";
 
         //log the user out
         $cookie_name = 'keepLogged';

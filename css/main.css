@@ -661,7 +661,7 @@ textarea:active:focus {
 #newsfeed .post .postFooter .likePostBtn {
   border: none;
   background-color: transparent;
-  color: #f2910a;
+  color: #222;
 }
 
 /* line 225, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
@@ -671,6 +671,15 @@ textarea:active:focus {
 }
 
 /* line 232, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
+#newsfeed .post .postFooter .likePostBtn:hover,
+#newsfeed .post .postFooter .likePostBtn:active,
+#newsfeed .post .postFooter .likePostBtn:active:focus,
+#newsfeed .post .postFooter .likePostBtn:focus {
+  outline: none;
+  cursor: pointer;
+}
+
+/* line 240, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_newsfeed.scss */
 #newsfeed .post .postFooter .likesCount {
   color: #f2910a;
   padding: 10px 5px 0px;

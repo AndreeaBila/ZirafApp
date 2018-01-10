@@ -31,7 +31,7 @@
     <!--<link rel="stylesheet" type="text/css" href="enhanced.css" media="screen  and (min-width: 40.5em)" /> -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href=""> 
+    <link rel="shortcut icon" href="../img/zirafSmall.png"> 
 
     <!-- Datalist polyfill -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">

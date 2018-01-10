@@ -32,7 +32,7 @@ function parsePost(post){
               '</div>' +
               
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
+                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
                   '<p class="likesCount float-right">' + likeMessage + '</p>' +
               '</footer>' +
               '<div class="clear"></div>' +
@@ -55,7 +55,7 @@ function parseImage(imageElement){
               '</div>' +
               
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
+                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
                   '<p class="likesCount float-right">'+ likeMessage +'</p>' +
               '</footer>' +
               '<div class="clear"></div>' +
@@ -84,7 +84,7 @@ function parsePoll(pollInfo){
               '</div>' +
               '<p>'+ pollInfo.pollDescription.replace(/\n/g, '<br>\n') +'</p>' +
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf.png" alt="">Like</button>' +
+                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
                   '<p class="likesCount float-right">'+ likeVar +'</p>' +
               '</footer>' +
               '<div class="clear"></div>' +

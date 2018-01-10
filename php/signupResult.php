@@ -1,9 +1,9 @@
 <?php 
   session_start();
-  if(!isset($_SESSION['exitMessage'])){
-    //the user didn't complete the signup process
-    header("Location: ./index");
-  }
+  // if(!isset($_SESSION['exitMessage'])){
+  //   //the user didn't complete the signup process
+  //   header("Location: ./index");
+  // }
   $exitMessage = $_SESSION['exitMessage']; 
   session_destroy(); 
 ?>
@@ -19,7 +19,6 @@
     <title>Zirafers - Sign Up Complete</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
-    <meta 
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
@@ -34,7 +33,7 @@
     <!--<link rel="stylesheet" type="text/css" href="enhanced.css" media="screen  and (min-width: 40.5em)" /> -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href=""> 
+    <link rel="shortcut icon" href="../img/zirafSmall.png"> 
 
     <!--Capcha-->
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -53,13 +52,13 @@
 
       <!-- SIGNUP MESSAGE -->
       <div id="signupMessage">
-        <h4>
+        <div class="text-center">
           <?php
             echo $exitMessage;
           ?>
-        </h4>
+        </div>
 
-        <div class="text-center">
+        <div class="text-center" style="margin-top: 30px">
           <a href="index" class="btn btn-lg bgZiraf">Back to login</a>
         </div>
       </div>     

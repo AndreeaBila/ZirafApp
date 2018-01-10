@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
-    <title>Zirafers - Log In</title>
+    <title>404 Page Not Found</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
-    <meta 
 
-    <!--Bootstrap-->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
     integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     
@@ -25,7 +24,7 @@
     <!--<link rel="stylesheet" type="text/css" href="enhanced.css" media="screen  and (min-width: 40.5em)" /> -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href=""> 
+    <link rel="shortcut icon" href="../img/zirafSmall.png"> 
 
     <!--Capcha-->
     <script src='https://www.google.com/recaptcha/api.js'></script>

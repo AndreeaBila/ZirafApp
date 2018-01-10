@@ -18,10 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
-    <title>Zirafers - Log In</title>
+    <title>Zirafers - Exec Panel</title>
 
     <meta name="description" content="The platform for zirafers to interact, find news and leave reviews">
-    <meta 
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
@@ -36,7 +35,7 @@
     <!--<link rel="stylesheet" type="text/css" href="enhanced.css" media="screen  and (min-width: 40.5em)" /> -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href=""> 
+    <link rel="shortcut icon" href="../img/zirafSmall.png"> 
 
     <!-- Datalist polyfill -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">

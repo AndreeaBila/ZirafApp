@@ -44,7 +44,7 @@
     $stmt->execute();
     $stmt->close();
     //don't execute the statemetn now and wait for the file upload
-    terminateSignup("All good");
+    terminateSignup("<h4 style='margin-bottom: 20px;'>Thank you for joining our zirafers team! Once you confirm your email address (by clicking the link in the email we sent you) and your account is approved by an exec team member, you will be able to login. </h4><small>*If a long time passes and your account is not approved, please contact an exec team member</small>");
 
 
     function manageFileUpload($db, $userData){

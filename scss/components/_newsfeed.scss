@@ -226,7 +226,15 @@
           height: 30px;
           width: auto;
         }
-        color: $zirafColor;
+        color: #222;
+      }
+
+      .likePostBtn:hover,
+      .likePostBtn:active,
+      .likePostBtn:active:focus,
+      .likePostBtn:focus {
+        outline: none;
+        cursor: pointer;
       }
 
       .likesCount {

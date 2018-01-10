@@ -38,6 +38,9 @@
     <!-- Icon -->
     <link rel="shortcut icon" href=""> 
 
+    <!-- Datalist polyfill -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
     <!--Capcha-->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -145,19 +148,17 @@
                   <div class="input-group mb-3">
                     <input type="text" list="userEmailsToRevoke" id="selectUserEmailsToRevoke" class="form-control form-control-lg">
                     <datalist id="userEmailsToRevoke">
-                      <select id="revokeUsers">
-                        <?php
-                            //script required to insert the avaialble email options
-                            //select all email address from the server
-                            $userId = $_SESSION['userId'];
-                            $query = "SELECT email FROM USERS WHERE userId != $userId";
-                            $result = $db->query($query);
-                            while($row = $result->fetch_assoc()){
-                              $currentEmail = $row['email'];
-                              echo '<option value="'.$currentEmail.'">'.$currentEmail.'</option>';
-                            }
-                        ?>
-                      </select>
+                      <?php
+                          //script required to insert the avaialble email options
+                          //select all email address from the server
+                          $userId = $_SESSION['userId'];
+                          $query = "SELECT email FROM USERS WHERE userId != $userId";
+                          $result = $db->query($query);
+                          while($row = $result->fetch_assoc()){
+                            $currentEmail = $row['email'];
+                            echo '<option value="'.$currentEmail.'">';
+                          }
+                      ?>
                     </datalist>
                     <button type="button" class="btn plusBtn bgGreen" id="selectEmailForRevoke"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
@@ -202,5 +203,7 @@
     <!-- The js script for this file -->
     <script src="../js/execPanel.js"></script>
 
+    <!-- JS for datalist polfill -->
+    <script src="../js/datalist.polyfill.min.js"></script>
   </body>
 </html>

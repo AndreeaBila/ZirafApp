@@ -1,4 +1,12 @@
-<?php session_start(); $exitMessage = $_SESSION['exitMessage']; session_destroy(); ?>
+<?php 
+  session_start();
+  if(!isset($_SESSION['exitMessage'])){
+    //the user didn't complete the signup process
+    header("Location: ./index");
+  }
+  $exitMessage = $_SESSION['exitMessage']; 
+  session_destroy(); 
+?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
 <html lang="en">

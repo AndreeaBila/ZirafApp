@@ -85,7 +85,7 @@ $(function(){
         //remove the element itself
         selectedEmails.splice(elementIndex, 1);
         //add the email back to the select
-        $('#revokeUsers').append('<option value="'+ deletedEmail +'">');
+        $('#userEmailsToRevoke').append('<option value="'+ deletedEmail +'">');
         $(this).parent().remove();
     });
 });
@@ -101,7 +101,7 @@ function selectUserToRevoke(){
     var selectedEmail = $('#selectUserEmailsToRevoke').val();
     //add the email to a list of selected emails
     //get the list of all options
-    var allOptions = $('#revokeUsers').children();
+    var allOptions = $('#userEmailsToRevoke').children();
     if(checkOptionValue(allOptions, selectedEmail)){
         selectedEmails.push(selectedEmail);
         //add the selected email to the list of selected emails
@@ -112,7 +112,7 @@ function selectUserToRevoke(){
         //delete the input data
         $('#selectUserEmailsToRevoke').val("");
         //delete the selected email from the list of available options
-        $('#revokeUsers option[value="'+ selectedEmail +'"]').remove();
+        $('#userEmailsToRevoke option[value="'+ selectedEmail +'"]').remove();
 
         //check if the user pressed on the revoke vonfirm button
         $('#confirmUserRevokeModalBtn').click(function(){
@@ -122,7 +122,6 @@ function selectUserToRevoke(){
                 url: "../php/phpDirectives/revokeUserAccess.php",
                 type: "GET",
                 success: function(response){
-                    console.log(response);
                 },
                 error: function(){
                     alert("An error occured while trying to remove the selected user.");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2018 at 02:13 AM
+-- Generation Time: Jan 10, 2018 at 04:02 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -51,13 +51,7 @@ CREATE TABLE `chats` (
 --
 
 INSERT INTO `chats` (`chatId`, `chatName`, `dateCreated`) VALUES
-(1, 'All Zirafers', '2017-12-24'),
-(2, 'Test', '2017-12-30'),
-(3, 'Second test', '2017-12-30'),
-(4, 'New', '2017-12-30'),
-(5, 'Tweeks', '2018-01-03'),
-(6, 'Test', '2018-01-03'),
-(7, 'Last Test', '2018-01-03');
+(1, 'All Zirafers', '2017-12-24');
 
 -- --------------------------------------------------------
 
@@ -71,16 +65,6 @@ CREATE TABLE `image_uploads` (
   `description` text NOT NULL,
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `image_uploads`
---
-
-INSERT INTO `image_uploads` (`imageId`, `fileName`, `description`, `dateCreated`) VALUES
-(11, '85_default.jpeg', 'First image', '2018-01-05 18:54:34'),
-(12, '85_Testing.jpg', 'Second\r\nphoto', '2018-01-05 19:09:26'),
-(13, '85_573dc54ef677ad80fb9881feaa7be7fb.jpg', 'Poza de la mare', '2018-01-05 19:44:19'),
-(14, '85_ziraf.png', 'This is the last photo', '2018-01-05 22:56:06');
 
 -- --------------------------------------------------------
 
@@ -96,78 +80,6 @@ CREATE TABLE `messages` (
   `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`messageId`, `userId`, `chatId`, `content`, `dateCreated`) VALUES
-(20, 85, 1, 'hi there', '2018-01-03 23:47:00'),
-(21, 85, 1, 'this is my second message', '2018-01-03 23:47:00'),
-(22, 86, 1, 'hi vlad', '2018-01-03 23:48:00'),
-(23, 85, 1, 'hi andreea', '2018-01-03 23:48:00'),
-(24, 85, 1, 'how you doin', '2018-01-03 23:48:00'),
-(25, 86, 1, 'i.m good', '2018-01-03 23:48:00'),
-(26, 86, 1, 'what about you', '2018-01-03 23:48:00'),
-(27, 85, 1, 'i\'m good too', '2018-01-03 23:48:00'),
-(28, 85, 1, 'working ', '2018-01-03 23:48:00'),
-(29, 85, 1, 'what are you doing right now?', '2018-01-03 23:49:00'),
-(30, 86, 1, 'nothing much', '2018-01-03 23:49:00'),
-(31, 86, 1, 'just testing the website', '2018-01-03 23:49:00'),
-(32, 86, 1, 'i want to sleep', '2018-01-03 23:49:00'),
-(33, 86, 1, 'but i cant', '2018-01-03 23:49:00'),
-(34, 86, 1, 'cuz i hva to test the website', '2018-01-03 23:50:00'),
-(35, 85, 1, 'oh', '2018-01-03 23:50:00'),
-(36, 85, 1, 'that soubds naspa', '2018-01-03 23:50:00'),
-(37, 85, 1, 'i\'m sorry to hear that', '2018-01-03 23:50:00'),
-(38, 85, 1, 'i think', '2018-01-04 00:27:00'),
-(39, 85, 1, 'i just fixed the messages', '2018-01-04 00:27:00'),
-(40, 86, 1, 'wow', '2018-01-04 00:27:00'),
-(41, 86, 1, 'that woulkd be great', '2018-01-04 00:27:00'),
-(42, 86, 1, 'you surwe it works?', '2018-01-04 00:28:00'),
-(43, 85, 1, 'not much', '2018-01-04 00:28:00'),
-(44, 85, 1, 'but yes', '2018-01-04 00:28:00'),
-(45, 85, 1, 'it seems that the problem was solved', '2018-01-04 00:28:00'),
-(46, 85, 1, 'ill test a lil more tomowrrow', '2018-01-04 00:28:00'),
-(47, 86, 1, 'great', '2018-01-04 00:28:00'),
-(48, 86, 1, 'good to hear it', '2018-01-04 00:28:00'),
-(49, 86, 1, 'and you wanna go to slee[p now?', '2018-01-04 00:28:00'),
-(50, 85, 1, 'yes', '2018-01-04 00:29:00'),
-(51, 85, 1, 'I would love to', '2018-01-04 00:29:00'),
-(52, 85, 1, 'do wyou want to go?', '2018-01-04 00:29:00'),
-(53, 85, 1, 'heeei', '2018-01-04 00:29:00'),
-(54, 86, 1, 'hey', '2018-01-04 00:29:00'),
-(55, 85, 1, 'hey', '2018-01-04 00:29:00'),
-(56, 86, 1, 'yeah', '2018-01-04 00:29:00'),
-(57, 86, 1, 'sorry', '2018-01-04 00:29:00'),
-(58, 86, 1, 'I didnt pay attention', '2018-01-04 00:29:00'),
-(59, 86, 1, 'yes', '2018-01-04 00:30:00'),
-(60, 86, 1, 'I would love to go', '2018-01-04 00:30:00'),
-(61, 85, 1, 'great', '2018-01-04 00:30:00'),
-(62, 87, 1, 'hi guuuuys', '2018-01-04 12:18:00'),
-(63, 87, 1, 'mornin', '2018-01-04 12:18:00'),
-(64, 85, 1, 'mornin marie', '2018-01-04 12:18:00'),
-(65, 85, 1, 'ce faci?', '2018-01-04 12:18:00'),
-(66, 87, 1, ']bine bai', '2018-01-04 12:18:00'),
-(67, 87, 1, 'blana', '2018-01-04 12:18:00'),
-(68, 85, 1, 'perf', '2018-01-04 12:18:00'),
-(69, 87, 1, 'voi?', '2018-01-04 12:18:00'),
-(70, 85, 1, 'bineee', '2018-01-04 12:18:00'),
-(71, 85, 1, 'la calculator', '2018-01-04 12:19:00'),
-(72, 87, 1, 'marfa', '2018-01-04 12:19:00'),
-(73, 85, 1, 'gataaaa', '2018-01-04 12:35:00'),
-(74, 85, 1, 'cred ca am re[arat tot', '2018-01-04 12:35:00'),
-(75, 87, 1, 'blana', '2018-01-04 12:36:00'),
-(76, 87, 1, 'parca merge', '2018-01-04 12:36:00'),
-(77, 87, 1, 'ti se pare ceva ciudat?', '2018-01-04 12:36:00'),
-(78, 85, 1, 'nup', '2018-01-04 12:36:00'),
-(79, 85, 1, 'all seems good', '2018-01-04 12:36:00'),
-(80, 87, 1, 'perf', '2018-01-04 12:36:00'),
-(81, 85, 1, 'yep', '2018-01-04 12:36:00'),
-(82, 85, 1, 'hai ca merge', '2018-01-04 12:37:00'),
-(83, 87, 1, 'ok', '2018-01-04 12:37:00'),
-(84, 87, 1, 'lets do posts', '2018-01-04 12:37:00'),
-(85, 86, 1, 'Hey', '2018-01-06 02:09:00');
-
 -- --------------------------------------------------------
 
 --
@@ -181,18 +93,6 @@ CREATE TABLE `polls` (
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `polls`
---
-
-INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
-(23, 'Poll', 'First Poll', '2018-01-05 18:54:18'),
-(24, 'Seocnd poll', 'bla', '2018-01-05 19:09:46'),
-(25, 'Cum e maria', 'Primul meu poll', '2018-01-05 19:45:22'),
-(26, 'This is the last poll', 'Last one', '2018-01-05 22:56:37'),
-(27, 'new test poll', 'TEst', '2018-01-06 01:46:18'),
-(28, 'Last Poll', 'Test Poll', '2018-01-06 01:47:53');
-
 -- --------------------------------------------------------
 
 --
@@ -205,31 +105,6 @@ CREATE TABLE `poll_options` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `poll_options`
---
-
-INSERT INTO `poll_options` (`optionId`, `pollId`, `content`) VALUES
-(68, 23, 'Answer 1'),
-(69, 23, 'Answer 2'),
-(70, 23, 'Answer 3'),
-(71, 24, 'answer'),
-(72, 24, '1'),
-(73, 24, '2'),
-(74, 24, '3'),
-(75, 25, 'Varza'),
-(76, 25, 'È˜mechera'),
-(77, 25, 'Vlad e cel mai tare'),
-(78, 26, '1'),
-(79, 26, '2'),
-(80, 26, '3'),
-(81, 27, '1'),
-(82, 27, '2'),
-(83, 27, '3'),
-(84, 28, 'First answer'),
-(85, 28, 'Second answer'),
-(86, 28, 'third one');
-
 -- --------------------------------------------------------
 
 --
@@ -241,16 +116,6 @@ CREATE TABLE `posts` (
   `content` text NOT NULL,
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
-(27, 'First announcement', '2018-01-05 18:52:37'),
-(28, 'Second announcement', '2018-01-05 19:07:58'),
-(29, 'Maria e cea mai È™mechera', '2018-01-05 19:42:54'),
-(30, 'This is the last post', '2018-01-05 22:55:38');
 
 -- --------------------------------------------------------
 
@@ -297,15 +162,6 @@ CREATE TABLE `users` (
   `dateJoined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `socialHandle`, `description`, `phone`, `rank`, `score`, `clearance`, `iconExtension`, `salt`, `activationKey`, `emailActivation`, `execActivation`, `cookieHash`, `dateJoined`) VALUES
-(85, 'Vlad', 'vlad@email.com', 'ef6cbfb01ab4aa0c00e0207bb795151b54d0c0b5', 'vlad', 'vlad', '123456789', 'Baby Zirafer', 0, 1, 'jpg', '96df8ac2b06a9abce13ee9e0a6c4f5ec1889e3d5', '97a7c7e3006eda88cab06e28b46bce9e8aa3aea0', 1, 1, 'cc89904249120d0fce2b81dc68ee9435bcc9bd70', '2017-12-30'),
-(86, 'Andreea', 'andreea@email.com', 'bfa4fac4bf85bae6bb44ec168935d4ed301fe5f3', 'andreea', 'andreea', '123456789', 'Baby Zirafer', 0, 1, 'jpg', 'dba795a25f16fa02d365b446680e601a3e5a2274', '0e4f672e61cf331a86dbc29a79e27ff90909f09b', 1, 1, '2c33019102b18874ec32209bda9337da24ae7a2a', '2017-12-30'),
-(87, 'Maria', 'maria@email.com', '45d21d16e5caf83322d38489e8dd549be7e20286', 'maria', 'maria', '123456789', 'Baby Zirafer', 0, 0, 'jpeg', '3325f046fc59694d37f2b88ca9d30f6ce0e3e69b', '20bb3a40db719e5f31c1e5209c904d95b0b5e151', 1, 1, '07d75bef6e39fb867ea615e52378c7822ccbc4be', '2017-12-30');
-
 -- --------------------------------------------------------
 
 --
@@ -330,19 +186,6 @@ CREATE TABLE `user_chats` (
   `dateAdded` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_chats`
---
-
-INSERT INTO `user_chats` (`userId`, `chatId`, `dateAdded`) VALUES
-(85, 1, '2018-01-03'),
-(85, 7, '2018-01-03'),
-(86, 1, '2018-01-03'),
-(86, 2, '2017-12-30'),
-(86, 7, '2018-01-03'),
-(87, 1, '2018-01-03'),
-(87, 7, '2018-01-03');
-
 -- --------------------------------------------------------
 
 --
@@ -353,13 +196,6 @@ CREATE TABLE `user_imagelikes` (
   `userId` int(11) NOT NULL,
   `imageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_imagelikes`
---
-
-INSERT INTO `user_imagelikes` (`userId`, `imageId`) VALUES
-(85, 13);
 
 -- --------------------------------------------------------
 
@@ -372,16 +208,6 @@ CREATE TABLE `user_images` (
   `imageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_images`
---
-
-INSERT INTO `user_images` (`userId`, `imageId`) VALUES
-(85, 11),
-(85, 12),
-(85, 13),
-(85, 14);
-
 -- --------------------------------------------------------
 
 --
@@ -392,15 +218,6 @@ CREATE TABLE `user_polllikes` (
   `userId` int(11) NOT NULL,
   `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_polllikes`
---
-
-INSERT INTO `user_polllikes` (`userId`, `pollId`) VALUES
-(85, 25),
-(85, 28),
-(86, 28);
 
 -- --------------------------------------------------------
 
@@ -413,18 +230,6 @@ CREATE TABLE `user_polls` (
   `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_polls`
---
-
-INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
-(85, 23),
-(85, 24),
-(85, 25),
-(85, 26),
-(85, 27),
-(85, 28);
-
 -- --------------------------------------------------------
 
 --
@@ -436,13 +241,6 @@ CREATE TABLE `user_postlikes` (
   `postId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_postlikes`
---
-
-INSERT INTO `user_postlikes` (`userId`, `postId`) VALUES
-(85, 30);
-
 -- --------------------------------------------------------
 
 --
@@ -453,16 +251,6 @@ CREATE TABLE `user_posts` (
   `userId` int(11) NOT NULL,
   `postId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_posts`
---
-
-INSERT INTO `user_posts` (`userId`, `postId`) VALUES
-(85, 27),
-(85, 28),
-(85, 29),
-(85, 30);
 
 -- --------------------------------------------------------
 
@@ -487,22 +275,6 @@ CREATE TABLE `user_votes` (
   `pollId` int(11) NOT NULL,
   `optionId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_votes`
---
-
-INSERT INTO `user_votes` (`userId`, `pollId`, `optionId`) VALUES
-(85, 25, 75),
-(85, 25, 76),
-(85, 25, 77),
-(85, 26, 78),
-(85, 26, 79),
-(85, 26, 80),
-(85, 27, 82),
-(85, 28, 86),
-(86, 28, 86),
-(87, 28, 86);
 
 --
 -- Indexes for dumped tables
@@ -650,37 +422,37 @@ ALTER TABLE `badges`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `image_uploads`
 --
 ALTER TABLE `image_uploads`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `polls`
 --
 ALTER TABLE `polls`
-  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `pollId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `poll_options`
 --
 ALTER TABLE `poll_options`
-  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `optionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -692,7 +464,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- Constraints for dumped tables

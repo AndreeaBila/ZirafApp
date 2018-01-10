@@ -81,12 +81,12 @@
             </div>
 
             <label for="settingsName">Name*</label>
-            <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName" value=<?php echo "$userName"; ?>>
+            <input type="text" class="form-control form-control-lg" id="settingsName" name="settingsName" required value=<?php echo "$userName"; ?>>
           </div>
           <!-- settings email -->
           <div class="form-group">
             <label for="settingsEmail">Email Address*</label>
-            <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail" value=<?php echo "$email"; ?>>
+            <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail" required value=<?php echo "$email"; ?>>
             <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
               <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> This email address is already in use
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -121,12 +121,12 @@
           <!-- settings username of social handle -->
           <div class="form-group">
             <label for="settingsUsername">Username of Main Social Handle</label>
-            <input type="text" class="form-control form-control-lg" id="settingsUsername" name="settingsUsername" value=<?php echo "$socialHandle"; ?>>
+            <input type="text" class="form-control form-control-lg" id="settingsUsername" name="settingsUsername" required value=<?php echo "$socialHandle"; ?>>
           </div>
           <!-- settings phone number -->
           <div class="form-group">
             <label for="settingsPhoneNumber">Phone Number</label>
-            <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber" value=<?php echo "$phone"; ?>>
+            <input type="tel" class="form-control form-control-lg" id="settingsPhoneNumber" name="settingsPhoneNumber" required value=<?php echo "$phone"; ?>>
             <small>*Required fields</small>
           </div>
 

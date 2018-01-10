@@ -12,6 +12,15 @@
 
     //extrat the user id
     $userId = $_SESSION['userId'];
+    //check if the user has updated the user email
+    $query = "SELECT email, activationKey FROM USERS WHERE userId = ?";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("s", $userId);
+    $stmt->execute();
+    $stmt->bind_result($databaseEmail, $activationKey);
+    $stmt->fetch();
+    $stmt->close();
+    $updatedEmail = ($databaseEmail == $email) ? false : true;
     //create the update query
     //check if the password is to be updated
     if($password == ''){
@@ -42,6 +51,37 @@
         $stmt->bind_param("ssssss", $userName, $email, $hashedPassword, $socialHandle, $phone, $userId);
         $stmt->execute();
         $stmt->close();
+    }
+
+    //check if the user has updated his email
+    if($updatedEmail == true){
+        //deactivate the user account
+        $query = "UPDATE USERS SET emailActivation = 0 WHERE userId = ?";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $userId);
+        $stmt->execute();
+        $stmt->close();
+
+        //email the user the activation key
+        //send email to user address
+        $subject = "ZirafApp activation key";
+        $token = $activationKey;
+        $message= "Hello, please click on the following link to activate your account: zirafers.zirafapp.com?token=$token";
+        //====== REMEMBER TO ACTIVATE ======
+        //mail($userData['email'], $subject, $message);
+
+        //log the user out
+        $cookie_name = 'keepLogged';
+        if(isset($_COOKIE[$cookie_name])){
+            unset($_COOKIE[$cookie_name]);
+            // empty value and expiration one hour before
+            $res = setcookie($cookie_name, '', time() - 3600, '/');
+        }
+        //delete the session
+        session_destroy();
+
+        //redirect the user to index
+        header("Location: ../index");
     }
 
     //return to the settings page

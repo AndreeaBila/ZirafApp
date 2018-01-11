@@ -88,6 +88,10 @@ $(function(){
         $('#userEmailsToRevoke').append('<option value="'+ deletedEmail +'">');
         $(this).parent().remove();
     });
+
+    $(document).on('click', 'option.suggestionOption', function(){
+        $('#selectUserEmailsToRevoke').val($(this).val());
+    });
 });
 
 function getUserData(index){
@@ -144,4 +148,21 @@ function checkOptionValue(options, value){
       }
     }
     return false;
+}
+
+function getSuggestions(){
+    //get the emails from the user
+    userInput = $('#selectUserEmailsToRevoke').val();
+    $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
+        console.log(data);
+
+        //create drop down
+        dropDown = "";
+        data.forEach(function(object){
+            dropDown += "<option class='suggestionOption'>" + object + "</option>";
+        });
+
+        $('#myId').empty();
+        $('#myId').append(dropDown);
+    });
 }

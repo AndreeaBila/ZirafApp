@@ -94,8 +94,8 @@ $(function(){
 
     //when a user clicks an option take that option's value and place it into
     //the input search box
-    $(document).on('click', 'option.suggestionOption', function(){
-        $('#selectUserEmailsToRevoke').val($(this).val());
+    $(document).on('click', 'p.suggestionOption', function(){
+        $('#selectUserEmailsToRevoke').val($(this).text());
         //clear the dropdown
         $('#dropDownList').empty();
     });
@@ -163,12 +163,11 @@ function getSuggestions(){
     if(userInput !== ''){
         $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
             console.log(data);
-
             //create drop down
             dropDown = "";
             data.forEach(function(object){
                 if($.inArray(object, selectedEmails) === -1){
-                    dropDown += "<option class='suggestionOption'>" + object + "</option>";
+                    dropDown += "<p class='suggestionOption'>" + object + "</p>";
                 }
             });
 

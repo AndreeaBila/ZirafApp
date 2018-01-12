@@ -145,7 +145,7 @@
                     <input type="text" onkeyup="getSuggestions()" id="selectUserEmailsToRevoke" class="form-control form-control-lg">
                     <button type="button" class="btn plusBtn bgGreen" id="selectEmailForRevoke"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
-                  <div id="myId"></div>
+                  <div id="dropDownList"></div>
 
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembersToRevoke"></div>

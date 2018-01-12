@@ -18,7 +18,7 @@
     //break the string into an array
     $pollOptionArray = array();
     foreach($pollOptionString as $string){
-        array_push($pollOptionArray, $string);
+        array_push($pollOptionArray, strip_tags(stripslashes($string)));
     }
     $dateCreated = date("Y-m-d H:i:s");
     //create a new poll item in the database

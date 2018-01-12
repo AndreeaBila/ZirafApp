@@ -11,12 +11,17 @@
 
     //get the user data
     $chatId = strip_tags(stripslashes($_POST['chatId']));
-    $emailList = strip_tags(stripslashes($_POST['emailList']));
+    $emailListString = $_POST['emailList'];
     //check that the emailList is not empty
-    if($emailList === ""){
+    if($emailListString === ""){
         exit("Error");
     }
-    $emailList = explode(",", $emailList);
+    $emailList = array();
+    $emailListString = json_decode($emailListString, true);
+    foreach($emailListString as $current){
+        array_push($emailList, strip_tags(stripslashes($current)));
+    }
+
 
     //calculate teh today date
     $date = date("Y-m-d");

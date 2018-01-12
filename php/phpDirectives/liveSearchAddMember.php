@@ -12,12 +12,14 @@
     $input = strip_tags(stripslashes($_GET['userInput']));
     $input = "%$input%";
 
+    $chatId = strip_tags(stripslashes($_GET['chatId']));
+
     $userId = $_SESSION['userId'];
 
     //search for results similar with the input from the user
-    $query = "SELECT email FROM USERS WHERE email LIKE ? AND userId != ?";
+    $query = "SELECT email FROM USERS WHERE email LIKE ? AND userId != ? AND email NOT IN (SELECT U.email FROM USERS U INNER JOIN USER_CHATS UC ON U.userId = UC.userId WHERE UC.chatId = ?)";
     $stmt = $db->prepare($query);
-    $stmt->bind_param("ss", $input, $userId);
+    $stmt->bind_param("sss", $input, $userId, $chatId);
     $stmt->execute();
     $stmt->bind_result($suggestion);
     $results = array();

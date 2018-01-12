@@ -14,8 +14,13 @@
     if($chatName === ""){
         exit("Error");
     }
-    $emailList = strip_tags(stripslashes($_POST['emailList']));
-    $emailList = explode(",", $emailList);
+    $emailListString = $_POST['emailList'];
+    $emailListString = json_decode($emailListString, true);
+    $emailList = array();
+    foreach($emailListString as $current){
+        array_push($emailList, strip_tags(stripslashes($current)));
+    }
+
 
     //create new chat
     $query = "INSERT INTO CHATS VALUES(NULL, ?, ?)";

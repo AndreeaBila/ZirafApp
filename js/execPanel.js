@@ -1,5 +1,7 @@
 var selectedEmails = [];
 
+var databaseEmails = [];
+
 $(function(){
     $('.alert').hide();
     //check if the accept request button is clicked
@@ -56,14 +58,10 @@ $(function(){
         $('#confirmDeclineModal').modal('hide');
     });
 
-    //when this is clickd load all zirafers into an array
-    // $.getJSON("../php/phpDirectives/getEmailList.php", function(data){
-    //     console.log(data);
-    //     //bind the email list to the the search box
-    //     $('#tags').autocomplete({
-    //         source: data
-    //     });
-    // });
+    //retrieve all available users from the database
+    $.getJSON("../php/phpDirectives/getEmailList.php", function(data){
+        databaseEmails = data;
+    });
       
     //chekc if the user tried to select email addres to revoke by enter
     $('#selectUserEmailsToRevoke').keydown(function(e){
@@ -84,13 +82,22 @@ $(function(){
         elementIndex = selectedEmails.indexOf(deletedEmail);
         //remove the element itself
         selectedEmails.splice(elementIndex, 1);
-        //add the email back to the select
-        $('#userEmailsToRevoke').append('<option value="'+ deletedEmail +'">');
+        //add the email back to the array of database emails
+        databaseEmails.push(deletedEmail);
+        //remove the row from the modal
         $(this).parent().remove();
+        //clear the list of dropdown emails
+        $('#dropDownList').empty();
+        //rebuild the dropdown
+        getSuggestions();
     });
 
+    //when a user clicks an option take that option's value and place it into
+    //the input search box
     $(document).on('click', 'option.suggestionOption', function(){
         $('#selectUserEmailsToRevoke').val($(this).val());
+        //clear the dropdown
+        $('#dropDownList').empty();
     });
 });
 
@@ -104,9 +111,7 @@ function selectUserToRevoke(){
     //get the value of the selected email
     var selectedEmail = $('#selectUserEmailsToRevoke').val();
     //add the email to a list of selected emails
-    //get the list of all options
-    var allOptions = $('#userEmailsToRevoke').children();
-    if(checkOptionValue(allOptions, selectedEmail)){
+    if(checkOptionValue(databaseEmails, selectedEmail)){
         selectedEmails.push(selectedEmail);
         //add the selected email to the list of selected emails
         $('#addedMembersToRevoke').append('<div class="members row">' +
@@ -115,8 +120,8 @@ function selectUserToRevoke(){
                                         '</div>');
         //delete the input data
         $('#selectUserEmailsToRevoke').val("");
-        //delete the selected email from the list of available options
-        $('#userEmailsToRevoke option[value="'+ selectedEmail +'"]').remove();
+        //delete the selected email from the list of available emails from the databaseEmails array
+        databaseEmails.splice(databaseEmails.indexOf(selectedEmail), 1);
 
         //check if the user pressed on the revoke vonfirm button
         $('#confirmUserRevokeModalBtn').click(function(){
@@ -126,6 +131,8 @@ function selectUserToRevoke(){
                 url: "../php/phpDirectives/revokeUserAccess.php",
                 type: "GET",
                 success: function(response){
+                    //clean the list of selected emails
+                    location.reload();
                 },
                 error: function(){
                     alert("An error occured while trying to remove the selected user.");
@@ -143,7 +150,7 @@ function selectUserToRevoke(){
 
 function checkOptionValue(options, value){
     for(var i=0;i<options.length;i++){
-      if(options[i].value == value){
+      if(options[i] == value){
         return true;
       }
     }
@@ -153,16 +160,20 @@ function checkOptionValue(options, value){
 function getSuggestions(){
     //get the emails from the user
     userInput = $('#selectUserEmailsToRevoke').val();
-    $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
-        console.log(data);
+    if(userInput !== ''){
+        $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
+            console.log(data);
 
-        //create drop down
-        dropDown = "";
-        data.forEach(function(object){
-            dropDown += "<option class='suggestionOption'>" + object + "</option>";
+            //create drop down
+            dropDown = "";
+            data.forEach(function(object){
+                if($.inArray(object, selectedEmails) === -1){
+                    dropDown += "<option class='suggestionOption'>" + object + "</option>";
+                }
+            });
+
+            $('#dropDownList').empty();
+            $('#dropDownList').append(dropDown);
         });
-
-        $('#myId').empty();
-        $('#myId').append(dropDown);
-    });
+    }
 }

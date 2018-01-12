@@ -5,6 +5,12 @@ var selectedChat = {
 
 var messages = [];
 
+var alldatabaseEmails = [];
+var chatExceptDatabaseEmails = [];
+
+var selectedEmails_newChat = [];
+var selectedEmails_addMember = [];
+
 $(function() {
   $('#chatMenu').hide();
   $('#chatSettings').hide();
@@ -27,13 +33,10 @@ $(function() {
   // } else {
   //   $('#chatMessageInputBox').effect('slide',{direction:'up', mode:'show'},500);
   // }
-  
-  //append the url paramter
-  //window.history.pushState(null, null, "?chatId=");
-  //append the proper chatID
-  //updateURLChatId();
 
   initializeMessages();
+
+  initializeAddingArrays();
 
   //check if the user pressed the send button
   $('#sendChatMessage').click(function(){
@@ -118,7 +121,6 @@ $(function() {
 
   //check if the user pressed the create chat button
   $('#createChatBtn').click(function(){
-    var selectedOptions = $('#addedMembers').children();
     var chatName = $('#chatNameInput').val();
     //check if the chatName has been specified
     if(chatName === ""){
@@ -131,12 +133,8 @@ $(function() {
     $('#addedMembers').empty();
     var chatEmails = {
       chatName : chatName,
-      emailList : ""
+      emailList : JSON.stringify(selectedEmails_newChat)
     };
-    for(var i=0;i<selectedOptions.length;i++){
-      chatEmails.emailList += selectedOptions[i].childNodes[0].innerHTML + ",";
-    }
-    chatEmails.emailList = chatEmails.emailList.slice(0, -1);
     //send the chat data
     $.ajax({
       data: chatEmails,
@@ -164,49 +162,52 @@ $(function() {
 
   //check if the user pressed the add button
   $('#addBtn').click(function(){
-    var membersToAdd = $('#addedMembersToAdd').children();
     $('#selectUserEmailsToAdd').val('');
     $('#addedMembersToAdd').empty();
 
     var addEmails = {
       chatId : selectedChat.chatId,
-      emailList : ""
+      emailList : JSON.stringify(selectedEmails_addMember)
     };
-
-    for(var i=0;i<membersToAdd.length;i++){
-      addEmails.emailList += membersToAdd[i].childNodes[0].innerHTML + ",";
-    }
     if(addEmails.emailList === ""){
       $('#addMembersAlert').show();
       return;
     }
-    addEmails.emailList = addEmails.emailList.slice(0, -1);
     //send the chat data
     $.ajax({
-    data: addEmails,
-    url: "../php/phpDirectives/addUsersToChat.php",
-    type: "POST",
-    success: function(result){
-      if(result === "Error") return;
-      var userArray = JSON.parse(result);
-      for(var i=0;i<userArray.length;i++){
-        $('#membersList').append(parseUserData(userArray[i]));
+      data: addEmails,
+      url: "../php/phpDirectives/addUsersToChat.php",
+      type: "POST",
+      success: function(result){
+        if(result === "Error") return;
+        //clean the adding arrays
+        alldatabaseEmails = [];
+        chatExceptDatabaseEmails = [];
+        selectedEmails_newChat = [];
+        selectedEmails_addMember = [];
+
+        //initialzie them
+        initializeAddingArrays();
+
+        var userArray = JSON.parse(result);
+        for(var i=0;i<userArray.length;i++){
+          $('#membersList').append(parseUserData(userArray[i]));
+        }
+        $('#addUserModal').modal('toggle');
+        //get the current number of messages
+        var currentMessages = parseInt($('#participantCount').text()[0]);
+        var sum = currentMessages + userArray.length;
+        //update the result
+        if(sum == 1){
+          $('#participantCount').text("1 participant");
+        }else{
+          $('#participantCount').text(sum + " participants");
+        }
+        $('#chatSettingsBtn').click();
+      },
+      error: function(){
+        $('#addMembersErrorAlert').show();
       }
-      $('#addUserModal').modal('toggle');
-      //get the current number of messages
-      var currentMessages = parseInt($('#participantCount').text()[0]);
-      var sum = currentMessages + userArray.length;
-      //update the result
-      if(sum == 1){
-        $('#participantCount').text("1 participant");
-      }else{
-        $('#participantCount').text(sum + " participants");
-      }
-      $('#chatSettingsBtn').click();
-    },
-    error: function(){
-      $('#addMembersErrorAlert').show();
-    }
     });
 
   });
@@ -306,6 +307,35 @@ $(function() {
       }
     });
   });
+
+  //chekc if the user closed the create chat or add member modal
+  $('#closeModalBtn').click(function(){
+    alldatabaseEmails = [];
+    chatExceptDatabaseEmails = [];
+    selectedEmails_newChat = [];
+    selectedEmails_addMember = [];
+
+    initializeAddingArrays();
+  });
+
+
+  //when a user clicks an option take that option's value and place it into
+  //the input search box
+  $(document).on('click', 'option.suggestionOption_newChat', function(){
+      $('#selectUserEmails').val($(this).val());
+      //clear the dropdown
+      $('#dropDownList_newChat').empty();
+  });
+
+  //when a user clicks an option take that option's value and place it into
+  //the input search box for adding a new member
+  $(document).on('click', 'option.suggestionOption_addMember', function(){
+    $('#selectUserEmailsToAdd').val($(this).val());
+    //clear the dropdown
+    $('#dropDownList_addMember').empty();
+  });
+
+
 });
 
 function displayChat(messageList){
@@ -422,12 +452,18 @@ function switchChat(current){
   //update the current chat data
   selectedChat.chatId = newId;
   selectedChat.chatName = newName;
-  //update the url
-  //updateURLChatId();
   //reslide the chat selector
   $('#chatMenuBtn').click();
   //delete all messages from the page
   $(".chatBox").children().filter(":not(.loadLink)").remove();
+  //clean the adding arrays
+  alldatabaseEmails = [];
+  chatExceptDatabaseEmails = [];
+  selectedEmails_newChat = [];
+  selectedEmails_addMember = [];
+
+  initializeAddingArrays();
+
   //load all new messages
   initializeMessages();
 }
@@ -451,9 +487,7 @@ function updateURLChatId(){
 function addUserToNewGroup(){
   //get the value of the selected email
   var selectedEmail = $('#selectUserEmails').val();
-  //get the list of all options
-  var allOptions = $('#userEmails').children();
-  if(checkOptionValue(allOptions, selectedEmail)){
+  if($.inArray(alldatabaseEmails, selectedEmail)){
     //add the selected email to the list of selected emails
     $('#addedMembers').append('<div class="members row">' +
                               '<p class="emails col-8">' + selectedEmail + '</p>' +
@@ -462,14 +496,26 @@ function addUserToNewGroup(){
     //delete the input data
     $('#selectUserEmails').val("");
     //delete the selected email from the list of available options
-    $('#userEmails option[value="'+ selectedEmail +'"]').remove();
+    alldatabaseEmails.splice(alldatabaseEmails.indexOf(selectedEmail), 1);
+    //add email to the list of selected emails
+    selectedEmails_newChat.push(selectedEmail); 
      //chekc if a row from the selected emails list has been deleted
     $('.removeMemberBtn').unbind('click');
     $('.removeMemberBtn').bind('click', function(){
       var deletedEmail = $(this).siblings().first().text();
-      //add the email back to the select
-      $('#userEmails').append('<option value="'+ deletedEmail +'">');
+      //remove the email from the list of selected emails
+      //get the index
+      elementIndex = selectedEmails_newChat.indexOf(deletedEmail);
+      //remove the element itself
+      selectedEmails_newChat.splice(elementIndex, 1);
+      //add the email back to the array of database emails
+      alldatabaseEmails.push(deletedEmail);
+      //remove the row from the modal
       $(this).parent().remove();
+      //clear the list of dropdown emails
+      $('#dropDownList_newChat').empty();
+      //rebuild the dropdown
+      getSuggestionsNewChat();
     });
   }
 }
@@ -477,9 +523,7 @@ function addUserToNewGroup(){
 function addUserToExistingGroup(){
   //get the value of the selected email
   var selectedEmail = $('#selectUserEmailsToAdd').val();
-  //get the list of all options
-  var allOptions = $('#userEmailsToAdd').children();
-  if(checkOptionValue(allOptions, selectedEmail)){
+  if($.inArray(selectedEmail, chatExceptDatabaseEmails) !== -1){
     //add the selected email to the list of selected emails
     $('#addedMembersToAdd').append('<div class="members row">' +
                                    '<p class="emails col-8">' + selectedEmail + '</p>' +
@@ -487,15 +531,80 @@ function addUserToExistingGroup(){
                                    '</div>');
     //delete the input data
     $('#selectUserEmailsToAdd').val("");
-    //delete the selected email from the list of available options
-    $('#userEmailsToAdd option[value="'+ selectedEmail +'"]').remove();
+    chatExceptDatabaseEmails.splice(chatExceptDatabaseEmails.indexOf(selectedEmail), 1);
+    //add it to the array of selected emails
+    selectedEmails_addMember.push(selectedEmail);
     //chekc if a row from the selected emails list has been deleted
     $('.removeMemberBtnToAdd').unbind('click');
     $('.removeMemberBtnToAdd').bind('click', function(){
       var deletedEmail = $(this).siblings().first().text();
-      //add the email back to the select
-      $('#userEmailsToAdd').append('<option value="'+ deletedEmail +'">');
+      //remove the email from the list of selected emails
+      //get the index
+      elementIndex = selectedEmails_addMember.indexOf(deletedEmail);
+      //remove the element itself
+      selectedEmails_addMember.splice(elementIndex, 1);
+      //add the email back to the array of database emails
+      chatExceptDatabaseEmails.push(deletedEmail);
+      //remove the row from the modal
       $(this).parent().remove();
+      //clear the list of dropdown emails
+      $('#dropDownList_addMember').empty();
+      //rebuild the dropdown
+      getSuggestionsAddMember();
     });
   }
+}
+
+function getSuggestionsNewChat(){
+  //get the emails from the user
+  userInput = $('#selectUserEmails').val();
+  if(userInput !== ''){
+      $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
+          console.log(data);
+          //create drop down
+          dropDown = "";
+          data.forEach(function(object){
+              if($.inArray(object, selectedEmails_newChat) === -1){
+                  dropDown += "<option class='suggestionOption_newChat'>" + object + "</option>";
+              }
+          });
+
+          $('#dropDownList_newChat').empty();
+          $('#dropDownList_newChat').append(dropDown);
+      });
+  }else{
+    $('#dropDownList_newChat').empty();
+  }
+}
+
+function getSuggestionsAddMember(){
+  //get the emails from the user
+  userInput = $('#selectUserEmailsToAdd').val();
+  if(userInput !== ''){
+      $.getJSON("../php/phpDirectives/liveSearchAddMember.php?userInput=" + userInput + "&chatId=" + selectedChat.chatId, function(data){
+          //create drop down
+          dropDown = "";
+          data.forEach(function(object){
+              if($.inArray(object, selectedEmails_addMember) === -1){
+                  dropDown += "<option class='suggestionOption_addMember'>" + object + "</option>";
+              }
+          });
+
+          $('#dropDownList_addMember').empty();
+          $('#dropDownList_addMember').append(dropDown);
+      });
+  }else{
+    $('#dropDownList_addMember').empty();
+  }
+}
+
+function initializeAddingArrays(){
+  //initialize the array of all emails from the database
+  $.getJSON("../php/phpDirectives/getEmailList.php", function(result_allEmails){
+    alldatabaseEmails = result_allEmails;
+  });
+  //initialize the array of emails that are not in this chat
+  $.getJSON("../php/phpDirectives/getEmailsNotIncludedInChat.php?chatId=" + selectedChat.chatId, function(result_execeptionEmails){
+    chatExceptDatabaseEmails = result_execeptionEmails;
+  });
 }

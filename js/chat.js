@@ -59,7 +59,6 @@ $(function() {
       });
       //clear the value of the text box
       $('#chatMessageInput').val("");
-      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     }
   });
 
@@ -321,21 +320,19 @@ $(function() {
 
   //when a user clicks an option take that option's value and place it into
   //the input search box
-  $(document).on('click', 'option.suggestionOption_newChat', function(){
-      $('#selectUserEmails').val($(this).val());
+  $(document).on('click', 'p.suggestionOption_newChat', function(){
+      $('#selectUserEmails').val($(this).text());
       //clear the dropdown
       $('#dropDownList_newChat').empty();
   });
 
   //when a user clicks an option take that option's value and place it into
   //the input search box for adding a new member
-  $(document).on('click', 'option.suggestionOption_addMember', function(){
-    $('#selectUserEmailsToAdd').val($(this).val());
+  $(document).on('click', 'p.suggestionOption_addMember', function(){
+    $('#selectUserEmailsToAdd').val($(this).text());
     //clear the dropdown
     $('#dropDownList_addMember').empty();
   });
-
-
 });
 
 function displayChat(messageList){
@@ -343,6 +340,10 @@ function displayChat(messageList){
   for(var i=0;i<messageList.length;i++){
     //get the message at given index
     var message = messageList[i];
+    //check if the message already exists
+    if($('#'+message.messageId).length){
+      continue;
+    }
     var messageElement = parseMessage(message);
     $('.chatBox').append(messageElement);
   }
@@ -560,12 +561,11 @@ function getSuggestionsNewChat(){
   userInput = $('#selectUserEmails').val();
   if(userInput !== ''){
       $.getJSON("../php/phpDirectives/liveSearch.php?userInput=" + userInput, function(data){
-          console.log(data);
           //create drop down
           dropDown = "";
           data.forEach(function(object){
               if($.inArray(object, selectedEmails_newChat) === -1){
-                  dropDown += "<option class='suggestionOption_newChat'>" + object + "</option>";
+                  dropDown += "<p class='suggestionOption_newChat'>" + object + "</p>";
               }
           });
 
@@ -586,7 +586,7 @@ function getSuggestionsAddMember(){
           dropDown = "";
           data.forEach(function(object){
               if($.inArray(object, selectedEmails_addMember) === -1){
-                  dropDown += "<option class='suggestionOption_addMember'>" + object + "</option>";
+                  dropDown += "<p class='suggestionOption_addMember'>" + object + "</p>";
               }
           });
 

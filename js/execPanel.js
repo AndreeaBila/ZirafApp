@@ -174,5 +174,7 @@ function getSuggestions(){
             $('#dropDownList').empty();
             $('#dropDownList').append(dropDown);
         });
+    }else{
+        $('#dropDownList').empty();
     }
 }

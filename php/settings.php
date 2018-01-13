@@ -86,14 +86,14 @@
           <div class="form-group">
             <label for="settingsEmail">Email Address*</label>
             <input type="email" class="form-control form-control-lg" id="settingsEmail" name="settingsEmail" required value=<?php echo "$email"; ?>>
-            <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div id="settingsUniqueEmailAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
               <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> This email address is already in use
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
-            <div id="settingsFieldsAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+            <div id="settingsConfirmEmailAlert" class="alert alert-success alert-dismissible fade show" role="alert">
               Please confirm your new email address
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -110,7 +110,7 @@
           <label for="settingsConfirmPassword">Confirm New Password</label>
             <input type="password" class="form-control form-control-lg" id="settingsConfirmPassword" name="settingsConfirmPassword" placeholder="Confirm New Password">
 
-            <div id="settingsFieldsAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div id="settingsPasswordsMissmatchAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
               <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> The two passwords do not match
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

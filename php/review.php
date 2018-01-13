@@ -72,7 +72,7 @@
               </button>
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backRestaurantName"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backRestaurantName"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmRestaurantName"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -93,13 +93,14 @@
             </div>
 
             <!-- Display added top dishes -->
-            <div class="addedTopDishesContainer row">
+            <div id="topDishesToAdd"></div>
+            <!-- <div class="addedTopDishesContainer row">
               <p class="addedTopDishes col-8">Abc</p>
               <button type="button" class="removeAddedTopDishes col-4">remove &times;</button>
-            </div>
+            </div> -->
 
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backTopDishes"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backTopDishes"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmTopDishes"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -110,7 +111,7 @@
               <input type="range" min="0" max="10" value="5" class="slider" id="foodRating">
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backFoodRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backFoodRating"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmFoodRating"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -121,7 +122,7 @@
               <input type="range" min="0" max="10" value="5" class="slider" id="ambienceRating">
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backAmbienceRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backAmbienceRating"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmAmbienceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -132,7 +133,7 @@
               <input type="range" min="0" max="10" value="5" class="slider" id="serviceRating">
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backServiceRating"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backServiceRating"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmServiceRating"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -143,7 +144,7 @@
               <input type="range" min="0" max="10" value="5" class="slider" id="moneyValue">
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backMoneyValue"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backMoneyValue"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmMoneyValue"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -162,7 +163,7 @@
               </button>
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backReview"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backReview"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmReview"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -181,7 +182,7 @@
               </button>
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backXFactor"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backXFactor"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmXFactor"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -191,11 +192,13 @@
             <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn" name="reviewPicturesBtn">
 
             <!-- Display small previews of the pics? -->
+            <div id="addReviewPictures"></div>
+
             <div class="addedReviewPicturesContainer">
               <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
               <img class="addedReviewPicture" src="https://placeimg.com/500/480/animals" alt="">
             </div>
-            <div class="addedReviewPicturesContainer">
+            <!-- <div class="addedReviewPicturesContainer">
               <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
               <img class="addedReviewPicture" src="https://placeimg.com/400/480/animals" alt="">
             </div>
@@ -208,9 +211,9 @@
               <img class="addedReviewPicture" src="https://placeimg.com/480/400/animals" alt="">
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backReviewPictures"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn" id="backReviewPictures"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmReviewPictures"><i class="fa fa-check" aria-hidden="true"></i></button>
-            </div>
+            </div> -->
           </div>
 
           <div class="text-center" id="endReviewMessage">

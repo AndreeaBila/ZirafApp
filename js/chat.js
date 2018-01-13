@@ -337,6 +337,7 @@ $(function() {
 
 function displayChat(messageList){
   //display first batch of messages
+  var idBuffer = 0;
   for(var i=0;i<messageList.length;i++){
     //get the message at given index
     var message = messageList[i];
@@ -346,7 +347,13 @@ function displayChat(messageList){
     }
     var messageElement = parseMessage(message);
     $('.chatBox').append(messageElement);
+    idBuffer = message.messageId;
   }
+  console.log(idBuffer);
+  //scroll to idBuffer
+  $('html:not(:animated), body:not(:animated)').animate({
+    scrollTop: $("#"+idBuffer).offset().top
+}, 1000);
 }
 
 function displayPreviousMessages(messageList){
@@ -400,7 +407,7 @@ function messageTimeout(){
       if(messageArray.length > 0){
         displayChat(messageArray);
         messages = messages.concat(messageArray);
-        $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        //$("html, body").animate({ scrollTop: $(document).height() }, 1000);
       }
     }
   });

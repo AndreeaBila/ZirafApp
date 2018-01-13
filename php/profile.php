@@ -4,6 +4,19 @@
   require_once "./phpComponents/security.php";
   //check authentication
   authenticate();
+  //create database connection
+  require_once "./phpComponents/databaseConnection.php";
+  $db = createConnection();
+  //get the user id
+  $userId = $_SESSION['userId'];
+  //get the user's iconExtension and tagline from the database
+  $query = "SELECT iconExtension, description FROM USERS WHERE userId = ?";
+  $stmt = $db->prepare($query);
+  $stmt->bind_param("s", $userId);
+  $stmt->execute();
+  $stmt->bind_result($iconExtension, $tagLine);
+  $stmt->fetch();
+  $stmt->close();
 ?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->
 <!DOCTYPE html>
@@ -53,29 +66,33 @@
       ?>
       
       <div id="profile">
-      
+      <form action="./phpDirectives/updateProfile.php" method="POST" enctype="multipart/form-data">
         <div id="profileHeader" class="row">
           <div class="col-12">
-          <div class="row">
-            <div class="col-3">
-              <img src="http://placekitten.com/320/400" alt="no" class="float-left">
+            <div class="row">
+              <div class="col-3">
+                <!-- include picture dyncamically -->
+                <?php echo '<img src="../img/userIcons/'.$userId.'.'.$iconExtension.'" alt="no" class="float-left">'; ?>
+              </div>
+              
+              <div class="col-9">
+                <label for="profileDescription" id="profileDescriptionTitle">Your Tagline</label>
+                <textarea name="profileDescription" id="profileDescription" class="form-control float-left"><?php echo "$tagLine"; ?></textarea>
+              </div>
             </div>
-            
-            <div class="col-9">
-              <label for="profileDescription" id="profileDescriptionTitle">Your Tagline</label>
-              <textarea name="profileDescription" id="profileDescription" class="form-control float-left"></textarea>
+          
+            <div class="clear"></div>
+          
+            <div class="form-group float-left">
+              <input type="file" value="upload" class="form-control-lg form-control" id="changeProfilePicture" name="changeProfilePicture">
             </div>
-          </div>
           
-          <div class="clear"></div>
-          <div class="form-group float-left">
-            <input type="file" value="upload" class="form-control-lg form-control" id="changeProfilePicture" name="changeProfilePicture">
-          </div>
+            <button type="submit" class="btn bgZiraf float-right">Save Changes</button>
           
-          <button class="btn bgZiraf float-right">Save Changes</button>
-          <div class="clear"></div>
+            <div class="clear"></div>
           </div>
         </div>
+      </form>
 
         <div id="profileMenu" class="row">
           <button class="col-4 text-center" id="profileRankBtn">

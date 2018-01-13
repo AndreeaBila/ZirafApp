@@ -293,6 +293,53 @@ $(function() {
     $('#endReviewMessage').effect('drop',{direction:'down', mode:'show'},1000);
   });
 
+  $('#topDishes').keydown(function(e){
+    if(e.keyCode == 13){
+      addTopDishes();
+    }
+  });
 
+  $('#addTopDish').click(function(){
+    addTopDishes();
+  });
 
 });
+
+function addTopDishes(){
+  //get the value of the selected email
+    //add the selected email to the list of selected emails
+    $('#topDishesToAdd').append('<div class="addedTopDishesContainer row">' +
+                                   '<p class="addedTopDishes col-8">' + $('#topDishes').val() + '</p>' +
+                                   '<button type="button" class="removeAddedTopDishes col-4">remove &times;</button>' +
+                                   '</div>');
+    //delete the input data
+    $('#topDishes').val("");
+
+    $('.removeAddedTopDishes').unbind('click');
+    $('.removeAddedTopDishes').bind('click', function(){
+      var deletedEmail = $(this).siblings().first().text();
+      //remove the row from the modal
+      $(this).parent().remove();
+
+    });
+}
+
+// function addReviewPics(){
+//   //get the value of the selected email
+//     //add the selected email to the list of selected emails
+//     $('#addReviewPictures').append('<div class="addedReviewPicturesContainer row">' +
+//                                    '<button type="button" class="removeAddedReviewPicture">remove &times;</button>' +
+//                                    '<p class="addedReviewPicture">' + $('#reviewPicturesBtn').val() + '</p>' +
+                                   
+//                                    '</div>');
+//     //delete the input data
+//     $('#reviewPicturesBtn').val("");
+
+//     $('.removeAddedReviewPicture').unbind('click');
+//     $('.removeAddedReviewPicture').bind('click', function(){
+//       var deletedEmail = $(this).siblings().first().text();
+//       //remove the row from the modal
+//       $(this).parent().remove();
+
+//     });
+// }

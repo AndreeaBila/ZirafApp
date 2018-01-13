@@ -1,4 +1,9 @@
+$(function() {
+    $('.alert').hide();
+});
+
 function submitUserData(){
+
     //check if the two password fileds are equal
     if($('#settingsPassword').val() === $('#settingsConfirmPassword').val()){
         //check if the email is unique
@@ -20,10 +25,10 @@ function submitUserData(){
                 return false;
             }
         }else{
-            alert("The entered email address is not unique");
+            $('#settingsUniqueEmailAlert').show();
             return false;
         }
     }
-    alert("The two passwords do not match");
+    $('#settingsPasswordsMissmatchAlert').show();
     return false;
 }

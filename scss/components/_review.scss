@@ -67,6 +67,12 @@
         font-size: 12px;
         color: red;
       }
+
+      .removeAddedTopDishes:active,
+      .removeAddedTopDishes:focus,
+      .removeAddedTopDishes:active:focus {
+        outline: none;
+      }
     }
 
     .addedReviewPicturesContainer {
@@ -83,6 +89,12 @@
         background-color: transparent;
         font-size: 12px;
         color: red;
+      }
+
+      .removeAddedReviewPicture:active,
+      .removeAddedReviewPicture:focus,
+      .removeAddedReviewPicture:active:focus {
+        outline: none;
       }
     }
 

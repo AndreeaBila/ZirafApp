@@ -156,11 +156,11 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Add Members</label>
-                  <div class="input-group mb-3">
+                  <div class="searchBar input-group mb-3">
                     <input type="text" onkeyup="getSuggestionsNewChat()" class="form-control form-control-lg" id="selectUserEmails">
                     <button type="button" class="btn plusBtn bgGreen" id="addUserToNewGroupBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
-                  <div id="dropDownList_newChat"></div>
+                  <div id="dropDownList_newChat" class="dropDownList"></div>
                   
                   <div id="createChatErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
                     <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> An error occured
@@ -199,11 +199,11 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Search User Email</label>
-                <div class="input-group mb-3">
-                  <input type="text" onkeyup="getSuggestionsAddMember()" id="selectUserEmailsToAdd" class="form-control form-control-lg">
+                <div class="searchBar input-group mb-3">
+                  <input type="text" onkeyup="getSuggestionsAddMember()" id="selectUserEmailsToAdd" class="x form-control form-control-lg">
                   <button type="button" class="btn plusBtn bgGreen" id="addUsertToExistingGroupBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
-                <div id="dropDownList_addMember"></div>
+                <div id="dropDownList_addMember" class="dropDownList"></div>
 
                 <div id="addMembersAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
                   <i class="fa fa-exclamation-circle fa-lg " aria-hidden="true"></i> You must select at least one user to add

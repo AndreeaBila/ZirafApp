@@ -109,3 +109,21 @@ textarea:active:focus {
 	box-shadow: 0 0 0 0.2rem rgba(242,145,10, 0.2);
 	border-color: rgba(242,145,10, 0.3);
 }
+
+
+.searchBar {
+
+}
+
+.dropDownList {
+	width: 85%;
+	margin-top: -20px;
+	border: 1px solid rgba(242,145,10, 0.3);
+	-webkit-box-shadow: 7px 7px 30px -13px rgba(0,0,0,0.3);
+	-moz-box-shadow: 7px 7px 30px -13px rgba(0,0,0,0.3);
+	box-shadow: 7px 7px 30px -13px rgba(0,0,0,0.3);
+	.suggestionOption, .suggestionOption_newChat, .suggestionOption_addMember {
+		padding: 5px 10px;
+		//border-bottom: 1px solid rgba(242,145,10, 0.3);
+	}
+}

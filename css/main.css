@@ -197,6 +197,21 @@ textarea:active:focus {
   border-color: rgba(242, 145, 10, 0.3);
 }
 
+/* line 118, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+.dropDownList {
+  width: 85%;
+  margin-top: -20px;
+  border: 1px solid rgba(242, 145, 10, 0.3);
+  -webkit-box-shadow: 7px 7px 30px -13px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 7px 7px 30px -13px rgba(0, 0, 0, 0.3);
+  box-shadow: 7px 7px 30px -13px rgba(0, 0, 0, 0.3);
+}
+
+/* line 125, C:/xampp/htdocs/WebDev/ZirafApp/scss/base/_base.scss */
+.dropDownList .suggestionOption, .dropDownList .suggestionOption_newChat, .dropDownList .suggestionOption_addMember {
+  padding: 5px 10px;
+}
+
 /* line 1, C:/xampp/htdocs/WebDev/ZirafApp/scss/layout/_header.scss */
 .header {
   position: fixed;

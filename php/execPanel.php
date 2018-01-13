@@ -141,11 +141,11 @@
               <div class="modal-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Search User Email</label>
-                  <div class="input-group mb-3">
+                  <div class="searchBar input-group mb-3">
                     <input type="text" onkeyup="getSuggestions()" id="selectUserEmailsToRevoke" class="form-control form-control-lg">
                     <button type="button" class="btn plusBtn bgGreen" id="selectEmailForRevoke"><i class="fa fa-plus" aria-hidden="true"></i></button>
                   </div>
-                  <div id="dropDownList"></div>
+                  <div id="dropDownList" class="dropDownList"></div>
 
                   <!-- AFTER YOU SELECT A MEMBER IT SHOULD APPEAR UNDER THE INPUT LIKE THIS -->
                   <div id="addedMembersToRevoke"></div>

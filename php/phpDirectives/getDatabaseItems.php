@@ -8,7 +8,7 @@
     require_once "../phpComponents/dependencies.php";
     //create database connection
     $db = createConnection();
-
+    $userId = $_SESSION['userId'];
     //create distinct selects for the three types of posts
 
     //selecting announcements
@@ -24,6 +24,18 @@
         //fetch the object data
         $announcementData = $announcement->getPostData();
         $announcementData['type'] = 'announcement';
+        //check if the current user has liked the announcement
+        $checkLike = "SELECT COUNT(*) AS liked FROM USER_POSTLIKES WHERE userId = ? AND postId = ?";
+        $stmt = $db->prepare($checkLike);
+        $stmt->bind_param("ss", $userId, $row['postId']);
+        $stmt->execute();
+        $stmt->bind_result($liked);
+        $stmt->fetch();
+        $stmt->close();
+        //convert to boolean
+        $liked = ($liked == 1) ? true : false;
+        //append it to the array
+        $announcementData['liked'] = $liked;
         //add the new data array to the array of posts
         array_push($announcementArray, $announcementData);
     }
@@ -41,6 +53,20 @@
         //fetch the object data
         $imageData = $image->getImageUploadData();
         $imageData['type'] = 'image';
+
+        //check if the current user has liked the announcement
+        $checkLike = "SELECT COUNT(*) AS liked FROM USER_IMAGELIKES WHERE userId = ? AND imageId = ?";
+        $stmt = $db->prepare($checkLike);
+        $stmt->bind_param("ss", $userId, $row['imageId']);
+        $stmt->execute();
+        $stmt->bind_result($liked);
+        $stmt->fetch();
+        $stmt->close();
+        //convert to boolean
+        $liked = ($liked == 1) ? true : false;
+        //append it to the array
+        $imageData['liked'] = $liked;
+
         //add the new data array to the array of posts
         array_push($imageUploadArray, $imageData);
     }
@@ -78,6 +104,20 @@
         //append the array of options
         $pollData['pollOptionArray'] = $pollOptionsArray;
         $pollData['type'] = 'poll';
+
+        //check if the current user has liked the announcement
+        $checkLike = "SELECT COUNT(*) AS liked FROM USER_POLLLIKES WHERE userId = ? AND pollId = ?";
+        $stmt = $db->prepare($checkLike);
+        $stmt->bind_param("ss", $userId, $row['pollId']);
+        $stmt->execute();
+        $stmt->bind_result($liked);
+        $stmt->fetch();
+        $stmt->close();
+        //convert to boolean
+        $liked = ($liked == 1) ? true : false;
+        //append it to the array
+        $pollData['liked'] = $liked;
+
         array_push($pollArray, $pollData);
     }
 

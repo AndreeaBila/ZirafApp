@@ -19,6 +19,12 @@ $(function(){
 //convert a json format into html for a post
 function parsePost(post){
   var likeMessage = (post.likes == 1) ? '1 Like' : post.likes + ' Likes';
+  var buttonString;
+  if(post.liked){
+    buttonString = '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Liked</button>'
+  }else{
+    buttonString = '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>'
+  }
   return '<div class="post" id="post'+ post.postId +'">' +
               '<div class="postHeader">' +
                   '<img src="../img/userIcons/' + post.userId + '.'+ post.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
@@ -32,15 +38,22 @@ function parsePost(post){
               '</div>' +
               
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
+              '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Like</button>' +  
                   '<p class="likesCount float-right">' + likeMessage + '</p>' +
               '</footer>' +
+              '<input type="hidden" value="'+ post.liked +'">' +
               '<div class="clear"></div>' +
           '</div>'
 }
 
 function parseImage(imageElement){
   likeMessage = (imageElement.likes == 1) ? "1 Like" : imageElement.likes + " Likes";
+  var buttonString;
+  if(imageElement.liked){
+    buttonString = '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Liked</button>'
+  }else{
+    buttonString = '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>'
+  }
   return '<div class="post" id="image'+ imageElement.imageId +'">' +
               '<div class="postHeader">' +
                   '<img src="../img/userIcons/'+ imageElement.userId +'.'+ imageElement.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
@@ -55,9 +68,10 @@ function parseImage(imageElement){
               '</div>' +
               
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
+              '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Like</button>' +
                   '<p class="likesCount float-right">'+ likeMessage +'</p>' +
               '</footer>' +
+              '<input type="hidden" value="'+ imageElement.liked +'">' +
               '<div class="clear"></div>' +
           '</div>';
 }
@@ -67,6 +81,12 @@ function parsePoll(pollInfo){
   //get the html for the options array
   var htmlOptionsArray = parsePollOption(pollInfo.pollOptionArray, pollInfo.totalVotes);
   var likeVar = (pollInfo.likes == 1) ? "1 Like" : pollInfo.likes + " Likes";
+  var buttonString;
+  if(pollInfo.liked){
+    buttonString = '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Liked</button>'
+  }else{
+    buttonString = '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>'
+  }
   return '<div class="post" id="poll'+ pollInfo.pollId +'">' +
               '<div class="postHeader">' +
                   '<img src="../img/userIcons/'+ pollInfo.userId +'.'+ pollInfo.iconExtension +'" alt="no" class="float-left" width="40px" height="40px">' +
@@ -84,9 +104,10 @@ function parsePoll(pollInfo){
               '</div>' +
               '<p>'+ pollInfo.pollDescription.replace(/\n/g, '<br>\n') +'</p>' +
               '<footer class="postFooter">' +
-                  '<button type="button" class="likePostBtn float-left"><img src="../img/ziraf2Black.png" alt="">Like</button>' +
+              '<button style="color: #F2910A" type="button" class="likePostBtn float-left"><img src="../img/ziraf2.png" alt="">Like</button>' + 
                   '<p class="likesCount float-right">'+ likeVar +'</p>' +
               '</footer>' +
+              '<input type="hidden" value="'+ pollInfo.liked +'">' +
               '<div class="clear"></div>' +
           '</div>';
 }
@@ -137,6 +158,24 @@ function insertDatabaseItems(){
 function likePost(identifier){
   //get the id of the liked post
   var elementId = $(identifier).parent().parent().attr('id');
+//   //update the button
+//   var liked = $('#'+elementId + ' input').val();
+//   console.log(liked);
+//   if(liked == 'false'){
+//     //update button
+//     $('#' + elementId + ' .postFooter' + ' button').css('color', '#F2910A');
+//     $('#' + elementId + ' .postFooter' + ' button').text('Liked');
+//     console.log($('#' + elementId + ' .postFooter' + ' button img').attr('src'));
+//     //update hidden input
+//     $('#'+elementId + ' input').val('true');
+//   }else{
+//     //update button
+//     $('#' + elementId + ' .postFooter' + ' button').css('color', '#222');
+//     $('#' + elementId + ' .postFooter' + ' button').text('Like');
+//     console.log($('#' + elementId + ' .postFooter' + ' button img').attr('src'));
+//     //update hidden input
+//     $('#'+elementId + ' input').val('false');
+//   }
   //check the type of element
   if(elementId.includes('post')){
       //remove the identifier

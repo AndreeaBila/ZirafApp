@@ -11,9 +11,15 @@ function submitUserData(){
         emailAddress = $('#settingsEmail').val();
         returnVar = false;
         $.ajaxSetup({async: false});
-        $.getJSON("../php/phpDirectives/checkUniqueEmail.php?emailAddress=" + emailAddress, function(data){
-            if(data == 0){
+        $.getJSON("../php/phpDirectives/getUserEmail.php?", function(data){
+            if(data === emailAddress){
                 returnVar = true;
+            }else{
+                $.getJSON("../php/phpDirectives/checkUniqueEmail?emailAddress="+emailAddress, function(response){
+                    if(response == 0){
+                        returnVar = true;
+                    }
+                });
             }
         });
         $.ajaxSetup({async: true});

@@ -62,6 +62,17 @@
         $stmt->execute();
         $stmt->close();
 
+        //get the activation key
+        $query = "SELECT activationKey FROM USERS WHERE userId = ?";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $userId);
+        $stmt->execute();
+        $stmt->bind_result($key);
+        $stmt->fetch();
+        $stmt->close();
+
+        $userData['activationKey'] = $key;
+        $userData['email'] = $email;
         require_once "../phpComponents/prepareEmail.php";
 
         //log the user out

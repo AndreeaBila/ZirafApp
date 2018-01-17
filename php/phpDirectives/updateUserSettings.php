@@ -71,9 +71,9 @@
         $stmt->fetch();
         $stmt->close();
 
-        $userData['activationKey'] = $key;
-        $userData['email'] = $email;
         require_once "../phpComponents/prepareEmail.php";
+        //send the actual email
+        sendEmail($key, $email);
 
         //log the user out
         $cookie_name = 'keepLogged';

@@ -28,10 +28,15 @@
     $userData["password"] = sha1($userData['password'] . $userData['salt']);
     //cookie hash
     $userData["cookie"] = sha1(time() . time() . time());
+
+    
+    require_once "../phpComponents/prepareEmail.php";
+    $keyContainer = $userData['activationKey'];
+    $emailContainer = $userData['email'];
+    sendEmail($keyContainer, $emailContainer);
+
     //get the user file
     manageFileUpload($db, $userData);
-
-    require_once "../phpComponents/prepareEmail.php";
 
     //insert user into the default chat: All Zirafers
     //create a new record in the user_chats table between the current user and the all zirafers chat

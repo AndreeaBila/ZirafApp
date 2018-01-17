@@ -15,13 +15,6 @@
 
     $password = strip_tags(stripslashes($_POST['loginPassword']));
 
-    //attemt to extract the token
-    if(isset($_POST['token'])){
-        $token = strip_tags(stripslashes($_POST['token']));
-        //check if the given token matches the one in the database and update info
-        checkActivation($db, $token, $email);
-    }
-
     //check if the user has activated his email account
     $query = "SELECT emailActivation, execActivation, password, salt, userId, cookieHash FROM USERS WHERE email = ?";
     $stmt = $db->prepare($query);
@@ -58,25 +51,5 @@
     if($keepLogged){
         //set the cookie
         setcookie("keepLogged", $cookieHash, time() + 86400, "/");
-    }
-
-    function checkActivation($db, $token, $email){
-        //get the database activation key
-        $query = "SELECT activationKey FROM USERS WHERE email = ?";
-        $stmt = $db->prepare($query);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($activationKey);
-        $stmt->fetch();
-        $stmt->close();
-
-        if($activationKey == $token){
-            //update the activation state
-            $query = "UPDATE USERS SET emailActivation = 1 WHERE email = ?";
-            $stmt = $db->prepare($query);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $stmt->close();
-        }
     }
 ?>

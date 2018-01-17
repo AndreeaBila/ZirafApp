@@ -117,12 +117,7 @@ function processLoginRequest(){
   var loginSuccess = false; //flag used to check the result of the login script
   //get the user infromation from the server
   var userData = $('#loginForm').serialize();
-  //get the token value
-  var token = $.url('?token', location.href);
-  //alert the user data form to include the token
-  if(typeof token != 'undefined'){
-    userData += "&token=" + token;
-  }
+  
   //send ajax request to the server
   $.ajax({
     data: userData,

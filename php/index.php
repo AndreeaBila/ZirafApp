@@ -3,8 +3,35 @@
   session_destroy();
   //get the security file
   require_once "phpComponents/security.php";
+  require_once "phpComponents/databaseConnection.php";
   if(checkCookie()){
     header("Location: newsfeed");
+  }
+  //check if the user has verified the email address by checking the value of the token object from the url
+  //check if the token exiwsts
+  if(isset($_GET['token']) && isset($_GET['userEmail'])){
+    //get the value of the token
+    $token = $_GET['token'];
+    $userEmail = $_GET['userEmail'];
+    //check if the token is the same as the on in the database
+    $db = createConnection();
+    $query = "SELECT activationKey FROM USERS WHERE email = ?";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("s", $userEmail);
+    $stmt->execute();
+    $stmt->bind_result($activationKey);
+    $stmt->fetch();
+    $stmt->close();
+
+    if($activationKey === $token){
+      //the user has activated his email address
+      //update the records
+      $query = "UPDATE USERS SET emailActivation = 1 WHERE email = ?";
+      $stmt = $db->prepare($query);
+      $stmt->bind_param("s", $userEmail);
+      $stmt->execute();
+      $stmt->close();
+    }
   }
 ?>
 <!--Main Page that will include all the other smaller sections (header, presentation, portofolio, about, contact, footer-->

@@ -143,9 +143,6 @@
         $userId = getUserId($db, $userEmail);
         //copy the default picture into userIcons
         copy('../../img/default.jpeg', '../../img/userIcons/'.$userId.'.jpeg');
-
-        //exit
-        header("Location: ../signupResult");
     }
 
     function terminateSignup($exitMessage){

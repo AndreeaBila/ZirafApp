@@ -26,6 +26,22 @@
         }
     }
 
+    function checkAccount($userId){
+        $db = createConnection();
+        $query = "SELECT COUNT(*) AS total FROM USERS WHERE userId = ?";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $userId);
+        $stmt->execute();
+        $stmt->bind_result($total);
+        $stmt->fetch();
+        $stmt->close();
+
+        if($total == 0){
+            return false;
+        }
+        return true;
+    }
+
     //perform the authentication steps
     function authenticate(){
         //check if the cookie has been set
@@ -34,6 +50,10 @@
             if(!checkSession()){
                 header("Location: index");
             }
+        }
+        //check is the account still exists
+        if(!checkAccount($_SESSION['userId'])){
+            header("Location: index");
         }
     }
 

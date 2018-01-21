@@ -23,6 +23,13 @@
     //delete the user with the given id
     $query = "DELETE FROM USERS WHERE userId = $userId";
     $db->query($query);
+    //inform the user
+    $subject = "ZirafApp Executive Activation";
+    $message = "Dear Zirafer, <br> We would like to inform you that you account has been deleted by a member of the executive team. Unfortunately you will no longer be able to access your account.";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    mail($email, $subject, $message, $headers) or doNothing();
+
     //delete the associated profile picture
     unlink("../../img/userIcons/$userId".".".$iconExtension);
 
@@ -32,4 +39,6 @@
     $result = $db->query($query);
     $row = $result->fetch_assoc();
     echo $row['Total'];
+
+    function doNothing(){}
 ?>

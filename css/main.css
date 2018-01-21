@@ -1042,14 +1042,15 @@ textarea:active:focus {
 
 /* line 175, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatSettings #membersList .memberBox button {
-  margin: 9.5px 0px;
+  margin: 0px 0px;
   border: none;
   background-color: transparent;
   color: red;
-  font-size: 12px;
+  font-size: 25px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* line 183, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 184, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatSettings #membersList .memberBox button:active,
 #chat #chatSettings #membersList .memberBox button:active:focus,
 #chat #chatSettings #membersList .memberBox button:focus {
@@ -1057,13 +1058,13 @@ textarea:active:focus {
   outline: none;
 }
 
-/* line 193, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 194, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox {
   padding-top: 10vh;
   padding-bottom: 50px;
 }
 
-/* line 196, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 197, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox {
   margin: 5px;
   width: 80%;
@@ -1073,14 +1074,14 @@ textarea:active:focus {
   padding: 5px;
 }
 
-/* line 204, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 205, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader img {
   width: 40px;
   height: 40px;
   border-radius: 50px;
 }
 
-/* line 209, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 210, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader .messageName {
   margin-top: 13.5px;
   margin-left: 5px;
@@ -1088,32 +1089,32 @@ textarea:active:focus {
   font-weight: 600;
 }
 
-/* line 215, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 216, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageHeader .messageTime {
   margin-top: 13.5px;
   font-size: 12px;
 }
 
-/* line 221, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 222, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .messageBox .messageBody .messageContent {
   font-size: 13px;
   padding: 10px;
 }
 
-/* line 227, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 228, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .myMessage {
   background-color: rgba(242, 145, 10, 0.2);
   color: #f2910a;
   border: 0.5px solid rgba(242, 145, 10, 0.2);
 }
 
-/* line 232, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 233, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat .chatBox .otherMessage {
   background-color: rgba(242, 145, 10, 0.7);
   border: 0.5px solid rgba(242, 145, 10, 0.6);
 }
 
-/* line 238, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 239, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox {
   position: fixed;
   bottom: 10vh;
@@ -1124,7 +1125,7 @@ textarea:active:focus {
   border-top: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 247, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 248, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #chatMessageInput {
   height: 40px;
   width: 70%;
@@ -1134,14 +1135,14 @@ textarea:active:focus {
   padding-left: 10px;
 }
 
-/* line 256, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 257, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #chatMessageInput:active,
 #chat #chatMessageInputBox #chatMessageInput:active:focus,
 #chat #chatMessageInputBox #chatMessageInput:focus {
   outline: none !important;
 }
 
-/* line 262, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 263, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #sendChatMessage {
   height: 40px;
   line-height: 10px;
@@ -1151,7 +1152,7 @@ textarea:active:focus {
   border: none;
 }
 
-/* line 271, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 272, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 #chat #chatMessageInputBox #sendChatMessage:active,
 #chat #chatMessageInputBox #sendChatMessage:active:focus,
 #chat #chatMessageInputBox #sendChatMessage:focus {
@@ -1159,26 +1160,26 @@ textarea:active:focus {
   transform: scale(0.97, 0.97);
 }
 
-/* line 283, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 284, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group input[type="text"]:active,
 .modal .form-group input[type="text"]:active:focus,
 .modal .form-group input[type="text"]:focus {
   box-shadow: none;
 }
 
-/* line 289, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 290, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group #addedMembers .members, .modal .form-group #addedMembersToAdd .members {
   background-color: rgba(242, 145, 10, 0.1);
   margin: 5px;
   padding: 5px;
 }
 
-/* line 293, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 294, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group #addedMembers .members .emails, .modal .form-group #addedMembersToAdd .members .emails {
   font-size: 14px;
 }
 
-/* line 297, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 298, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group #addedMembers .members .removeMemberBtn, .modal .form-group #addedMembersToAdd .members .removeMemberBtn {
   border: none;
   background-color: transparent;
@@ -1186,7 +1187,7 @@ textarea:active:focus {
   color: red;
 }
 
-/* line 307, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 308, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group .input-group .plusBtn {
   height: 50px;
   width: 50px;
@@ -1200,7 +1201,7 @@ textarea:active:focus {
   box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 315, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+/* line 316, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
 .modal .form-group .input-group .plusBtn i {
   font-size: 25px;
   line-height: 40px;
@@ -1209,38 +1210,38 @@ textarea:active:focus {
 }
 
 @media screen and (orientation: landscape) {
-  /* line 331, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 332, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   .header, .footer {
     height: 15vh;
   }
-  /* line 333, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 334, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   .header button, .footer button {
     height: 15vh;
   }
-  /* line 338, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 339, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #wrapper {
     padding-top: 15vh;
     padding-bottom: 15vh;
   }
-  /* line 343, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 344, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMenuNav {
     height: 15vh;
     top: 15vh;
     line-height: 15vh;
   }
-  /* line 348, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 349, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMenu {
     top: 30vh;
   }
-  /* line 351, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 352, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatSettings {
     top: 30vh;
   }
-  /* line 354, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 355, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat .chatBox {
     padding-top: 15vh;
   }
-  /* line 357, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
+  /* line 358, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_chat.scss */
   #chat #chatMessageInputBox {
     bottom: 15vh;
   }
@@ -1315,6 +1316,8 @@ textarea:active:focus {
 
 /* line 9, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #goToReview #newReviewBtn {
+  min-height: fit-content !important;
+  min-width: fit-content !important;
   height: 8vh;
   width: 40vw;
   position: absolute;
@@ -1322,19 +1325,19 @@ textarea:active:focus {
   left: 30vw;
 }
 
-/* line 18, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 20, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm {
   /* The slider itself */
   /* Mouse-over effects */
   /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
 }
 
-/* line 19, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 21, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .questionButtons {
   margin: 30px 0px;
 }
 
-/* line 22, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 24, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .confirmBtn {
   border-radius: 50px;
   height: 60px;
@@ -1345,13 +1348,13 @@ textarea:active:focus {
   box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 27, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 29, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .confirmBtn i {
   font-size: 30px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 36, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 38, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm #addTopDish {
   height: 50px;
   width: 50px;
@@ -1365,7 +1368,7 @@ textarea:active:focus {
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.1);
 }
 
-/* line 44, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 46, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm #addTopDish i {
   font-size: 25px;
   line-height: 40px;
@@ -1373,19 +1376,19 @@ textarea:active:focus {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 56, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 58, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedTopDishesContainer {
   background-color: rgba(242, 145, 10, 0.1);
   margin: 5px;
   padding: 5px;
 }
 
-/* line 60, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 62, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedTopDishesContainer .addedTopDishes {
   font-size: 14px;
 }
 
-/* line 64, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 66, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedTopDishesContainer .removeAddedTopDishes {
   border: none;
   background-color: transparent;
@@ -1393,27 +1396,27 @@ textarea:active:focus {
   color: red;
 }
 
-/* line 71, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 73, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedTopDishesContainer .removeAddedTopDishes:active,
 #review #reviewForm .addedTopDishesContainer .removeAddedTopDishes:focus,
 #review #reviewForm .addedTopDishesContainer .removeAddedTopDishes:active:focus {
   outline: none;
 }
 
-/* line 78, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 80, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedReviewPicturesContainer {
   background-color: rgba(242, 145, 10, 0.1);
   margin: 10px;
   padding: 15px;
 }
 
-/* line 82, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 84, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedReviewPicturesContainer .addedReviewPicture {
   width: 100%;
   height: auto;
 }
 
-/* line 87, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 89, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedReviewPicturesContainer .removeAddedReviewPicture {
   border: none;
   background-color: transparent;
@@ -1421,20 +1424,20 @@ textarea:active:focus {
   color: red;
 }
 
-/* line 94, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 96, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .addedReviewPicturesContainer .removeAddedReviewPicture:active,
 #review #reviewForm .addedReviewPicturesContainer .removeAddedReviewPicture:focus,
 #review #reviewForm .addedReviewPicturesContainer .removeAddedReviewPicture:active:focus {
   outline: none;
 }
 
-/* line 101, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 103, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .slideContainer {
   width: 100%;
   /* Width of the outside container */
 }
 
-/* line 106, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 108, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .slider {
   -webkit-appearance: none;
   /* Override default CSS styles */
@@ -1454,13 +1457,13 @@ textarea:active:focus {
   transition: opacity .2s;
 }
 
-/* line 119, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 121, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .slider:hover {
   opacity: 1;
   /* Fully shown on mouse-over */
 }
 
-/* line 124, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 126, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   /* Override default look */
@@ -1475,7 +1478,7 @@ textarea:active:focus {
   /* Cursor on hover */
 }
 
-/* line 133, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 135, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .slider::-moz-range-thumb {
   width: 25px;
   /* Set a specific slider handle width */
@@ -1487,12 +1490,12 @@ textarea:active:focus {
   /* Cursor on hover */
 }
 
-/* line 140, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 142, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm input, #review #reviewForm textarea {
   border-color: rgba(242, 145, 10, 0.5);
 }
 
-/* line 143, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 145, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .input-group-addon {
   background-color: #f2910a;
   border: 2px solid #f2910a;
@@ -1500,7 +1503,7 @@ textarea:active:focus {
   width: 50px;
 }
 
-/* line 150, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 152, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm #reviewPicturesBtn {
   width: 100%;
   padding: 10px;
@@ -1515,24 +1518,24 @@ textarea:active:focus {
   font-size: 1.25rem;
 }
 
-/* line 162, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 164, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm #reviewPicturesBtn i {
   color: #f2910a;
   font-size: 1.5rem;
 }
 
-/* line 168, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 170, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .custom-control-description {
   font-size: 1.25rem;
 }
 
-/* line 172, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 174, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm .custom-control-indicator {
   height: 22px;
   width: 22px;
 }
 
-/* line 177, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 179, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(242, 145, 10, 0.5);
@@ -1540,13 +1543,13 @@ textarea:active:focus {
   /* Firefox */
 }
 
-/* line 182, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 184, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(242, 145, 10, 0.5);
 }
 
-/* line 186, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
+/* line 188, C:/xampp/htdocs/WebDev/ZirafApp/scss/components/_review.scss */
 #review #reviewForm ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(242, 145, 10, 0.5);

@@ -480,7 +480,7 @@ function parseUserData(data){
   return '<div class="memberBox">' +
             '<img src="../img/userIcons/'+ data.userId +'.'+ data.iconExtension +'" alt="no" class="float-left">' +
             '<p class="float-left">'+ data.email +'</p>' +
-            '<button class="float-right removeUser" data-toggle="modal" data-target="#removeUserModal">remove &times;</button>' +
+            '<button class="float-right removeUser" data-toggle="modal" data-target="#removeUserModal">&times;</button>' +
           '</div>' +
           '<div class="clear"></div>';
 }

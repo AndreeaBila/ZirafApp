@@ -281,9 +281,10 @@
         private $valueForMoney;
         private $foodReview;
         private $xFactor;
+        private $imageNameList;
         private $dateCreated;
 
-        public function __construct($reviewId, $locationName, $dishList, $foodRating, $ambienceRating, $serviceRating, $valueForMoney, $foodReview, $xFactor, $dateCreated){
+        public function __construct($reviewId, $locationName, $dishList, $foodRating, $ambienceRating, $serviceRating, $valueForMoney, $foodReview, $imageNameList, $xFactor, $dateCreated){
             $this->reviewId = $reviewId;
             $this->locationName = $locationName;
             $this->dishList = $dishList;
@@ -292,6 +293,7 @@
             $this->serviceRating = $serviceRating;
             $this->valueForMoney = $valueForMoney;
             $this->foodReview = $foodReview;
+            $this->imageNameList = $imageNameList;
             $this->xFactor = $xFactor;
             $this->dateCreated = $dateCreated;
         }
@@ -305,10 +307,33 @@
                                 "serviceRating" => $this->serviceRating,
                                 "valueForMoney" => $this->valueForMoney,
                                 "foodReview" => $this->foodReview,
+                                "imageNameList" => $this->imageNameList,
                                 "xFactor" => $this->xFactor,
                                 "dateCreated" => $this->dateCreated);
 
             return $reviewInfo;
+        }
+    }
+
+    class Dish{
+        private $dishId;
+        private $dishName;
+        private $reviewId;
+
+        public function __construct($dishId, $dishName, $reviewId){
+            $this->dishId = $dishId;
+            $this->dishname = $dishName;
+            $this->reviewId = $reviewId;
+        }
+
+        public function getDishData(){
+            $dishArray = array(
+                "dishId" => $this->dishId,
+                "dishName" => $this->dishName,
+                "reviewId" => $this->reviewId
+            );
+
+            return $dishArray;
         }
     }
 ?>

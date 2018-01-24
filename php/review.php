@@ -57,7 +57,7 @@
           <button id="newReviewBtn" class="bgZiraf btn btn-lg">New Review</button>
         </div>
 
-        <div id="reviewForm">
+        <form id="reviewForm" action="./phpDirectives/insertReview.php" method="POST" novalidate>
           <div id="nameQuestion" class="form-group">
             <label for="restaurantName" class="col-form-label-lg">What restaurant do you want to review?</label>
             <div class="input-group input-group-lg mb-3">
@@ -72,7 +72,7 @@
               </button>
             </div>
             <div class="text-center questionButtons">
-              <button type="button" class="btn bgRed confirmBtn" id="backRestaurantName"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+              <button type="button" class="btn bgRed confirmBtn checkValue" id="backRestaurantName"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
               <button type="button" class="btn bgGreen confirmBtn" id="confirmRestaurantName"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -153,7 +153,7 @@
             <label for="review" class="col-form-label-lg">Share your food review in detail</label>
             <div class="input-group input-group-lg mb-3">
               <span class="input-group-addon" id="reviewAddon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-              <textarea type="text" id="review" name="review" class="form-control form-control-lg" aria-label="Large" placeholder="Review" required></textarea>
+              <textarea type="text" id="reviewInput" name="review" class="form-control form-control-lg" aria-label="Large" placeholder="Review" required></textarea>
             </div>
 
             <div id="reviewAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -188,16 +188,16 @@
           </div>
 
           <div id="reviewPicturesQuestion" class="form-group">
-            <label for="reviewPictures" class="col-form-label-lg">Pictures of the dishes or the restuarant itself.</label>
-            <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn" name="reviewPicturesBtn">
-
+            <label for="reviewPictures" class="col-form-label-lg">Pictures of the dishes or the restuarant itself. You can add tops 5 pictures.</label>
+            <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn"  name="reviewPicturesBtn" multiple>
+            <input type="submit" value="Submit" id="submitFormData">
             <!-- Display small previews of the pics? -->
             <div id="addReviewPictures"></div>
 
-            <div class="addedReviewPicturesContainer">
+            <!-- <div class="addedReviewPicturesContainer">
               <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
               <img class="addedReviewPicture" src="https://placeimg.com/500/480/animals" alt="">
-            </div>
+            </div> -->
             <!-- <div class="addedReviewPicturesContainer">
               <button type="button" class="removeAddedReviewPicture float-right">remove &times;</button>
               <img class="addedReviewPicture" src="https://placeimg.com/400/480/animals" alt="">
@@ -216,12 +216,14 @@
             </div> -->
           </div>
 
+          <input type="hidden" id="hiddenData" name="hiddenData">
+
           <div class="text-center" id="endReviewMessage">
             <h3>Done! <i class="fa fa-smile-o" aria-hidden="true"></i></h3>
             <h3>Thank you for submitting a new review!</h3>
             <h3>You're one step closer to your next badge.</h3>
           </div>
-        </div>
+        </form>
       </div>
 
       <?php

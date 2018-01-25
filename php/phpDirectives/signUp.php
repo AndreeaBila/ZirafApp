@@ -14,7 +14,7 @@
                       "socialHandle" => strip_tags(stripslashes($_POST['signupUsername'])),
                       "description" => strip_tags(stripslashes($_POST['signupDescription'])),
                       "phone" => strip_tags(stripslashes($_POST['signupPhoneNumber'])),
-                      "rank" => "Baby Zirafer",
+                      "rank" => "Newbie",
                       "dateJoined" => date("Y-m-d"));
     //verify provided email address
     if(!filter_var($userData['email'], FILTER_VALIDATE_EMAIL)){

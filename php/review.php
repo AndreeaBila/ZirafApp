@@ -57,7 +57,7 @@
           <button id="newReviewBtn" class="bgZiraf btn btn-lg">New Review</button>
         </div>
 
-        <form id="reviewForm" action="./phpDirectives/insertReview.php" method="POST" novalidate>
+        <form id="reviewForm" action="./phpDirectives/insertReview.php" method="POST" enctype="multipart/form-data" novalidate>
           <div id="nameQuestion" class="form-group">
             <label for="restaurantName" class="col-form-label-lg">What restaurant do you want to review?</label>
             <div class="input-group input-group-lg mb-3">
@@ -189,7 +189,7 @@
 
           <div id="reviewPicturesQuestion" class="form-group">
             <label for="reviewPictures" class="col-form-label-lg">Pictures of the dishes or the restuarant itself. You can add tops 5 pictures.</label>
-            <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn"  name="reviewPicturesBtn" multiple>
+            <input type="file" value="upload" class="form-control-lg form-control" id="reviewPicturesBtn"  name="reviewPicturesBtn[]" multiple>
             <input type="submit" value="Submit" id="submitFormData">
             <!-- Display small previews of the pics? -->
             <div id="addReviewPictures"></div>

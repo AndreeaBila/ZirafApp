@@ -26,6 +26,11 @@ $(function() {
   //hide alerts
   $('.alert').hide();
 
+  //disable enter on form but text-areas
+  $(document).on("keypress", ":input:not(textarea)", function(event) {
+    return event.keyCode != 13;
+  }); 
+
   //========== DESIGN AREA ==========
 
   //hide review form by default
@@ -139,7 +144,7 @@ $(function() {
   $('#backFoodRating').click(function() {
     reviewData.topDishArray = [];
     //for all added dishes decrease the score
-    topDishArray.forEach(element => {
+    reviewData.topDishArray.forEach(element => {
       currentScore -= scoreData.topDish;
     });
     $('#nameQuestion').hide();

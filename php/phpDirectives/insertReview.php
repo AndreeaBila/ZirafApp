@@ -6,6 +6,8 @@
     require_once "../phpComponents/dependencies.php";
     //create database connection
     $db = createConnection();
+    //set the default score for images
+    const IMAGE_SCORE = 10;
     //get the data from the fron-end
     $jsonData = $_POST['hiddenData'];
     $decodedData = json_decode($jsonData, true);
@@ -58,10 +60,6 @@
     $stmt->execute();
     $stmt->close();
 
-    //increase the user score with the increase score file
-    require_once "../phpComponents/updateUserScore.php";
-    update($score, $db, $userId);
-
     //manage the file upload
     //push the error data
     $fileError = array();
@@ -81,6 +79,10 @@
     foreach($fileTarget['name'] as $elem){
         array_push($fileNameData, $elem);
     }
+
+    //increase the user score with the increase score file
+    require_once "../phpComponents/updateUserScore.php";
+    update($score + IMAGE_SCORE * count($fileTmpName) , $db, $userId);
 
     
     //create a new folder for the review

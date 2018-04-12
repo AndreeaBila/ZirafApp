@@ -1,4 +1,7 @@
 $(function(){
+    //hide alerts
+    $('.alert').hide();
+
     //create a poll option array which is empty at the start
     var pollOptionArray = [];
 

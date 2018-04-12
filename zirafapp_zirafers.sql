@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2018 at 01:26 PM
+-- Generation Time: Apr 12, 2018 at 03:13 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -65,14 +65,6 @@ CREATE TABLE `dishes` (
   `reviewId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `dishes`
---
-
-INSERT INTO `dishes` (`dishId`, `dishName`, `reviewId`) VALUES
-(61, 'Pizza', 35),
-(62, 'Nuggets', 35);
-
 -- --------------------------------------------------------
 
 --
@@ -85,13 +77,6 @@ CREATE TABLE `image_uploads` (
   `description` text NOT NULL,
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `image_uploads`
---
-
-INSERT INTO `image_uploads` (`imageId`, `fileName`, `description`, `dateCreated`) VALUES
-(2, '9_IMG_20180405_195355.jpg', 'My cat', '2018-04-11 13:18:00');
 
 -- --------------------------------------------------------
 
@@ -107,16 +92,6 @@ CREATE TABLE `messages` (
   `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`messageId`, `userId`, `chatId`, `content`, `dateCreated`) VALUES
-(1, 9, 1, 'Hey there', '2018-04-11 13:19:00'),
-(2, 9, 1, 'Hey there', '2018-04-11 13:19:00'),
-(3, 9, 1, 'Am I the only one?', '2018-04-11 13:19:00'),
-(4, 9, 1, 'Yes I am :))', '2018-04-11 13:19:00');
-
 -- --------------------------------------------------------
 
 --
@@ -130,13 +105,6 @@ CREATE TABLE `polls` (
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `polls`
---
-
-INSERT INTO `polls` (`pollId`, `pollStatement`, `pollDescription`, `dateCreated`) VALUES
-(2, 'Best programming language', 'Nothing here', '2018-04-11 13:18:44');
-
 -- --------------------------------------------------------
 
 --
@@ -149,14 +117,6 @@ CREATE TABLE `poll_options` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `poll_options`
---
-
-INSERT INTO `poll_options` (`optionId`, `pollId`, `content`) VALUES
-(4, 2, 'Java '),
-(5, 2, 'C#');
-
 -- --------------------------------------------------------
 
 --
@@ -168,13 +128,6 @@ CREATE TABLE `posts` (
   `content` text NOT NULL,
   `dateCreated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`postId`, `content`, `dateCreated`) VALUES
-(2, 'Hey there', '2018-04-11 13:17:43');
 
 -- --------------------------------------------------------
 
@@ -193,13 +146,6 @@ CREATE TABLE `reviews` (
   `xFactor` text NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reviews`
---
-
-INSERT INTO `reviews` (`reviewId`, `locationName`, `foodRating`, `ambienceRating`, `serviceRating`, `valueForMoney`, `foodReview`, `xFactor`, `dateCreated`) VALUES
-(35, 'Dominos', 9, 9, 3, 5, 'Kinda good\n', 'Speed', '2018-04-11');
 
 -- --------------------------------------------------------
 
@@ -227,13 +173,6 @@ CREATE TABLE `users` (
   `dateJoined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `socialHandle`, `description`, `phone`, `rank`, `score`, `clearance`, `iconExtension`, `salt`, `activationKey`, `emailActivation`, `execActivation`, `cookieHash`, `dateJoined`) VALUES
-(9, 'Vlad', 'vlad_grunge@yahoo.com', '63cf3cbc379814230c4043ad41b1277b8dbbcafa', 'Vlad', 'Developer', '123456789', 'Newbie', 43, 1, 'jpg', 'fdb40de328ddd17377775b6e98a229c553c2316d', 'da1aa381944d92c14b2552da8f153ae554496e48', 1, 1, '8595b53575991df86f74b4927bea38d88331451a', '2018-04-11');
-
 -- --------------------------------------------------------
 
 --
@@ -258,13 +197,6 @@ CREATE TABLE `user_chats` (
   `dateAdded` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_chats`
---
-
-INSERT INTO `user_chats` (`userId`, `chatId`, `dateAdded`) VALUES
-(9, 1, '2018-04-11');
-
 -- --------------------------------------------------------
 
 --
@@ -286,13 +218,6 @@ CREATE TABLE `user_images` (
   `userId` int(11) NOT NULL,
   `imageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_images`
---
-
-INSERT INTO `user_images` (`userId`, `imageId`) VALUES
-(9, 2);
 
 -- --------------------------------------------------------
 
@@ -316,13 +241,6 @@ CREATE TABLE `user_polls` (
   `pollId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_polls`
---
-
-INSERT INTO `user_polls` (`userId`, `pollId`) VALUES
-(9, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -345,13 +263,6 @@ CREATE TABLE `user_posts` (
   `postId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_posts`
---
-
-INSERT INTO `user_posts` (`userId`, `postId`) VALUES
-(9, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -362,13 +273,6 @@ CREATE TABLE `user_reviews` (
   `userId` int(11) NOT NULL,
   `reviewId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_reviews`
---
-
-INSERT INTO `user_reviews` (`userId`, `reviewId`) VALUES
-(9, 35);
 
 -- --------------------------------------------------------
 
@@ -381,13 +285,6 @@ CREATE TABLE `user_votes` (
   `pollId` int(11) NOT NULL,
   `optionId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_votes`
---
-
-INSERT INTO `user_votes` (`userId`, `pollId`, `optionId`) VALUES
-(9, 2, 5);
 
 --
 -- Indexes for dumped tables
@@ -542,7 +439,7 @@ ALTER TABLE `badges`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `chatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dishes`

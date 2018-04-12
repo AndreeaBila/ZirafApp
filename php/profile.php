@@ -111,16 +111,16 @@
           </button>
         </div>
 
-        <div id="rankTab">
-          rank
+        <div id="rankTab" class="text-center">
+          Coming soon!
         </div>
 
-        <div id="badgesTab">
-          badges
+        <div id="badgesTab" class="text-center">
+          Coming soon!
         </div>
 
-        <div id="reviewsTab">
-          reviews
+        <div id="reviewsTab" class="text-center">
+          Coming soon!
         </div>
 
       </div>
